@@ -1,0 +1,2 @@
+class AcquirersController < ApplicationController
+end
