@@ -9,7 +9,7 @@ class AcquirersController < ApplicationController
 
   def create
     @acquirer = Acquirer.new(acquirer_params)
-    if acquirer.save
+    if @acquirer.save
       redirect_to deals_path
     else
       render :new

@@ -2,7 +2,13 @@
 <div class="container">
   <h1>Deals</h1>
   <div class="row">
-    <%= link_to "New Deal", new_deal_path  %>
+    <div class="col-6 col-md-4">
+      <%= link_to "New Deal", new_deal_path  %>
+      <%= link_to "New Acquirer", new_acquirer_path %>
+    </div>
+    <div class="col-6 col-md-4">
+      <input class="form-control search-bar" type="text" placeholder="Search" aria-label="Search" id="search">
+    </div>
   </div>
   <div class="row">
     <% @deals.each do |deal| %>

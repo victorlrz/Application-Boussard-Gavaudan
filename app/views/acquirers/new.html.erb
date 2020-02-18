@@ -1,0 +1,14 @@
+<h1>Create a new Acquirer</h1>
+
+<div class="container">
+  <%= simple_form_for @acquirer do |f| %>
+    <%= f.input :name %>
+    <%= f.input :sector %>
+    <%= f.input :identifier %>
+    <%= f.input :url %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+

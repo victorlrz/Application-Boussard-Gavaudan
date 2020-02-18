@@ -5,15 +5,18 @@
     <%= f.input :date %>
     <%= f.association :target, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
     <%= f.association :acquirer, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-    <%= f.input :valuation_multiple %>
+    <%= f.input :valuation_multiple,input_html: { class: "form-group" } %>
     <%= f.input :valuation_type %>
     <%= f.input :payment_method %>
     <%= f.input :premium %>
     <%= f.input :deal_value %>
     <%= f.input :deal_currency %>
     <%= f.input :comments %>
-    <%= f.input :pdf, as: :file %>
-    <%= f.input :press_release, as: :file %>
-    <%= f.submit "Create", class: "btn-flat" %>
+    <%= f.input :pdf, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+    <%= f.input :press_release, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+
+
