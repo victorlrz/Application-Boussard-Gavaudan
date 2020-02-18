@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Loading database...'
+
+
+Target.create(
+  name: 'Unione di Banche Italiana',
+  identifier: 'UBI:MIL',
+  sector: 'Banks',
+  url: 'https://www.ubibanca.it/pagine/Investor-relations-EN.aspx')
+
+
+Acquirer.create(
+  name: 'Intesa Sanpaolo',
+  identifier: 'ISP:MIL',
+  sector: 'Banks',
+  url: 'https://group.intesasanpaolo.com/en/investor-relations')
+
+puts "done"
+
