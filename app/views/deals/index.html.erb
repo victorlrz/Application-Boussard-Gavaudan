@@ -1,5 +1,29 @@
-<h1>Deal Index page</h1>
 
-<% @deals.each do |deal| %>
-  <%= deal.target.name %> / <%= deal.acquirer.name %>, <%= deal.created_at.strftime("%d/%m/%y%y") %>, <%= deal.acquirer.sector %>
-<% end %>
+<div class="container">
+  <h1>Deals</h1>
+  <div class="row">
+    <%= link_to "New Deal", new_deal_path  %>
+  </div>
+  <div class="row">
+    <% @deals.each do |deal| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <img src="https://logo.clearbit.com/<%= deal.acquirer.name %>.com?size=200">
+          <div class="card-body">
+            <h5 class="card-title"><%= deal.target.name %> approached by <%= deal.acquirer.name %> on <%= deal.created_at.strftime("%d/%m/%y%y") %></h5>
+            <p class="card-text"><%= deal.acquirer.sector %></p>
+            <p class="card-premium"><%= deal.premium %>%</p>
+            <%= link_to "More details", deals_path, class: "btn btn-primary" %>
+            <br>
+            <%= link_to "Deal presentation", deal.pdf %>
+            <br>
+            <%= link_to "Deal press_release", deal.press_release %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

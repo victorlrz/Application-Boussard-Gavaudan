@@ -1,12 +1,19 @@
 <h1>Create a new deal</h1>
 
-<%= simple_form_for [@deal, @target, @acquirer] do |f| %>
-  <%= f.input :date %>
-  <%= f.association :target, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-  <%= f.association :acquirer, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-  <%= f.input :valuation_multiple %>
-  <%= f.input :premium %>
-  <%= f.input :pdf, as: :file %>
-  <%= f.input :press_release, as: :file %>
-  <%= f.submit "Create", class: "btn-flat" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @deal do |f| %>
+    <%= f.input :date %>
+    <%= f.association :target, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+    <%= f.association :acquirer, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+    <%= f.input :valuation_multiple %>
+    <%= f.input :valuation_type %>
+    <%= f.input :payment_method %>
+    <%= f.input :premium %>
+    <%= f.input :deal_value %>
+    <%= f.input :deal_currency %>
+    <%= f.input :comments %>
+    <%= f.input :pdf, as: :file %>
+    <%= f.input :press_release, as: :file %>
+    <%= f.submit "Create", class: "btn-flat" %>
+  <% end %>
+</div>

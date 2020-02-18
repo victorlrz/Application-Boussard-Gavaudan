@@ -10,7 +10,7 @@ class DealsController < ApplicationController
   def create
     @deal = Deal.new(deal_params)
     if @deal.save!
-      redirect_to deal_path(@deal)
+      redirect_to deals_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class DealsController < ApplicationController
 
   def update
     if deal.update(deal_params)
-      redirect_to deal_path(@deal)
+      redirect_to deals_path
     else
       render :edit
     end
@@ -41,6 +41,6 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release)
+    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release, :payment_method, :valuation_type, :deal_value, :deal_currency, :comments)
   end
 end
