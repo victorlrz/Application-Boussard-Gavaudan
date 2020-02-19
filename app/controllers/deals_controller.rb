@@ -1,6 +1,8 @@
 class DealsController < ApplicationController
   def index
     @deals = Deal.all
+    @acquirers = Acquirer.all
+    @targets = Target.all
   end
 
   def new
@@ -25,7 +27,7 @@ class DealsController < ApplicationController
   end
 
   def update
-    if deal.update(deal_params)
+    if @deal.update(deal_params)
       redirect_to deals_path
     else
       render :edit

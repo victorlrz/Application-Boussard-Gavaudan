@@ -1,0 +1,15 @@
+<h1>Create a new Target</h1>
+
+<div class="container">
+  <%= simple_form_for @target do |f| %>
+    <%= f.input :name %>
+    <%= f.input :sector %>
+    <%= f.input :identifier %>
+    <%= f.input :url %>
+    <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+

@@ -4,12 +4,12 @@ class TargetsController < ApplicationController
   end
 
   def new
-    @targets = Target.new
+    @target = Target.new
   end
 
   def create
-    @targets = Target.new(target_params)
-    if acquirer.save
+    @target = Target.new(target_params)
+    if @target.save
       redirect_to deals_path
     else
       render :new
@@ -17,15 +17,15 @@ class TargetsController < ApplicationController
   end
 
   def show
-    @targets = Target.find(params[:id])
+    @target = Target.find(params[:id])
   end
 
   def edit
-    @targets = Target.find(params[:id])
+    @target = Target.find(params[:id])
   end
 
   def update
-    if targets.update(params[:id])
+    if @target.update(target_params)
       redirect_to deals_path
     else
       render :edit
@@ -34,7 +34,7 @@ class TargetsController < ApplicationController
 
   private
 
-  def target_param
-    params.require(:targets).permit(:name, :sector, :identifier, :url)
+  def target_params
+    params.require(:target).permit(:name, :sector, :identifier, :url, :annual_report)
   end
 end

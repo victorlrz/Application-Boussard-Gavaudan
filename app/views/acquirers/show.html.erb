@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="test">78 EUR</div>
+  <%= link_to "Back to Deals", deals_path %>
+  <div class="card-product">
+    <img src="https://logo.clearbit.com/<%= @acquirer.name %>.com?size=200" >
+    <div class="card-product-infos">
+      <h2><%= @acquirer.name %></h2>
+      <p><%= @acquirer.sector %> <strong><%= link_to @acquirer.url, @acquirer.url %></strong></p>
+      <p><script>document.querySelector(".test").innerText</script></p>
+      <script>console.log("https://markets.ft.com/data/equities/tearsheet/summary?s=<%= @acquirer.identifier %>")</script>
+    </div>
+  </div>
+</div>
+
+

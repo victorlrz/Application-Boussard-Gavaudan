@@ -2,15 +2,15 @@
 
 <div class="container">
   <%= simple_form_for @deal do |f| %>
-    <%= f.input :date %>
+    <%= f.input :date, as: :string %>
     <%= f.association :target, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
     <%= f.association :acquirer, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+    <%= f.input :deal_value %>
+    <%= f.input :deal_currency %>
+    <%= f.input :premium %>
     <%= f.input :valuation_multiple,input_html: { class: "form-group" } %>
     <%= f.input :valuation_type %>
     <%= f.input :payment_method %>
-    <%= f.input :premium %>
-    <%= f.input :deal_value %>
-    <%= f.input :deal_currency %>
     <%= f.input :comments %>
     <%= f.input :pdf, as: :file, input_html: { class: "btn btn-outline-primary" } %>
     <%= f.input :press_release, as: :file, input_html: { class: "btn btn-outline-primary" } %>

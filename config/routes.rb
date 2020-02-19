@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   end
   resources :acquirers do
   end
+  resources :targets do
+  end
 end

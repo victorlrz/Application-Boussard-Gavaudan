@@ -1,35 +1,85 @@
+<div class="banner">
+  <div class="container">
 
-<div class="container">
-  <h1>Deals</h1>
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <%= link_to "New Deal", new_deal_path  %>
-      <%= link_to "New Acquirer", new_acquirer_path %>
-    </div>
-    <div class="col-6 col-md-4">
-      <input class="form-control search-bar" type="text" placeholder="Search" aria-label="Search" id="search">
-    </div>
-  </div>
-  <div class="row">
-    <% @deals.each do |deal| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <img src="https://logo.clearbit.com/<%= deal.acquirer.name %>.com?size=200">
-          <div class="card-body">
-            <h5 class="card-title"><%= deal.target.name %> approached by <%= deal.acquirer.name %> on <%= deal.created_at.strftime("%d/%m/%y%y") %></h5>
-            <p class="card-text"><%= deal.acquirer.sector %></p>
-            <p class="card-premium"><%= deal.premium %>%</p>
-            <%= link_to "More details", deals_path, class: "btn btn-primary" %>
-            <br>
-            <%= link_to "Deal presentation", deal.pdf %>
-            <br>
-            <%= link_to "Deal press_release", deal.press_release %>
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <p><%= link_to "New Deal", new_deal_path %></p>
+          <p><%= link_to "New Acquirer", new_acquirer_path %></p>
+          <p><%= link_to "New Target", new_target_path %></p>
+        </div>
+          <div class="col-6 col-md-4">
+            <input class="form-control search-bar" type="text" placeholder="Search" aria-label="Search" id="search">
           </div>
         </div>
-      </div>
-    <% end %>
   </div>
 </div>
 
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://unsplash.com/s/photos/london?orientation=landscape)">
+        Deals
+      </div>
+
+      <div class="row">
+        <% @deals.each do |deal| %>
+          <div class="col-6 col-md-4">
+            <div class="card">
+              <div class="row">
+                <img src="https://logo.clearbit.com/<%= deal.acquirer.name %>.com?">
+                <img src="https://logo.clearbit.com/<%= deal.target.name %>.com?">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><%= deal.target.name %> approached by <%= deal.acquirer.name %> on <%= deal.created_at.strftime("%d/%m/%y%y") %></h5>
+                  <p class="card-text"><%= deal.acquirer.sector %></p>
+                  <p class="card-text">Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
+                  <p class="card-text">Premium: <%= deal.premium %>%</p>
+                  <%= link_to "More details", deals_path, class: "btn btn-primary" %>
+                  <br>
+                  <%= link_to "Deal presentation", deal.pdf %>
+                  <br>
+                  <%= link_to "Deal press_release", deal.press_release %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(London_background.jpg)">
+        Acquirers
+      </div>
+    <div class="row">
+      <% @acquirers.each do |acquirer| %>
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <img src="https://logo.clearbit.com/<%= acquirer.name %>.com?" >
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to acquirer.name, acquirer_path(acquirer) %></h5>
+              <p class="card-text"><%= acquirer.sector %></p>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://unsplash.com/s/photos/london?orientation=landscape)">
+        Targets
+      </div>
+    <div class="row">
+      <% @targets.each do |target| %>
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <img src="https://logo.clearbit.com/<%= target.name %>.com?">
+            <div class="card-body">
+              <h5 class="card-title"><%= target.name %></h5>
+              <p class="card-text"><%= target.sector %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
