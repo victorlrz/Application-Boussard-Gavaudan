@@ -1,15 +1,6 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dtw3qvpgg/image/upload/v1582197601/Bonus_pbshmr.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dtw3qvpgg/image/upload/v1582197640/background2_yzohoi.jpg);">
   <div class="container">
     <div class="row">
-      <div class="col-6 col-md-4">
-        <p class="banner-p"><%= link_to "New Deal", new_deal_path %></p>
-      </div>
-      <div class="col-6 col-md-4">
-        <p class="banner-p"><%= link_to "New Acquirer", new_acquirer_path %></p>
-      </div>
-      <div class="col-6 col-md-4">
-        <p class="banner-p"><%= link_to "New Target", new_target_path %></p>
-      </div>
         <input class="form-control search-bar" type="text" placeholder="Search" aria-label="Search" id="search">
       </div>
     </div>
@@ -17,6 +8,18 @@
 </div>
 
   <div class="container">
+    <div class="row align-bottom">
+            <div class="col-6 col-md-4">
+        <p><%= link_to "New Deal", new_deal_path %></p>
+      </div>
+      <div class="col-6 col-md-4">
+        <p><%= link_to "New Acquirer", new_acquirer_path %></p>
+      </div>
+      <div class="col-6 col-md-4">
+        <p><%= link_to "New Target", new_target_path %></p>
+      </div>
+    </div>
+
       <h1>DEALS</h1>
         <% @deals.each do |deal| %>
           <div class="card-product">
@@ -25,7 +28,7 @@
             <div class="card-product-infos">
               <h2><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h2>
               </p><strong>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></strong></p>
-              <%= link_to "More details", deals_path, class: "btn btn-primary" %>
+              <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
             </div>
           </div>
         <% end %>
@@ -41,7 +44,6 @@
             </div>
           </div>
         <% end %>
-
 
         <h1>TARGETS</h1>
         <% @targets.each do |target| %>

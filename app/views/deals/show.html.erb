@@ -1,0 +1,17 @@
+<div class="container">
+  <%= link_to "Back to Deals", deals_path %>
+    <div class="card-trip">
+    <%= link_to "Deal presentation", @deal.pdf %>
+    <%= link_to "Deal press release", @deal.press_release %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @deal.target.name %> takeover by <%= @deal.acquirer.name %></h2>
+          <p>Deal premium: <%= @deal.premium %>%</p>
+          <p>Valuation: <%= @deal.valuation_multiple %>x <%= @deal.valuation_type %></p>
+        </div>
+        <p><%= @deal.comments %></p>
+        <p><%= cl_image_tag @deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if @deal.acquirer.acquirer_logo.attached? %></p>
+      </div>
+    </div>
+</div>
+
