@@ -1,14 +1,17 @@
 <h1>Create a new Target</h1>
 
 <div class="container">
-  <%= simple_form_for @target do |f| %>
-    <%= f.input :name %>
-    <%= f.input :sector %>
-    <%= f.input :identifier %>
-    <%= f.input :url %>
-    <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
-  <% end %>
+  <div class="col-8 col-md-6 justify-content-center align-items-center">
+    <%= simple_form_for @target do |f| %>
+      <%= f.input :name %>
+      <%= f.input :sector %>
+      <%= f.input :description %>
+      <%= f.input :ceo %>
+      <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+      <%= f.input :target_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+   <% end %>
+  </div>
 </div>
 
 

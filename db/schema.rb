@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_092340) do
+ActiveRecord::Schema.define(version: 2020_02_20_120430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,16 +65,31 @@ ActiveRecord::Schema.define(version: 2020_02_19_092340) do
     t.index ["target_id"], name: "index_deals_on_target_id"
   end
 
-  create_table "targets", force: :cascade do |t|
-    t.string "name"
-    t.string "identifier"
-    t.string "sector"
-    t.string "url"
+  create_table "rounds", force: :cascade do |t|
+    t.datetime "date"
+    t.float "bump"
+    t.float "acceptance_threshold"
+    t.boolean "success"
+    t.bigint "deal_id"
+    t.bigint "acquirer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["acquirer_id"], name: "index_rounds_on_acquirer_id"
+    t.index ["deal_id"], name: "index_rounds_on_deal_id"
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.string "name"
+    t.string "sector"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "ceo"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "deals", "acquirers"
   add_foreign_key "deals", "targets"
+  add_foreign_key "rounds", "acquirers"
+  add_foreign_key "rounds", "deals"
 end

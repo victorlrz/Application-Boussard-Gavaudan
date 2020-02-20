@@ -6,6 +6,7 @@
     <%= f.input :sector %>
     <%= f.input :identifier %>
     <%= f.input :url %>
+    <%= f.input :acquirer_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>

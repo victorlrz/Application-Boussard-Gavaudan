@@ -35,6 +35,6 @@ class TargetsController < ApplicationController
   private
 
   def target_params
-    params.require(:target).permit(:name, :sector, :identifier, :url, :annual_report)
+    params.require(:target).permit(:name, :sector, :description, :ceo, :annual_report, :target_logo)
   end
 end

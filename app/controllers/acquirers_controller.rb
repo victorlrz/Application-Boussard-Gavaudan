@@ -35,6 +35,6 @@ class AcquirersController < ApplicationController
   private
 
   def acquirer_params
-    params.require(:acquirer).permit(:name, :sector, :identifier, :url)
+    params.require(:acquirer).permit(:name, :sector, :identifier, :url, :acquirer_logo)
   end
 end
