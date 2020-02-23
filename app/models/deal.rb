@@ -3,5 +3,13 @@ class Deal < ApplicationRecord
   has_one_attached :press_release
   belongs_to :acquirer
   belongs_to :target
-  has_many :rounds
+  validates :date, presence: true
+  validates :name, presence: true
+  validates :payment_method, presence: true
+  validates :valuation_multiple, presence: true
+  validates :bump, presence: true, default: false
+  validates :deal_value, presence: true
+  validates :deal_currency, presence: true
+  validates :private, presence: true, default: false
+  has_many :rounds, dependent: :destroy
 end
