@@ -16,8 +16,6 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'dotenv-rails'
 gem 'cloudinary'
-gem 'slack-ruby-bot'
-gem 'celluloid-io'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
