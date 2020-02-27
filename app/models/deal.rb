@@ -4,12 +4,11 @@ class Deal < ApplicationRecord
   belongs_to :acquirer
   belongs_to :target
   validates :date, presence: true
-  validates :name, presence: true
   validates :payment_method, presence: true
   validates :valuation_multiple, presence: true
-  validates :bump, presence: true, default: false
+  validates :bump, default: false
   validates :deal_value, presence: true
   validates :deal_currency, presence: true
-  validates :private, presence: true, default: false
+  validates :private, default: false
   has_many :rounds, dependent: :destroy
 end

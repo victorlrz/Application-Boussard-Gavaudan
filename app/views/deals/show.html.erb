@@ -1,5 +1,6 @@
 <div class="container">
   <%= link_to "Back to Deals", deals_path %>
+  <%= link_to "Update this deal", edit_deal_path(@deal) %>
     <div class="card-trip">
     <%= link_to "Deal presentation", @deal.pdf %>
     <%= link_to "Deal press release", @deal.press_release %>

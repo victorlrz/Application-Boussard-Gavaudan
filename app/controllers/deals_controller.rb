@@ -27,8 +27,9 @@ class DealsController < ApplicationController
   end
 
   def update
+    @deal = Deal.find(params[:id])
     if @deal.update(deal_params)
-      redirect_to deals_path
+      redirect_to deal_path(@deal)
     else
       render :edit
     end
@@ -43,6 +44,6 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release, :payment_method, :valuation_type, :deal_value, :deal_currency, :comments)
+    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release, :payment_method, :valuation_type, :deal_value, :deal_currency, :comments, :bump, :private, :rumors)
   end
 end
