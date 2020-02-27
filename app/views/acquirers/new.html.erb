@@ -3,7 +3,7 @@
 <div class="container">
   <%= simple_form_for @acquirer do |f| %>
     <%= f.input :name %>
-    <%= f.input :sector %>
+    <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Banks", "Basic Resources","Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Property", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure"] %>
     <%= f.input :identifier %>
     <%= f.input :url %>
     <%= f.input :acquirer_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
   resources :targets do
   end
+  resources :ipos do
+  end
 end

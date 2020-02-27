@@ -4,7 +4,7 @@
   <div class="col-8 col-md-6 justify-content-center align-items-center">
     <%= simple_form_for @target do |f| %>
       <%= f.input :name %>
-      <%= f.input :sector %>
+      <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Banks", "Basic Resources","Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Property", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure"] %>
       <%= f.input :description %>
       <%= f.input :ceo %>
       <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_120430) do
+ActiveRecord::Schema.define(version: 2020_02_27_163009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 2020_02_20_120430) do
     t.boolean "rumors"
     t.index ["acquirer_id"], name: "index_deals_on_acquirer_id"
     t.index ["target_id"], name: "index_deals_on_target_id"
+  end
+
+  create_table "ipos", force: :cascade do |t|
+    t.string "name"
+    t.string "sector"
+    t.string "lead_underwriter"
+    t.boolean "direct_listing"
+    t.integer "valuation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "date"
   end
 
   create_table "rounds", force: :cascade do |t|

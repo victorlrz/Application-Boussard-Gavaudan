@@ -6,4 +6,4 @@ import Typed from 'typed.js';
 console.log("Hello");
 
 flatpickr("#deal_date");
-
+flatpickr("#ipo_date");
