@@ -25,6 +25,7 @@ class TargetsController < ApplicationController
   end
 
   def update
+    @target = Target.find(params[:id])
     if @target.update(target_params)
       redirect_to deals_path
     else
@@ -35,6 +36,6 @@ class TargetsController < ApplicationController
   private
 
   def target_params
-    params.require(:target).permit(:name, :sector, :description, :ceo, :annual_report, :target_logo)
+    params.require(:target).permit(:name, :sector, :description, :ceo, :annual_report, :target_logo, :ebitda, :revenues, :url, :identifier)
   end
 end

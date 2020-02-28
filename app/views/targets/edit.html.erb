@@ -6,9 +6,13 @@
     <%= f.input :sector %>
     <%= f.input :description %>
     <%= f.input :ceo %>
+    <%= f.input :ebitda %>
+    <%= f.input :revenues %>
+    <%= f.input :identifier %>
+    <%= f.input :url %>
     <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>
     <%= f.input :target_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= f.submit "Update", class: "btn btn-primary" %>
   <% end %>
 </div>
 
