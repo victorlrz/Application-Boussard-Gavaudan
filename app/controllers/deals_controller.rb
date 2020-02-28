@@ -3,6 +3,7 @@ class DealsController < ApplicationController
     @deals = Deal.all
     @acquirers = Acquirer.all
     @targets = Target.all
+    @ipos = Ipo.all
   end
 
   def new

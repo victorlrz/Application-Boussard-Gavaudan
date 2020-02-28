@@ -1,2 +1,21 @@
-<h1>Ipos#edit</h1>
-<p>Find me in app/views/ipos/edit.html.erb</p>
+<h1>Edit IPO</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for @ipo do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.input :name %>
+        <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Banks", "Basic Resources","Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Property", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure"] %>
+      </div>
+    <div class="col-4">
+        <%= f.input :pdf_prospectus, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+        <%= f.input :ipo_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+        <%= f.submit "update", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
