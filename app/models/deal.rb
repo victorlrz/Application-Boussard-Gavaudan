@@ -1,4 +1,5 @@
 class Deal < ApplicationRecord
+  include AlgoliaSearch
   has_one_attached :pdf
   has_one_attached :press_release
   belongs_to :acquirer
@@ -11,4 +12,16 @@ class Deal < ApplicationRecord
   validates :deal_currency, presence: true
   validates :private, default: false
   has_many :rounds, dependent: :destroy
+  after_save :load_algolia
+
+  algoliasearch do
+  end
+
+  private
+
+  def load_algolia
+    index = Algolia::Index.new('deals')
+    index.add_object(self)
+    puts "Reindex done"
+  end
 end

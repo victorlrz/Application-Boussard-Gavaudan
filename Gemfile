@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'dotenv-rails'
 gem 'cloudinary'
+gem 'algoliasearch-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
