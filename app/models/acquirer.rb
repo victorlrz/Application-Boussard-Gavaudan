@@ -13,7 +13,7 @@ class Acquirer < ApplicationRecord
   private
 
   def load_algolia
-    index = Algolia::Index.new('acquirers')
+    index = Algolia::Index.new('Acquirer')
     index.add_object(self)
     puts "Reindex done"
   end

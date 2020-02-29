@@ -20,7 +20,7 @@ class Deal < ApplicationRecord
   private
 
   def load_algolia
-    index = Algolia::Index.new('deals')
+    index = Algolia::Index.new('Deal')
     index.add_object(self)
     puts "Reindex done"
   end

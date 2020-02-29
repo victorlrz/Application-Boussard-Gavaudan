@@ -13,7 +13,7 @@ class Target < ApplicationRecord
   private
 
   def load_algolia
-    index = Algolia::Index.new('targets')
+    index = Algolia::Index.new('Target')
     index.add_object(self)
     puts "Reindex done"
   end
