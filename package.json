@@ -6,6 +6,7 @@
     "algoliasearch": "^4.0.3",
     "bootstrap": "^4.4.1",
     "flatpickr": "^4.6.3",
+    "iexcloud_api_wrapper": "^1.1.5",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "typed": "^0.3.3",

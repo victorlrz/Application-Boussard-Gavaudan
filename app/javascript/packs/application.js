@@ -56,3 +56,10 @@ const searchAlgoliaAcquirer = () => {
 input.addEventListener('keyup', searchAlgolia);
 input.addEventListener('keyup', searchAlgoliaDeal);
 input.addEventListener('keyup', searchAlgoliaAcquirer);
+
+
+const data = fetch("https://cloud.iexapis.com/stable/stock/XOM/quote?token=pk_e5cc6796bd554e9c8011d56a29d13772")
+  .then(response => response.json())
+  .then((data) => {
+    console.log(data);
+  });
