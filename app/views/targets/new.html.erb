@@ -7,6 +7,8 @@
       <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Banks", "Basic Resources","Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Property", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure"] %>
       <%= f.input :description %>
       <%= f.input :ceo %>
+      <%= f.input :identifier %>
+      <%= f.input :url %>
       <%= f.input :annual_report, as: :file, input_html: { class: "btn btn-outline-primary" } %>
       <%= f.input :target_logo, as: :file, input_html: { class: "btn btn-outline-primary" } %>
       <%= f.submit "Create", class: "btn btn-primary" %>
