@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_181437) do
+ActiveRecord::Schema.define(version: 2020_03_01_183443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 2020_02_28_181437) do
     t.datetime "date"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.datetime "date"
+    t.text "content"
+    t.string "category"
+    t.bigint "deal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_posts_on_deal_id"
+  end
+
   create_table "rounds", force: :cascade do |t|
     t.datetime "date"
     t.float "bump"
@@ -105,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_181437) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "deals", "acquirers"
   add_foreign_key "deals", "targets"
+  add_foreign_key "posts", "deals"
   add_foreign_key "rounds", "acquirers"
   add_foreign_key "rounds", "deals"
 end
