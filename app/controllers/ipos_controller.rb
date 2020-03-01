@@ -25,8 +25,9 @@ class IposController < ApplicationController
   end
 
   def update
-    if @ipo = Ipo.find(ipo_params)
-      redirect_to ipo_path(@ipo)
+    @ipo = Ipo.find(params[:id])
+    if @ipo = Ipo.update(ipo_params)
+      redirect_to deals_path
     else
       render :edit
     end
