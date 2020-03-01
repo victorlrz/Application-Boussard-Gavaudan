@@ -58,7 +58,7 @@ input.addEventListener('keyup', searchAlgoliaDeal);
 input.addEventListener('keyup', searchAlgoliaAcquirer);
 
 
-const data = fetch("http://markets.ft.com/research/webservices/securities/v1/quotes?symbols=bvi:par,mrkt&source=3c164b65ddd48064")
+const data = fetch("https://markets.ft.com/research/webservices/securities/v1/quotes?symbols=bvi:par,mrkt&source=3c164b65ddd48064")
   .then(response => response.json())
   .then((data) => {
     console.log(data)
