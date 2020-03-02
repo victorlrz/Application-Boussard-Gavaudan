@@ -25,45 +25,51 @@
 
       <div class="deals">
         <h1>DEALS</h1>
-          <% @deals.each do |deal| %>
-            <div class="card-product">
-              <%= cl_image_tag deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if deal.acquirer.acquirer_logo.attached? %>
-              <%= cl_image_tag deal.target.target_logo.key, width: 150, height: 150, crop: :pad if deal.target.target_logo.attached? %>
-              <div class="card-product-infos">
-                <h2><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h2>
-                </p><strong>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></strong></p>
-                <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
+          <div class="cards">
+            <% @deals.each do |deal| %>
+              <div class="card-product">
+                <%= cl_image_tag deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if deal.acquirer.acquirer_logo.attached? %>
+                <%= cl_image_tag deal.target.target_logo.key, width: 150, height: 150, crop: :pad if deal.target.target_logo.attached? %>
+                <div class="card-product-infos">
+                  <h2><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h2>
+                  </p><strong>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></strong></p>
+                  <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
 
         <div class="acquirers">
           <h1>ACQUIRERS</h1>
-          <% @acquirers.each do |acquirer| %>
-            <div class="card-product">
-              <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
-              <div class="card-product-infos">
-                <h2><%= acquirer.name %></h2>
-                <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
+          <div class="cards">
+            <% @acquirers.each do |acquirer| %>
+              <div class="card-product">
+                <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
+                <div class="card-product-infos">
+                  <h2><%= acquirer.name %></h2>
+                  <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
 
         <div class="targets">
           <h1>TARGETS</h1>
-          <% @targets.each do |target| %>
-            <div class="card-product">
-              <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
-              <div class="card-product-infos">
-                <h2><%= link_to target.name, edit_target_path(target) %></h2>
-                <p><%= target.sector %></p>
-                <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
-                <%= link_to "Latest annual report", target.annual_report %>
-              </div>
-            </div>
-          <% end %>
+            <div class="cards">
+              <% @targets.each do |target| %>
+                <div class="card-product">
+                  <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
+                  <div class="card-product-infos">
+                    <h2><%= link_to target.name, edit_target_path(target) %></h2>
+                    <p><%= target.sector %></p>
+                    <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
+                    <%= link_to "Latest annual report", target.annual_report %>
+                  </div>
+                </div>
+              <% end %>
+          </div>
         </div>
 
 
