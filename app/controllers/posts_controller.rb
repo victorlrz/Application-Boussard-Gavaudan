@@ -40,4 +40,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:date, :category, :content, :deal_id)
+  end
 end
