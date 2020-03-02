@@ -64,5 +64,10 @@ const data = fetch("https://markets.ft.com/research/webservices/securities/v1/qu
     console.log(data)
   });
 
+fetch("https://markets.ft.com/research/webservices/securities/v1/quotes?symbols=rsa:lse,mrkt&source=3c164b65ddd48064")
+  .then(response => response.json())
+  .then((data) => {
+    console.log(data)
+  });
 
 
