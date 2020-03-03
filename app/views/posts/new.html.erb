@@ -1,2 +1,18 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create a new post</h1>
+
+    <div class="container">
+        <%= simple_form_for @post do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.association :deal, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+        <%= f.input :content %>
+        <%= f.input :category %>
+        <%= f.input :premium %>
+        <%= f.input :valuation_multiple,input_html: { class: "form-group" } %>
+        <%= f.input :valuation_type %>
+        <%= f.input :payment_method %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+
+

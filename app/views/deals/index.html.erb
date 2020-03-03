@@ -31,7 +31,7 @@
                 <%= cl_image_tag deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if deal.acquirer.acquirer_logo.attached? %>
                 <%= cl_image_tag deal.target.target_logo.key, width: 150, height: 150, crop: :pad if deal.target.target_logo.attached? %>
                 <div class="card-product-infos">
-                  <h2><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h2>
+                  <h4><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h4>
                   </p><strong>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></strong></p>
                   <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
                 </div>
