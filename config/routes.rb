@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   end
 
   resources :acquirers do
+    resources :posts
   end
   resources :targets do
   end
+
   resources :ipos do
   end
+
+  resources :deals do
+  end
+
   resources :posts do
   end
 end

@@ -27,17 +27,23 @@
         <h1>DEALS</h1>
           <div class="cards">
             <% @deals.each do |deal| %>
-              <div class="card-product">
-                <%= cl_image_tag deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if deal.acquirer.acquirer_logo.attached? %>
-                <%= cl_image_tag deal.target.target_logo.key, width: 150, height: 150, crop: :pad if deal.target.target_logo.attached? %>
-                <div class="card-product-infos">
-                  <h4><%= deal.acquirer.name %> takeover of <%= deal.target.name %> on <%= deal.date.strftime("%d/%m/%y") %></h4>
-                  </p><strong>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></strong></p>
-                  <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
+                <div class="card-product">
+                  <div class="row col-4">
+                    <h4><%= deal.date.strftime("%d/%m/%y%y") %></h4>
+                    <h5><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h5>
+                  </div>
+                  <div class="row col-4">
+                    <div class="card-product-infos">
+                      <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
+                      <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
+                      <p><%= deal.payment_method %></p>
+                    </div>
+                  </div>
+                  <div class="row col-2">
+                    <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
+                  </div>
                 </div>
-              </div>
             <% end %>
-          </div>
         </div>
 
         <div class="acquirers">
