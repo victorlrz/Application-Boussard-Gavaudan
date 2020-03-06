@@ -12,15 +12,6 @@
                       <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
                       <%= link_to "Latest annual report", target.annual_report %>
                     </div>
-                      <div class="col">
-                        <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
-                        <% html_doc = Nokogiri::HTML(response) %>
-                        <% portfolio = [] %>
-                        <% html_doc.search(".mod-ui-data-list__value").each do |element| %>
-                        <p><%= company = element.text.strip %></p>
-                        <%  portfolio << company %>
-                        <% end %>
-                      </div>
                   </div>
                 </div>
               <% end %>
