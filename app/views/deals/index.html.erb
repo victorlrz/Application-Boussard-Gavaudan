@@ -1,3 +1,4 @@
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/dtw3qvpgg/image/upload/v1582197640/background2_yzohoi.jpg);">
   <div class="container">
     <div class="row">
@@ -16,65 +17,83 @@
           <p><%= link_to "New Acquirer", new_acquirer_path %></p>
         </div>
         <div class="col-3 col-md-3">
-        <p><%= link_to "New Target", new_target_path %></p>
+          <p><%= link_to "New Target", new_target_path %></p>
         </div>
         <div class="col-3 col-md-3">
-        <p><%= link_to "New IPO", new_ipo_path %></p>
+          <p><%= link_to "New IPO", new_ipo_path %></p>
         </div>
     </div>
+
+    <div>
+      <div class="row">
+          <% response = open("https://www.stoxx.com/index-details?symbol=SCYC#").read %>
+          <% html_doc = Nokogiri::HTML(response) %>
+          <% html_doc.search("#daily-change-green").each do |element| %>
+          <p><%= company = element.text.strip %></p>
+          <% end %>
+        </div>
+      </div>
 
       <div class="deals">
         <h1>DEALS</h1>
           <div class="cards">
             <% @deals.each do |deal| %>
                 <div class="card-product">
-                  <div class="row col-4">
-                    <h4><%= deal.date.strftime("%d/%m/%y%y") %></h4>
-                    <h5><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h5>
-                  </div>
-                  <div class="row col-4">
+                    <h4><%= deal.date.strftime("%d/%m/%y") %></h4>
+                    <h4><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h4>
                     <div class="card-product-infos">
                       <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
                       <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
                       <p><%= deal.payment_method %></p>
+                        <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
                     </div>
-                  </div>
-                  <div class="row col-2">
-                    <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
-                  </div>
                 </div>
             <% end %>
         </div>
+      </div>
+
 
         <div class="acquirers">
           <h1>ACQUIRERS</h1>
-          <div class="cards">
-            <% @acquirers.each do |acquirer| %>
-              <div class="card-product">
-                <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
-                <div class="card-product-infos">
-                  <h2><%= acquirer.name %></h2>
-                  <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
+            <div class="cards">
+              <% @acquirers.each do |acquirer| %>
+                <div class="card-product">
+                  <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
+                  <div class="card-product-infos">
+                    <h2><%= acquirer.name %></h2>
+                    <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
         </div>
 
         <div class="targets">
           <h1>TARGETS</h1>
             <div class="cards">
+              <div class="col">
               <% @targets.each do |target| %>
-                <div class="card-product">
-                  <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
+                  <div class="card-product">
+                    <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
                   <div class="card-product-infos">
-                    <h2><%= link_to target.name, edit_target_path(target) %></h2>
-                    <p><%= target.sector %></p>
-                    <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
-                    <%= link_to "Latest annual report", target.annual_report %>
+                      <h2><%= link_to target.name, edit_target_path(target) %></h2>
+                      <p><%= target.sector %></p>
+                      <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
+                      <%= link_to "Latest annual report", target.annual_report %>
+                    </div>
+                      <div class="col">
+                        <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
+                        <% html_doc = Nokogiri::HTML(response) %>
+                        <% portfolio = [] %>
+                        <% html_doc.search(".mod-ui-data-list__value").each do |element| %>
+                        <p><%= company = element.text.strip %></p>
+                        <%  portfolio << company %>
+                        <% end %>
+                      </div>
                   </div>
                 </div>
               <% end %>
+            </div>
           </div>
         </div>
 
@@ -91,8 +110,8 @@
               </div>
             </div>
           <% end %>
+         </div>
         </div>
-
       </div>
   </div>
 
