@@ -24,15 +24,6 @@
         </div>
     </div>
 
-    <div>
-      <div class="row">
-          <% response = open("https://www.stoxx.com/index-details?symbol=SCYC#").read %>
-          <% html_doc = Nokogiri::HTML(response) %>
-          <% html_doc.search("#daily-change-green").each do |element| %>
-          <p><%= company = element.text.strip %></p>
-          <% end %>
-        </div>
-      </div>
 
       <div class="deals">
         <h1>DEALS</h1>
