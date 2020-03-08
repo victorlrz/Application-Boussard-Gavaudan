@@ -13,18 +13,23 @@
                     <%= link_to "Latest annual report", target.annual_report %>
                   </div>
 
-                    <div class="col">
-                      <div class="col">
                       <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
                       <% html_doc = Nokogiri::HTML(response) %>
                       <% portfolio = [] %>
-                        <% html_doc.search(".mod-ui-data-list__value").each do |element| %>
-                        <p><%= company = element.text.strip %></p>
-                        <%  portfolio << company %>
+                        <div class="col">
+                          <% html_doc.search('.mod-ui-data-list__label').each do |label| %>
+                          <p><%= label = label.text.strip %></p>
+                          <% end %>
+                        </div>
+
+                      <div class="col">
+                        <% html_doc.search('.mod-ui-data-list__value').each do |element| %>
+                          <p><%= company = element.text.strip %></p>
+                          <%  portfolio << company %>
                         <% end %>
                       </div>
                     </div>
-            </div>
+                </div>
           <% end %>
         </div>
       </div>
