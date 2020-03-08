@@ -25,7 +25,8 @@ class AcquirersController < ApplicationController
   end
 
   def update
-    if acquirer.update(params[:id])
+    @acquirer = Acquirer.find(params[:id])
+    if @acquirer.update(acquirer_params)
       redirect_to deals_path
     else
       render :edit
