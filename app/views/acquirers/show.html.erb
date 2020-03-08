@@ -2,7 +2,7 @@
   <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost" %>
   <%= link_to "Modify", edit_acquirer_path(@acquirer), class: "btn btn-ghost" %>
   <div class="card-product">
-    <img src="https://logo.clearbit.com/<%= @acquirer.name %>.com?size=200" >
+    <%= cl_image_tag @acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if @acquirer.acquirer_logo.attached? %>
     <div class="card-product-infos">
       <h2><%= @acquirer.name %></h2>
       <p><%= @acquirer.sector %> <strong><%= link_to @acquirer.url, @acquirer.url %></strong></p>
