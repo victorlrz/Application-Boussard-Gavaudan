@@ -1,6 +1,7 @@
 <div class="container">
   <div class="targets">
     <h1>TARGETS</h1>
+     <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost" %>
       <div class="cards">
         <div class="col">
           <% @targets.each do |target| %>
@@ -28,7 +29,6 @@
                           <%  portfolio << company %>
                         <% end %>
                       </div>
-                    </div>
                 </div>
           <% end %>
         </div>
