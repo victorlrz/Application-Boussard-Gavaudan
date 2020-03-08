@@ -1,15 +1,25 @@
 <div class="container">
-  <div class="test">78 EUR</div>
-  <%= link_to "Back to Deals", deals_path %>
+  <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost" %>
+  <%= link_to "Modify", edit_acquirer_path(@acquirer), class: "btn btn-ghost" %>
   <div class="card-product">
     <img src="https://logo.clearbit.com/<%= @acquirer.name %>.com?size=200" >
     <div class="card-product-infos">
       <h2><%= @acquirer.name %></h2>
       <p><%= @acquirer.sector %> <strong><%= link_to @acquirer.url, @acquirer.url %></strong></p>
-      <p><script>document.querySelector(".test").innerText</script></p>
-      <script>console.log("https://markets.ft.com/data/equities/tearsheet/summary?s=<%= @acquirer.identifier %>")</script>
     </div>
   </div>
+
+    <div class="card-product">
+      <div class="card-product-infos">
+        <% response = open("https://markets.ft.com/data/equities/tearsheet/profile?s=#{@acquirer.identifier}").read %>
+        <% html_doc = Nokogiri::HTML(response) %>
+        <% portfolio = [] %>
+          <% html_doc.search('.mod-tearsheet-profile-section').each do |label| %>
+            <p class="mt-2 mb-2 mr-2 ml-2"><%= label = label.text.strip %></p>
+          <% end %>
+      </div>
+    </div>
+
 </div>
 
 

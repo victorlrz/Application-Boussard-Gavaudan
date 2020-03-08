@@ -51,7 +51,7 @@
                 <div class="card-product">
                   <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
                   <div class="card-product-infos">
-                    <h2><%= acquirer.name %></h2>
+                    <h2><%= link_to acquirer.name, acquirer_path(acquirer) %></h2>
                     <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
                   </div>
                 </div>
