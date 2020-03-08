@@ -12,7 +12,7 @@
                     <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
                     <%= link_to "Latest annual report", target.annual_report %>
                   </div>
-                  <div class="col">
+                  <!-- <div class="col">
                       <div class="col">
                         <% label = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
                         <% html_label =  Nokogiri::HTML(label) %>
@@ -23,7 +23,7 @@
                         <p><%= label_head.first %></p>
                         <% end %>
                       </div>
-                  </div>
+                  </div> -->
 
                     <div class="col">
                       <div class="col">
