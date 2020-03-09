@@ -45,17 +45,13 @@
               <div class="card-product">
                 <div class="row ml-2 align-items-center">
                   <h4><%= deal.date.strftime("%d/%m/%y") %></h4><br>
-
                       <div class="card-product-infos">
                         <h6><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h6>
                         <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
                         <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
                         <p><%= deal.payment_method %></p>
                       </div>
-
-
                     <%= link_to "More details", deal_path(deal), class: "btn btn-flat" %>
-
                 </div>
               </div>
             <% end %>
