@@ -12,6 +12,7 @@ class Deal < ApplicationRecord
   validates :deal_currency, presence: true
   validates :private, default: false
   has_many :rounds, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one_attached :posts, dependent: :destroy
   after_save :load_algolia
 

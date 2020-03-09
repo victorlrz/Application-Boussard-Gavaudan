@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :deals do
   end
 
-  resources :posts do
+  resources :deals do
+    resources :posts
   end
 end

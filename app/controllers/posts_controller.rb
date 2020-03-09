@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
   def index
+    @deal = Deal.find(params[:deal_id])
     @posts = Post.all
   end
 
   def show
+    @deal = Deal.find(params[:deal_id])
     @post = Post.find(params[:id])
   end
 
   def new
     @post = Post.new
+    @deal = Deal.find(params[:deal_id])
   end
 
   def edit
@@ -16,9 +19,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    @deal = Deal.find(params[:deal_id])
     @post = Post.new(post_params)
+    @post.deal = @deal
     if @post.save!
-      redirect_to deals_path
+      redirect_to deal_path(@deal)
     else
       render :new
     end
