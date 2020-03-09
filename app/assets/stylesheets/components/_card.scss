@@ -1,7 +1,17 @@
+
+ a {
+  font-size: 12px;
+ }
+
+ .cards {
+  overflow-y: scroll;
+ }
+
 .card-body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
+
 .card {
   border-radius: 12px;
   margin-top: 8px;
@@ -13,8 +23,8 @@
 .card-title{
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-
 }
+
 .card-text{
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
@@ -65,69 +75,45 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 550px;
 }
 
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
-}
-
-.card-trip {
+.card-product-target {
   overflow: hidden;
+  height: 150px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-radius: 12px;
 }
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
+.card-product-target img {
+  height: 100%;
+  width: 150px;
   object-fit: cover;
+  margin-left: 4px;
 }
 
-.card-trip h2 {
+.card-product-target h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
+.card-product-target p {
   font-size: 12px;
+  line-height: 1.4;
   opacity: .7;
-  margin: 0;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
-
-.card-trip .card-trip-infos {
+.card-product-target .card-product-infos-target {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
+  width: 250px;
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
- a {
-  font-size: 12px;
- }
-
- .cards {
-  overflow-x: scroll;
-  overflow-y: scroll;
- }
 

@@ -5,9 +5,9 @@
       <div class="cards">
         <div class="col">
           <% @targets.each do |target| %>
-            <div class="card-product">
+            <div class="card-product-target">
               <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
-                <div class="card-product-infos">
+                <div class="card-product-infos-target">
                     <h2><%= link_to target.name, edit_target_path(target) %></h2>
                     <p><%= target.sector %></p>
                     <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>

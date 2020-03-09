@@ -9,40 +9,58 @@
 </div>
 
   <div class="container">
-    <div class="row text-center">
-        <div class="col-3 col-md-3">
-          <p><%= link_to "New Deal", new_deal_path %></p>
-        </div>
-        <div class="col-3 col-md-3">
-          <p><%= link_to "New Acquirer", new_acquirer_path %></p>
-        </div>
-        <div class="col-3 col-md-3">
-          <p><%= link_to "New Target", new_target_path %></p>
-        </div>
-        <div class="col-3 col-md-3">
-          <p><%= link_to "New IPO", new_ipo_path %></p>
-        </div>
-    </div>
-
-
-      <div class="deals">
-        <h1>DEALS</h1>
-          <div class="cards">
-            <% @deals.each do |deal| %>
-                <div class="card-product">
-                    <h4><%= deal.date.strftime("%d/%m/%y") %></h4>
-                    <h4><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h4>
-                    <div class="card-product-infos">
-                      <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
-                      <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
-                      <p><%= deal.payment_method %></p>
-                        <%= link_to "More details", deal_path(deal), class: "btn btn-primary" %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
+      <div class="row text-center">
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Deal", new_deal_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Acquirer", new_acquirer_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Target", new_target_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New IPO", new_ipo_path %></p>
+          </div>
+      </div>
+  <div class="row text-center">
+          <div class="col-3 col-md-3">
+            <%= link_to "Deals", deals_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "Acquirers", acquirers_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "Targets", targets_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "IPOs", ipos_path, class: "btn btn-ghost" %>
+          </div>
       </div>
 
+        <div class="deals">
+          <h1>DEALS</h1>
+          <div class="cards">
+            <% @deals.each do |deal| %>
+              <div class="card-product">
+                <div class="row ml-2 align-items-center">
+                  <h4><%= deal.date.strftime("%d/%m/%y") %></h4><br>
+
+                      <div class="card-product-infos">
+                        <h6><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h6>
+                        <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
+                        <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
+                        <p><%= deal.payment_method %></p>
+                      </div>
+
+
+                    <%= link_to "More details", deal_path(deal), class: "btn btn-flat" %>
+
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
         <div class="acquirers">
           <h1>ACQUIRERS</h1>
@@ -58,8 +76,6 @@
               <% end %>
             </div>
         </div>
-      <%= link_to "Targets", targets_path, class: "btn btn-ghost" %>
-
 
         <div class="ipos">
           <h1>IPOs</h1>
