@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :deals do
     resources :posts
   end
+  resources :posts, only: [ :destroy ]
 end
