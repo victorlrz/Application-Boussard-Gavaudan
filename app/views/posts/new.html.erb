@@ -5,7 +5,7 @@
         <%= f.input :date, as: :string %>
         <%= f.association :deal, as: :hidden, input_html: { value: @deal.id } %>
         <%= f.input :content %>
-        <%= f.input :category %>
+        <%= f.input :category, collection: ["Funding", "Regulation/Antitrust", "Sector overview", "Valuation"] %>
         <%= f.submit "Create", class: "btn btn-primary" %>
       <% end %>
     </div>

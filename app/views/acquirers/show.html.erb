@@ -12,17 +12,14 @@
   <% if @acquirer.identifier.empty? %>
     </div>
     <% else %>
-      <div class="card-product">
-        <div class="card-product-infos">
+        <div class="card-product-infos justify-content-center">
           <% response = open("https://markets.ft.com/data/equities/tearsheet/profile?s=#{@acquirer.identifier}").read %>
           <% html_doc = Nokogiri::HTML(response) %>
           <% portfolio = [] %>
             <% html_doc.search('.mod-tearsheet-profile-section').each do |label| %>
-              <p class="mt-2 mb-2 mr-2 ml-2"><%= label = label.text.strip %></p>
+              <p><%= label = label.text.strip %></p>
             <% end %>
         </div>
       </div>
     <% end %>
 </div>
-
-

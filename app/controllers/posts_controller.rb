@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.deal = @deal
     if @post.save!
-      redirect_to deal_posts_path(@deal)
+      redirect_to deal_path(@deal)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      redirect_to deal_path(@post)
     else
       render :edit
     end

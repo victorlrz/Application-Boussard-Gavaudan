@@ -1,0 +1,61 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/dtw3qvpgg/image/upload/v1582197640/background2_yzohoi.jpg);">
+  <div class="container">
+    <div class="row">
+        <input class="form-control search-bar" type="text" placeholder="Search" aria-label="Search" id="search">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+      <div class="row text-center">
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Deal", new_deal_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Acquirer", new_acquirer_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New Target", new_target_path %></p>
+          </div>
+          <div class="col-3 col-md-3">
+            <p><%= link_to "New IPO", new_ipo_path %></p>
+          </div>
+      </div>
+  <div class="row text-center">
+          <div class="col-3 col-md-3">
+            <%= link_to "Deals", deals_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "Acquirers", acquirers_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "Targets", targets_path, class: "btn btn-ghost" %>
+          </div>
+          <div class="col-3 col-md-3">
+            <%= link_to "IPOs", ipos_path, class: "btn btn-ghost" %>
+          </div>
+      </div>
+
+
+        <div class="acquirers">
+          <h1>ACQUIRERS</h1>
+            <div class="cards">
+              <% @acquirers.each do |acquirer| %>
+                <div class="card-product">
+                  <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
+                  <div class="card-product-infos">
+                    <h2><%= link_to acquirer.name, acquirer_path(acquirer) %></h2>
+                    <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        </div>
+      </div>
+  </div>
+
+
+
