@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
   def index
-    @deals = Deal.all
+    @deals = Deal.all.order("date DESC")
     @acquirers = Acquirer.all
     @targets = Target.all
     @ipos = Ipo.all
