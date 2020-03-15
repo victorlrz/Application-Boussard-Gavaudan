@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("date DESC")
+    @posts = Post.all.order("date ASC")
   end
 
   def new
