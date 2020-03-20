@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_183443) do
+ActiveRecord::Schema.define(version: 2020_03_20_155534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2020_03_01_183443) do
 
   create_table "deals", force: :cascade do |t|
     t.datetime "date"
-    t.integer "premium"
+    t.float "premium"
     t.string "payment_method"
-    t.integer "valuation_multiple"
+    t.float "valuation_multiple"
     t.bigint "acquirer_id"
     t.bigint "target_id"
     t.datetime "created_at", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_183443) do
     t.string "deal_currency"
     t.boolean "private"
     t.boolean "rumors"
+    t.float "offer_price"
     t.index ["acquirer_id"], name: "index_deals_on_acquirer_id"
     t.index ["target_id"], name: "index_deals_on_target_id"
   end
