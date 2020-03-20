@@ -45,6 +45,6 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release, :payment_method, :valuation_type, :deal_value, :deal_currency, :comments, :bump, :private, :rumors)
+    params.require(:deal).permit(:date, :premium, :payment_method, :valuation_multiple, :acquirer_id, :target_id, :pdf, :press_release, :payment_method, :valuation_type, :deal_value, :deal_currency, :comments, :bump, :private, :rumors, :offer_price)
   end
 end
