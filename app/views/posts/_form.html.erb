@@ -1,0 +1,12 @@
+<h1>Create a new post</h1>
+
+    <div class="container">
+        <%= simple_form_for [@deal, Post.new]  do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.association :deal, as: :hidden, input_html: { value: @deal.id } %>
+        <%= f.input :category, collection: ["Funding", "Regulation/Antitrust", "Sector overview", "Market reaction", "Valuation"] %>
+        <%= f.input :content %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+

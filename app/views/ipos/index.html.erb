@@ -1,2 +1,18 @@
 <h1>Ipos#index</h1>
 <p>Find me in app/views/ipos/index.html.erb</p>
+
+ <div class="ipos">
+          <h1>IPOs</h1>
+          <% @ipos.each do |ipo| %>
+            <div class="card-product">
+              <%= cl_image_tag ipo.ipo_logo.key, width: 150, height: 150, crop: :pad %>
+              <div class="card-product-infos">
+                <h2><%= link_to ipo.name, edit_ipo_path(ipo) %></h2>
+                <p><%= ipo.sector %></p>
+                <%= link_to "Prospectus offering", ipo.pdf_prospectus %>
+              </div>
+            </div>
+          <% end %>
+         </div>
+        </div>
+      </div>

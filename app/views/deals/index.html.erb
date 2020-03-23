@@ -46,49 +46,21 @@
                 <div class="row ml-2 mr-2 align-items-center">
                   <h4><%= deal.date.strftime("%d/%m/%y") %></h4><br>
                       <div class="card-product-infos">
-                        <h6><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h6>
+                        <h6"><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></strong></h6>
                         <p>Deal size: <%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></p>
                         <p>Valuation multiples:<%= deal.valuation_multiple %>x <%= deal.valuation_type %></p>
                         <p><%= deal.payment_method %></p>
+                        <%= link_to "More details",  deal_path(deal), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2" %>
                       </div>
-                    <%= link_to "More details",  deal_path(deal), class: "btn btn-flat" %>
+
+
+
                 </div>
               </div>
             <% end %>
           </div>
         </div>
 
-        <div class="acquirers">
-          <h1>ACQUIRERS</h1>
-            <div class="cards">
-              <% @acquirers.each do |acquirer| %>
-                <div class="card-product">
-                  <%= cl_image_tag acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if acquirer.acquirer_logo.attached? %>
-                  <div class="card-product-infos">
-                    <h2><%= link_to acquirer.name, acquirer_path(acquirer) %></h2>
-                    <p><%= acquirer.sector %></p><strong><%= link_to acquirer.url, acquirer.url %></strong></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-        </div>
-
-        <div class="ipos">
-          <h1>IPOs</h1>
-          <% @ipos.each do |ipo| %>
-            <div class="card-product">
-              <%= cl_image_tag ipo.ipo_logo.key, width: 150, height: 150, crop: :pad %>
-              <div class="card-product-infos">
-                <h2><%= link_to ipo.name, edit_ipo_path(ipo) %></h2>
-                <p><%= ipo.sector %></p>
-                <%= link_to "Prospectus offering", ipo.pdf_prospectus %>
-              </div>
-            </div>
-          <% end %>
-         </div>
-        </div>
-      </div>
-  </div>
 
 
 

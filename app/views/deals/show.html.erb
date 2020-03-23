@@ -17,7 +17,9 @@
               <p>Deal premium: <%= @deal.premium %>%</p>
               <p>Valuation: <%= @deal.valuation_multiple %>x <%= @deal.valuation_type %></p>
               <p><%= @deal.comments %></p>
-              <%= link_to "Create a Post", new_deal_post_path(@deal), class: "btn btn-ghost mr-3 ml-3" %>
+              <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">
+                Create a Post
+              </button>
 
 
               <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mr-3 ml-3" %>
@@ -34,5 +36,6 @@
                     </div>
                 </div>
         </div>
+        <%= render "posts/modal" %>
   </div>
 
