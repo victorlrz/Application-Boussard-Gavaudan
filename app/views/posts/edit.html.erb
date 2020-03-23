@@ -1,2 +1,10 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+    <div class="container">
+        <%= simple_form_for [@deal, @post]  do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.association :deal, as: :hidden, input_html: { value: @deal.id } %>
+        <%= f.input :category, collection: ["Funding", "Regulation/Antitrust", "Sector overview", "Market reaction", "Valuation"] %>
+        <%= f.input :content %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
