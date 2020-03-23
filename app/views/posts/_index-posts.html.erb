@@ -1,0 +1,4 @@
+<% @deal.posts.each do |post| %>
+<h5>💥 <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash destroy_dose "></i> <% end %> <%= post.date.strftime("%d/%m/%y") %> - <strong><%= post.category %></strong></h5>
+<p><%= post.content %>
+<% end %>

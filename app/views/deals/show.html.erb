@@ -29,10 +29,7 @@
 
                 <div class="row mt-3">
                     <div class="col-8 align-content-center mr-2 ml-2 mt-2 mb-2">
-                      <% @deal.posts.each do |post| %>
-                        <p>💥 <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash destroy_dose "></i> <% end %> <%= post.date.strftime("%d/%m/%y") %> - <%= post.content %> - <strong><%= post.category %></strong></p>
-
-                      <% end %>
+                      <%= render "posts/index-posts" %>
                     </div>
                 </div>
         </div>

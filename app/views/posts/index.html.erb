@@ -1,6 +1,3 @@
-<div class="container">
-<%= @posts.each do |post| %>
-<%= post.date %>
+<% @deal.posts.each do |post| %>
+p>💥 <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash destroy_dose "></i> <% end %> <%= post.date.strftime("%d/%m/%y") %> - <%= post.content %> - <strong><%= post.category %></strong></p>
 <% end %>
-  </div>
-
