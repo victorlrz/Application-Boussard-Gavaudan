@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_155534) do
+ActiveRecord::Schema.define(version: 2020_03_23_145547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_155534) do
     t.boolean "private"
     t.boolean "rumors"
     t.float "offer_price"
+    t.float "ratio_shares"
     t.index ["acquirer_id"], name: "index_deals_on_acquirer_id"
     t.index ["target_id"], name: "index_deals_on_target_id"
   end
