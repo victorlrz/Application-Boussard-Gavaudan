@@ -12,10 +12,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def edit
-    @post = Post.find(params[:deal_id])
-  end
-
   def create
     @deal = Deal.find(params[:deal_id])
     @post = Post.new(post_params)
@@ -27,19 +23,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @deal = Deal.find(params[:deal_id])
+    @post = Post.find(params[:id])
+  end
+
   def update
+    @deal = Deal.find(params[:deal_id])
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to deal_path(@post)
+      redirect_to deal_path(@deal)
     else
       render :edit
     end
   end
 
   def destroy
+    @deal = Deal.find(params[:deal_id])
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to deal_path
+    redirect_to deal_path(@deal)
   end
 
   private
