@@ -18,6 +18,7 @@
   margin-bottom: 8px;
   margin-left: 4px;
   margin-right: 4px;
+  overflow-y: scroll;
 }
 
 .card-title{
@@ -41,8 +42,8 @@
 }
 
 .card-product {
-  overflow: hidden;
-  height: 150px;
+  overflow-y: scroll;
+  height: 200px;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.10);
   display: flex;

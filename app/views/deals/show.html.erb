@@ -16,7 +16,7 @@
             <h2><%= @deal.target.name %> takeover by <%= @deal.acquirer.name %></h2>
               <p>Deal premium: <%= @deal.premium %>%</p>
               <p>Valuation: <%= @deal.valuation_multiple %>x <%= @deal.valuation_type %></p>
-              <p><%= @deal.comments %></p>
+              <p class="text-justify"><%= @deal.comments %></p>
               <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">
                 Create a Post
               </button>

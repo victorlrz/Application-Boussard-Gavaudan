@@ -2,7 +2,7 @@
   <% @deal.posts.each do |post| %>
   <div class="post">
     <h5>💥 <%= link_to deal_post_path(@deal, post), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash destroy_dose "></i> <% end %> <%= post.date.strftime("%d/%m/%y") %> - <strong><%= post.category %></strong></h5>
-    <p><%= post.content %></p>
+    <p class="text-justify"><%= post.content %></p>
     <%= link_to "modify this post", edit_deal_post_path(@deal, post), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2"  %>
     </div>
   <% end %>
