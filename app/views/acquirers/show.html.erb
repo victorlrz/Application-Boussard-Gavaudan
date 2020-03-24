@@ -17,7 +17,7 @@
           <% html_doc = Nokogiri::HTML(response) %>
           <% portfolio = [] %>
             <% html_doc.search('.mod-tearsheet-profile-section').each do |label| %>
-              <p><%= label = label.text.strip %></p>
+              <p class="text-justify"><%= label = label.text.strip %></p>
             <% end %>
         </div>
       </div>
