@@ -19,6 +19,7 @@ gem 'cloudinary'
 gem 'algoliasearch-rails'
 gem 'iex-ruby-client'
 gem 'nokogiri'
+gem 'bootstrap-wysihtml5-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

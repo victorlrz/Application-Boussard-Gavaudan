@@ -55,6 +55,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    bootstrap-wysihtml5-rails (0.3.3.8)
+      railties (>= 3.0)
     builder (3.2.4)
     byebug (11.1.1)
     cloudinary (1.12.0)
@@ -226,6 +228,7 @@ DEPENDENCIES
   algoliasearch-rails
   autoprefixer-rails
   bootsnap
+  bootstrap-wysihtml5-rails
   cloudinary
   dotenv-rails
   font-awesome-sass (~> 5.6.1)

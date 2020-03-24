@@ -57,3 +57,9 @@ const searchAlgoliaAcquirer = () => {
 input.addEventListener('keyup', searchAlgolia);
 input.addEventListener('keyup', searchAlgoliaDeal);
 input.addEventListener('keyup', searchAlgoliaAcquirer);
+
+$(document).ready(function(){
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+})
