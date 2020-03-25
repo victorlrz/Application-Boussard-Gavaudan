@@ -2,35 +2,39 @@
   <div class="targets">
     <h1>TARGETS</h1>
      <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost" %>
-      <div class="cards">
-        <div class="col">
-          <% @targets.each do |target| %>
-            <div class="card-product-target">
-              <%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad %>
-                <div class="card-product-infos-target">
-                    <h2><%= link_to target.name, edit_target_path(target) %></h2>
-                    <p><%= target.sector %></p>
-                    <p><%= link_to target.identifier, "https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}"  %></p>
-                    <%= link_to "Latest annual report", target.annual_report %>
-                  </div>
-                      <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
-                      <% html_doc = Nokogiri::HTML(response) %>
-                      <% portfolio = [] %>
-                        <div class="col">
-                          <% html_doc.search('.mod-ui-data-list__label').each do |label| %>
-                          <p><%= label = label.text.strip %></p>
-                          <% end %>
-                        </div>
-
-                      <div class="col">
-                        <% html_doc.search('.mod-ui-data-list__value').each do |element| %>
-                          <p><%= company = element.text.strip %></p>
-                          <%  portfolio << company %>
-                        <% end %>
-                      </div>
-                </div>
-          <% end %>
-        </div>
-      </div>
-   </div>
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Target</th>
+              <th scope="col">Sector</th>
+              <th scope="col">Identifier</th>
+              <th scope="col">from FT</th>
+              <th scope="col">Values</th>
+              <th scope="col">Annual report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @targets.each do |target| %>
+              <tr>
+                <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad if target.target_logo.attached? %></th>
+                <td><%= target.sector %></td>
+                <td><%= target.identifier %></td>
+                <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
+                <% html_doc = Nokogiri::HTML(response) %>
+                <% portfolio = [] %>
+                <td><% html_doc.search('.mod-ui-data-list__label').each do |label| %>
+                    <p><%= label = label.text.strip %></p>
+                    <% end %></td>
+                <td><% html_doc.search('.mod-ui-data-list__value').each do |element| %>
+                    <p><%= company = element.text.strip %></p>
+                    <%  portfolio << company %>
+                    <% end %></td>
+                <td><%= link_to "Annual Report", target.annual_report  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 </div>
+
+
+
