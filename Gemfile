@@ -20,6 +20,8 @@ gem 'algoliasearch-rails'
 gem 'iex-ruby-client'
 gem 'nokogiri'
 gem 'bootstrap-wysihtml5-rails'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

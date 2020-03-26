@@ -64,6 +64,7 @@ GEM
       rest-client
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.2)
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -138,6 +139,8 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.2.2)
+    rack-protection (2.0.8.1)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -184,6 +187,13 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sidekiq (6.0.6)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -243,6 +253,8 @@ DEPENDENCIES
   rails (= 5.2.4.1)
   redis
   sassc-rails
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
