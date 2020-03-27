@@ -19,6 +19,6 @@ class Target < ApplicationRecord
   end
 
   def async_update
-    MarketdataJob.perform_later(self.identifier)
+    MarketdataJob.set(wait: 15.minute).perform_later(self.identifier)
   end
 end
