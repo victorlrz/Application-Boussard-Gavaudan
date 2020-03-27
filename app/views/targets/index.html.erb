@@ -2,25 +2,25 @@
   <div class="targets">
     <div class="row">
     <h1>TARGETS</h1>
-     <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
-     </div>
-      <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Target</th>
-              <th scope="col">Sector</th>
-              <th scope="col">Identifier</th>
-              <th scope="col">Stock price</th>
-              <th scope="col">1d Change</th>
-              <th scope="col">1Yr Change</th>
-              <th scope="col">Beta</th>
-              <th scope="col">Annual report</th>
-            </tr>
-          </thead>
+       <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+       </div>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Target</th>
+                <th scope="col">Sector</th>
+                <th scope="col">Identifier</th>
+                <th scope="col">Stock price</th>
+                <th scope="col">1d Change</th>
+                <th scope="col">1Yr Change</th>
+                <th scope="col">Beta</th>
+                <th scope="col">Annual report</th>
+              </tr>
+            </thead>
           <tbody>
             <% @targets.order("beta_ft DESC").each do |target| %>
               <tr>
-                <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad if target.target_logo.attached? %></th>
+                <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad if target.target_logo.attached? %> </th>
                 <td><%= target.sector %></td>
                 <td><%= target.identifier %></td>
                 <td><%= target.price %></td>
