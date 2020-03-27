@@ -5,7 +5,7 @@ class Target < ApplicationRecord
   has_many :deals
   validates :name, presence: true, uniqueness: true
   validates :sector, presence: true
-  after_find :async_update
+  after_commit :async_update
 
   algoliasearch do
   end
@@ -19,6 +19,6 @@ class Target < ApplicationRecord
   end
 
   def async_update
-    MarketdataJob.set(wait: 15.minute).perform_later(self.identifier)
+    MarketdataJob.perform_later(self.identifier)
   end
 end
