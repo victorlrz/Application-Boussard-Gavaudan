@@ -31,7 +31,7 @@
                     <p><%= company = element.text.strip %></p>
                     <%  portfolio << company %>
                     <% end %></td>
-                <td><%= link_to "Annual Report", target.annual_report  %></td>
+                <td><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
           </tbody>
