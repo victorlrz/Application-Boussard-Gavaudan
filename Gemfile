@@ -22,6 +22,7 @@ gem 'nokogiri'
 gem 'bootstrap-wysihtml5-rails'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+gem 'devise'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
