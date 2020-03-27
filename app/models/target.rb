@@ -3,10 +3,9 @@ class Target < ApplicationRecord
   has_one_attached :annual_report
   has_one_attached :target_logo
   has_many :deals
-  has_many :rounds, :through => :deals
   validates :name, presence: true, uniqueness: true
   validates :sector, presence: true
-  after_commit :async_update
+  after_find :async_update
 
   algoliasearch do
   end

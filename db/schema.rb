@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_090007) do
+ActiveRecord::Schema.define(version: 2020_03_27_143724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,10 @@ ActiveRecord::Schema.define(version: 2020_03_27_090007) do
     t.text "url"
     t.integer "ebitda"
     t.integer "revenues"
+    t.float "price"
+    t.string "price_1chg"
+    t.string "price_yrchg"
+    t.float "beta_ft"
   end
 
   create_table "users", force: :cascade do |t|

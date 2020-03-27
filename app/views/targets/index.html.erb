@@ -10,8 +10,10 @@
               <th scope="col">Target</th>
               <th scope="col">Sector</th>
               <th scope="col">Identifier</th>
-              <th scope="col">from FT</th>
-              <th scope="col">Values</th>
+              <th scope="col">Stock price</th>
+              <th scope="col">1d Change</th>
+              <th scope="col">1Yr Change</th>
+              <th scope="col">Beta</th>
               <th scope="col">Annual report</th>
             </tr>
           </thead>
@@ -21,16 +23,10 @@
                 <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad if target.target_logo.attached? %></th>
                 <td><%= target.sector %></td>
                 <td><%= target.identifier %></td>
-                <% response = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{target.identifier}").read %>
-                <% html_doc = Nokogiri::HTML(response) %>
-                <% portfolio = [] %>
-                <td><% html_doc.search('.mod-ui-data-list__label').each do |label| %>
-                    <p><%= label = label.text.strip %></p>
-                    <% end %></td>
-                <td><% html_doc.search('.mod-ui-data-list__value').each do |element| %>
-                    <p><%= company = element.text.strip %></p>
-                    <%  portfolio << company %>
-                    <% end %></td>
+                <td><%= target.price %></td>
+                <td><%= target.price_1chg %></td>
+                <td><%= target.price_yrchg %></td>
+                <td><%= target.beta_ft %></td>
                 <td><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
