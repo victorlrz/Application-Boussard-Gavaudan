@@ -26,6 +26,8 @@ gem 'devise'
 gem "wysiwyg-rails"
 gem "trix"
 gem 'trix-rails', require: 'trix'
+gem 'rails_admin_actiontext', '~> 0.0.2'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
