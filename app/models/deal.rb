@@ -13,10 +13,10 @@ class Deal < ApplicationRecord
   validates :private, default: false
   has_many :rounds, dependent: :destroy
   has_many :posts, dependent: :destroy
-  after_save :load_algolia
+  # after_save :load_algolia
 
-  algoliasearch do
-  end
+  # algoliasearch do
+  # end
 
   private
 

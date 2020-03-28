@@ -7,8 +7,8 @@ class Acquirer < ApplicationRecord
   validates :sector, presence: true
   validates :url, presence: true
 
-  algoliasearch do
-  end
+  # algoliasearch do
+  # end
 
   private
 

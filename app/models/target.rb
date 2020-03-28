@@ -7,8 +7,8 @@ class Target < ApplicationRecord
   validates :sector, presence: true
   after_commit :async_update
 
-  algoliasearch do
-  end
+  # algoliasearch do
+  # end
 
   private
 
