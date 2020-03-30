@@ -3,7 +3,7 @@
         <%= f.input :date, as: :string %>
         <%= f.association :deal, as: :hidden, input_html: { value: @deal.id } %>
         <%= f.input :category, collection: ["Funding", "Regulation/Antitrust", "Sector overview", "Market reaction", "Valuation"] %>
-        <%= f.input :content,  as: :trix_editor %>
+        <%= f.input :content %>
         <%= f.submit "Update", class: "btn btn-primary" %>
       <% end %>
     </div>

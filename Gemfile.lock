@@ -222,10 +222,6 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    trix (0.10.1)
-      rails
-    trix-rails (2.2.0)
-      rails (> 4.1, < 6.1)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -247,8 +243,6 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    wysiwyg-rails (3.1.0)
-      railties (>= 3.2, < 7.0)
 
 PLATFORMS
   ruby
@@ -278,12 +272,9 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  trix
-  trix-rails
   uglifier
   web-console (>= 3.3.0)
   webpacker
-  wysiwyg-rails
 
 RUBY VERSION
    ruby 2.6.3p62

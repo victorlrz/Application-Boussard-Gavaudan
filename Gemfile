@@ -23,9 +23,6 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'devise'
-gem "wysiwyg-rails"
-gem "trix"
-gem 'trix-rails', require: 'trix'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
