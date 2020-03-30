@@ -5,18 +5,19 @@
        <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
        </div>
         <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col" class="text-center align-middle">Target</th>
-                <th scope="col" class="text-center align-middle">Sector</th>
-                <th scope="col" class="text-center align-middle">Identifier</th>
-                <th scope="col" class="text-center align-middle">Stock price</th>
-                <th scope="col" class="text-center align-middle">1d Change</th>
-                <th scope="col" class="text-center align-middle">1Yr Change</th>
-                <th scope="col" class="text-center align-middle">Beta</th>
-                <th scope="col" class="text-center align-middle">Annual report</th>
-              </tr>
-            </thead>
+          <thead>
+            <tr>
+              <th scope="col" class="text-center align-middle">Target</th>
+              <th scope="col" class="text-center align-middle">Sector</th>
+              <th scope="col" class="text-center align-middle">Identifier</th>
+              <th scope="col" class="text-center align-middle">Stock price</th>
+              <th scope="col" class="text-center align-middle">Revenues TTM</th>
+              <th scope="col" class="text-center align-middle">1d Change</th>
+              <th scope="col" class="text-center align-middle">1Yr Change</th>
+              <th scope="col" class="text-center align-middle">Beta</th>
+              <th scope="col" class="text-center align-middle">Annual report</th>
+            </tr>
+          </thead>
           <tbody style="height: 10px !important; overflow: scroll;">
             <% @targets.order("beta_ft DESC").each do |target| %>
               <tr>
@@ -24,6 +25,7 @@
                 <td class="align-middle"><%= target.sector %></td>
                 <td class="align-middle"><%= target.identifier %></td>
                 <td class="text-center align-middle"><%= target.price %></td>
+                <td class="text-center align-middle"><%= target.revenues.partition("Net income").first.sub(/Revenue in/, '').sub('(TTM)', '')   %></td>
                 <td class="text-center align-middle"><%= target.price_1chg %></td>
                 <td class="text-center align-middle"><%= target.price_yrchg %></td>
                 <td class="text-center align-middle"><%= target.beta_ft %></td>

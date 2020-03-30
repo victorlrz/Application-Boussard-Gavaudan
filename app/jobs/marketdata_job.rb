@@ -15,6 +15,15 @@ class MarketdataJob < ApplicationJob
       target.beta_ft = portfolio[4]
       target.save!
     end
-    # Do something later
+    incomestatement = open("https://markets.ft.com/data/equities/tearsheet/profile?s=#{identifier}").read
+    doc = Nokogiri::HTML(incomestatement)
+    statement = []
+    doc.search('.mod-tearsheet-profile-stats').each do |element|
+      data = element.text.strip
+      statement << data
+      target = Target.find_by identifier: identifier.to_s
+      target.revenues = statement.first
+      target.save!
+    end
   end
 end
