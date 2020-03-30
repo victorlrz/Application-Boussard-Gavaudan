@@ -45,27 +45,27 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Target</th>
-              <th scope="col">Date</th>
-              <th scope="col">Deal</th>
-              <th scope="col">Value</th>
-              <th scope="col">Multiples</th>
-              <th scope="col">Offer Price</th>
-              <th scope="col">Share ratio</th>
-              <th scope="col">More details</th>
+              <th scope="col" class="text-center align-middle">Target</th>
+              <th scope="col" class="text-center align-middle">Date</th>
+              <th scope="col" class="text-center align-middle">Deal</th>
+              <th scope="col" class="text-center align-middle">Value</th>
+              <th scope="col" class="text-center align-middle">Multiples</th>
+              <th scope="col" class="text-center align-middle">Offer Price</th>
+              <th scope="col" class="text-center align-middle">Share ratio</th>
+              <th scope="col" class="text-center align-middle">More details</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="height: 10px !important; overflow: scroll; ">
             <% @deals.each do |deal| %>
             <tr>
-              <th scope="row" class="text-center justify-center"><%= cl_image_tag deal.target.target_logo.key, width: 150, height: 150, crop: :pad if deal.target.target_logo.attached? %></th>
-              <td><%= deal.date.strftime("%d/%m/%y") %></td>
-              <td><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></td>
-              <td><%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></td>
-              <td><%= deal.valuation_multiple %>x <%= deal.valuation_type %></td>
-              <td><%= deal.offer_price %> <%= deal.deal_currency if deal.offer_price %></td>
-              <td><%= deal.ratio_shares %> <%= deal.acquirer.identifier if deal.ratio_shares %></td>
-              <td><%= link_to "More details",  deal_path(deal), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2" %></td>
+              <th scope="row" class="text-center justify-center"><%= cl_image_tag deal.target.target_logo.key, width: 100, height: 100, crop: :pad if deal.target.target_logo.attached? %></th>
+              <td class="align-middle"><%= deal.date.strftime("%d/%m/%y") %></td>
+              <td class="align-middle"><%= deal.acquirer.name %> takeover of <strong><%= deal.target.name %></td>
+              <td class="align-middle"><%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></td>
+              <td class="align-middle"><%= deal.valuation_multiple %>x <%= deal.valuation_type %></td>
+              <td class="align-middle"><%= deal.offer_price %> <%= deal.deal_currency if deal.offer_price %></td>
+              <td class="align-middle"><%= deal.ratio_shares %> <%= deal.acquirer.identifier if deal.ratio_shares %></td>
+              <td class="align-middle"><%= link_to "More details",  deal_path(deal), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2" %></td>
             </tr>
             <% end %>
           </tbody>

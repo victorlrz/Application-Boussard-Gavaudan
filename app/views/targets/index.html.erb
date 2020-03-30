@@ -7,27 +7,27 @@
         <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">Target</th>
-                <th scope="col">Sector</th>
-                <th scope="col">Identifier</th>
-                <th scope="col">Stock price</th>
-                <th scope="col">1d Change</th>
-                <th scope="col">1Yr Change</th>
-                <th scope="col">Beta</th>
-                <th scope="col">Annual report</th>
+                <th scope="col" class="text-center align-middle">Target</th>
+                <th scope="col" class="text-center align-middle">Sector</th>
+                <th scope="col" class="text-center align-middle">Identifier</th>
+                <th scope="col" class="text-center align-middle">Stock price</th>
+                <th scope="col" class="text-center align-middle">1d Change</th>
+                <th scope="col" class="text-center align-middle">1Yr Change</th>
+                <th scope="col" class="text-center align-middle">Beta</th>
+                <th scope="col" class="text-center align-middle">Annual report</th>
               </tr>
             </thead>
-          <tbody>
+          <tbody style="height: 10px !important; overflow: scroll;">
             <% @targets.order("beta_ft DESC").each do |target| %>
               <tr>
-                <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 150, height: 150, crop: :pad if target.target_logo.attached? %> </th>
-                <td><%= target.sector %></td>
-                <td><%= target.identifier %></td>
-                <td><%= target.price %></td>
-                <td><%= target.price_1chg %></td>
-                <td><%= target.price_yrchg %></td>
-                <td><%= target.beta_ft %></td>
-                <td><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
+                <th scope="row" class="text-center justify-center"><%= cl_image_tag target.target_logo.key, width: 100, height: 100, crop: :pad if target.target_logo.attached? %> </th>
+                <td class="align-middle"><%= target.sector %></td>
+                <td class="align-middle"><%= target.identifier %></td>
+                <td class="text-center align-middle"><%= target.price %></td>
+                <td class="text-center align-middle"><%= target.price_1chg %></td>
+                <td class="text-center align-middle"><%= target.price_yrchg %></td>
+                <td class="text-center align-middle"><%= target.beta_ft %></td>
+                <td class="align-middle"><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
           </tbody>
