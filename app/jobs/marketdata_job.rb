@@ -25,5 +25,15 @@ class MarketdataJob < ApplicationJob
       target.revenues = statement.first
       target.save!
     end
+    data = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}").read
+    htmldata_doc = Nokogiri::HTML(data)
+    statementdata = []
+    htmldata_doc.search('.mod-module__content').each do |element|
+      dataft = element.text.strip
+      statementdata << dataft
+      target = Target.find_by identifier: identifier.to_s
+      target.ebitda = statementdata[1]
+      target.save!
+    end
   end
 end

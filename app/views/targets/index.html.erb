@@ -15,6 +15,7 @@
               <th scope="col" class="text-center align-middle">1d Change</th>
               <th scope="col" class="text-center align-middle">1Yr Change</th>
               <th scope="col" class="text-center align-middle">Beta</th>
+              <th scope="col" class="text-center align-middle">Mkt Cap</th>
               <th scope="col" class="text-center align-middle">Annual report</th>
             </tr>
           </thead>
@@ -29,6 +30,7 @@
                 <td class="text-center align-middle"><%= target.price_1chg %></td>
                 <td class="text-center align-middle"><%= target.price_yrchg %></td>
                 <td class="text-center align-middle"><%= target.beta_ft %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split("Market cap")[1].split("EPS")[0] %></td>
                 <td class="align-middle"><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
