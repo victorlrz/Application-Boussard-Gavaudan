@@ -1,2 +1,9 @@
-<h1>Stocks#show</h1>
-<p>Find me in app/views/stocks/show.html.erb</p>
+<div class="container">
+  <h1><%= @stock.name %></h1>
+  <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2"  %>
+
+  <% @stock.comments.each do |comment| %>
+    <h3> <%= comment.date.strftime("%d/%m/%y") %>, <%= comment.category %>, <em>source: <%= comment.source %></em></h3>
+    <p><%= comment.content %></p>
+  <% end %>
+</div>

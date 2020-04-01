@@ -1,0 +1,13 @@
+<h1>Create a new comment on this stock</h1>
+
+    <div class="container">
+        <%= simple_form_for [@stock, @comment]  do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.association :stock, as: :hidden, input_html: { value: @stock.name } %>
+        <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
+        <%= f.input :source %>
+        <%= f.input :content %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+

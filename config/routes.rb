@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :stocks do
+    resources :comments do
+    end
   end
 end

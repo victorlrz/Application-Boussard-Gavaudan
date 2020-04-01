@@ -9,6 +9,7 @@ console.log("Hello");
 flatpickr("#deal_date");
 flatpickr("#ipo_date");
 flatpickr("#post_date");
+flatpickr("#comment_date");
 
 const input = document.querySelector('#search')
 const client = algoliasearch('UJDY27XD03', 'dbef46af8ed0a92e0204b6852744ddf4');

@@ -19,12 +19,14 @@
               <th scope="col" class="text-center align-middle">1D - Chg</th>
               <th scope="col" class="text-center align-middle">1Y - Chg</th>
               <th scope="col" class="text-center align-middle">Beta</th>
+              <th scope="col" class="text-center align-middle">Comment</th>
+
             </tr>
           </thead>
           <tbody style="height: 10px !important; overflow: scroll;">
             <% @stocks.order("beta_ft DESC").each do |stock| %>
               <tr>
-                <td class="align-middle"><%= stock.name %></td>
+                <td class="align-middle"><%= link_to stock.name, stock_path(stock)  %></td>
                 <td class="align-middle"><%= stock.identifier %></td>
                 <td class="align-middle"><%= stock.price %></td>
                 <td class="align-middle"><%= stock.currency %></td>
@@ -36,6 +38,7 @@
                 <td class="text-center align-middle"><%= stock.price_1chg %></td>
                 <td class="text-center align-middle"><%= stock.price_yrchg %></td>
                 <td class="text-center align-middle"><%= stock.beta_ft %></td>
+                <td class="text-center align-middle"><%= stock.comments.count %></td>
               </tr>
             <% end %>
           </tbody>

@@ -4,6 +4,8 @@ class StocksController < ApplicationController
   end
 
   def show
+    @stock = Stock.find(params[:id])
+    @comments = Comment.all
   end
 
   def create
