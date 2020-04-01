@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_170013) do
+ActiveRecord::Schema.define(version: 2020_04_01_135558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 2020_03_31_170013) do
     t.datetime "date"
   end
 
+  create_table "portfolios", force: :cascade do |t|
+    t.bigint "stock_id"
+    t.datetime "date"
+    t.string "fund"
+    t.string "allotment"
+    t.string "instrument"
+    t.float "weight"
+    t.integer "aum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_portfolios_on_stock_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.datetime "date"
     t.text "content"
@@ -106,6 +119,25 @@ ActiveRecord::Schema.define(version: 2020_03_31_170013) do
     t.datetime "updated_at", null: false
     t.index ["acquirer_id"], name: "index_rounds_on_acquirer_id"
     t.index ["deal_id"], name: "index_rounds_on_deal_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.string "currency"
+    t.string "market_cap"
+    t.string "sector"
+    t.string "identifier"
+    t.string "revenue"
+    t.string "ebitda"
+    t.string "earning"
+    t.integer "net_debt"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "beta_ft"
+    t.string "price_yrchg"
+    t.string "price_1chg"
   end
 
   create_table "targets", force: :cascade do |t|
@@ -141,6 +173,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_170013) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "deals", "acquirers"
   add_foreign_key "deals", "targets"
+  add_foreign_key "portfolios", "stocks"
   add_foreign_key "posts", "deals"
   add_foreign_key "rounds", "acquirers"
   add_foreign_key "rounds", "deals"

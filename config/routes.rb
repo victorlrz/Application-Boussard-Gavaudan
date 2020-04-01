@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'documents/index'
-  get 'documents/show'
-  get 'documents/create'
-  get 'documents/update'
-  get 'documents/edit'
-  get 'documents/destroy'
     require "sidekiq/web"
     authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'
@@ -24,5 +18,8 @@ Rails.application.routes.draw do
 
   resources :deals do
     resources :posts
+  end
+
+  resources :stocks do
   end
 end
