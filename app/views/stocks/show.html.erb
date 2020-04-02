@@ -4,6 +4,10 @@
 
   <% @stock.comments.each do |comment| %>
     <h3> <%= comment.date.strftime("%d/%m/%y") %>, <%= comment.category %>, <em>source: <%= comment.source %></em></h3>
-    <p><%= comment.content %></p>
+      <form>
+        <input id="comment" value='<%= comment.content %>' type="hidden" name="content">
+        <div class="trix-content"><% comment.content %></div>
+        <trix-editor input="comment"></trix-editor>
+      </form>
   <% end %>
 </div>

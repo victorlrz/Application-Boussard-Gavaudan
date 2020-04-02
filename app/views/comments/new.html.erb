@@ -6,7 +6,7 @@
         <%= f.association :stock, as: :hidden, input_html: { value: @stock.name } %>
         <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
         <%= f.input :source %>
-        <%= f.input :content %>
+        <%= f.input :content, as: :trix_editor %>
         <%= f.submit "Create", class: "btn btn-primary" %>
       <% end %>
     </div>
