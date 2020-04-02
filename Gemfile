@@ -25,6 +25,7 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'devise'
 gem 'trix-rails', require: 'trix'
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
