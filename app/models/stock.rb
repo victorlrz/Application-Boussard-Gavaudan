@@ -7,7 +7,6 @@ class Stock < ApplicationRecord
   private
   def uppercase_name
     name.upcase!
-    currency.upcase!
     identifier.upcase!
   end
 end
