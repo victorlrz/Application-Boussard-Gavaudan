@@ -10,7 +10,7 @@
 </div>
 
 <div class="container mt-3 mb-3 text-justify overflow-auto">
-  <h1 class="mt-2 mb-2">👋 Recent comments</h1>
+  <h3 class="mt-2 mb-2 w-100">👋 Recent comments</h1>
   <% @comments.each do |comment| %>
     <h4 class="p-3 mb-2 bg-success text-white"><%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><%= stock.name %></strong>, <em>source:</em> <%= comment.source %></h4>
     <p><%=raw comment.content %></p>
