@@ -5,7 +5,7 @@
         <%= f.input :name %>
         <%= f.input :currency %>
         <%= f.input :identifier %>
-        <%= f.input :sector %>
+        <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Banks", "Basic Resources","Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Property", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure"] %>
         <%= f.submit "Create", class: "btn btn-primary" %>
       <% end %>
     </div>

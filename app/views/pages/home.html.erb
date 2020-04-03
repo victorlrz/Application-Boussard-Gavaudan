@@ -12,10 +12,9 @@
 <div class="container mt-3 mb-3 text-justify overflow-auto">
   <h3 class="mt-2 mb-2 w-100">👋 Recent comments</h1>
   <% @comments.each do |comment| %>
+    <div class="border-top mb-5"></div>
     <h4 class="p-3 mb-2 bg-success text-white"><%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><%= stock.name %></strong>, <em>source:</em> <%= comment.source %></h4>
     <p><%=raw comment.content %></p>
-    <div class="border-bottom mb-5">
-    </div>
   <% end %>
 </div>
 

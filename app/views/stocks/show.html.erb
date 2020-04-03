@@ -1,8 +1,14 @@
 <div class="container">
-  <h1><%= @stock.name %></h1>
-  <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2"  %>
+  <div class="row">
+    <h1><%= @stock.name %></h1>
+    <%= link_to "Bask to Stocks", stocks_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+  </div>
+    <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2"  %>
+  </div>
 
+<div class="container text-justify overflow-auto">
  <% @stock.comments.each do |comment| %>
+    <div class="border-top"></div>
     <h3> <%= comment.date.strftime("%d/%m/%y") %>, <%= comment.category %>, <em>source: <%= comment.source %></em></h3>
     <p><%=raw comment.content %></p>
   <% end %>
