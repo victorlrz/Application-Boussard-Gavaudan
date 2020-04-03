@@ -2,7 +2,8 @@
   <div class="targets">
     <div class="row">
     <h1>BG Long Term Value</h1>
-       <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+       <%= link_to "Create a new stock", new_stock_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+
        </div>
         <table class="table table-hover">
           <thead>
@@ -30,9 +31,9 @@
                 <td class="align-middle"><%= stock.identifier %></td>
                 <td class="align-middle"><%= stock.price %></td>
                 <td class="align-middle"><%= stock.currency %></td>
-                <td class="text-center align-middle"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] %></td>
-                <td class="text-center align-middle"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '') %></td>
-                <td class="text-center align-middle"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first %></td>
+                <td class="text-center align-middle"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.nil? %></td>
+                <td class="text-center align-middle"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '') unless stock.revenue.nil? %></td>
+                <td class="text-center align-middle"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
                 <td class="text-center align-middle"><%= stock.earning %></td>
                 <td class="text-center align-middle"><%= stock.net_debt %></td>
                 <td class="text-center align-middle"><%= stock.price_1chg %></td>
@@ -43,6 +44,7 @@
             <% end %>
           </tbody>
         </table>
+        <%= link_to "Back to Home", root_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
 </div>
 
 

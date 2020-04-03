@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="text-center d-flex flex-column align-items-center">
+  <div class="text-center d-flex flex-row align-items-center justify-content-center mb-3">
     <%= link_to "Deals", deals_path, class: "btn btn-ghost mt-2 mb-2 mr-2 ml-2", style:"width: 120px" %>
     <%= link_to "Acquirers", acquirers_path, class: "btn btn-ghost mt-2 mb-2 mr-2 ml-2", style:"width: 120px" %>
     <%= link_to "Targets", targets_path, class: "btn btn-ghost mt-2 mb-2 mr-2 ml-2", style:"width: 120px" %>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="container mt-3 mb-3 text-justify">
-  <h1>👋 Comments</h1>
+  <h1 class="mt-2 mb-2">👋 Recent comments</h1>
   <% @comments.each do |comment| %>
     <h4 class="p-3 mb-2 bg-success text-white"><%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><%= stock.name %></strong>, <em>source:</em> <%= comment.source %></h4>
     <p><%=raw comment.content %></p>

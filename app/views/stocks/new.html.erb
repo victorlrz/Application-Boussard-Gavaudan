@@ -1,2 +1,12 @@
-<h1>Stocks#new</h1>
-<p>Find me in app/views/stocks/new.html.erb</p>
+<h1>Create a new stock</h1>
+
+    <div class="container">
+        <%= simple_form_for @stock  do |f| %>
+        <%= f.input :name %>
+        <%= f.input :currency %>
+        <%= f.input :identifier %>
+        <%= f.input :sector %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
