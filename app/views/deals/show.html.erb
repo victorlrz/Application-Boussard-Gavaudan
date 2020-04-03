@@ -1,25 +1,20 @@
 <div class="container">
-
-      <div class="row col-6 justify-items-center mt-3 mb-3">
+      <div class="row col-6 justify-items-center mt-3 mb-1">
         <%= cl_image_tag @deal.acquirer.acquirer_logo.key, width: 150, height: 150, crop: :pad if @deal.acquirer.acquirer_logo.attached? %>
         <%= cl_image_tag @deal.target.target_logo.key, width: 150, height: 150, crop: :pad if @deal.target.target_logo.attached? %>
       </div>
 
-      <div class="row col-8 mt-3">
-        <%= link_to "Deal presentation", @deal.pdf, class: "btn btn-ghost mr-3 ml-3" if @deal.pdf.attached? %>
-        <%= link_to "Deal press release", @deal.press_release, class: "btn btn-ghost mr-3 ml-3" if @deal.press_release.attached? %>
-      </div>
-
-
-        <div class="row mt-3">
-          <div class="col-10">
+        <div class="row mt-1">
+          <div class="col-10 mb-3">
             <h2><%= @deal.target.name %> takeover by <%= @deal.acquirer.name %></h2>
-              <p>Deal premium: <%= @deal.premium %>%</p>
-              <p>Valuation: <%= @deal.valuation_multiple %>x <%= @deal.valuation_type %></p>
+            <div class="row col-8 mt-3 mb-3 text-center">
+              <%= link_to "Deal presentation", @deal.pdf, class: "btn btn-ghost mr-3 ml-3" if @deal.pdf.attached? %>
+              <%= link_to "Deal press release", @deal.press_release, class: "btn btn-ghost mr-3 ml-3" if @deal.press_release.attached? %>
+            </div>
+              <p><%= @deal.date.strftime("%d/%m/%y") %>, <%= @deal.premium %>% premium, <%= @deal.valuation_multiple %>x <%= @deal.valuation_type %></p>
+              <p><%= @deal.offer_price %> <%= @deal.deal_currency %> with a <%= @deal.payment_method %></p>
               <p class="text-justify"><%= @deal.comments %></p>
-              <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">
-                Create a Post
-              </button>
+              <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">Create a Post</button>
               <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mr-3 ml-3" %>
               <%= link_to "Update this deal", edit_deal_path(@deal), class: "btn btn-ghost mr-3 ml-3" %>
           </div>
