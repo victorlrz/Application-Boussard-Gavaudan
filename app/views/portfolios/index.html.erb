@@ -1,6 +1,6 @@
 <div class="container">
   <h3><%= Portfolio.last.fund %> as of <%= Portfolio.last.date.strftime("%d/%m/%y") %></h3>
-  <p>Investment level: <%= Portfolio.sum("weight") %>% and AUM: <%= number_with_delimiter(Portfolio.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
+  <p>Investment level: <%= Portfolio.sum("weight").round(2) %>% and AUM: <%= number_with_delimiter(Portfolio.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
 </div>
 
 <div class="container">
