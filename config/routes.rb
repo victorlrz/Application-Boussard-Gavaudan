@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     resources :comments do
     end
   end
+
+  resources :portfolios do
+  end
 end

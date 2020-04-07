@@ -1,0 +1,10 @@
+<div class="container">
+  <h3><%= Portfolio.last.fund %> as of <%= Portfolio.last.date.strftime("%d/%m/%y") %></h3>
+  <p>Investment level: <%= Portfolio.sum("weight") %>% and AUM: <%= number_with_delimiter(Portfolio.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
+</div>
+
+<div class="container">
+  <% @portfolios.order("weight DESC").each_with_index do |portfolio, index| %>
+  <p><%= index +1 %>. <strong><% stock = portfolio.stock_id %><%= Stock.find(id=stock).name %></strong> @ <%= portfolio.weight %>% <strong> 1Yr - Performance:</strong> <%= Stock.find(id=stock).price_yrchg %>, <strong>Beta: </strong><%= Stock.find(id=stock).beta_ft %> <strong> and P/E: </strong><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %>  </p>
+  <% end %>
+</div>
