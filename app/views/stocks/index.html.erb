@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="targets">
     <div class="row">
-    <h1>Stocks</h1>
-        <%= link_to "Create a new stock", new_stock_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+      <h1 class="mt-3">Stocks</h1>
+        <%= link_to "Create a new stock", new_stock_path, class: "btn btn-ghost mt-3 mb-3 mr-5 ml-5" %>
+        <%= link_to "Back to Home", root_path, class: "btn btn-ghost mt-3 mb-3 mr-5 ml-5" %>
     </div>
+</div>
 
 
- </div class="container">
+<div class="ml-5 mr-5 mt-3">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -20,7 +21,7 @@
         <th scope="col" class="text-center align-middle">1Y - Chg</th>
         <th scope="col" class="text-center align-middle">Beta</th>
         <th scope="col" class="text-center align-middle">Comment</th>
-        <th scope="col" class="text-center align-middle">BG LTV weight</th>
+        <th scope="col" class="text-center align-middle"> BG LTV (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)</th>
       </tr>
     </thead>
     <tbody style="height: 10px !important; overflow: scroll;">
@@ -36,11 +37,11 @@
           <td class="text-center align-middle"><%= stock.price_yrchg %></td>
           <td class="text-center align-middle"><%= stock.beta_ft %></td>
           <td class="text-center align-middle"><%= stock.comments.count %></td>
-          <td class="text-center align-middle"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</td>
+          <td class="text-center align-middle" style="width: 10px;"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-    <%= link_to "Back to Home", root_path, class: "btn btn-ghost mb-3 mr-5 ml-5" %>
+
 </div>
 
