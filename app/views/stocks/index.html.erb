@@ -31,9 +31,9 @@
           <td class="text-center align-middle"><%= stock.identifier %></td>
           <td class="text-center align-middle"><%= stock.price %></td>
           <td class="text-center align-middle" style="width: 130px;"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></td>
-          <td class="text-center align-middle" style="width: 130px;"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil? %></td>
-          <td class="text-center align-middle"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
-          <td class="text-center align-middle"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></td>
+          <td class="text-center align-middle" style="width: 130px;"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.name = "DJ EURO STOXX 50 P INDEX" %></td>
+          <td class="text-center align-middle"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.split("P/E (TTM)").nil?%></td>
+          <td class="text-center align-middle"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.split(" / ").nil? %></td>
           <td class="text-center align-middle"><%= stock.price_yrchg %></td>
           <td class="text-center align-middle"><%= stock.beta_ft %></td>
           <td class="text-center align-middle"><%= stock.comments.count %></td>
