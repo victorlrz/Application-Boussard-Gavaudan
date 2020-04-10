@@ -1,6 +1,8 @@
 class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.all
+    @bgltv = Portfolio.where(fund: "BGLTV")
+    @bgeqt = Portfolio.where(fund: "BGEQT")
     @stocks = Stock.all
   end
 

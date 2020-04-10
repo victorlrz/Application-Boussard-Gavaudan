@@ -21,7 +21,7 @@
         <th scope="col" class="text-center align-middle">1Y - Chg</th>
         <th scope="col" class="text-center align-middle">Beta</th>
         <th scope="col" class="text-center align-middle">Comment</th>
-        <th scope="col" class="text-center align-middle"> BG LTV (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)</th>
+        <th scope="col" class="text-center align-middle"> BG LTV (<%= Portfolio.find_by(fund: 'BGLTV').date.strftime("%d/%m/%y") %>) weight (%)</th>
       </tr>
     </thead>
     <tbody style="height: 10px !important; overflow: scroll;">
