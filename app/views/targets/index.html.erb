@@ -11,11 +11,11 @@
               <th scope="col" class="text-center align-middle">Sector</th>
               <th scope="col" class="text-center align-middle">Identifier</th>
               <th scope="col" class="text-center align-middle">Stock price</th>
-              <th scope="col" class="text-center align-middle">Revenues TTM</th>
+              <th scope="col" class="text-center align-middle">P/E</th>
               <th scope="col" class="text-center align-middle">1d Change</th>
               <th scope="col" class="text-center align-middle">1Yr Change</th>
               <th scope="col" class="text-center align-middle">Beta</th>
-              <th scope="col" class="text-center align-middle">Descr</th>
+              <th scope="col" class="text-center align-middle">Mkt cap</th>
               <th scope="col" class="text-center align-middle">Annual report</th>
             </tr>
           </thead>
@@ -26,11 +26,11 @@
                 <td class="align-middle"><%= target.sector %></td>
                 <td class="align-middle"><%= target.identifier %></td>
                 <td class="text-center align-middle"><%= target.price %></td>
-                <td class="text-center align-middle"><%= target.revenues unless target.revenues.nil? %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split('P/E (TTM)')[1].split('Market cap')[0] unless target.ebitda.nil? %></td>
                 <td class="text-center align-middle"><%= target.price_1chg %></td>
                 <td class="text-center align-middle"><%= target.price_yrchg %></td>
                 <td class="text-center align-middle"><%= target.beta_ft %></td>
-                <td class="text-center align-middle"><%= target.ebitda unless target.ebitda.nil? %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split('Market cap')[1].split("EPS")[0] unless target.ebitda.nil? %></td>
                 <td class="align-middle"><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
