@@ -26,7 +26,7 @@
                 <td class="align-middle"><%= target.sector %></td>
                 <td class="align-middle"><%= target.identifier %></td>
                 <td class="text-center align-middle"><%= target.price %></td>
-                <td class="text-center align-middle"><%= target.ebitda.split('P/E (TTM)')[1].split('Market cap')[0] unless target.ebitda.nil? %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split('P/E (TTM)')[1].split('Market cap')[0] || '-' %></td>
                 <td class="text-center align-middle"><%= target.price_1chg %></td>
                 <td class="text-center align-middle"><%= target.price_yrchg %></td>
                 <td class="text-center align-middle"><%= target.beta_ft %></td>
