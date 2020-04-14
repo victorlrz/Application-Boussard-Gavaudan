@@ -27,4 +27,7 @@ Rails.application.routes.draw do
 
   resources :portfolios do
   end
+
+  resources :documents do
+  end
 end
