@@ -26,11 +26,11 @@
                 <td class="align-middle"><%= target.sector %></td>
                 <td class="align-middle"><%= target.identifier %></td>
                 <td class="text-center align-middle"><%= target.price %></td>
-                <td class="text-center align-middle"><%= target.ebitda.split('P/E (TTM)')[1].split('Market cap')[0] || '-' unless target.ebitda.split('P/E (TTM)').nil? %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split('P/E (TTM)')[1].split('Market cap')[0] || '-' unless target.ebitda.split('P/E (TTM)')[1].nil? %></td>
                 <td class="text-center align-middle"><%= target.price_1chg %></td>
                 <td class="text-center align-middle"><%= target.price_yrchg %></td>
                 <td class="text-center align-middle"><%= target.beta_ft %></td>
-                <td class="text-center align-middle"><%= target.ebitda.split('Market cap')[1].split("EPS")[0] || '-' unless target.ebitda.split('P/E (TTM)').nil?  %></td>
+                <td class="text-center align-middle"><%= target.ebitda.split('Market cap')[1].split("EPS")[0] || '-' unless target.ebitda.split('Market cap')[1].nil?  %></td>
                 <td class="align-middle"><%= link_to "Annual Report", target.annual_report if target.annual_report.attached?  %></td>
               </tr>
             <% end %>
