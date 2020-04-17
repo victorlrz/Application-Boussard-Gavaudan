@@ -61,7 +61,7 @@
               <td class="text-center align-middle" style="width: 130px;"><%= deal.valuation_multiple %>x <%= deal.valuation_type %></td>
               <td class="text-center align-middle"><%= deal.offer_price %> <%= deal.deal_currency if deal.offer_price %></td>
               <td class="text-center align-middle"><%= deal.ratio_shares %> <%= deal.acquirer.identifier if deal.ratio_shares %></td>
-              <td class="text-center align-middle" style="width: 130px;"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0] %></td>
+              <td class="text-center align-middle" style="width: 130px;"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0] unless deal.target.ebitda.split("Market cap")[1].nil?  %></td>
               <td class="text-center align-middle"><%= link_to "More details",  deal_path(deal), class: "btn btn-flat w-100 mb-2 mt-2 mr-2 ml-2" %></td>
             </tr>
             <% end %>
