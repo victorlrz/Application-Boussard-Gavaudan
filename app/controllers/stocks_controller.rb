@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.all
+    @stocks = Stock.where("price<>0.0")
   end
 
   def show
