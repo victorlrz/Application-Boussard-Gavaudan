@@ -1,0 +1,78 @@
+.navbar-landing {
+  background: linear-gradient(90deg, darken($dark, 12), $dark);
+  padding: $spacer*0.5 $spacer*1.5;
+}
+
+.landing-intro {
+  background: linear-gradient(90deg, darken($dark, 12), $dark);
+  color: $white;
+}
+
+.landing-intro-brand {
+  color: $primary;
+  width: 42px;
+  height: 42px;
+}
+
+.landing-intro-img {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  min-height: 550px;
+}
+
+.landing-intro-img-default,
+.landing-intro-img-analytics {
+  position: absolute;
+  bottom: 0;
+}
+
+.landing-intro-img-default {
+  width: 80%;
+  right: 0;
+  z-index: 2;
+  box-shadow: -10px 0px 15px 0px rgba($black, 0.25);
+}
+
+.landing-intro-img-analytics {
+  width: 80%;
+  left: 0;
+  z-index: 1;
+}
+
+.landing-features-icon {
+  width: 42px;
+  height: 42px;
+  color: darken($primary, 5%);
+}
+
+.landing-img {
+  box-shadow: 0 0 3rem rgba(darken($primary, 25), 0.075);
+  border: 1px solid rgba($black, 0.075);
+  transition: all .1s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.035);
+  }
+}
+
+.landing-stars {
+  color: $yellow;
+}
+
+.landing-feature {
+  align-items: center;
+  background: darken($body-bg, 3);
+  border-radius: 50%;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  margin-right: $spacer;
+  width: 60px;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: darken($primary, 5);
+  }
+}

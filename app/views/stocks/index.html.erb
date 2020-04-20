@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
       <h1 class="mt-3">Stocks</h1>
-        <%= link_to "Create a new stock", new_stock_path, class: "btn btn-ghost mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
-        <%= link_to "Back to Home", root_path, class: "btn btn-ghost mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
+        <%= link_to "Create a new stock", new_stock_path, class: "btn btn-primary btn-block mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
+        <%= link_to "Back to Home", root_path, class: "btn btn-primary btn-block mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
     </div>
 </div>
 
 
-<div class="ml-5 mr-5 mt-3">
-  <table class="table table-hover">
+<div>
+  <table class="table table-hover"  id="datatables-reponsive">
     <thead>
       <tr>
         <th scope="col" class="text-center align-middle">Name</th>
@@ -42,6 +42,6 @@
       <% end %>
     </tbody>
   </table>
-
 </div>
+
 
