@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to "Back to Home", root_path, class: "btn btn-ghost mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
+  <%= link_to "Back to Home", root_path, class: "btn btn-primary btn-block mt-3 mb-3 mr-5 ml-5", style:"width: 200px" %>
   <h3><%= Portfolio.find_by(fund: "BGLTV").fund %> as of <%= Portfolio.last.date.strftime("%d/%m/%y") %></h3>
   <p>Investment level: <%= @bgltv.sum("weight").round(2) %>% and AUM: <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
 </div>
