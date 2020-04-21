@@ -23,6 +23,15 @@ flatpickr("#post_date");
 flatpickr("#comment_date");
 flatpickr("#document_date");
 
+
+$(document).ready( function () {
+  $("#datatables-reponsive").DataTable({
+    responsive: true
+  });
+} );
+
+
+
 const input = document.querySelector('#search')
 const client = algoliasearch('UJDY27XD03', 'dbef46af8ed0a92e0204b6852744ddf4');
 const index = client.initIndex('Target');
@@ -66,8 +75,3 @@ const searchAlgoliaAcquirer = () => {
       });
     };
     }
-
-$(document).ready( function () {
-  $("#datatables-reponsive").DataTable({
-  });
-} );
