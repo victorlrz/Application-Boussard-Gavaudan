@@ -35,5 +35,15 @@ class MarketdatastockJob < ApplicationJob
       stock.ebitda = statementdata[1]
       stock.save!
     end
+    descriptionurl = open("https://markets.ft.com/data/equities/tearsheet/profile?s=#{identifier}").read
+    descriptiondoc = Nokogiri::HTML(descriptionurl)
+    description = []
+    descriptiondoc.search('.mod-tearsheet-profile-description').each do |element|
+      datadescription = element.text.strip
+      description << datadescription
+      stock = Stock.find_by identifier: identifier.to_s
+      stock.earning = description.last
+      stock.save!
+    end
   end
 end
