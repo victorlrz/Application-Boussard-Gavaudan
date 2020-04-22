@@ -5,10 +5,13 @@ import Typed from 'typed.js';
 import algoliasearch from 'algoliasearch';
 import trix from "trix";
 import "trix/dist/trix.css";
-import "../styles/application";
-import 'datatables.net';
-import 'datatables.net-bs4/js/dataTables.bootstrap4.min';
+import '../styles/application';
 
+window.jQuery = $;
+window.$ = $;
+
+import 'datatables.net-dt';
+import 'datatables.net-bs4/js/dataTables.bootstrap4.min';
 
 console.log("Hello");
 
