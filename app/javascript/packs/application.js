@@ -5,10 +5,6 @@ import Typed from 'typed.js';
 import algoliasearch from 'algoliasearch';
 import trix from "trix";
 import "trix/dist/trix.css";
-
-window.jQuery = $;
-window.$ = $;
-
 import "../styles/application";
 import 'datatables.net';
 import 'datatables.net-bs4/js/dataTables.bootstrap4.min';
