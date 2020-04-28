@@ -10,8 +10,8 @@ import '../styles/application';
 window.jQuery = $;
 window.$ = $;
 
-import 'datatables.net-dt';
-import 'datatables.net-bs4/js/dataTables.bootstrap4.min';
+// import 'datatables.net-dt';
+// import 'datatables.net-bs4/js/dataTables.bootstrap4.min';
 
 console.log("Hello");
 
@@ -22,8 +22,8 @@ flatpickr("#comment_date");
 flatpickr("#document_date");
 
 
-$(document).ready( function () {
-  $("#datatables-reponsive").DataTable({
-    responsive: true
-  });
-});
+// $(document).ready( function () {
+//   $("#datatables-reponsive").DataTable({
+//     responsive: true
+//   });
+// });
