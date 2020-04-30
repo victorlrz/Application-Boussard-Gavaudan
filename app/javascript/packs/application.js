@@ -27,3 +27,31 @@ flatpickr("#document_date");
 //     responsive: true
 //   });
 // });
+
+
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "https://api.ft.com/content/search/v1";
+const searchApi = async () => {
+  const searchParam = {
+    queryString: "bayer",
+  };
+  const json = JSON.stringify(searchParam);
+  try {
+    const response = await fetch(proxyurl + url, {
+      method: "POST",
+      body: json,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+        "X-Api-Key": "59cbaf20e3e06d3565778e7b3d64dd02f06e492d9f7e1adb8c648332",
+      },
+    });
+    if (response.ok) {
+      const dataAPI = await response.json();
+      console.log(dataAPI.results);
+    }
+  } catch (e) {
+    console.error("e : ", e);
+  }
+};
+searchApi();
