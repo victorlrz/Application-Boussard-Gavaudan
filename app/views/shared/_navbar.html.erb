@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon topnavbar-design  d-flex justify-content-around">
   <%= link_to "https://www.boussard-gavaudan.com/", class: "navbar-brand" do %>
-    <%= image_tag "logo_BG.jpeg", :class => "style-image-navbar" %>
+    <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/v1588410420/logo_BG_oml90m.jpg", :class => "style-image-navbar" %>
   <% end %>
 
   <h2>Hi 👋 <%= current_user.first_name if user_signed_in? %>! </h2>
