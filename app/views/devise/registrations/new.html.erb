@@ -1,27 +1,5 @@
-<h2>Sign up</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
 
 <div class="container d-flex flex-column">
       <div class="row h-100">
@@ -29,7 +7,7 @@
           <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-              <h1 class="h2">Edit <%= resource_name.to_s.humanize %></h1>
+              <h1 class="h2">Sign up</h1>
               <p class="lead">
                 Let's discover and follow the European newsflow and dealflow for B&G
               </p>
@@ -55,7 +33,10 @@
                       <%= f.input :company, required: true, autofocus: true %>
                     </div>
                     <div class="form-group">
-                      <%= f.input :email, required: true, autofocus: true %>
+                      <%= f.input :email,
+                                  required: true,
+                                  autofocus: true,
+                                  input_html: { autocomplete: "email" }%>
                     </div>
                     <div class="form-group">
                       <%= f.input :password,
