@@ -17,8 +17,9 @@
               <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">Create a Post</button>
               <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mr-3 ml-3" %>
               <%= link_to "Update this deal", edit_deal_path(@deal), class: "btn btn-ghost mr-3 ml-3" %>
-          </div>
+          </div> 
         </div>
+        <div class="deal_newsflow"></div>
           <div class="row mt-3">
               <div class="col-8 align-content-center text-justify mr-2 ml-2 mt-2 mb-2">
                   <%= render "posts/index-posts" %>
