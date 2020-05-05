@@ -1,12 +1,17 @@
 require("dotenv").config();
 const secretKey = process.env.FT_KEY;
-
 const titleContainerElement = document.querySelector(".deal_newsflow");
 
+const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
+const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
+console.log(stockName); //Debug -> Affiche le nom du stock
+console.log(stockId); //Debug -> Affiche l'identifiant du stock
+
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-// Params à modifier
+
+// Params à modifier avec les paramètres ci-dessus
 const searchParam = {
-  queryString: "banks",
+  queryString: "Takeaway.com",
   queryContext: {
     curations: ["PAGES", "BLOGS", "ARTICLES"],
   },
@@ -20,11 +25,13 @@ const searchParam = {
   },
 };
 
+// console.log(searchParam); //DEBUG
+
 const headlines = [];
 
 const createTitleElement = (title) => {
   const div = document.createElement("div");
-  div.innerHTML = `<p>${title.text}</p>`;
+  div.innerHTML = `<p>${title.date} : ${title.text}</p>`;
   return div;
 };
 
@@ -36,8 +43,9 @@ const displayHeadlines = () => {
   titleContainerElement.append(...titleNode);
 };
 
-const addHeadline = (text) => {
+const addHeadline = (text, date) => {
   headlines.push({
+    date,
     text,
   });
 };
@@ -57,11 +65,23 @@ const searchHeadlines = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      for (let i = 0; i < searchParam.resultContext.maxResults; i++) {
-        addHeadline(dataAPI.results[0].results[i].title.title);
+
+      if (dataAPI.results[0].results) {
+        for (let i = 0; i < searchParam.resultContext.maxResults; i++) {
+          let date = new Date(
+            dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
+          );
+          addHeadline(
+            dataAPI.results[0].results[i].title.title,
+            date.toLocaleDateString()
+          );
+        }
+        displayHeadlines();
+      } else {
+        console.log(
+          "Pas de titres associés à cette recherche, affinez vos paramètres .."
+        );
       }
-      displayHeadlines();
-      // console.log(headline);
     }
   } catch (e) {
     console.error("e : ", e);
