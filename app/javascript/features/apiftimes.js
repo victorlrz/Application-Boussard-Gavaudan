@@ -52,7 +52,7 @@ const searchHeadlines = async () => {
   const json = JSON.stringify(searchParam);
   try {
     // proxyurl +
-    const response = await fetch(proxyurl + url, {
+    const response = await fetch(url, {
       method: "POST",
       body: json,
       headers: {
