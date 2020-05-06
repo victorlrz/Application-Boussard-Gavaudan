@@ -4,12 +4,19 @@ const secretKey = process.env.FT_KEY;
 const titleContainerElement = document.querySelector(".stock_newsflow");
 const headlines = [];
 
-const searchParams = () => {
+const getParams = (value) => {
   if (titleContainerElement) {
-    const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
-    const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
-    const queryContextParam = `("${stockName}" OR "${stockId}")`;
-
+    const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name || @Stock.acquirer
+    const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier || @Stock.identifier
+    let queryContextParam;
+    switch (value) {
+      case 1:
+        queryContextParam = `(title:"${stockName}" OR title:"${stockId}")`;
+        break;
+      case 2:
+        queryContextParam = `("${stockName}" OR "${stockId}")`;
+        break;
+    }
     const searchParam = {
       queryString: queryContextParam,
       queryContext: {
@@ -45,10 +52,10 @@ const addHeadline = (text, date) => {
   });
 };
 
-const searchHeadlines = async () => {
-  const searchParam = searchParams();
+const searchHeadlines = async (searchParam) => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const url = "https://api.ft.com/content/search/v1";
+
   const json = JSON.stringify(searchParam);
   try {
     // proxyurl +
@@ -74,9 +81,7 @@ const searchHeadlines = async () => {
         }
         displayHeadlines();
       } else {
-        console.log(
-          "Pas de titres associés à cette recherche, affinez vos paramètres .."
-        );
+        searchHeadlines(getParams(2));
       }
     }
   } catch (e) {
@@ -85,5 +90,5 @@ const searchHeadlines = async () => {
 };
 console.log(secretKey);
 if (titleContainerElement) {
-  searchHeadlines();
+  searchHeadlines(getParams(1));
 }
