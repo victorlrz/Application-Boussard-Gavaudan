@@ -2,33 +2,27 @@ require("dotenv").config();
 const secretKey = process.env.FT_KEY;
 
 const titleContainerElement = document.querySelector(".stock_newsflow");
-
-// const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
-// const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
-// console.log(stockName); //Debug -> Affiche le nom du stock
-// console.log(stockId); //Debug -> Affiche l'identifiant du stock
-
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
-// Params à modifier avec les paramètres ci-dessus
-const searchParam = {
-  queryString: "Takeaway.com",
-  queryContext: {
-    curations: ["PAGES", "BLOGS", "ARTICLES"],
-  },
-  resultContext: {
-    aspects: ["title", "lifecycle"],
-    maxResults: 20,
-    // offset: 21,
-    // sortOrder: "ASC",
-    // sortField: "title",
-    // facets: { names: ["people"], maxElements: 20, minThreshold: 1 },
-  },
-};
-
-// console.log(searchParam); //DEBUG
-
 const headlines = [];
+
+const searchParams = () => {
+  if (titleContainerElement) {
+    const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
+    const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
+    const queryContextParam = `("${stockName}" OR "${stockId}")`;
+
+    const searchParam = {
+      queryString: queryContextParam,
+      queryContext: {
+        curations: ["ARTICLES"],
+      },
+      resultContext: {
+        aspects: ["title", "lifecycle"],
+        maxResults: 20,
+      },
+    };
+    return searchParam;
+  }
+};
 
 const createTitleElement = (title) => {
   const div = document.createElement("div");
@@ -52,6 +46,8 @@ const addHeadline = (text, date) => {
 };
 
 const searchHeadlines = async () => {
+  const searchParam = searchParams();
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const url = "https://api.ft.com/content/search/v1";
   const json = JSON.stringify(searchParam);
   try {
@@ -66,9 +62,8 @@ const searchHeadlines = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-
       if (dataAPI.results[0].results) {
-        for (let i = 0; i < searchParam.resultContext.maxResults; i++) {
+        for (let i = 0; i < dataAPI.results[0].results.length; i++) {
           let date = new Date(
             dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
           );
