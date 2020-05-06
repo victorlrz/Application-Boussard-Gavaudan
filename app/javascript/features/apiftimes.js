@@ -83,7 +83,7 @@ const searchHeadlines = async () => {
     console.error("e : ", e);
   }
 };
-
+console.log(secretKey);
 if (titleContainerElement) {
   searchHeadlines();
 }
