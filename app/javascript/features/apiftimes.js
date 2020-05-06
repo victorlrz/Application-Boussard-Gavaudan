@@ -1,11 +1,12 @@
 require("dotenv").config();
 const secretKey = process.env.FT_KEY;
-const titleContainerElement = document.querySelector(".deal_newsflow");
 
-const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
-const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
-console.log(stockName); //Debug -> Affiche le nom du stock
-console.log(stockId); //Debug -> Affiche l'identifiant du stock
+const titleContainerElement = document.querySelector(".stock_newsflow");
+
+// const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name
+// const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier
+// console.log(stockName); //Debug -> Affiche le nom du stock
+// console.log(stockId); //Debug -> Affiche l'identifiant du stock
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
@@ -88,4 +89,6 @@ const searchHeadlines = async () => {
   }
 };
 
-searchHeadlines();
+if (titleContainerElement) {
+  searchHeadlines();
+}
