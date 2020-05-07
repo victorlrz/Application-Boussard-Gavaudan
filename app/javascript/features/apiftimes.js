@@ -8,10 +8,18 @@ const headlines = [];
 //Prend en paramètre un entier, qui détermine quels paramètres seront utilisés
 const getParams = () => {
   if (titleContainerElement) {
+    const today = new Date();
+    let rollingWindow = new Date();
+    rollingWindow.setTime(today.getTime() - 31622400000);
+    rollingWindow = rollingWindow
+      .toISOString()
+      .toString()
+      .slice(0, 10);
+    console.log(rollingWindow);
     const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name || @Stock.acquirer
     const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier || @Stock.identifier
     let queryContextParam;
-    queryContextParam = `(title:"${stockName}" OR title:"${stockId}" OR "${stockName}" OR "${stockId}") AND (lastPublishDateTime:>2020-01-01T00:00:00Z)`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
+    queryContextParam = `(title:"${stockName}" OR title:"${stockId}" OR "${stockName}" OR "${stockId}") AND (lastPublishDateTime:>${rollingWindow}T00:00:00Z)`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
 
     //Assignation des paramètre à searchParam, ils seront injectés dans la fonction searchHeadlines.
     const searchParam = {
@@ -21,6 +29,7 @@ const getParams = () => {
       },
       resultContext: {
         aspects: ["title", "lifecycle"], //Titre des articles et dates des publications/modifications
+        maxResults: 20,
       },
     };
     return searchParam; //On retourne les paramètres de la recherche
