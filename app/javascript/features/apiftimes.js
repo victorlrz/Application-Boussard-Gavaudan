@@ -11,10 +11,10 @@ const getParams = (value) => {
     let queryContextParam;
     switch (value) {
       case 1:
-        queryContextParam = `(title:"${stockName}" OR title:"${stockId}")`;
+        queryContextParam = `(title:"${stockName}" OR title:"${stockId}")`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
         break;
       case 2:
-        queryContextParam = `("${stockName}" OR "${stockId}")`;
+        queryContextParam = `("${stockName}" OR "${stockId}")`; //Cas 2, pas de résultats, on cherche le nom du Stock ou l'Identifier dans le contexte
         break;
     }
     const searchParam = {
@@ -27,13 +27,14 @@ const getParams = (value) => {
         maxResults: 20,
       },
     };
-    return searchParam;
+    return searchParam; //On retourne les paramètres de la recherche
   }
 };
 
 const createTitleElement = (title) => {
   const div = document.createElement("div");
-  div.innerHTML = `<p>${title.date} : ${title.text}</p>`;
+
+  div.innerHTML = `<p><a href="https://www.ft.com/content/${title.id}" target="_blank">${title.date} : ${title.text}</a></p>`;
   return div;
 };
 
@@ -45,10 +46,11 @@ const displayHeadlines = () => {
   titleContainerElement.append(...titleNode);
 };
 
-const addHeadline = (text, date) => {
+const addHeadline = (text, date, id) => {
   headlines.push({
-    date,
     text,
+    date,
+    id,
   });
 };
 
@@ -69,6 +71,7 @@ const searchHeadlines = async (searchParam) => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
+      console.log(dataAPI);
       if (dataAPI.results[0].results) {
         for (let i = 0; i < dataAPI.results[0].results.length; i++) {
           let date = new Date(
@@ -76,12 +79,13 @@ const searchHeadlines = async (searchParam) => {
           );
           addHeadline(
             dataAPI.results[0].results[i].title.title,
-            date.toLocaleDateString()
+            date.toLocaleDateString(),
+            dataAPI.results[0].results[i].id
           );
         }
         displayHeadlines();
       } else {
-        searchHeadlines(getParams(2));
+        searchHeadlines(getParams(2)); //Dans certains cas, la recherche ne donne pas de résulats, on passe les paramètres dans le contexte global
       }
     }
   } catch (e) {
