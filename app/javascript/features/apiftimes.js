@@ -4,6 +4,8 @@ const secretKey = process.env.FT_KEY;
 const titleContainerElement = document.querySelector(".stock_newsflow");
 const headlines = [];
 
+//Fonction qui permet de définir les paramètres de l'API
+//Prend en paramètre un entier, qui détermine quels paramètres seront utilisés
 const getParams = (value) => {
   if (titleContainerElement) {
     const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name || @Stock.acquirer
@@ -14,23 +16,28 @@ const getParams = (value) => {
         queryContextParam = `(title:"${stockName}" OR title:"${stockId}")`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
         break;
       case 2:
-        queryContextParam = `("${stockName}" OR "${stockId}")`; //Cas 2, pas de résultats, on cherche le nom du Stock ou l'Identifier dans le contexte
+        queryContextParam = `("${stockName}" OR "${stockId}")`; //Cas 2, si pas de résultats après l'écexution de 1, on cherche le nom du Stock ou l'Identifier dans le contexte.
         break;
     }
+    //Assignation des paramètre à searchParam, ils seront injectés dans la fonction searchHeadlines.
     const searchParam = {
       queryString: queryContextParam,
       queryContext: {
-        curations: ["ARTICLES"],
+        curations: ["ARTICLES"], //On ne cherche que des articles
       },
       resultContext: {
-        aspects: ["title", "lifecycle"],
-        maxResults: 20,
+        aspects: ["title", "lifecycle"], //Titre des articles et dates des publications/modifications
+        maxResults: 20, //On ne retourne au maximum 20 résultats
       },
     };
     return searchParam; //On retourne les paramètres de la recherche
   }
 };
 
+//Fonction qui permet de créer un élément du DOM HTML pour chaque titre
+//Chaque titre sera contenu dans une balise <a> pour rediriger vers le lien de l'article
+//La balise <a> est contenue dans une balise <p> pour avoir un élément de type "block" sur le DOM
+//"target = _blank" permet d'ouvrir les pages dans de nouveaux onglets.
 const createTitleElement = (title) => {
   const div = document.createElement("div");
 
@@ -38,6 +45,12 @@ const createTitleElement = (title) => {
   return div;
 };
 
+//Fonction qui permet d'afficher chaque article dans le DOM
+//On itère sur le tableau "headlines" avec la fonction map
+//Pour chaque titre de headlines, on crée un élément sur le DOM avec "createTitleElement"
+//La fonction map retourne un nouveau tableau "titleNode" contenant les éléments à positionner sur le DOM
+//Enfin on ajoute tous les éléments à notre DOM avec titleContaineElement.append(...titleNode)
+//titleContainerElement fait référence à la ".classe" des div de deals/show.html.erb et stocks/show.html.erb
 const displayHeadlines = () => {
   const titleNode = headlines.map((title) => {
     return createTitleElement(title);
@@ -46,6 +59,8 @@ const displayHeadlines = () => {
   titleContainerElement.append(...titleNode);
 };
 
+//Fonciton qui permet d'ajouter un titre à l'objet "headlines = []"
+//"headlines" sera composé d'un titre (text), d'une date (date) et de son id (id)
 const addHeadline = (text, date, id) => {
   headlines.push({
     text,
@@ -54,13 +69,14 @@ const addHeadline = (text, date, id) => {
   });
 };
 
+//Fonction qui effectue notre recherche, prend en seul paramètre les paramètres pour la requête API
+//Deux possibilités pour les paramètres cf fonction "getParams(value)"
 const searchHeadlines = async (searchParam) => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const url = "https://api.ft.com/content/search/v1";
 
   const json = JSON.stringify(searchParam);
   try {
-    // proxyurl +
     const response = await fetch(proxyurl + url, {
       method: "POST",
       body: json,
@@ -72,7 +88,9 @@ const searchHeadlines = async (searchParam) => {
     if (response.ok) {
       const dataAPI = await response.json();
       console.log(dataAPI);
+      //Si la requête précise donne un résulats, on ajoute les éléments et on l'affiche dans le DOM
       if (dataAPI.results[0].results) {
+        // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés  si le nombre de titres retournés < maxResults
         for (let i = 0; i < dataAPI.results[0].results.length; i++) {
           let date = new Date(
             dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
@@ -85,14 +103,21 @@ const searchHeadlines = async (searchParam) => {
         }
         displayHeadlines();
       } else {
-        searchHeadlines(getParams(2)); //Dans certains cas, la recherche ne donne pas de résulats, on passe les paramètres dans le contexte global
+        //Sinon on change refait la requête avec des paramètres plus larges.
+        searchHeadlines(getParams(2));
       }
     }
   } catch (e) {
+    //Si try échoue, retourne l'erreur catchée
     console.error("e : ", e);
   }
 };
 
+///MAIN///
+//Si nous sommes sur une page du DOM contenant les classes du "titleContainerElement" à savoir ".stock_newsflow"
+//Alors on éxécute la recherche avec les paramètres les plus précis
+//Si cette recherche échoue la fonction se relancera automatiquement "else" de "seachHeadlines(getParams(value))"
+//Avec getParams(value = 2) soit des paramètres de recherches un peu moins précis mais qui retourneront un résultat.
 if (titleContainerElement) {
   searchHeadlines(getParams(1));
 }
