@@ -6,19 +6,13 @@ const headlines = [];
 
 //Fonction qui permet de définir les paramètres de l'API
 //Prend en paramètre un entier, qui détermine quels paramètres seront utilisés
-const getParams = (value) => {
+const getParams = () => {
   if (titleContainerElement) {
     const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name || @Stock.acquirer
     const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier || @Stock.identifier
     let queryContextParam;
-    switch (value) {
-      case 1:
-        queryContextParam = `(title:"${stockName}" OR title:"${stockId}")`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
-        break;
-      case 2:
-        queryContextParam = `("${stockName}" OR "${stockId}")`; //Cas 2, si pas de résultats après l'écexution de 1, on cherche le nom du Stock ou l'Identifier dans le contexte.
-        break;
-    }
+    queryContextParam = `(title:"${stockName}" OR title:"${stockId}" OR "${stockName}" OR "${stockId}") AND (lastPublishDateTime:>2020-01-01T00:00:00Z)`; //Cas 1, on cherche le nom du Stock ou l'Identifier dans le titre
+
     //Assignation des paramètre à searchParam, ils seront injectés dans la fonction searchHeadlines.
     const searchParam = {
       queryString: queryContextParam,
@@ -27,7 +21,6 @@ const getParams = (value) => {
       },
       resultContext: {
         aspects: ["title", "lifecycle"], //Titre des articles et dates des publications/modifications
-        maxResults: 20, //On ne retourne au maximum 20 résultats
       },
     };
     return searchParam; //On retourne les paramètres de la recherche
@@ -40,7 +33,6 @@ const getParams = (value) => {
 //"target = _blank" permet d'ouvrir les pages dans de nouveaux onglets.
 const createTitleElement = (title) => {
   const div = document.createElement("div");
-
   div.innerHTML = `<p><a href="https://www.ft.com/content/${title.id}" target="_blank">${title.date} : ${title.text}</a></p>`;
   return div;
 };
@@ -70,7 +62,7 @@ const addHeadline = (text, date, id) => {
 };
 
 //Fonction qui effectue notre recherche, prend en seul paramètre les paramètres pour la requête API
-//Deux possibilités pour les paramètres cf fonction "getParams(value)"
+
 const searchHeadlines = async (searchParam) => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const url = "https://api.ft.com/content/search/v1";
@@ -90,7 +82,7 @@ const searchHeadlines = async (searchParam) => {
       console.log(dataAPI);
       //Si la requête précise donne un résulats, on ajoute les éléments et on l'affiche dans le DOM
       if (dataAPI.results[0].results) {
-        // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés  si le nombre de titres retournés < maxResults
+        // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés depuis la date définie dans les paramètres.
         for (let i = 0; i < dataAPI.results[0].results.length; i++) {
           let date = new Date(
             dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
@@ -103,8 +95,7 @@ const searchHeadlines = async (searchParam) => {
         }
         displayHeadlines();
       } else {
-        //Sinon on change refait la requête avec des paramètres plus larges.
-        searchHeadlines(getParams(2));
+        console.log("Pas de résultats, merci d'affiner votre recherche..");
       }
     }
   } catch (e) {
@@ -115,9 +106,7 @@ const searchHeadlines = async (searchParam) => {
 
 ///MAIN///
 //Si nous sommes sur une page du DOM contenant les classes du "titleContainerElement" à savoir ".stock_newsflow"
-//Alors on éxécute la recherche avec les paramètres les plus précis
-//Si cette recherche échoue la fonction se relancera automatiquement "else" de "seachHeadlines(getParams(value))"
-//Avec getParams(value = 2) soit des paramètres de recherches un peu moins précis mais qui retourneront un résultat.
+//Alors on éxécute la recherche avec les paramètres sélectionnés.
 if (titleContainerElement) {
-  searchHeadlines(getParams(1));
+  searchHeadlines(getParams());
 }
