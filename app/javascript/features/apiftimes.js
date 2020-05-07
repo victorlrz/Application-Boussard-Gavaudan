@@ -15,7 +15,6 @@ const getParams = () => {
       .toISOString()
       .toString()
       .slice(0, 10);
-    console.log(rollingWindow);
     const stockName = titleContainerElement.dataset.name; //Récupère le paramètre @deal.acquirer.name || @Stock.acquirer
     const stockId = titleContainerElement.dataset.identifier; //Récupère le paramètre @deal.acquirer.identifier || @Stock.identifier
     let queryContextParam;
@@ -42,7 +41,7 @@ const getParams = () => {
 //"target = _blank" permet d'ouvrir les pages dans de nouveaux onglets.
 const createTitleElement = (title) => {
   const div = document.createElement("div");
-  div.innerHTML = `<p><a href="https://www.ft.com/content/${title.id}" target="_blank">${title.date} : ${title.text}</a></p>`;
+  div.innerHTML = `<a href="https://www.ft.com/content/${title.id}" target="_blank">${title.date} : ${title.text}</a>`;
   return div;
 };
 
@@ -88,8 +87,7 @@ const searchHeadlines = async (searchParam) => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      console.log(dataAPI);
-      //Si la requête précise donne un résulats, on ajoute les éléments et on l'affiche dans le DOM
+      //Si la requête donne un résulat, on ajoute les éléments et on l'affiche dans le DOM
       if (dataAPI.results[0].results) {
         // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés depuis la date définie dans les paramètres.
         for (let i = 0; i < dataAPI.results[0].results.length; i++) {
