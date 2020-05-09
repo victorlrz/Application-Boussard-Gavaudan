@@ -103,6 +103,7 @@ const searchHeadlines = async (searchParam) => {
         displayHeadlines();
       } else {
         console.log("Pas de résultats, merci d'affiner votre recherche..");
+        document.querySelector(".accordion").remove();
       }
     }
   } catch (e) {
