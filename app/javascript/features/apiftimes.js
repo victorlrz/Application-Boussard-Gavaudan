@@ -72,7 +72,7 @@ const addHeadline = (text, date, id) => {
 //Fonction qui effectue notre recherche, prend en seul paramètre les paramètres pour la requête API
 
 const searchHeadlines = async (searchParam) => {
-  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  const proxyurl = "http://localhost:8080/";
   const url = "https://api.ft.com/content/search/v1";
 
   const json = JSON.stringify(searchParam);
