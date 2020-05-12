@@ -24,6 +24,5 @@ const MorningStars = async () => {
 //Si nous sommes sur une page du DOM contenant les classes du "titleContainerElement" à savoir ".stock_newsflow"
 //Alors on éxécute la recherche avec les paramètres sélectionnés.
 if (titleContainerElement) {
-  console.log("GO");
   MorningStars();
 }

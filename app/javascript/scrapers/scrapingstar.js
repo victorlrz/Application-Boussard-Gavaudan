@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-const getDataFromUrl = async (url) => {
+const scrapersMorningStar = async (url) => {
   try {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
@@ -53,10 +53,10 @@ const getDataFromUrl = async (url) => {
     console.log(DataTest); //Debug
     return DataTest;
   } catch (e) {
-    console.log(`error in getDataFromUrl: ${e}`);
+    console.log(`error in scrapersMorningStar: ${e}`);
   }
 };
 
 module.exports = {
-  getDataFromUrl,
+  scrapersMorningStar,
 };

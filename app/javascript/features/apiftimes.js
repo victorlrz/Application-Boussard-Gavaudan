@@ -1,8 +1,4 @@
-require("dotenv").config();
-const secretKey = process.env.FT_KEY;
-
 const titleContainerElement = document.querySelector(".stock_newsflow");
-const headlines = [];
 
 //Fonction qui permet de définir les paramètres de l'API
 //Prend en paramètre un entier, qui détermine quels paramètres seront utilisés
@@ -51,7 +47,7 @@ const createTitleElement = (title) => {
 //La fonction map retourne un nouveau tableau "titleNode" contenant les éléments à positionner sur le DOM
 //Enfin on ajoute tous les éléments à notre DOM avec titleContaineElement.append(...titleNode)
 //titleContainerElement fait référence à la ".classe" des div de deals/show.html.erb et stocks/show.html.erb
-const displayHeadlines = () => {
+const displayHeadlines = (headlines) => {
   const titleNode = headlines.map((title) => {
     return createTitleElement(title);
   });
@@ -59,51 +55,23 @@ const displayHeadlines = () => {
   titleContainerElement.append(...titleNode);
 };
 
-//Fonciton qui permet d'ajouter un titre à l'objet "headlines = []"
-//"headlines" sera composé d'un titre (text), d'une date (date) et de son id (id)
-const addHeadline = (text, date, id) => {
-  headlines.push({
-    text,
-    date,
-    id,
-  });
-};
+const financialTime = async () => {
+  //   console.log(JSON.stringify(getParams()));
+  const encoded = encodeURI(JSON.stringify(getParams()));
+  const url = `http://localhost:8080/financialtime/${encoded}`;
+  //   console.log(url);
 
-//Fonction qui effectue notre recherche, prend en seul paramètre les paramètres pour la requête API
-
-const searchHeadlines = async (searchParam) => {
-  const proxyurl = "http://localhost:8080/";
-  const url = "https://api.ft.com/content/search/v1";
-
-  const json = JSON.stringify(searchParam);
   try {
-    const response = await fetch(proxyurl + url, {
-      method: "POST",
-      body: json,
+    const response = await fetch(url, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Api-Key": secretKey,
       },
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      //Si la requête donne un résulat, on ajoute les éléments et on l'affiche dans le DOM
-      if (dataAPI.results[0].results) {
-        // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés depuis la date définie dans les paramètres.
-        for (let i = 0; i < dataAPI.results[0].results.length; i++) {
-          let date = new Date(
-            dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
-          );
-          addHeadline(
-            dataAPI.results[0].results[i].title.title,
-            date.toLocaleDateString(),
-            dataAPI.results[0].results[i].id
-          );
-        }
-        displayHeadlines();
-      } else {
-        console.log("Pas de résultats, merci d'affiner votre recherche..");
-      }
+      console.log(dataAPI);
+      displayHeadlines(dataAPI);
     }
   } catch (e) {
     //Si try échoue, retourne l'erreur catchée
@@ -114,6 +82,7 @@ const searchHeadlines = async (searchParam) => {
 ///MAIN///
 //Si nous sommes sur une page du DOM contenant les classes du "titleContainerElement" à savoir ".stock_newsflow"
 //Alors on éxécute la recherche avec les paramètres sélectionnés.
+
 if (titleContainerElement) {
-  searchHeadlines(getParams());
+  financialTime();
 }
