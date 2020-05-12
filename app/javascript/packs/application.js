@@ -8,7 +8,7 @@ import "trix/dist/trix.css";
 import "../styles/application";
 
 import "../features/apiftimes.js";
-import "../features/morningstar.js";
+import "../features/apimorningstar.js";
 
 // window.jQuery = $;
 // window.$ = $;
