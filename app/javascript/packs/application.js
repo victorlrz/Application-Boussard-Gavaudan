@@ -1,10 +1,13 @@
 import "bootstrap";
+
 import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
 import flatpickr from "flatpickr";
-import Typed from "typed.js";
+
 import algoliasearch from "algoliasearch";
+
 import trix from "trix";
 import "trix/dist/trix.css";
+
 import "../styles/application";
 
 import "../features/apiftimes.js";
