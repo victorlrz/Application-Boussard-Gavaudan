@@ -10,8 +10,8 @@ import "trix/dist/trix.css";
 
 import "../styles/application";
 
-import "../features/apiftimes.js";
-
+// import "../features/apiftimes.js";
+import "../features/morningstar.js";
 // window.jQuery = $;
 // window.$ = $;
 
