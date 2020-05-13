@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_163240) do
+ActiveRecord::Schema.define(version: 2020_05_13_114034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_163240) do
     t.string "price_yrchg"
     t.string "price_1chg"
     t.float "wk52_low"
+    t.string "mgstar_identifier"
   end
 
   create_table "targets", force: :cascade do |t|
