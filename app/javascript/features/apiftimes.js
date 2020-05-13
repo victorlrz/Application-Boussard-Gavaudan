@@ -1,4 +1,3 @@
-require("dotenv").config();
 const secretKey = process.env.FT_KEY;
 
 const titleContainerElement = document.querySelector(".stock_newsflow");
