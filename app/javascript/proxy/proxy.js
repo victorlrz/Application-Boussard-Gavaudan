@@ -7,8 +7,6 @@ const bodyParser = require("body-parser");
 const scrapersMorning = require("../scrapers/scrapingstar.js");
 const scrapersFinancial = require("../scrapers/scrapingft");
 
-const url = "https://www.morningstar.com/stocks/pinx/asomf/valuation";
-
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
@@ -23,13 +21,13 @@ app.get(/financialtime/, async (req, res) => {
   const financialTimeData = await scrapersFinancial.scrapersFinancialTime(
     paramJSON
   );
-  // console.log(financialTimeData);
   res.send(financialTimeData);
 });
 
 app.get(/morningstar/, async (req, res) => {
-  const morningStarData = await scrapersMorning.scrapersMorningStar(url);
-  // console.log(req.originalUrl);
+  const decodedURL = decodeURI(req.originalUrl.slice(13));
+  console.log(decodedURL);
+  const morningStarData = await scrapersMorning.scrapersMorningStar(decodedURL);
   res.send(morningStarData);
 });
 
