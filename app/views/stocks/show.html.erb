@@ -8,6 +8,9 @@
               <h2 class="text-danger">Daily: <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></h2>
           <% end %>
       <p class="text-justify"><%= @stock.earning %></p>
+
+      <div class="stock_valuation" data-mgstar="<%= @stock.mgstar_identifier %>"></div>
+      
     <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-primary btn-block w-100 mb-2 mt-2 mr-2 ml-2"  %>
   </div>
 

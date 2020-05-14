@@ -1,155 +1,163 @@
-puts "Start with a new portfolio BGLTV 07/04/2020"
-stock_1= Stock.find_by(name:'ALSTOM').id
-stock_2= Stock.find_by(name:'ATOS').id
-stock_3= Stock.find_by(name:'AKZO NOBEL').id
-stock_4= Stock.find_by(name:'SAP AG').id
-stock_5= Stock.find_by(name:'ROCHE HOLDING AG-GENUSSCHEIN').id
-stock_6= Stock.find_by(name:'SANOFI').id
-stock_7= Stock.find_by(name:'AXA SA').id
-stock_8= Stock.find_by(name:'BAYER AG-REG').id
-stock_9= Stock.find_by(name:'SMITH NEPHEW PLC').id
-stock_10= Stock.find_by(name:'CRODA INTERNATIONAL PLC').id
-stock_11= Stock.find_by(name:'DANONE').id
-stock_12= Stock.find_by(name:'RSA INSURANCE GROUP PLC').id
-stock_13= Stock.find_by(name:'SAFRAN SA').id
-stock_14= Stock.find_by(name:'VODAFONE GROUP PLC').id
-stock_15= Stock.find_by(name:'TOTAL SA').id
-stock_16= Stock.find_by(name:'BNP PARIBAS SA').id
-stock_17= Stock.find_by(name:'ROYAL DUTCH PETROLEUM CO EUR (RDS A)').id
-stock_18= Stock.find_by(name:'COMPAGNIE DE SAINT-GOBAIN').id
-stock_19= Stock.find_by(name:'INTERCONTINENTAL HOTELS GROU').id
-stock_20= Stock.find_by(name:'OSRAM LICHT AG').id
-stock_21= Stock.find_by(name:'VIVENDI').id
-stock_22= Stock.find_by(name:'BANCO SANTANDER SA').id
-stock_23= Stock.find_by(name:'COMPAGNIE GENERALE DE GEOPHYSIQUE').id
-stock_24= Stock.find_by(name:'ENGIE').id
-stock_25= Stock.find_by(name:'SPIE SA').id
-stock_26= Stock.find_by(name:'BUREAU VERITAS SA').id
-stock_27= Stock.find_by(name:'KONINKLIJKE KPN NV').id
-stock_28= Stock.find_by(name:'THALES SA').id
-stock_29= Stock.find_by(name:'INNOGY SE').id
-stock_30= Stock.find_by(name:'WIRECARD AG').id
-stock_31= Stock.find_by(name:'ABN AMRO GROUP N.V').id
-stock_32= Stock.find_by(name:'FERROVIAL SA').id
-stock_33= Stock.find_by(name:'DASSAULT AVIATION SA').id
-stock_34= Stock.find_by(name:'BARCLAYS PLC').id
-stock_35= Stock.find_by(name:'FAURECIA').id
-stock_36= Stock.find_by(name:'QIAGEN N.V.').id
-stock_37= Stock.find_by(name:'KONINKLIJKE DSM NV').id
-stock_38= Stock.find_by(name:'INGENICO').id
-stock_39= Stock.find_by(name:'EDF').id
-stock_40= Stock.find_by(name:'UNIPER').id
-stock_41= Stock.find_by(name:'GROUPE EUROTUNNEL SA - REGR').id
-stock_42= Stock.find_by(name:'SUEZ ENVIRONNEMENT CO').id
-stock_43= Stock.find_by(name:'PRUDENTIAL PLC').id
-stock_44= Stock.find_by(name:'GRUBHUB INC').id
-stock_45= Stock.find_by(name:'AMS AG').id
-stock_46= Stock.find_by(name:'CONSTELLIUM NV').id
-stock_47= Stock.find_by(name:'VINCI SA').id
-stock_48= Stock.find_by(name:'CERVED INFO SOL').id
-stock_49= Stock.find_by(name:'PLAYTECH LTD').id
-stock_50= Stock.find_by(name:'CAIXA BANK - EX CRITERIA CAIXACORP SA').id
-stock_51= Stock.find_by(name:'ANIMA HOLDING SP').id
-stock_bis_1=Portfolio.new(stock_id:stock_1, date:'07/04/2020', fund:'BGLTV', weight:4.31, aum:49470067.62)
-stock_bis_2=Portfolio.new(stock_id:stock_2, date:'07/04/2020', fund:'BGLTV', weight:4.04, aum:49470067.62)
-stock_bis_3=Portfolio.new(stock_id:stock_3, date:'07/04/2020', fund:'BGLTV', weight:3.86, aum:49470067.62)
-stock_bis_4=Portfolio.new(stock_id:stock_4, date:'07/04/2020', fund:'BGLTV', weight:3.86, aum:49470067.62)
-stock_bis_5=Portfolio.new(stock_id:stock_5, date:'07/04/2020', fund:'BGLTV', weight:3.53, aum:49470067.62)
-stock_bis_6=Portfolio.new(stock_id:stock_6, date:'07/04/2020', fund:'BGLTV', weight:3.50, aum:49470067.62)
-stock_bis_7=Portfolio.new(stock_id:stock_7, date:'07/04/2020', fund:'BGLTV', weight:3.06, aum:49470067.62)
-stock_bis_8=Portfolio.new(stock_id:stock_8, date:'07/04/2020', fund:'BGLTV', weight:3.02, aum:49470067.62)
-stock_bis_9=Portfolio.new(stock_id:stock_9, date:'07/04/2020', fund:'BGLTV', weight:2.99, aum:49470067.62)
-stock_bis_10=Portfolio.new(stock_id:stock_10, date:'07/04/2020', fund:'BGLTV', weight:2.81, aum:49470067.62)
-stock_bis_11=Portfolio.new(stock_id:stock_11, date:'07/04/2020', fund:'BGLTV', weight:2.80, aum:49470067.62)
-stock_bis_12=Portfolio.new(stock_id:stock_12, date:'07/04/2020', fund:'BGLTV', weight:2.72, aum:49470067.62)
-stock_bis_13=Portfolio.new(stock_id:stock_13, date:'07/04/2020', fund:'BGLTV', weight:2.59, aum:49470067.62)
-stock_bis_14=Portfolio.new(stock_id:stock_14, date:'07/04/2020', fund:'BGLTV', weight:2.52, aum:49470067.62)
-stock_bis_15=Portfolio.new(stock_id:stock_15, date:'07/04/2020', fund:'BGLTV', weight:2.45, aum:49470067.62)
-stock_bis_16=Portfolio.new(stock_id:stock_16, date:'07/04/2020', fund:'BGLTV', weight:2.41, aum:49470067.62)
-stock_bis_17=Portfolio.new(stock_id:stock_17, date:'07/04/2020', fund:'BGLTV', weight:2.39, aum:49470067.62)
-stock_bis_18=Portfolio.new(stock_id:stock_18, date:'07/04/2020', fund:'BGLTV', weight:2.37, aum:49470067.62)
-stock_bis_19=Portfolio.new(stock_id:stock_19, date:'07/04/2020', fund:'BGLTV', weight:2.28, aum:49470067.62)
-stock_bis_20=Portfolio.new(stock_id:stock_20, date:'07/04/2020', fund:'BGLTV', weight:2.24, aum:49470067.62)
-stock_bis_21=Portfolio.new(stock_id:stock_21, date:'07/04/2020', fund:'BGLTV', weight:2.14, aum:49470067.62)
-stock_bis_22=Portfolio.new(stock_id:stock_22, date:'07/04/2020', fund:'BGLTV', weight:2.12, aum:49470067.62)
-stock_bis_23=Portfolio.new(stock_id:stock_23, date:'07/04/2020', fund:'BGLTV', weight:2.11, aum:49470067.62)
-stock_bis_24=Portfolio.new(stock_id:stock_24, date:'07/04/2020', fund:'BGLTV', weight:2.03, aum:49470067.62)
-stock_bis_25=Portfolio.new(stock_id:stock_25, date:'07/04/2020', fund:'BGLTV', weight:1.98, aum:49470067.62)
-stock_bis_26=Portfolio.new(stock_id:stock_26, date:'07/04/2020', fund:'BGLTV', weight:1.98, aum:49470067.62)
-stock_bis_27=Portfolio.new(stock_id:stock_27, date:'07/04/2020', fund:'BGLTV', weight:1.97, aum:49470067.62)
-stock_bis_28=Portfolio.new(stock_id:stock_28, date:'07/04/2020', fund:'BGLTV', weight:1.88, aum:49470067.62)
-stock_bis_29=Portfolio.new(stock_id:stock_29, date:'07/04/2020', fund:'BGLTV', weight:1.86, aum:49470067.62)
-stock_bis_30=Portfolio.new(stock_id:stock_30, date:'07/04/2020', fund:'BGLTV', weight:1.71, aum:49470067.62)
-stock_bis_31=Portfolio.new(stock_id:stock_31, date:'07/04/2020', fund:'BGLTV', weight:1.69, aum:49470067.62)
-stock_bis_32=Portfolio.new(stock_id:stock_32, date:'07/04/2020', fund:'BGLTV', weight:1.62, aum:49470067.62)
-stock_bis_33=Portfolio.new(stock_id:stock_33, date:'07/04/2020', fund:'BGLTV', weight:1.61, aum:49470067.62)
-stock_bis_34=Portfolio.new(stock_id:stock_34, date:'07/04/2020', fund:'BGLTV', weight:1.56, aum:49470067.62)
-stock_bis_35=Portfolio.new(stock_id:stock_35, date:'07/04/2020', fund:'BGLTV', weight:1.48, aum:49470067.62)
-stock_bis_36=Portfolio.new(stock_id:stock_36, date:'07/04/2020', fund:'BGLTV', weight:1.38, aum:49470067.62)
-stock_bis_37=Portfolio.new(stock_id:stock_37, date:'07/04/2020', fund:'BGLTV', weight:1.36, aum:49470067.62)
-stock_bis_38=Portfolio.new(stock_id:stock_38, date:'07/04/2020', fund:'BGLTV', weight:1.32, aum:49470067.62)
-stock_bis_39=Portfolio.new(stock_id:stock_39, date:'07/04/2020', fund:'BGLTV', weight:1.27, aum:49470067.62)
-stock_bis_40=Portfolio.new(stock_id:stock_40, date:'07/04/2020', fund:'BGLTV', weight:1.20, aum:49470067.62)
-stock_bis_41=Portfolio.new(stock_id:stock_41, date:'07/04/2020', fund:'BGLTV', weight:1.14, aum:49470067.62)
-stock_bis_42=Portfolio.new(stock_id:stock_42, date:'07/04/2020', fund:'BGLTV', weight:1.07, aum:49470067.62)
-stock_bis_43=Portfolio.new(stock_id:stock_43, date:'07/04/2020', fund:'BGLTV', weight:1.07, aum:49470067.62)
-stock_bis_44=Portfolio.new(stock_id:stock_44, date:'07/04/2020', fund:'BGLTV', weight:1.07, aum:49470067.62)
-stock_bis_45=Portfolio.new(stock_id:stock_45, date:'07/04/2020', fund:'BGLTV', weight:1.04, aum:49470067.62)
-stock_bis_46=Portfolio.new(stock_id:stock_46, date:'07/04/2020', fund:'BGLTV', weight:0.96, aum:49470067.62)
-stock_bis_47=Portfolio.new(stock_id:stock_47, date:'07/04/2020', fund:'BGLTV', weight:0.96, aum:49470067.62)
-stock_bis_48=Portfolio.new(stock_id:stock_48, date:'07/04/2020', fund:'BGLTV', weight:0.90, aum:49470067.62)
-stock_bis_49=Portfolio.new(stock_id:stock_49, date:'07/04/2020', fund:'BGLTV', weight:0.86, aum:49470067.62)
-stock_bis_50=Portfolio.new(stock_id:stock_50, date:'07/04/2020', fund:'BGLTV', weight:0.72, aum:49470067.62)
-stock_bis_51=Portfolio.new(stock_id:stock_51, date:'07/04/2020', fund:'BGLTV', weight:0.32, aum:49470067.62)
-stock_bis_1.save
-stock_bis_2.save
-stock_bis_3.save
-stock_bis_4.save
-stock_bis_5.save
-stock_bis_6.save
-stock_bis_7.save
-stock_bis_8.save
-stock_bis_9.save
-stock_bis_10.save
-stock_bis_11.save
-stock_bis_12.save
-stock_bis_13.save
-stock_bis_14.save
-stock_bis_15.save
-stock_bis_16.save
-stock_bis_17.save
-stock_bis_18.save
-stock_bis_19.save
-stock_bis_20.save
-stock_bis_21.save
-stock_bis_22.save
-stock_bis_23.save
-stock_bis_24.save
-stock_bis_25.save
-stock_bis_26.save
-stock_bis_27.save
-stock_bis_28.save
-stock_bis_29.save
-stock_bis_30.save
-stock_bis_31.save
-stock_bis_32.save
-stock_bis_33.save
-stock_bis_34.save
-stock_bis_35.save
-stock_bis_36.save
-stock_bis_37.save
-stock_bis_38.save
-stock_bis_39.save
-stock_bis_40.save
-stock_bis_41.save
-stock_bis_42.save
-stock_bis_43.save
-stock_bis_44.save
-stock_bis_45.save
-stock_bis_46.save
-stock_bis_47.save
-stock_bis_48.save
-stock_bis_49.save
-stock_bis_50.save
-stock_bis_51.save
-puts "new portfolio created"
+Stock.destroy_all
+
+Stock.create!([{
+  id: 1, 
+  name: 'ASOS', 
+  price: 2.0, 
+  currency: 'EUR' , 
+  market_cap: "2.33bn GBP", 
+  sector: "Retail", 
+  identifier: "ASC:LSE", 
+  revenue: "3.02bn", 
+  ebitda: "Xbn", 
+  earning: "Ybn", 
+  net_debt: 163.9, 
+  description: "Asos PLC is a global fashion destination for a range of things. The Company sells and offers a range of fashion-related content on ASOS.com. The Company's segments include UK, US, EU and RoW. It sells over 85,000 branded and own-label products through localized mobile and Web experiences, delivering from its fulfilment centers in the United Kingdom, the United States, Europe and across the world. It offers approximately 75,000 separate clothing ranges, spanning women's wear and menswear, footwear and accessories, alongside its jewelry and beauty collections. The Company's collection of specialist own-label lines includes ASOS Curve, ASOS Maternity, ASOS Tall and ASOS Petite. The Company caters a range of customer segments and sizes, across all categories and price points. It also operates returns centers in Australia and Poland. It operates country-specific Websites in Australia, France, Germany, Italy, Spain, Russia and the Unites States.", 
+  created_at: 07/04/20, 
+  updated_at: 07/04/20, 
+  beta_ft: 2.7032, 
+  price_yrchg: "-41.16%", 
+  price_1chg: "0.00%", 
+  wk52_low: 43.85,
+  mgstar_identifier: "https://www.morningstar.com/stocks/pinx/asomf/valuation"
+},
+{
+  id: 2, 
+  name: 'COMPAGNIE GENERALE DE GEOPHYSIQUE', 
+  price: 1.14, 
+  currency: 'EUR' , 
+  market_cap: "817.65m EUR", 
+  sector: "Retail", 
+  identifier: "CGG:PAR", 
+  revenue: "1.25bn", 
+  ebitda: "Xbn", 
+  earning: "Ybn", 
+  net_debt: 733, 
+  description: "CGG SA (CGG) is a manufacturer of geophysical equipment. The Company provides marine, land and airborne data acquisition services, as well as a range of other geoscience services, including data imaging, geoscience and petroleum engineering consulting services, and collecting, developing and licensing geological data. Its segments include Contractual Data Acquisition; Geology, Geophysics & Reservoir (GGR); Equipment, and Non-Operated Resources. The Contractual Data Acquisition includes marine, and land and multi-physics. Its GGR segment includes the Multi-client business line and the Subsurface Imaging and Reservoir business lines (processing and imaging of geophysical data, reservoir characterization, geophysical consulting and software services, geological data library and data management solutions). The Equipment segment consists of its manufacturing and sales activities for seismic equipment. It operates through Saturno, a multi-client survey over Santos Basin Offshore Brazil.", 
+  created_at: 06/04/20, 
+  updated_at: 06/04/20, 
+  beta_ft: 2.5811, 
+  price_yrchg: "-28.00%", 
+  price_1chg: "0.00%", 
+  wk52_low: 7.50,
+  mgstar_identifier: "https://www.morningstar.com/stocks/grey/cgpvf/valuation"
+}])
+
+p"Created #{Stock.count} stocks"
+
+Target.destroy_all
+
+Target.create!([{
+  id: 1, 
+  name: "Just Eat", 
+  sector: "Food delivery", 
+  created_at: 07/04/20, 
+  updated_at: 07/04/20, 
+  description: "Just Eat, formerly Allo Resto in France, is a British ready meal delivery company. It is the number one restaurant delivery company in France with the acquisition of Allo Resto.", 
+  ceo: "Peter Duffy", 
+  identifier: "JET:LSE", 
+  url: "https://www.just-eat.fr/", 
+  ebitda: "Xbn", 
+  revenues: "Ybn", 
+  price: 8.0, 
+  price_1chg: "22.94%", 
+  price_yrchg: "22.94%", 
+  beta_ft: 0.4374
+},
+{
+  id: 2, 
+  name: "Tiffany&Co", 
+  sector: "Retail", 
+  created_at: 07/04/20, 
+  updated_at: 07/04/20, 
+  description: "Tiffany&Co is an American jewellery and tableware company founded by Charles Lewis Tiffany (father of Louis Comfort Tiffany) and John B. Young on September 18, 1837 in Manhattan, New York. ", 
+  ceo: "Alessandro Bogliolo", 
+  identifier: "TIF:NYQ", 
+  url: "https://www.tiffany.fr/", 
+  ebitda: "Xbn", 
+  revenues: "Ybn", 
+  price: 127.46, 
+  price_1chg: "16.35%", 
+  price_yrchg: "16.35%%", 
+  beta_ft: 1.0293
+}])
+
+p"Created #{Target.count} targets"
+
+Acquirer.destroy_all
+
+Acquirer.create!([{
+  id: 1, 
+  name: "LVMH", 
+  identifier: "LVMH:MIL", 
+  sector: "Retail", 
+  url: "https://www.lvmh.fr/", 
+  created_at: 07/04/20, 
+  updated_at: 07/04/20
+},
+{
+  id: 2, 
+  name: "Takeaway.com", 
+  identifier: "TKWY:AEX", 
+  sector: "Food & Delivery", 
+  url: "https://www.takeaway.com/", 
+  created_at: 07/04/20, 
+  updated_at: 07/04/20
+}])
+
+p"Created #{Acquirer.count} acquirers"
+
+Deal.destroy_all
+
+Deal.create!([{
+  id: 1, 
+  date: Date.new(2019,10,26), 
+  premium: 37.0, 
+  payment_method: "Cash", 
+  valuation_multiple: 17.0, 
+  acquirer_id: 1, 
+  target_id: 2, 
+  valuation_type: "EBITDA", 
+  bump: false, 
+  comments: "Deal valuation 50% above TIF 10-yr AVG 2) There is no real big companies for sale, TIF is the only big one 3) will catapult LVMH to the top of the rankings for market share in branded jewellery, one of the best-performing luxury categories in 2018 4) LVMH will more than double its market share in jewellery to 18.4 per cent, ahead of Richmont 5) growing firepower of LVMH, which generated €46.8bn in sales and €5.5bn in free cash flow last year. After its shares rose 60 per cent this year, it now has a market value of more than €200bn, comfortably the biggest public company in France. LVMH will issue bonds to finance the acquisition and said it expected it to be earnings accretive from next year, adding €500m-€600m to operating profit as of 2020.", 
+  deal_value: 14700,
+  deal_currency: "USD", 
+  private: false, 
+  rumors: false, 
+  offer_price: 135, 
+  ratio_shares: 1.00
+},
+{
+  id: 2, 
+  date: Date.new(2019,10,26), 
+  premium: 37.0, 
+  payment_method: "Cash", 
+  valuation_multiple: 7.84, 
+  acquirer_id: 2, 
+  target_id: 1, 
+  valuation_type: "EBITDA", 
+  bump: false, 
+  comments: "Takeaway.com has beaten Naspers in its months-long battle for Just Eat, after winning the backing of shareholders in the London-based food ordering pioneer for its £6bn takeover. Investors holding stock worth more than 80 per cent of Just Eat had accepted Takeaway.com’s all-share offer, which had been raised in late December in response to a sweetened counterbid from Naspers’ international dealmaking unit, Prosus. Just Eat shareholders roundly rejected Prosus’ 800p-a-share offer, with holders owning just 0.02 per cent of the company accepting the £5.5bn all-cash deal before it lapsed on Friday. Source - Financial Time", 
+  deal_value: 7000,
+  deal_currency: "EUR", 
+  private: false, 
+  rumors: false, 
+  offer_price: 800, 
+  ratio_shares: 1.00
+}])
+
+p"Created #{Deal.count} deals"
+
+
+Portfolio.destroy_all
+
+Portfolio.create!([{
+  id: 1, 
+  stock_id: 1, 
+  date: Date.new(2020,4,7), 
+  fund: "BGLTV", 
+  weight: 4.31, 
+  aum: 49470067.62, 
+}])
+
+p"Created #{Portfolio.count} portfolios"

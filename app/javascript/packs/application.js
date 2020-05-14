@@ -17,7 +17,6 @@ import "../styles/application";
 import "../features/apiftimes.js";
 import "../features/apimorningstar.js";
 
-
 flatpickr("#deal_date");
 flatpickr("#ipo_date");
 flatpickr("#post_date");

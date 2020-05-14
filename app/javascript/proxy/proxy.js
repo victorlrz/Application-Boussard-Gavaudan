@@ -1,22 +1,33 @@
-//Require : npm i cors-anywhere
-//Run proxy server : node "name.js"
-//This proxy  -> node ./app/javascript/proxy/proxy.js
+const express = require("express");
+const app = express();
+var cors = require("cors");
+const port = process.env.PORT || 5000;
 
-//Listen on a specific host via the HOST environment variable
-const host = process.env.HOST || "0.0.0.0";
-// Listen on a specific port via the PORT environment variable
-const port = process.env.PORT || 8080;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const cors_proxy = require("cors-anywhere");
-cors_proxy
-  .createServer({
-    originWhitelist: [
-      "http://localhost:3000",
-      "https://cryptic-harbor-77074.herokuapp.com/",
-    ], // Origins allowed.
-    requireHeader: ["origin", "x-requested-with"],
-    removeHeaders: ["cookie", "cookie2"],
+app.use(
+  cors({
+    origin: "http://localhost:3000",
   })
-  .listen(port, host, function() {
-    console.log("Running CORS Anywhere on " + host + ":" + port);
-  });
+);
+
+const scrapersMorning = require("./javascript/scrapers/scrapingstar.js");
+const scrapersFinancial = require("./javascript/scrapers/scrapingft");
+
+app.post("/financialtime", async (req, res) => {
+  const financialTimeData = await scrapersFinancial.scrapersFinancialTime(
+    req.body
+  );
+  res.send(financialTimeData);
+});
+
+app.post("/morningstar", async (req, res) => {
+  console.log("hello");
+  const morningStarData = await scrapersMorning.scrapersMorningStar(
+    req.body.url
+  );
+  res.send(morningStarData);
+});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

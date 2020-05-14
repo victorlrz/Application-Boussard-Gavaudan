@@ -1,29 +1,47 @@
-const titleContainerElement = document.querySelector(".stock_newsflow");
+//---------------------------------------------------------MORNING-STAR-API---------------------------------------------------------
 
-const MorningStars = async () => {
-  const url = "http://localhost:8080/morningstar/1";
+const valuationContainerElement = document.querySelector(".stock_valuation");
 
+//@displayValuation : Create DOM elements for scrapped data
+const displayValuation = (valuation) => {
+  valuationContainerElement.innerHTML = `
+  <div>Price/Sales : ${valuation.currentPriceSales}</div>
+  <div>Price/Earnings : ${valuation.currentPriceEarnings}</div>
+  <div>Price/Cash Flow : ${valuation.currentPriceCashFlow}</div>
+  <div>Price/Book : ${valuation.currentPriceBook}</div>
+  <div>Price/Forward Earnings : ${valuation.currentPriceForwardEarnings}</div>
+  <div>Earnings Yield : ${valuation.currentEarningYield}</div>
+  <div>Enterprise Value (Bil): ${valuation.currentEnterpriseValue}</div>
+  <div>Enterprise Value/EBIT : ${valuation.currentEnterpriseValueEbit}</div>
+  <div>Enterprise Value/EBITDA : ${valuation.currentEnterpriseValueEbitda}</div>`;
+  return valuationContainerElement;
+};
+
+//@morningStars : API POST -> PROXY -> Post MorningStar valuation for stocks
+const morningStar = async () => {
+  const id = { url: valuationContainerElement.dataset.mgstar };
+  const json = JSON.stringify(id);
+
+  // const url = `http://localhost:5000/morningstar`; //@dev
+  // const url = `https://tranquil-basin-01555.herokuapp.com/morningstar`; //@deploy
   try {
     const response = await fetch(url, {
-      method: "GET",
+      method: "POST",
+      body: json,
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      console.log(dataAPI);
+      displayValuation(dataAPI);
     }
   } catch (e) {
-    //Si try échoue, retourne l'erreur catchée
     console.error("e : ", e);
   }
 };
 
-///MAIN///
-//Si nous sommes sur une page du DOM contenant les classes du "titleContainerElement" à savoir ".stock_newsflow"
-//Alors on éxécute la recherche avec les paramètres sélectionnés.
-if (titleContainerElement) {
-  console.log("GO");
-  MorningStars();
+//@MAIN : If "stocks/show.html.erb"
+if (valuationContainerElement) {
+  morningStar();
 }
