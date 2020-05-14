@@ -17,17 +17,44 @@
               <button type="button" class="btn btn-ghost mr-3 ml-3" data-toggle="modal" data-target="#exampleModal">Create a Post</button>
               <%= link_to "Back to Deals", deals_path, class: "btn btn-ghost mr-3 ml-3" %>
               <%= link_to "Update this deal", edit_deal_path(@deal), class: "btn btn-ghost mr-3 ml-3" %>
-          </div> 
-        </div>
-
-        <div class="stock_newsflow" data-name="<%= @deal.acquirer.name %>" data-identifier="<%= @deal.acquirer.identifier %>"></div>
-
-          <div class="row mt-3">
-              <div class="col-8 align-content-center text-justify mr-2 ml-2 mt-2 mb-2">
-                  <%= render "posts/index-posts" %>
-              </div>
           </div>
         </div>
-        <%= render "posts/modal" %>
+
+
+    <!--Accordion wrapper-->
+    <div class="accordion md-accordion border-top mb-3" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+      <!-- Accordion card -->
+      <div class="card">
+
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="headingOne1">
+          <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+            aria-controls="collapseOne1">
+            <h5 class="btn-success p-3 mb-0">
+              Newsflow from Financials time (if any since beginning of the year) <i class="fas fa-angle-down rotate-icon float-right"></i>
+            </h5>
+          </a>
+        </div>
+
+        <!-- Card body -->
+        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+          data-parent="#accordionEx">
+          <div class="card-body">
+            <div class="stock_newsflow" data-name="<%= @deal.acquirer.name %>" data-identifier="<%= @deal.acquirer.identifier %>"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Accordion card -->
+
+
+    <div class="row mt-3">
+        <div class="col-8 align-content-center text-justify mr-2 ml-2 mt-2 mb-2">
+            <%= render "posts/index-posts" %>
+        </div>
+    </div>
+  </div>
+    <%= render "posts/modal" %>
   </div>
 

@@ -9,11 +9,27 @@
 </div>
 
 <div class="container mt-3 mb-3 text-justify overflow-auto">
-  <h3 class="mt-2 mb-2 w-100">Recent comments</h1>
-  <% @comments.each do |comment| %>
-    <div class="border-top mb-5"></div>
-    <h4 class="p-3 mb-2 btn btn-primary w-100 text-left"><%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><u><%= link_to stock.name, stock_path(stock), class: "text-white" %></u></strong>, <em>source: </em> <%= comment.source %></h4>
-    <p><%=raw comment.content %></p>
+  <h3 class="mt-2 mb-2 w-100">Recent comments</h3>
+
+  <% @comments.each_with_index do |comment, index| %>
+
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="heading<%= index.to_s %>">
+          <h5 class="mb-0">
+            <button class="btn btn-success w-100 text-left" data-toggle="collapse" data-target="#collapse<%= index.to_s %>" aria-expanded="true" aria-controls="collapse<%= index.to_s %>">
+              <%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><u><%= link_to stock.name, stock_path(stock), class: "text-white" %></u></strong>, <em>source: </em> <%= comment.source %>
+            </button>
+          </h5>
+        </div>
+
+      <div id="collapse<%= index.to_s %>" class="collapse show" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
+        <div class="card-body">
+          <%=raw comment.content %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
+
 
