@@ -51,7 +51,9 @@ const displayHeadlines = (headlines) => {
 //@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
-  const url = `http://localhost:8080/financialtime`; //Create specific URL with @getParam()
+  // const url = `http://localhost:5000/financialtime`; //@dev
+  // const url = `https://tranquil-basin-01555.herokuapp.com/financialtime`; @deploy
+
   try {
     const response = await fetch(url, {
       method: "POST",
