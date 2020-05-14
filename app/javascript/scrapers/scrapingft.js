@@ -15,7 +15,7 @@ const addHeadline = (text, date, id) => {
   });
 };
 
-//@scapersFinancialTime : API Get PROXY -> FT
+//@scapersFinancialTime : API Post PROXY -> FT
 const scrapersFinancialTime = async (searchParam) => {
   headlines = [];
   const url = "https://api.ft.com/content/search/v1";
