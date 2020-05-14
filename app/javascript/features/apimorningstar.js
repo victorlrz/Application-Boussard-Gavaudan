@@ -2,8 +2,8 @@
 
 const valuationContainerElement = document.querySelector(".stock_valuation");
 
-//@createValuationElement : Create DOM elements for scrapped data
-const createValuationElement = (valuation) => {
+//@displayValuation : Create DOM elements for scrapped data
+const displayValuation = (valuation) => {
   valuationContainerElement.innerHTML = `
   <div>Price/Sales : ${valuation.currentPriceSales}</div>
   <div>Price/Earnings : ${valuation.currentPriceEarnings}</div>
@@ -17,18 +17,16 @@ const createValuationElement = (valuation) => {
   return valuationContainerElement;
 };
 
-//@displayValuation : Display valuation data on the DOM (response {object})
-const displayValuation = (valuation) => {
-  valuationContainerElement.append(createValuationElement(valuation));
-};
-
-//@morningStars : API GET -> PROXY -> Get MorningStar valuation for stocks
+//@morningStars : API POST -> PROXY -> Post MorningStar valuation for stocks
 const morningStar = async () => {
-  const encoded = encodeURI(valuationContainerElement.dataset.mgstar);
-  const url = `http://localhost:8080/morningstar/${encoded}`;
+  const id = { url: valuationContainerElement.dataset.mgstar };
+  const json = JSON.stringify(id);
+
+  const url = `http://localhost:8080/morningstar`;
   try {
     const response = await fetch(url, {
-      method: "GET",
+      method: "POST",
+      body: json,
       headers: {
         "Content-Type": "application/json",
       },

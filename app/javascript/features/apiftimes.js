@@ -48,13 +48,14 @@ const displayHeadlines = (headlines) => {
   titleContainerElement.append(...titleNode);
 };
 
-//@financialTime : API GET -> PROXY -> Get FT news for stocks/deals
+//@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
-  const encoded = encodeURI(JSON.stringify(getParams())); //Encode parameter
-  const url = `http://localhost:8080/financialtime/${encoded}`; //Create specific URL with @getParam()
+  const json = JSON.stringify(getParams());
+  const url = `http://localhost:8080/financialtime`; //Create specific URL with @getParam()
   try {
     const response = await fetch(url, {
-      method: "GET",
+      method: "POST",
+      body: json,
       headers: {
         "Content-Type": "application/json",
       },
