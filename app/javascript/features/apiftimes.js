@@ -54,7 +54,7 @@ const displayHeadlines = (headlines) => {
 //@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
-  // const url = `http://localhost:5000/financialtime`; //@dev
+  const url = 'http://localhost:5000/financialtime'; //@dev
   // const url = `https://tranquil-basin-01555.herokuapp.com/financialtime`; @deploy
 
   try {
@@ -67,7 +67,7 @@ const financialTime = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      
+
       displayHeadlines(dataAPI);
 
       //Si la requête donne un résulat, on ajoute les éléments et on l'affiche dans le DOM

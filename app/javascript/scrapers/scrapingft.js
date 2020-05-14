@@ -1,6 +1,5 @@
 // console.log(require("dotenv").config()); //Useful debug
 
-require("dotenv").config();
 const fetch = require("node-fetch");
 const secretKey = process.env.FT_KEY;
 

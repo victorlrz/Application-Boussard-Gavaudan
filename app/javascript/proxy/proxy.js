@@ -12,8 +12,8 @@ app.use(
   })
 );
 
-const scrapersMorning = require("./javascript/scrapers/scrapingstar.js");
-const scrapersFinancial = require("./javascript/scrapers/scrapingft");
+const scrapersMorning = require("../scrapers/scrapingstar");
+const scrapersFinancial = require("../scrapers/scrapingft");
 
 app.post("/financialtime", async (req, res) => {
   const financialTimeData = await scrapersFinancial.scrapersFinancialTime(
