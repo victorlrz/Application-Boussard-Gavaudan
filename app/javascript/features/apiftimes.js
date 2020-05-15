@@ -54,7 +54,7 @@ const displayHeadlines = (headlines) => {
 //@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
-  const url = 'http://serv-bgam.herokuapp.com/financialtime';
+  const url = 'https://serv-bgam.herokuapp.com/financialtime';
 
   try {
     const response = await fetch(url, {
