@@ -22,8 +22,8 @@ const morningStar = async () => {
   const id = { url: valuationContainerElement.dataset.mgstar };
   const json = JSON.stringify(id);
 
-  const url = 'http://localhost:5000/morningstar'; //@dev
-  // const url = `https://tranquil-basin-01555.herokuapp.com/morningstar`; //@deploy
+  const url = 'http://serv-bgam.herokuapp.com/financialtime';
+
   try {
     const response = await fetch(url, {
       method: "POST",
