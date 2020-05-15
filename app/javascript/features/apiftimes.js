@@ -65,10 +65,12 @@ const financialTime = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      displayHeadlines(dataAPI);
-    } else {
-      console.log("Pas de résultats, merci d'affiner votre recherche..");
-      document.querySelector(".accordion").remove();
+      if (dataAPI[0]) {
+        displayHeadlines(dataAPI);
+      } else {
+        console.log("Pas de résultats, merci d'affiner votre recherche..");
+        document.querySelector(".accordion").remove();
+      }
     }
   } catch (e) {
     console.error("e : ", e);
