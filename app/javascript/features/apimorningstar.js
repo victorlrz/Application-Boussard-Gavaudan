@@ -22,8 +22,8 @@ const morningStar = async () => {
   const id = { url: valuationContainerElement.dataset.mgstar };
   const json = JSON.stringify(id);
 
-  const url = 'https://serv-bgam.herokuapp.com/financialtime';
-
+  // const url = `http://localhost:5000/morningstar`; //@dev
+  const url = `http://serv-bgam.herokuapp.com/morningstar`; //@deploy
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -42,6 +42,9 @@ const morningStar = async () => {
 };
 
 //@MAIN : If "stocks/show.html.erb"
-if (valuationContainerElement) {
+if (
+  valuationContainerElement &&
+  valuationContainerElement.dataset.mgstar !== ""
+) {
   morningStar();
 }

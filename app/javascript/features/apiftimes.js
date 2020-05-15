@@ -2,7 +2,6 @@
 
 const secretKey = process.env.FT_KEY;
 
-
 const titleContainerElement = document.querySelector(".stock_newsflow");
 
 //@getParams() : Define API parameters
@@ -54,7 +53,7 @@ const displayHeadlines = (headlines) => {
 //@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
-  const url = 'https://serv-bgam.herokuapp.com/financialtime';
+  const url = "https://serv-bgam.herokuapp.com/financialtime";
 
   try {
     const response = await fetch(url, {
@@ -66,27 +65,10 @@ const financialTime = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-
       displayHeadlines(dataAPI);
-
-      //Si la requête donne un résulat, on ajoute les éléments et on l'affiche dans le DOM
-      if (dataAPI.results[0].results) {
-        // i varie de 0 à maxResults des paramètres OU i varie de 0 au nombre de titres retournés depuis la date définie dans les paramètres.
-        for (let i = 0; i < dataAPI.results[0].results.length; i++) {
-          let date = new Date(
-            dataAPI.results[0].results[i].lifecycle.lastPublishDateTime
-          );
-          addHeadline(
-            dataAPI.results[0].results[i].title.title,
-            date.toLocaleDateString(),
-            dataAPI.results[0].results[i].id
-          );
-        }
-        displayHeadlines();
-      } else {
-        console.log("Pas de résultats, merci d'affiner votre recherche..");
-        document.querySelector(".accordion").remove();
-      }
+    } else {
+      console.log("Pas de résultats, merci d'affiner votre recherche..");
+      document.querySelector(".accordion").remove();
     }
   } catch (e) {
     console.error("e : ", e);
