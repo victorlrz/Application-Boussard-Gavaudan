@@ -14,7 +14,6 @@ const displayValuation = (valuation) => {
   <div>Enterprise Value (Bil): ${valuation.currentEnterpriseValue}</div>
   <div>Enterprise Value/EBIT : ${valuation.currentEnterpriseValueEbit}</div>
   <div>Enterprise Value/EBITDA : ${valuation.currentEnterpriseValueEbitda}</div>`;
-  return valuationContainerElement;
 };
 
 //@morningStars : API POST -> PROXY -> Post MorningStar valuation for stocks
