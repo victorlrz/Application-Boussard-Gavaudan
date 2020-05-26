@@ -13,7 +13,7 @@ import "../styles/application";
 
 import "../features/apiftimes.js";
 import "../features/apimorningstar.js";
-import "../features/apicorporatenews.js";
+// import "../features/apicorporatenews.js";
 
 flatpickr("#deal_date");
 flatpickr("#ipo_date");
