@@ -16,6 +16,7 @@ import "trix/dist/trix.css";
 import 'jquery';
 import 'datatables.net';
 
+
 $(document).ready( function () {
   $('#my_data').DataTable();
 } );``
