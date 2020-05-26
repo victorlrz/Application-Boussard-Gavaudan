@@ -1,5 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
-    skip_before_action :verify_authenticity_token
+   
     before_action :validate_api_key!
     
     def index
@@ -33,6 +33,12 @@ class Api::V1::ArticlesController < ApplicationController
     def validate_api_key!
         return head :forbidden unless has_valid_api_key?
     end
+
+    def http_basic_authenticate
+        authenticate_or_request_with_http_basic do |username, password|
+          username == "larrezetvictor@gmail.com" && password == "wxcvbn123456"
+        end
+      end
  end
 
  
