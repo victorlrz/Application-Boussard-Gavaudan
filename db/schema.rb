@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_072344) do
+ActiveRecord::Schema.define(version: 2020_05_26_124503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_072344) do
     t.string "title"
     t.string "cloudinary"
     t.string "comment_link"
+    t.boolean "is_scraped_file"
+    t.boolean "is_scraped_news"
     t.index ["stock_id"], name: "index_comments_on_stock_id"
   end
 

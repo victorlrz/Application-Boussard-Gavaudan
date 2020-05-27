@@ -22,6 +22,8 @@ const morningStar = async () => {
   const json = JSON.stringify(id);
 
   const url = "https://serv-bgam.herokuapp.com/morningstar";
+  // const url = "http://localhost:5000/morningstar";
+
   try {
     const response = await fetch(url, {
       method: "POST",
