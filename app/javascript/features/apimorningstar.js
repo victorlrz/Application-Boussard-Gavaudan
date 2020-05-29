@@ -14,7 +14,6 @@ const displayValuation = (valuation) => {
   <div>Enterprise Value (Bil): ${valuation.currentEnterpriseValue}</div>
   <div>Enterprise Value/EBIT : ${valuation.currentEnterpriseValueEbit}</div>
   <div>Enterprise Value/EBITDA : ${valuation.currentEnterpriseValueEbitda}</div>`;
-  return valuationContainerElement;
 };
 
 //@morningStars : API POST -> PROXY -> Post MorningStar valuation for stocks
@@ -23,6 +22,8 @@ const morningStar = async () => {
   const json = JSON.stringify(id);
 
   const url = "https://serv-bgam.herokuapp.com/morningstar";
+  // const url = "http://localhost:5000/morningstar";
+
   try {
     const response = await fetch(url, {
       method: "POST",
