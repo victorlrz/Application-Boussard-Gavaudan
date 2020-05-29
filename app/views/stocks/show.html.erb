@@ -40,9 +40,11 @@
 
   </div>
 </div>
+
+  <!-- Building feature -->
+  <div class="corporate_news mb-3" data-identifier="<%= @stock.identifier %>" data-stock_id="<%= @stock.id %>"></div>
+
   <!-- Accordion card -->
-
-
   <div class="container text-justify overflow-auto">
    <% @stock.comments.order("date DESC").each do |comment| %>
       <div class="border-top mt-"></div>
