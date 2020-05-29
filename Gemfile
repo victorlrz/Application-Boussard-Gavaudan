@@ -25,6 +25,8 @@ gem 'trix-rails', require: 'trix'
 gem 'jquery-rails', '~> 4.4'
 gem 'ajax-datatables-rails'
 gem 'jquery-datatables'
+gem 'rack-cors'
+gem 'simple_token_authentication', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
