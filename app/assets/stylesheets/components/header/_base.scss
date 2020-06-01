@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.container-nb {
+  display: block;
+  margin: auto;
+  max-width: 1100px;
+  height: 1500px;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-family: "Cormorant Garamond", serif;
+  color: $dark-nb;
+}
+
+.a-nb {
+  font-size: 1.6rem;
+  color: $dark-nb;
+  text-decoration: none;
+}
+
+.ul-nb {
+  list-style: none;
+}
