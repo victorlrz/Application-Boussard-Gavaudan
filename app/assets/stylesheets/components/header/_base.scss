@@ -11,6 +11,7 @@
 .container-nb {
   display: block;
   margin: auto;
+  width: 80%;
   max-width: 1100px;
   height: 1500px;
   font-size: 1.6rem;
@@ -22,7 +23,11 @@
 .a-nb {
   font-size: 1.6rem;
   color: $dark-nb;
+}
+
+.a-nb:hover {
   text-decoration: none;
+  color: $dark-nb;
 }
 
 .ul-nb {

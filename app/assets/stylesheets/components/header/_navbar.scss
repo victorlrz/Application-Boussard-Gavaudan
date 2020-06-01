@@ -1,3 +1,5 @@
+@import "../media-queries";
+
 // Header
 .header-nb {
   display: grid;
@@ -5,22 +7,44 @@
   place-items: center start;
   line-height: 3.5rem;
   margin: 0.5rem auto;
+  @include xs {
+    grid-template-columns: 1fr;
+    place-items: center center;
+    line-height: 2rem;
+  }
   .logo {
     font-size: 3rem;
     font-family: "Staatliches", cursive;
+    @include xs {
+      line-height: 3.2rem;
+    }
   }
   a {
     display: block;
     padding: 1rem;
+    @include xs {
+      padding: 0.5rem 0;
+    }
   }
   ul {
     display: flex;
     align-items: center;
+    @include xs {
+      flex-direction: column;
+    }
     li {
-      font-family: "Cormorant Garamond", serif;
       padding: 1rem;
+      @include xs {
+        padding: 0.2rem;
+        align-self: stretch;
+        text-align: center;
+        border-bottom: 1px solid $gray-light-nb;
+      }
       .text-primary-nb {
         color: $primary-nb;
+      }
+      .text-primary:hover {
+        opacity: 0.8;
       }
       .btn-nb {
         font-family: Arial;
@@ -51,12 +75,17 @@
 .nav-nb {
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: sticky;
   top: 0;
   background: #fff;
 }
 
+header ul li:last-child {
+  @include xs {
+    display: none;
+  }
+}
 // .navbar-lewagon {
 //   justify-content: space-between;
 //   background: white;
