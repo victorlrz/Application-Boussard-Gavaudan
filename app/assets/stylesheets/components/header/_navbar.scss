@@ -1,0 +1,110 @@
+@import "../media-queries";
+
+// Header
+.header-nb {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-items: center start;
+  line-height: 3.5rem;
+  margin: 0.5rem auto;
+  @include xs {
+    grid-template-columns: 1fr;
+    place-items: center center;
+    line-height: 2rem;
+  }
+  .logo {
+    font-size: 3rem;
+    font-family: "Staatliches", cursive;
+    @include xs {
+      line-height: 3.2rem;
+    }
+  }
+  a {
+    display: block;
+    padding: 1rem;
+    @include xs {
+      padding: 0.5rem 0;
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    @include xs {
+      flex-direction: column;
+    }
+    li {
+      padding: 1rem;
+      @include xs {
+        padding: 0.2rem;
+        align-self: stretch;
+        text-align: center;
+        border-bottom: 1px solid $gray-light-nb;
+      }
+      .text-primary-nb {
+        color: $primary-nb;
+      }
+      .text-primary:hover {
+        opacity: 0.8;
+      }
+      .btn-nb {
+        font-family: Arial;
+        font-size: 1.6rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        border: 0;
+        transition: all 0.2s;
+      }
+
+      .btn-light-nb {
+        background: white;
+        border: 1px solid $primary-nb;
+        color: $primary-nb;
+      }
+
+      .btn-light-nb:hover {
+        background: $primary-nb;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Navbar */
+
+.nav-nb {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+
+header ul li:last-child {
+  @include xs {
+    display: none;
+  }
+}
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 70px;
+// }
+
+// .navbar-design {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .topnavbar-design {
+//   background: #fff;
+// }
