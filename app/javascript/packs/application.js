@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 import "../features/apiftimes.js";
-import "../features/apimorningstar.js";
+// import "../features/apimorningstar.js";
 
 import "../styles/application";
 
