@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_152509) do
+ActiveRecord::Schema.define(version: 2020_06_04_113055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2020_06_03_152509) do
   end
 
   create_table "morning_stars", force: :cascade do |t|
-    t.datetime "date"
     t.bigint "stock_id"
     t.string "currentPriceSales"
     t.string "currentPriceEarnings"
