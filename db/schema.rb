@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_124503) do
+ActiveRecord::Schema.define(version: 2020_06_03_152509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,11 +53,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_124503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
-    t.string "title"
-    t.string "cloudinary"
-    t.string "comment_link"
-    t.boolean "is_scraped_file"
-    t.boolean "is_scraped_news"
     t.index ["stock_id"], name: "index_comments_on_stock_id"
   end
 
@@ -93,6 +88,16 @@ ActiveRecord::Schema.define(version: 2020_05_26_124503) do
     t.string "owner"
   end
 
+  create_table "financial_times_articles", force: :cascade do |t|
+    t.bigint "stock_id"
+    t.datetime "date"
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_financial_times_articles_on_stock_id"
+  end
+
   create_table "ipos", force: :cascade do |t|
     t.string "name"
     t.string "sector"
@@ -102,6 +107,23 @@ ActiveRecord::Schema.define(version: 2020_05_26_124503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "date"
+  end
+
+  create_table "morning_stars", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "stock_id"
+    t.string "currentPriceSales"
+    t.string "currentPriceEarnings"
+    t.string "currentPriceCashFlow"
+    t.string "currentPriceBook"
+    t.string "currentPriceForwardEarnings"
+    t.string "currentEarningYield"
+    t.string "currentEnterpriseValue"
+    t.string "currentEnterpriseValueEbit"
+    t.string "currentEnterpriseValueEbitda"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_morning_stars_on_stock_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -140,6 +162,17 @@ ActiveRecord::Schema.define(version: 2020_05_26_124503) do
     t.index ["deal_id"], name: "index_rounds_on_deal_id"
   end
 
+  create_table "scraped_files", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "stock_id"
+    t.string "title"
+    t.string "cloudinary"
+    t.string "comment_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_scraped_files_on_stock_id"
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -158,7 +191,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_124503) do
     t.string "price_yrchg"
     t.string "price_1chg"
     t.float "wk52_low"
-    t.string "mgstar_identifier"
   end
 
   create_table "targets", force: :cascade do |t|
