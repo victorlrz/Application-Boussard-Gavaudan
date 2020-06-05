@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_131023) do
+ActiveRecord::Schema.define(version: 2020_06_03_152509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,16 +110,17 @@ ActiveRecord::Schema.define(version: 2020_06_04_131023) do
   end
 
   create_table "morning_stars", force: :cascade do |t|
+    t.datetime "date"
     t.bigint "stock_id"
-    t.string "current_price_sales"
-    t.string "current_price_earnings"
-    t.string "current_price_cashflow"
-    t.string "current_price_book"
-    t.string "current_price_forward_earnings"
-    t.string "current_earning_yield"
-    t.string "current_enterprise_value"
-    t.string "current_enterprise_value_ebit"
-    t.string "current_enterprise_value_ebitda"
+    t.string "currentPriceSales"
+    t.string "currentPriceEarnings"
+    t.string "currentPriceCashFlow"
+    t.string "currentPriceBook"
+    t.string "currentPriceForwardEarnings"
+    t.string "currentEarningYield"
+    t.string "currentEnterpriseValue"
+    t.string "currentEnterpriseValueEbit"
+    t.string "currentEnterpriseValueEbitda"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stock_id"], name: "index_morning_stars_on_stock_id"
