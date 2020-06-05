@@ -9,6 +9,5 @@ class CreateFinancialTimesArticles < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :financial_times_articles, :stock_id
   end
 end
