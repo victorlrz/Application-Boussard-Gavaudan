@@ -1,3 +1,3 @@
 class ScrapedFile < ApplicationRecord
-    belongs_to :stock
-  end
+  belongs_to :stock
+end
