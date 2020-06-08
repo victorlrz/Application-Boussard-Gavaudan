@@ -9,13 +9,17 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
   </head>
   <body>
+  <% if user_signed_in?%>
     <div class="container-nb"> 
       <%= render "layouts/header" %>
-        <%= yield %>
+      <%= yield %>
+  <% else %>
+    <%= yield %>
+  <% end %>
     </div>
   </body>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
 </html>

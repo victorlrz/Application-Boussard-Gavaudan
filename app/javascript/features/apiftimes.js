@@ -10,10 +10,7 @@ const getParams = () => {
     const today = new Date();
     let rollingWindow = new Date();
     rollingWindow.setTime(today.getTime() - 31622400000);
-    rollingWindow = rollingWindow
-      .toISOString()
-      .toString()
-      .slice(0, 10);
+    rollingWindow = rollingWindow.toISOString().toString().slice(0, 10);
 
     const stockName = titleContainerElement.dataset.name; //Get @deal.acquirer.name || @Stock.acquirer
     const stockId = titleContainerElement.dataset.identifier; //Get @deal.acquirer.identifier || @Stock.identifier
@@ -54,7 +51,6 @@ const displayHeadlines = (headlines) => {
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
   const url = "https://serv-bgam.herokuapp.com/financialtime";
-
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -65,6 +61,7 @@ const financialTime = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
+      // console.log(dataAPI); //DEBUG
       if (dataAPI[0]) {
         displayHeadlines(dataAPI);
       } else {
