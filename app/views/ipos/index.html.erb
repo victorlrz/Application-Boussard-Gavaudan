@@ -1,6 +1,11 @@
+<% if current_user.admin %>
+<div class="portfolio-index-admin">
+  <a href="ipos/new"><button class="button type3">New IPOS</button></a>
+</div>
+<% end %>
+ 
  <div class="ipos">
   <div class=container>
-    <h1>IPOs</h1>
     <% @ipos.each do |ipo| %>
       <div class="card-product">
         <div class="mb-1 mt-1 ml-1 mtr-1"><%= cl_image_tag ipo.ipo_logo.key, width: 85, height: 85, crop: :pad %></div>

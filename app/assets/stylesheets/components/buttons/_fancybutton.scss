@@ -9,16 +9,17 @@ $color4: red;
 // Button component
 .button {
   position: relative;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  font-size: 18px;
-  margin: 1em 0.8em;
-
+  font-size: 15px;
+  margin: 1.5rem;
+  &:focus {
+    outline-style: none;
+  }
   &.type1 {
-    color: $color1;
     // Effect one
     &.type1::after,
     &.type1::before {
@@ -37,8 +38,6 @@ $color4: red;
       right: 0;
       border-top-color: transparent;
       border-left-color: transparent;
-      border-bottom-color: $color1;
-      border-right-color: $color1;
     }
 
     &.type1::before {
@@ -46,8 +45,6 @@ $color4: red;
       left: 0;
       border-bottom-color: transparent;
       border-right-color: transparent;
-      border-top-color: $color1;
-      border-left-color: $color1;
     }
 
     &.type1:hover:after,
@@ -58,7 +55,6 @@ $color4: red;
   }
 
   &.type2 {
-    color: $color2;
     // Effect 2
     &.type2:after,
     &.type2:before {
@@ -69,7 +65,6 @@ $color4: red;
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: $color2;
       transition: all 0.3s ease;
       transform: scale(0.85);
     }
