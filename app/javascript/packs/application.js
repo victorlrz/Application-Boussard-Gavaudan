@@ -26,6 +26,8 @@ import "../features/apiftimes.js";
 
 import "../styles/application";
 
+//Front end
+import "../frontend/navbar";
 $(document).ready(function () {
   $("#my_data").DataTable();
 });
