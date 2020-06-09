@@ -1,0 +1,129 @@
+// Variables
+$color: black;
+$body-color: #ecf0f1;
+$color1: #566473;
+$color2: #16a085;
+$color3: #435a6b;
+$color4: red;
+
+// Button component
+.button {
+  position: relative;
+  padding: 1em 1.5em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  margin: 1em 0.8em;
+
+  &.type1 {
+    color: $color1;
+    // Effect one
+    &.type1::after,
+    &.type1::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      border: 2px solid;
+      transition: all 0.6s ease;
+      border-radius: 2px;
+    }
+
+    &.type1::after {
+      bottom: 0;
+      right: 0;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: $color1;
+      border-right-color: $color1;
+    }
+
+    &.type1::before {
+      top: 0;
+      left: 0;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      border-top-color: $color1;
+      border-left-color: $color1;
+    }
+
+    &.type1:hover:after,
+    &.type1:hover:before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.type2 {
+    color: $color2;
+    // Effect 2
+    &.type2:after,
+    &.type2:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $color2;
+      transition: all 0.3s ease;
+      transform: scale(0.85);
+    }
+
+    &.type2:hover:before {
+      top: 0;
+      transform: scale(1);
+    }
+
+    &.type2:hover:after {
+      transform: scale(1);
+    }
+  }
+
+  &.type3 {
+    color: $color3;
+    &.type3::after,
+    &.type3::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      border: 2px solid;
+      transition: all 0.6s ease;
+      border-radius: 2px;
+    }
+
+    &.type3::after {
+      bottom: 0;
+      right: 0;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: $color3;
+      border-right-color: $color3;
+    }
+
+    &.type3::before {
+      top: 0;
+      left: 0;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      border-top-color: $color3;
+      border-left-color: $color3;
+    }
+
+    &.type3:hover:after,
+    &.type3:hover:before {
+      border-bottom-color: $color3;
+      border-right-color: $color3;
+      border-top-color: $color3;
+      border-left-color: $color3;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
