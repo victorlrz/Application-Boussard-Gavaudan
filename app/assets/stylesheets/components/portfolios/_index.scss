@@ -1,0 +1,22 @@
+$color1: #16a085;
+
+.portfolio-index-admin {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .button.type2 {
+    color: $color1;
+    &.type2:after,
+    &.type2:before {
+      background-color: $color1;
+    }
+
+    &.type2::before {
+      border-top-color: $color1;
+      border-left-color: $color1;
+    }
+  }
+}
