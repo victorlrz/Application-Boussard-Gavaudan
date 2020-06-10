@@ -4,49 +4,55 @@
   </div>
 <% end %>
 
-<div class="container">
-  <table id="my_data" class="table table-striped" style="width:100%">
-    <thead>
-      <tr>
-        <th scope="col" class="text-center align-middle">Name</th>
-        <th scope="col" class="text-center align-middle">Identifier</th>
-        <th scope="col" class="text-center align-middle">Price</th>
-        <th scope="col" class="text-center align-middle">Mkt Cap</th>
-        <th scope="col" class="text-center align-middle">Revenue TTM</th>
-        <th scope="col" class="text-center align-middle">P/E TTM</th>
-        <th scope="col" class="text-center align-middle">1D - Chg</th>
-        <th scope="col" class="text-center align-middle">1Y - Chg</th>
-        <th scope="col" class="text-center align-middle">Beta</th>
-        <th scope="col" class="text-center align-middle">Comment</th>
-        <th scope="col" class="text-center align-middle"> BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @stocks.order("beta_ft DESC").each do |stock| %>
-        <tr>
-          <td class="align-middle" style="width: 200px;"><%= link_to stock.name, stock_path(stock)  %></td>
-          <td class="text-center align-middle"><%= stock.identifier %></td>
-          <td class="text-center align-middle"><%= stock.price %></td>
-          <td class="text-center align-middle"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></td>
-          <td class="text-center align-middle"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil?  %></td>
-          <td class="text-center align-middle"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
+<div class="stock-index-container">
+  <ul class="stock-index-table">
+    <li class="stock-index-table-header">
+      <div class="col-nb-1">Name</div>
+      <div class="col-nb-2">Identifier</div>
+      <div class="col-nb-3">Price</div>
+      <div class="col-nb-4">Mkt Cap</div>
+      <div class="col-nb-5">Revenue TTM</div>
+      <div class="col-nb-6">P/E TTM</div>
+      <div class="col-nb-7">1D - Chg</div>
+      <div class="col-nb-8">1Y - Chg</div>
+      <div class="col-nb-9">Beta</div>
+      <div class="col-nb-10">Articles</div>
+      <div class="col-nb-11">BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)</div>
+    </li>
 
-          <% if  stock.price_1chg.split(" / ").last.to_f > 0%>
-              <td class="text-center align-middle text-success"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></td>
-            <% else %>
-              <td class="text-center align-middle text-danger"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></td>
-          <% end %>
-          <% if stock.price_yrchg.to_f > 0 %>
-            <td class="text-center align-middle text-success"><%= stock.price_yrchg %></td>
-          <% else %>
-              <td class="text-center align-middle text-danger"><%= stock.price_yrchg %></td>
-          <% end %>
-          <td class="text-center align-middle"><%= stock.beta_ft %></td>
-          <td class="text-center align-middle"><%= stock.comments.count %></td>
-          <td class="text-center align-middle"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% @stocks.order("beta_ft DESC").each do |stock| %>
+      <li class="stock-index-row">
+        <%= link_to "", stock_path(stock), class: "stock-index-a" %>
+        <div class="col-nb-1" data-label="Name"><%= stock.name %></div>
+        <div class="col-nb-2" data-label="Identifier"><%= stock.identifier %></div>
+        <div class="col-nb-3" data-label="Price"><%= stock.price %></div>
+        <div class="col-nb-4" data-label="Mkt Cap"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></div>
+        <div class="col-nb-5" data-label="Revenue TTM"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil?  %></div>
+        <div class="col-nb-6" data-label="P/E TTM"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></div>
+        <% if  stock.price_1chg.split(" / ").last.to_f > 0%>
+          <div class="col-nb-7 text-success-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
+        <% else %>
+          <div class="col-nb-7 text-danger-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
+        <% end %>
+        <% if stock.price_yrchg.to_f > 0 %>
+          <div class="col-nb-8 text-success-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
+        <% else %>
+          <div class="col-nb-8 text-danger-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
+        <% end %>
+        <div class="col-nb-9" data-label="Beta"><%= stock.beta_ft %></div>
+        <div class="col-nb-10" data-label="Articles"><%= stock.comments.count %></div>
+        <% if stock.price_yrchg.to_f >= 0 %>
+          <div class="col-nb-11" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</div>
+        <% else %>
+          <div class="col-nb-11" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %>--</div>
+        <% end %> 
+        </li>
+    <% end %>
+  </ul>
 </div>
+
+    
+
+   
+
 

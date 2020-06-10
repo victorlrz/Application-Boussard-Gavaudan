@@ -1,8 +1,11 @@
+//Admin div front
+
 $color1: #16a085;
+$color2: #d63031;
 
 .stock-index-admin {
   padding: 0 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +20,133 @@ $color1: #16a085;
     &.type1::before {
       border-top-color: $color1;
       border-left-color: $color1;
+    }
+  }
+}
+
+//Stock index table
+.stock-index-container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.stock-index-table {
+  li {
+    transition: box-shadow 0.3s;
+    border-radius: 3px;
+    padding: 25px 20px;
+    display: grid;
+    grid-template-areas: "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 e11";
+    grid-template-rows: auto;
+    grid-template-columns: 130px 80px 50px 80px 80px 60px repeat(3, 80px) 70px 100px;
+    place-items: center center;
+    place-content: center space-evenly;
+    text-align: center;
+    margin-bottom: 25px;
+    z-index: 1;
+  }
+  .stock-index-table-header {
+    // margin-top: 1rem; A rajouter si user est pas admin, how ?
+    font-family: "Roboto Condensed", sans-serif;
+    width: 100%;
+    background-color: #95a5a6;
+    font-size: 14px;
+    letter-spacing: 0.03rem;
+    max-height: 80px;
+    text-transform: uppercase;
+    overflow: hidden;
+    position: sticky;
+    z-index: 99;
+    top: 50px;
+  }
+  .stock-index-row {
+    font-family: "lato", sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    }
+  }
+
+  .stock-index-a {
+    text-decoration: none;
+    grid-column: 1/12;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .col-nb-1 {
+    grid-area: e1;
+  }
+  .col-nb-2 {
+    grid-area: e2;
+  }
+  .col-nb-3 {
+    grid-area: e3;
+  }
+  .col-nb-4 {
+    grid-area: e4;
+  }
+  .col-nb-5 {
+    grid-area: e5;
+  }
+  .col-nb-6 {
+    grid-area: e6;
+  }
+  .col-nb-7 {
+    grid-area: e7;
+  }
+  .col-nb-8 {
+    grid-area: e8;
+  }
+  .col-nb-9 {
+    grid-area: e9;
+  }
+  .col-nb-10 {
+    grid-area: e10;
+  }
+  .col-nb-11 {
+    grid-area: e11;
+  }
+
+  .text-success-nb {
+    color: $color1;
+  }
+
+  .text-danger-nb {
+    color: $color2;
+  }
+
+  @media all and (max-width: 767px) {
+    .stock-index-table-header {
+      display: none;
+    }
+    .stock-index-row {
+    }
+    li {
+      display: block;
+    }
+    .col {
+      flex-basis: 100%;
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
     }
   }
 }
