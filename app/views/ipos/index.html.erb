@@ -4,19 +4,47 @@
 </div>
 <% end %>
  
- <div class="ipos">
-  <div class=container>
-    <% @ipos.each do |ipo| %>
-      <div class="card-product">
-        <div class="mb-1 mt-1 ml-1 mtr-1"><%= cl_image_tag ipo.ipo_logo.key, width: 85, height: 85, crop: :pad %></div>
-            <div class="card-product-infos">
-              <h3><%= link_to ipo.name, edit_ipo_path(ipo) %></h3>
-              <h2><%= ipo.sector %></h2>
-              <h2><%= ipo.date.strftime("%d/%m/%y") %></h2>
-              <%= link_to "Prospectus offering", ipo.pdf_prospectus %>
-            </div>
-        </div>
+<div class="ipo-index-container">
+  <% @ipos.each_with_index do |ipo| %>
+    <div class="card-ipo-index">
+      <h2 class = "ipo-index-h2"><%= ipo.name %></h2>
+      <i class="fas fa-arrow-right"></i>
+      <p class="p-ipo-index"><%= ipo.sector %></p>
+      <img class="pic">
+      <ul class="ipo-index-ul">
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+        <li class="ipo-index-li"></li>
+      </ul>
+      <div class="ipo-timeline">
+        <i><%= ipo.date.strftime("%d / %m / 20%y ") %></i>
+        <i class="far fa-clock"></i>
       </div>
-    <% end %>
-  </div>
+      <button><%= link_to "", ipo.pdf_prospectus, class: "ipo-index-a" %></button>
+    </div>  
+  <% end %>
 </div>
+  
+
+    
+  
