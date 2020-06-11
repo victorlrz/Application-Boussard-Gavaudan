@@ -27,9 +27,21 @@
         <div class="col-nb-3"><%= deal.acquirer.name %> takeover of <%= deal.target.name %></div>
         <div class="col-nb-4"><%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></div>
         <div class="col-nb-5"><%= deal.valuation_multiple %>x <%= deal.valuation_type %></div>
-        <div class="col-nb-6"><%= deal.offer_price %> <%= deal.deal_currency if deal.offer_price %></div>
-        <div class="col-nb-7"><%= deal.ratio_shares %> <%= deal.acquirer.identifier if deal.ratio_shares %></div>
-        <div class="col-nb-8"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0] unless deal.target.ebitda.split("Market cap")[1].nil?  %></div>
+        <% if  deal.offer_price%>
+          <div class="col-nb-6"><%= deal.offer_price %> <%= deal.deal_currency %></div>
+        <% else %>
+          <div class="col-nb-6">--</div>
+        <% end %>
+        <% if deal.ratio_shares%>
+          <div class="col-nb-7"><%= deal.ratio_shares %> <%= deal.acquirer.identifier %></div>
+        <% else %>
+          <div class="col-nb-7">--</div>
+        <% end %>
+        <% if deal.target.ebitda.split("Market cap")[1].nil? %>
+          <div class="col-nb-8">--</div>  
+        <% else %>
+          <div class="col-nb-8"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0]  %></div>
+        <% end %>
       </li>
     <% end %>
   </ul>
