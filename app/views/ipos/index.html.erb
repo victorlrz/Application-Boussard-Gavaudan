@@ -8,7 +8,7 @@
   <% @ipos.each_with_index do |ipo| %>
     <div class="card-ipo-index">
       <h2 class = "ipo-index-h2"><%= ipo.name %></h2>
-      <i class="fas fa-arrow-right"></i>
+      <i class="ipo-index-i fas fa-arrow-right"></i>
       <p class="p-ipo-index"><%= ipo.sector %></p>
       <img class="pic">
       <ul class="ipo-index-ul">
@@ -37,8 +37,8 @@
         <li class="ipo-index-li"></li>
       </ul>
       <div class="ipo-timeline">
-        <i><%= ipo.date.strftime("%d / %m / 20%y ") %></i>
-        <i class="far fa-clock"></i>
+        <i class="ipo-index-i"><%= ipo.date.strftime("%d / %m / 20%y ") %></i>
+        <i class="ipo-index-i far fa-clock"></i>
       </div>
       <button><%= link_to "", ipo.pdf_prospectus, class: "ipo-index-a" %></button>
     </div>  
