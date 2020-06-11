@@ -10,7 +10,7 @@ class IposController < ApplicationController
   def create
     @ipo = Ipo.new(ipo_params)
     if @ipo.save!
-      redirect_to deals_path
+      redirect_to ipos_path
     else
       render :new
     end
@@ -26,8 +26,8 @@ class IposController < ApplicationController
 
   def update
     @ipo = Ipo.find(params[:id])
-    if @ipo = Ipo.update(ipo_params)
-      redirect_to deals_path
+    if @ipo.update(ipo_params)
+      redirect_to ipos_path
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class IposController < ApplicationController
   def destroy
     @ipo = Ipo.find(params[:id])
     @ipo.destroy
-    redirect_to deals_path
+    redirect_to ipos_path
   end
 
   private
