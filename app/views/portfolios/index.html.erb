@@ -17,7 +17,7 @@
     <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
       <div class="accordion-item__container accordion-item__label">
         <ul class="portfolio-index-table">
-          <li class="portfolio-index-table-header">
+          <li class="portfolio-index-table-header ">
             <div class="col-nb-1">Index</div>
             <div class="col-nb-2">Name</div>
             <div class="col-nb-3">Weight</div>
@@ -28,7 +28,7 @@
           <% @bgltv.order("weight DESC").each_with_index do |portfolio, index| %>
             <li class="portfolio-index-row">
               <% stock = portfolio.stock_id %>
-              <%= link_to "", stock_path(stock) %>
+              <%= link_to "", stock_path(stock), class: "portfolio-index-a" %>
               <div class="col-nb-1" data-label="Index"><%= index +1 %></div>
               <div class="col-nb-2" data-label="Name"><%= Stock.find(id=stock).name %></div>
               <div class="col-nb-3" data-label="Weight"><%= portfolio.weight %>%</div>
@@ -50,7 +50,7 @@
         </ul>
       </div>
     </div>
-    <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
+    <div class="accordion-item" data-actab-group="0" data-actab-id="1">
       <div class="accordion-item__container accordion-item__label">
         <ul class="portfolio-index-table">
           <li class="portfolio-index-table-header">
@@ -64,7 +64,7 @@
           <% @bgeqt.order("weight DESC").each_with_index do |portfolio, index| %>
             <li class="portfolio-index-row">
               <% stock = portfolio.stock_id %>
-              <%= link_to "", stock_path(stock) %>
+              <%= link_to "", stock_path(stock), class: "portfolio-index-a" %>
               <div class="col-nb-1" data-label="Index"><%= index +1 %></div>
               <div class="col-nb-2" data-label="Name"><%= Stock.find(id=stock).name %></div>
               <div class="col-nb-3" data-label="Weight"><%= portfolio.weight %>%</div>
