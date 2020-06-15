@@ -32,11 +32,12 @@ $color1: #16a085;
     display: flex;
     flex-direction: row;
     text-align: center;
-    background: #333;
+    background: #546e7a;
     height: 65px;
     position: sticky;
     top: 50px;
     z-index: 2;
+    border-radius: 3px;
 
     .portfolio-index-title {
       display: flex;
@@ -71,7 +72,7 @@ $color1: #16a085;
         display: block;
         width: 100%;
         height: 3px;
-        background: #aaa;
+        background: white;
         transition: 0.3s;
       }
       .icon-bar + .icon-bar {
@@ -92,7 +93,7 @@ $color1: #16a085;
     bottom: 0;
     top: 0;
     left: auto;
-    background: #ececec;
+    background: #78909c;
     pointer-events: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transform: translateX(-200%);
@@ -100,15 +101,29 @@ $color1: #16a085;
     will-change: transform;
     contain: paint;
     z-index: 2;
+    &:focus {
+      outline: none;
+    }
   }
 
   .portfolio-index-tab ul {
     position: sticky;
     top: 135px;
     .accordion-tab {
-      background-color: red;
+      font-family: "Roboto Condensed", sans-serif;
+      border-style: none;
+      background-color: #78909c;
+      color: white;
+      font-size: 1.6rem;
+      letter-spacing: 0.2rem;
+      border-bottom: dashed 0.1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
       display: block;
       width: 100%;
+      &:focus {
+        outline: none;
+      }
     }
   }
 
@@ -146,14 +161,8 @@ $color1: #16a085;
   }
 }
 
-$color_blue: #447fff;
-$color_blue__fade: rgba($color_blue, 0.1);
-$color_white: #f9f9f9;
-$color_cloud: #eaeaea;
-
 .accordion {
   $accordion: &;
-  background: $color_white;
 
   &-tabs {
     display: none;
@@ -176,8 +185,6 @@ $color_cloud: #eaeaea;
   }
 
   &-active {
-    background: $color_blue__fade;
-
     .accordion-item {
       &__label {
         padding-bottom: 0;
@@ -207,13 +214,14 @@ $color_cloud: #eaeaea;
   // margin-top: 1rem; A rajouter si user est pas admin, how ?
   font-family: "Roboto Condensed", sans-serif;
   width: 100%;
-  background-color: #95a5a6;
+  background-color: #78909c;
   font-size: 14px;
   letter-spacing: 0.03rem;
   max-height: 80px;
   text-transform: uppercase;
   overflow: hidden;
   position: sticky;
+  top: 0;
 }
 
 .portfolio-index-table {
