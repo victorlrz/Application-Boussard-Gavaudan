@@ -1,5 +1,7 @@
 $color1: #16a085;
 
+//Admin
+
 .portfolio-index-admin {
   padding: 0 2rem;
   margin-bottom: 1.5rem;
@@ -18,5 +20,257 @@ $color1: #16a085;
       border-top-color: $color1;
       border-left-color: $color1;
     }
+  }
+}
+
+//Portfolios
+
+.portfolio-index-nav-container {
+  pointer-events: none;
+  max-width: 1100px;
+  width: 100%;
+
+  .portfolio-index-header-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background: #333;
+    height: 65px;
+    position: sticky;
+    top: 50px;
+    z-index: 4;
+
+    .portfolio-index-title {
+      display: flex;
+      width: 100%;
+      padding-right: 5%;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .portfolio-index-button {
+      position: relative;
+      display: flex;
+      width: 5%;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+      -webkit-appearance: none;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      height: 70px;
+      width: 30px;
+      cursor: pointer;
+      pointer-events: auto;
+      margin-left: 25px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+      .icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #aaa;
+        transition: 0.3s;
+      }
+      .icon-bar + .icon-bar {
+        margin-top: 5px;
+      }
+
+      &:focus {
+        outline-style: none;
+      }
+    }
+  }
+
+  .portfolio-index-tab {
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: auto;
+    background: #ececec;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform: translateX(-200%);
+    transition: transform 0.3s;
+    will-change: transform;
+    contain: paint;
+    z-index: 2;
+  }
+
+  .portfolio-index-tab ul {
+    position: sticky;
+    top: 135px;
+    .accordion-tab {
+      background-color: red;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .bg {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    background: #000;
+  }
+
+  &:focus-within .bg {
+    visibility: visible;
+    opacity: 0.6;
+  }
+
+  &:focus-within .portfolio-index-button {
+    pointer-events: none;
+  }
+  &:focus-within .icon-bar:nth-of-type(1) {
+    transform: translate3d(0, 8px, 0) rotate(45deg);
+  }
+  &:focus-within .icon-bar:nth-of-type(2) {
+    opacity: 0;
+  }
+  &:focus-within .icon-bar:nth-of-type(3) {
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
+  }
+
+  &:focus-within .portfolio-index-tab {
+    transform: none;
+  }
+}
+
+$color_blue: #447fff;
+$color_blue__fade: rgba($color_blue, 0.1);
+$color_white: #f9f9f9;
+$color_cloud: #eaeaea;
+
+.accordion {
+  $accordion: &;
+  background: $color_white;
+
+  &-tabs {
+    display: none;
+    :focus {
+      outline: none;
+    }
+  }
+
+  &-item {
+    position: relative;
+    z-index: 1;
+
+    &__container {
+      padding: 0 1.25em;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: padding 0.2s ease, opacity 0.5s 0.15s ease;
+    }
+  }
+
+  &-active {
+    background: $color_blue__fade;
+
+    .accordion-item {
+      &__label {
+        padding-bottom: 0;
+        cursor: inherit;
+
+        &:hover {
+          background: none;
+        }
+
+        &:after {
+          opacity: 0;
+        }
+      }
+
+      &__container {
+        padding: 1.25em;
+        height: auto;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+//Accordions
+
+.portfolio-index-table {
+  li {
+    transition: box-shadow 0.3s;
+    border-radius: 3px;
+    padding: 25px 20px;
+    display: grid;
+    grid-template-areas: "e1 e2 e3 e4 e5 e6";
+    grid-template-rows: auto;
+    grid-template-columns: repeat(6, 80px);
+    place-items: center center;
+    place-content: center space-evenly;
+    text-align: center;
+    margin-bottom: 25px;
+    z-index: 1;
+  }
+  .portfolio-index-table-header {
+    // margin-top: 1rem; A rajouter si user est pas admin, how ?
+    font-family: "Roboto Condensed", sans-serif;
+    width: 100%;
+    background-color: #95a5a6;
+    font-size: 14px;
+    letter-spacing: 0.03rem;
+    max-height: 80px;
+    text-transform: uppercase;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+  }
+  .portfolio-index-row {
+    font-family: "lato", sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    }
+  }
+
+  .portfolio-index-a {
+    text-decoration: none;
+    grid-column: 1/7;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .col-nb-1 {
+    grid-area: e1;
+  }
+  .col-nb-2 {
+    grid-area: e2;
+  }
+  .col-nb-3 {
+    grid-area: e3;
+  }
+  .col-nb-4 {
+    grid-area: e4;
+  }
+  .col-nb-5 {
+    grid-area: e5;
+  }
+  .col-nb-6 {
+    grid-area: e6;
   }
 }
