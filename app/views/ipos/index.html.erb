@@ -1,7 +1,11 @@
 <% if current_user.admin %>
-<div class="portfolio-index-admin">
+<div class="ipos-index-admin">
   <a href="ipos/new"><button class="button type3">New IPOS</button></a>
 </div>
+<% else %>
+  <div class="ipos-index-no-admin">
+  <button class="button type3">IPOS</button>
+  </div>
 <% end %>
  
 <div class="ipo-index-container">

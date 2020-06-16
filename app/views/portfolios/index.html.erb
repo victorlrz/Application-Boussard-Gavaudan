@@ -2,8 +2,11 @@
   <div class="portfolio-index-admin">
     <a href="portfolios/new"><button class="button type2">New Portfolio</button></a>
   </div>
+<% else %>
+  <div class="portfolio-index-no-admin">
+      <button class="button type2">PORTFOLIOS</button>
+  </div>
 <% end %>
-
 
   <div class="portfolio-index-nav-container">
     <div class="portfolio-index-header-container">
@@ -12,7 +15,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-      <div class="portfolio-index-title">Header</div>
+      <div class="portfolio-index-title"><%= Portfolio.find_by(fund: "BGLTV").fund %>  - <%= Portfolio.last.date.strftime("%d/%m/%y") %> - Investment level : <%= @bgltv.sum("weight").round(2) %>% - AUM : <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</div>
     </div>
     <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
       <div class="accordion-item__container accordion-item__label">
@@ -42,11 +45,8 @@
       <div class="bg"></div>
       <div class="portfolio-index-tab" tabindex="0">
         <ul>
-          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0">Tab 1</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="1">Tab 2</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="2">Tab 3</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="3">Tab 4</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="4">Tab 5</button>
+          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>">BGLTV</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-name="<%= Portfolio.find_by(fund: "BGEQT").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgeqt.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %>">BGEQT</button>
         </ul>
       </div>
     </div>
@@ -78,11 +78,8 @@
       <div class="bg"></div>
       <div class="portfolio-index-tab" tabindex="0">
         <ul>
-          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0">Tab 1</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="1">Tab 2</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="2">Tab 3</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="3">Tab 4</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="4">Tab 5</button>
+          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>">BGLTV</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-name="<%= Portfolio.find_by(fund: "BGEQT").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgeqt.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %>">BGEQT</button>
         </ul>
       </div>
     </div>
