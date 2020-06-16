@@ -4,25 +4,88 @@
   </div>
 <% end %>
 
-<div class="container">
-  <h3><%= Portfolio.find_by(fund: "BGLTV").fund %> as of <%= Portfolio.last.date.strftime("%d/%m/%y") %></h3>
-  <p>Investment level: <%= @bgltv.sum("weight").round(2) %>% and AUM: <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
-</div>
 
-<div class="container">
-  <% @bgltv.order("weight DESC").each_with_index do |portfolio, index| %>
-  <p><%= index +1 %>. <strong><% stock = portfolio.stock_id %><u><%= link_to Stock.find(id=stock).name, stock_path(stock) %></u></strong> @ <%= portfolio.weight %>% <strong> 1Yr - Performance:</strong> <%= Stock.find(id=stock).price_yrchg %>, <strong>Beta: </strong><%= Stock.find(id=stock).beta_ft %> <strong> and P/E: </strong><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %>  </p>
-  <% end %>
-</div>
+  <div class="portfolio-index-nav-container">
+    <div class="portfolio-index-header-container">
+      <div class="portfolio-index-button" tabindex="0">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </div>
+      <div class="portfolio-index-title">Header</div>
+    </div>
+    <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
+      <div class="accordion-item__container accordion-item__label">
+        <ul class="portfolio-index-table">
+          <li class="portfolio-index-table-header ">
+            <div class="col-nb-1">Index</div>
+            <div class="col-nb-2">Name</div>
+            <div class="col-nb-3">Weight</div>
+            <div class="col-nb-4">1Yr-Perf</div>
+            <div class="col-nb-5">Beta</div>
+            <div class="col-nb-6">P/E</div>
+          </li>
+          <% @bgltv.order("weight DESC").each_with_index do |portfolio, index| %>
+            <li class="portfolio-index-row">
+              <% stock = portfolio.stock_id %>
+              <%= link_to "", stock_path(stock), class: "portfolio-index-a" %>
+              <div class="col-nb-1" data-label="Index"><%= index +1 %></div>
+              <div class="col-nb-2" data-label="Name"><%= Stock.find(id=stock).name %></div>
+              <div class="col-nb-3" data-label="Weight"><%= portfolio.weight %>%</div>
+              <div class="col-nb-4" data-label="1Yr-Perf"><%= Stock.find(id=stock).price_yrchg %></div>
+              <div class="col-nb-5" data-label="Beta"><%= Stock.find(id=stock).beta_ft %></div>
+              <div class="col-nb-6" data-label="P/E"><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="bg"></div>
+      <div class="portfolio-index-tab" tabindex="0">
+        <ul>
+          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0">Tab 1</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1">Tab 2</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="2">Tab 3</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3">Tab 4</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="4">Tab 5</button>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion-item" data-actab-group="0" data-actab-id="1">
+      <div class="accordion-item__container accordion-item__label">
+        <ul class="portfolio-index-table">
+          <li class="portfolio-index-table-header">
+            <div class="col-nb-1">Index</div>
+            <div class="col-nb-2">Name</div>
+            <div class="col-nb-3">Weight</div>
+            <div class="col-nb-4">1Yr-Perf</div>
+            <div class="col-nb-5">Beta</div>
+            <div class="col-nb-6">P/E</div>
+          </li>
+          <% @bgeqt.order("weight DESC").each_with_index do |portfolio, index| %>
+            <li class="portfolio-index-row">
+              <% stock = portfolio.stock_id %>
+              <%= link_to "", stock_path(stock), class: "portfolio-index-a" %>
+              <div class="col-nb-1" data-label="Index"><%= index +1 %></div>
+              <div class="col-nb-2" data-label="Name"><%= Stock.find(id=stock).name %></div>
+              <div class="col-nb-3" data-label="Weight"><%= portfolio.weight %>%</div>
+              <div class="col-nb-4" data-label="1Yr-Perf"><%= Stock.find(id=stock).price_yrchg %></div>
+              <div class="col-nb-5" data-label="Beta"><%= Stock.find(id=stock).beta_ft %></div>
+              <div class="col-nb-6" data-label="P/E"><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="bg"></div>
+      <div class="portfolio-index-tab" tabindex="0">
+        <ul>
+          <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0">Tab 1</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1">Tab 2</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="2">Tab 3</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3">Tab 4</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="4">Tab 5</button>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
 
-
-<div class="container border-top mt-3">
-  <h3 class="mt-2"><%= Portfolio.find_by(fund: "BGEQT").fund %> as of <%= Portfolio.last.date.strftime("%d/%m/%y") %></h3>
-  <p>Investment level: <%= @bgeqt.sum("weight").round(2) %>% and AUM: <%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %> EUR</p>
-</div>
-
-<div class="container">
-  <% @bgeqt.order("weight DESC").each_with_index do |portfolio, index| %>
-  <p><%= index +1 %>. <strong><% stock = portfolio.stock_id %><u><%= link_to Stock.find(id=stock).name, stock_path(stock) %></u></strong> @ <%= portfolio.weight %>% <strong> 1Yr - Performance:</strong> <%= Stock.find(id=stock).price_yrchg %>, <strong>Beta: </strong><%= Stock.find(id=stock).beta_ft %> <strong> and P/E: </strong><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %>  </p>
-  <% end %>
-</div>

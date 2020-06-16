@@ -25,9 +25,10 @@ import "../features/apiftimes.js";
 // import "../features/apimorningstar.js";
 
 import "../styles/application";
-
+import "../frontend/menu/sideaccordion";
+import "../frontend/portfolio/index";
 //Front end
-import "../frontend/navbar";
+import "../frontend/header/navbar";
 $(document).ready(function () {
   $("#my_data").DataTable();
 });
