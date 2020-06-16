@@ -20,6 +20,7 @@ $color4: red;
   &:focus {
     outline-style: none;
   }
+
   &.type1 {
     // Effect one
     &.type1::after,
