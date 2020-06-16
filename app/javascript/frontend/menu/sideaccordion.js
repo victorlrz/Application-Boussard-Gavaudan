@@ -51,7 +51,3 @@ labels.forEach(function (label) {
 tabs.forEach(function (tab) {
   tab.addEventListener("click", toggleShow);
 });
-
-displayTabs.forEach(function (display) {
-  display.addEventListener("click", toggleShow);
-});
