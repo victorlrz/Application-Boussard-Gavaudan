@@ -127,6 +127,9 @@ $color1: #16a085;
     &:focus {
       outline: none;
     }
+    &.no-display {
+      display: none;
+    }
   }
 
   .portfolio-index-tab ul {
