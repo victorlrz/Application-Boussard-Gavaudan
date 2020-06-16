@@ -1,5 +1,6 @@
 const labels = document.querySelectorAll(".accordion-item__label");
 const tabs = document.querySelectorAll(".accordion-tab");
+const displayTabs = document.querySelectorAll(".portfolio-index-tab");
 
 function toggleShow() {
   const target = this;
@@ -27,6 +28,17 @@ function toggleShow() {
         tabItem.classList.add("accordion-active");
       } else {
         tabItem.classList.remove("accordion-active");
+      }
+    }
+  });
+
+  displayTabs.forEach(function (display) {
+    const tabItem = display.parentElement;
+    if (tabItem.dataset.actabGroup === group) {
+      if (tabItem.dataset.actabId === id) {
+        display.classList.remove("no-display");
+      } else {
+        display.classList.add("no-display");
       }
     }
   });
