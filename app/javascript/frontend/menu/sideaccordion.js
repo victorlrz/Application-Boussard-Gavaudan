@@ -1,6 +1,9 @@
 const labels = document.querySelectorAll(".accordion-item__label");
 const tabs = document.querySelectorAll(".accordion-tab");
 const displayTabs = document.querySelectorAll(".portfolio-index-tab");
+const toggleMenu = document.querySelector(".portfolio-index-button");
+const containerMenu = document.querySelector(".portfolio-index-nav-container");
+const closeMenu = document.body;
 
 function toggleShow() {
   const target = this;
@@ -43,6 +46,45 @@ function toggleShow() {
     }
   });
 }
+
+toggleMenu.addEventListener("click", function (e) {
+  if (containerMenu.classList.contains("active-sidebar")) {
+    containerMenu.classList.remove(
+      "active-sidebar",
+      "active-bg",
+      "active-logo-top",
+      "active-logo-middle",
+      "active-logo-bottom",
+      "cancel-event",
+      "active-cursor"
+    );
+  } else {
+    containerMenu.classList.add(
+      "active-sidebar",
+      "active-bg",
+      "active-logo-top",
+      "active-logo-middle",
+      "active-logo-bottom",
+      "cancel-event",
+      "active-cursor"
+    );
+  }
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+closeMenu.addEventListener("click", function (e) {
+  if (containerMenu.classList.contains("active-sidebar")) {
+    containerMenu.classList.remove(
+      "active-sidebar",
+      "active-bg",
+      "active-logo-top",
+      "active-logo-middle",
+      "active-logo-bottom",
+      "cancel-event"
+    );
+  }
+});
 
 labels.forEach(function (label) {
   label.addEventListener("click", toggleShow);
