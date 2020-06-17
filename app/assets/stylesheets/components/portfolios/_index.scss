@@ -86,7 +86,6 @@ $color1: #16a085;
       height: 70px;
       width: 30px;
       cursor: pointer;
-      pointer-events: auto;
       margin-left: 25px;
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -164,26 +163,33 @@ $color1: #16a085;
     background: #000;
   }
 
-  &:focus-within .bg {
+  &.active-bg .bg {
     visibility: visible;
     opacity: 0.6;
   }
 
-  &:focus-within .portfolio-index-button {
-    pointer-events: none;
-  }
-  &:focus-within .icon-bar:nth-of-type(1) {
+  &.active-logo-top .icon-bar:nth-of-type(1) {
     transform: translate3d(0, 8px, 0) rotate(45deg);
   }
-  &:focus-within .icon-bar:nth-of-type(2) {
+  &.active-logo-middle .icon-bar:nth-of-type(2) {
     opacity: 0;
   }
-  &:focus-within .icon-bar:nth-of-type(3) {
+  &.active-logo-bottom .icon-bar:nth-of-type(3) {
     transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
 
-  &:focus-within .portfolio-index-tab {
+  &.active-sidebar .portfolio-index-tab {
     transform: none;
+  }
+
+  &.cancel-event {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &.active-cursor .portfolio-index-button {
+    pointer-events: initial;
+    cursor: pointer;
   }
 }
 
