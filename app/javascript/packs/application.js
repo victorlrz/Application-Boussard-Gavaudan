@@ -25,8 +25,9 @@ import "../features/apiftimes.js";
 // import "../features/apimorningstar.js";
 
 import "../styles/application";
-import "../frontend/menu/sideaccordion";
+import "../frontend/menu/portfolio_menu";
 import "../frontend/portfolio/index";
+import "../frontend/stock/test";
 //Front end
 import "../frontend/header/navbar";
 $(document).ready(function () {

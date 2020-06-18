@@ -46,45 +46,48 @@ function toggleShow() {
     }
   });
 }
+if (toggleMenu) {
+  toggleMenu.addEventListener("click", function (e) {
+    if (containerMenu.classList.contains("active-sidebar")) {
+      containerMenu.classList.remove(
+        "active-sidebar",
+        "active-bg",
+        "active-logo-top",
+        "active-logo-middle",
+        "active-logo-bottom",
+        "cancel-event",
+        "active-cursor"
+      );
+    } else {
+      containerMenu.classList.add(
+        "active-sidebar",
+        "active-bg",
+        "active-logo-top",
+        "active-logo-middle",
+        "active-logo-bottom",
+        "cancel-event",
+        "active-cursor"
+      );
+    }
+    e.preventDefault();
+    e.stopPropagation();
+  });
+}
 
-toggleMenu.addEventListener("click", function (e) {
-  if (containerMenu.classList.contains("active-sidebar")) {
-    containerMenu.classList.remove(
-      "active-sidebar",
-      "active-bg",
-      "active-logo-top",
-      "active-logo-middle",
-      "active-logo-bottom",
-      "cancel-event",
-      "active-cursor"
-    );
-  } else {
-    containerMenu.classList.add(
-      "active-sidebar",
-      "active-bg",
-      "active-logo-top",
-      "active-logo-middle",
-      "active-logo-bottom",
-      "cancel-event",
-      "active-cursor"
-    );
-  }
-  e.preventDefault();
-  e.stopPropagation();
-});
-
-closeMenu.addEventListener("click", function (e) {
-  if (containerMenu.classList.contains("active-sidebar")) {
-    containerMenu.classList.remove(
-      "active-sidebar",
-      "active-bg",
-      "active-logo-top",
-      "active-logo-middle",
-      "active-logo-bottom",
-      "cancel-event"
-    );
-  }
-});
+if (closeMenu) {
+  closeMenu.addEventListener("click", function (e) {
+    if (containerMenu && containerMenu.classList.contains("active-sidebar")) {
+      containerMenu.classList.remove(
+        "active-sidebar",
+        "active-bg",
+        "active-logo-top",
+        "active-logo-middle",
+        "active-logo-bottom",
+        "cancel-event"
+      );
+    }
+  });
+}
 
 labels.forEach(function (label) {
   label.addEventListener("click", toggleShow);
