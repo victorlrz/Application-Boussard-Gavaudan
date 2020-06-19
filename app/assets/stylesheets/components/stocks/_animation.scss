@@ -1,0 +1,87 @@
+.action {
+  $active-color: #16a085;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  line-height: 1;
+  transition: all 0.1s ease-out 0s;
+  position: relative;
+  background: none;
+  border: 0;
+  &:before {
+    $size: 0px;
+    content: "";
+    position: absolute;
+    background: #1abc9c;
+    opacity: 0.2;
+    width: $size;
+    height: $size;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    border-radius: 50%;
+    transition: all 0.2s ease-out 0s;
+  }
+  &__icon {
+    $size: 1.6rem;
+    width: $size;
+    height: $size;
+    color: var(--text-color);
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &:hover {
+    color: $active-color;
+    &:before {
+      $size: 45px;
+      width: $size;
+      height: $size;
+      transition: all 0.2s ease-out 0s;
+    }
+  }
+  &:active,
+  &:focus {
+    outline: 0;
+    .action__icon {
+      color: $active-color;
+      fill: $active-color;
+    }
+  }
+}
+
+.animation {
+  $size: 500px;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: $size * 1.6;
+  height: $size * 1.3;
+  &__item {
+    $size: 2rem;
+    width: $size;
+    height: $size;
+    position: absolute;
+    animation: centerIn 1s ease-out forwards;
+  }
+}
+
+@keyframes centerIn {
+  from {
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%) rotate(-315deg);
+    opacity: 1;
+  }
+  to {
+    transform: initial;
+    opacity: 0;
+  }
+}

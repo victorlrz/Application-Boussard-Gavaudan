@@ -25,11 +25,18 @@ import "../features/apiftimes.js";
 // import "../features/apimorningstar.js";
 
 import "../styles/application";
-import "../frontend/menu/portfolio_menu";
-import "../frontend/portfolio/index";
-import "../frontend/stock/test";
-//Front end
+//Front-end Navbar
 import "../frontend/header/navbar";
+//Menus
+import "../frontend/menu/portfolio_index_menu";
+import "../frontend/menu/stock_show_menu";
+//Portfolios
+import "../frontend/portfolio/index/index";
+//Stocks
+import "../frontend/stock/show/stars_animation";
+import "../frontend/stock/show/onclick_animation";
+import "../frontend/stock/show/getTitle";
+
 $(document).ready(function () {
   $("#my_data").DataTable();
 });

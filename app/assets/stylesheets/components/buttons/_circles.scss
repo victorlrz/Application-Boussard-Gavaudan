@@ -1,0 +1,103 @@
+@import "bourbon";
+
+/// border-gradient mixin: ///
+
+@mixin border-gradient($from, $to, $weight: 0) {
+  $mix-main: mix($from, $to);
+  $mix-sub-from: mix($mix-main, $from);
+  $mix-sub-to: mix($mix-main, $to);
+
+  box-shadow: 0 1px 0 $weight rgba($mix-sub-to, 0.25),
+    0 -1px 0 $weight rgba($mix-sub-from, 0.25),
+    1px 0 0 $weight rgba($mix-sub-to, 0.25),
+    -1px 0 0 $weight rgba($mix-sub-from, 0.25),
+    1px -1px 0 $weight rgba($mix-main, 0.5),
+    -1px 1px 0 $weight rgba($mix-main, 0.5), 1px 1px 0 $weight rgba($to, 0.75),
+    -1px -1px 0 $weight rgba($from, 0.75);
+}
+
+/// BASIC EXAMPLE ///
+
+.circle {
+  @include size(100px 100px);
+
+  border-radius: 100%;
+
+  @include border-gradient(red, yellow);
+}
+
+////////////// OTHER EXAMPLES ////////////////
+
+.circle {
+  &:nth-of-type(2) {
+    @include border-gradient(skyblue, hotpink);
+
+    animation: rotateThis 1s linear infinite;
+  }
+
+  &:nth-of-type(3) {
+    @include border-gradient(#e14847, #b53bb4);
+  }
+
+  &-multiple {
+    @include size(100px 100px);
+  }
+
+  &-multiple & {
+    @include position(absolute, 0px 0px 0px 0px);
+    margin: auto;
+
+    &:nth-of-type(1) {
+      animation: psycho 2s linear infinite;
+    }
+    &:nth-of-type(2) {
+      animation: psycho 2s linear 0.1s infinite;
+    }
+    &:nth-of-type(3) {
+      animation: psycho 2s linear 0.25s infinite;
+    }
+  }
+}
+
+@keyframes rotateThis {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes psycho {
+  0% {
+    transform: rotate(0deg) scale(1) translate(0, 0);
+  }
+
+  33% {
+    transform: rotate(360deg) scale(1) translate(5px, 5px);
+  }
+
+  66% {
+    transform: rotate(720deg) scale(1) translate(-5px, -5px);
+  }
+
+  100% {
+    transform: rotate(1080deg) scale(1) translate(0, 0);
+  }
+}
+
+///// OTHER /////
+
+.circles > * {
+  display: inline-block;
+  vertical-align: top;
+
+  position: relative;
+  margin: 0 2%;
+}
+
+.circles {
+  transform: translateZ(0);
+  margin-bottom: 100px;
+}

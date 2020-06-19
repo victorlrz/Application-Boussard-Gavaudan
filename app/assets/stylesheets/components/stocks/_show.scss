@@ -2,7 +2,7 @@ $color1: #16a085;
 
 //Admin
 
-.portfolio-index-admin {
+.stock-show-admin {
   padding: 0 2rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -24,7 +24,7 @@ $color1: #16a085;
 }
 
 //Non admin
-.portfolio-index-no-admin {
+.stock-show-no-admin {
   padding: 0 2rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -46,23 +46,57 @@ $color1: #16a085;
   }
 }
 
-//Portfolios
-.portfolio-index-nav-container {
+// Active button
+.m_button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+    inset 0px 0px 0px 0px #0001;
+  transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+
+  span:nth-child(2) {
+    transform-origin: 50% 50%;
+  }
+}
+
+.m_button-active {
+  box-shadow: 0px 0px 0px 0px #fff9, 0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #0001, 0px 0px 0px 0px #0001, inset -7px -7px 20px 0px #fff9,
+    inset -4px -4px 5px 0px #fff9, inset 7px 7px 20px 0px #0003,
+    inset 4px 4px 5px 0px #0001;
+}
+//Stocks show
+.stock-show-nav-container {
   max-width: 1100px;
   width: 100%;
 
-  .portfolio-index-header-container {
+  .stock-show-header-container {
+    visibility: visible;
     display: flex;
     flex-direction: row;
     text-align: center;
-    background: #546e7a;
+    background: #1abc9c;
     height: 65px;
     position: sticky;
     top: 50px;
     z-index: 2;
     border-radius: 3px;
+    &.no-display {
+      display: none;
+    }
 
-    .portfolio-index-title {
+    .stock-show-title {
       display: flex;
       width: 100%;
       padding-right: 5%;
@@ -72,7 +106,7 @@ $color1: #16a085;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
-    .portfolio-index-button {
+    .stock-show-button {
       position: relative;
       display: flex;
       width: 5%;
@@ -107,7 +141,7 @@ $color1: #16a085;
     }
   }
 
-  .portfolio-index-tab {
+  .stock-show-tab {
     padding: 20px;
     width: 90%;
     max-width: 300px;
@@ -115,7 +149,7 @@ $color1: #16a085;
     bottom: 0;
     top: 0;
     left: auto;
-    background: #78909c;
+    background: #1abc9c;
     pointer-events: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transform: translateX(-200%);
@@ -131,13 +165,13 @@ $color1: #16a085;
     }
   }
 
-  .portfolio-index-tab ul {
+  .stock-show-tab ul {
     position: sticky;
     top: 135px;
     .accordion-tab {
       font-family: "Roboto Condensed", sans-serif;
       border-style: none;
-      background-color: #78909c;
+      background-color: #1abc9c;
       color: white;
       font-size: 1.6rem;
       letter-spacing: 0.2rem;
@@ -163,6 +197,15 @@ $color1: #16a085;
     background: #000;
   }
 
+  .show-bg-body {
+    position: absolute;
+    top: 265px;
+    bottom: 0;
+    width: 80%;
+    max-width: 1100px;
+    background: white;
+  }
+
   &.active-bg .bg {
     visibility: visible;
     opacity: 0.6;
@@ -178,7 +221,7 @@ $color1: #16a085;
     transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
 
-  &.active-sidebar .portfolio-index-tab {
+  &.active-sidebar .stock-show-tab {
     transform: none;
   }
 
@@ -187,7 +230,7 @@ $color1: #16a085;
     cursor: default;
   }
 
-  &.active-cursor .portfolio-index-button {
+  &.active-cursor .stock-show-button {
     pointer-events: initial;
     cursor: pointer;
   }
@@ -238,74 +281,99 @@ $color1: #16a085;
   }
 }
 
+.stock-show-timeline {
+  width: 4px;
+  margin-top: 12px;
+  border-radius: 50px;
+  margin-left: 130px;
+  position: absolute;
+  top: 0;
+  left: auto;
+  bottom: 3rem;
+  background: #1abc9c;
+  opacity: 1;
+}
 //Accordions
 
-.portfolio-index-table-header {
-  // margin-top: 1rem; A rajouter si user est pas admin, how ?
-  font-family: "Roboto Condensed", sans-serif;
-  width: 100%;
-  background-color: #78909c;
-  font-size: 14px;
-  letter-spacing: 0.03rem;
-  max-height: 80px;
-  text-transform: uppercase;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-}
-
-.portfolio-index-table {
-  li {
+.stock-show-table {
+  li.li-box {
+    width: 100%;
     transition: box-shadow 0.3s;
     border-radius: 3px;
-    padding: 25px 20px;
     display: grid;
-    grid-template-areas: "e1 e2 e3 e4 e5 e6";
+    grid-template-areas: "e1 e2 e3 e4 e5";
     grid-template-rows: auto;
-    grid-template-columns: repeat(6, 80px);
-    place-items: center center;
-    place-content: center space-evenly;
-    text-align: center;
+    grid-template-columns: 85px 50px 20fr 1fr 1fr;
+    place-content: center left;
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s;
+    border-radius: 3px;
+    padding: 25px 0;
     margin-bottom: 25px;
   }
+  &.no-display {
+    display: none;
+  }
 
-  .portfolio-index-row {
-    font-family: "lato", sans-serif;
-    font-size: 14px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  .content-window {
+    visibility: hidden;
+    position: absolute;
+    top: -65px;
+    left: 0;
+    max-width: 1100px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: white;
+    z-index: 2;
 
-    &:hover {
-      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    &.show-content {
+      visibility: visible;
+      cursor: default;
+      height: fit-content;
     }
   }
-
-  .portfolio-index-a {
-    text-decoration: none;
-    grid-column: 1/7;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    cursor: pointer;
-  }
-
-  .col-nb-1 {
-    grid-area: e1;
-  }
-  .col-nb-2 {
-    grid-area: e2;
-  }
-  .col-nb-3 {
-    grid-area: e3;
-  }
-  .col-nb-4 {
-    grid-area: e4;
-  }
-  .col-nb-5 {
-    grid-area: e5;
-  }
-  .col-nb-6 {
-    grid-area: e6;
-  }
 }
+
+.stock-show-row {
+  font-family: "lato", sans-serif;
+  font-size: 14px;
+}
+
+.col-nb-1-stock-show {
+  grid-area: e1;
+  padding: 0 1.5rem;
+  margin-left: 2rem;
+}
+.col-nb-2-stock-show {
+  grid-area: e2;
+  padding: 0 1.7rem;
+  font-size: 20px;
+  color: #1abc9c;
+}
+.col-nb-3-stock-show {
+  grid-area: e3;
+  padding-left: 5%;
+}
+.col-nb-4-stock-show {
+  grid-area: e4;
+  padding: 0 1rem;
+  font-size: 16px;
+}
+.col-nb-5-stock-show {
+  grid-area: e5;
+  padding: 0 1rem;
+  margin-right: 2rem;
+  font-size: 16px;
+}
+
+.min-height {
+  min-height: calc(100vh - 265px);
+}
+// .stock-show-a {
+//   text-decoration: none;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 1;
+//   cursor: pointer;
+// }

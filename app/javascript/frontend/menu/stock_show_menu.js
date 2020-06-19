@@ -1,8 +1,9 @@
 const labels = document.querySelectorAll(".accordion-item__label");
 const tabs = document.querySelectorAll(".accordion-tab");
-const displayTabs = document.querySelectorAll(".portfolio-index-tab");
-const toggleMenu = document.querySelector(".portfolio-index-button");
-const containerMenu = document.querySelector(".portfolio-index-nav-container");
+const displayTabs = document.querySelectorAll(".stock-show-tab");
+const toggleMenu = document.querySelector(".stock-show-button");
+const containerMenu = document.querySelector(".stock-show-nav-container");
+const backgrounds = document.querySelectorAll(".bg");
 const closeMenu = document.body;
 
 function toggleShow() {
@@ -40,8 +41,21 @@ function toggleShow() {
     if (tabItem.dataset.actabGroup === group) {
       if (tabItem.dataset.actabId === id) {
         display.classList.remove("no-display");
+        display.classList.add("min-height");
       } else {
         display.classList.add("no-display");
+        display.classList.remove("min-height");
+      }
+    }
+  });
+
+  backgrounds.forEach(function (background) {
+    const tabItem = background.parentElement;
+    if (tabItem.dataset.actabGroup === group) {
+      if (tabItem.dataset.actabId === id) {
+        background.classList.add("min-height");
+      } else {
+        background.classList.remove("min-height");
       }
     }
   });
@@ -83,7 +97,8 @@ if (closeMenu) {
         "active-logo-top",
         "active-logo-middle",
         "active-logo-bottom",
-        "cancel-event"
+        "cancel-event",
+        "active-cursor"
       );
     }
   });
