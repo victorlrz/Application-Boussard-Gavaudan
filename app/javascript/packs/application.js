@@ -14,7 +14,6 @@ import trix from "trix";
 import "trix/dist/trix.css";
 
 import "jquery";
-import "datatables.net";
 
 // Add some code with jQuery:
 $(document).ready(function () {
@@ -30,6 +29,4 @@ import "../frontend/portfolio/index";
 import "../frontend/stock/test";
 //Front end
 import "../frontend/header/navbar";
-$(document).ready(function () {
-  $("#my_data").DataTable();
-});
+
