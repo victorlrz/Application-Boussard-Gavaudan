@@ -370,10 +370,88 @@ $color1: #16a085;
 .min-height {
   min-height: calc(100vh - 265px);
 }
-// .stock-show-a {
-//   text-decoration: none;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 1;
-//   cursor: pointer;
-// }
+
+//MorningStar
+
+.morning-star-grid-positive {
+  width: 100%;
+  position: relative;
+  transition: box-shadow 0.3s;
+  border-radius: 3px;
+  display: grid;
+  grid:
+    "e1 e2 e3 e4" 25vh /
+    1fr 1fr 1fr 1fr;
+  place-items: end center;
+}
+
+.morning-star-grid-data-name {
+  width: 100%;
+  position: relative;
+  transition: box-shadow 0.3s;
+  border-radius: 3px;
+  display: grid;
+  grid:
+    "e1 e2 e3 e4" 3rem /
+    1fr 1fr 1fr 1fr;
+  place-items: center center;
+  padding-top: 0.2rem;
+  margin-bottom: 2rem;
+}
+
+.col-mg-1 {
+  grid-area: e1;
+}
+
+.col-mg-2 {
+  grid-area: e2;
+}
+
+.col-mg-3 {
+  grid-area: e3;
+}
+
+.col-mg-4 {
+  grid-area: e4;
+}
+
+.col-mg-5 {
+  grid-area: e1;
+}
+
+.col-mg-6 {
+  grid-area: e2;
+}
+
+.col-mg-7 {
+  grid-area: e3;
+}
+
+.col-mg-8 {
+  grid-area: e4;
+}
+
+//z-index-name basic à 2 set property z-index sur les bprders en fonctions des datas
+.col-mg-data {
+  background-color: wheat;
+  width: 50px;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 0.2rem;
+  // z-index: 2; //Pour faire revenir l'élément devant
+}
+
+.col-mg-graph {
+  background-color: violet;
+  width: 50px;
+  animation: example 5s ease-in forwards; //Le forward retiens bien la dernière fram
+}
+
+@keyframes example {
+  from {
+    height: 0;
+  }
+  to {
+    height: 20vh;
+  }
+}

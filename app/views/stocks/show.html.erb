@@ -1,54 +1,142 @@
-<div class="container">
-  <div class="row mt-3 mb-3">
-    <h1><%= @stock.name %></h1>
-      <%= link_to "Back to Stocks", stocks_path, class: "btn btn-primary btn-block mb-3 mr-5 ml-5", style:"width: 200px" %>
-      <% if  @stock.price_1chg.split(" / ").last.to_f > 0%>
-              <h2 class="text-success">Daily:  <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></h2>
-            <% else %>
-              <h2 class="text-danger">Daily: <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></h2>
-          <% end %>
-      <p class="text-justify"><%= @stock.earning %></p>
-
-
-    <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-primary btn-block w-100 mb-2 mt-2 mr-2 ml-2"  %>
+<% if current_user.admin %>
+  <div class="stock-show-admin">
+    <a href="/stock/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
   </div>
+<% else %>
+  <div class="stock-show-no-admin">
+      <button class="button type2">NEWSFLOW</button>
+  </div>
+<% end %>
 
-<!--Accordion wrapper-->
-<div class="accordion md-accordion border-top mb-3" id="accordionEx" role="tablist" aria-multiselectable="true">
-
-  <!-- Accordion card -->
-  <div class="card">
-
-    <!-- Card header -->
-    <div class="card-header" role="tab" id="headingOne1">
-      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-        aria-controls="collapseOne1">
-        <h5 class="btn-success p-3 mb-0">
-          Newsflow from Financials time (if any since beginning of the year) <i class="fas fa-angle-down rotate-icon float-right"></i>
-        </h5>
-      </a>
+<div class="stock-show-nav-container">
+  <div class="stock-show-header-container">
+    <div class="stock-show-button" tabindex="0">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
     </div>
-
-    <!-- Card body -->
-    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-      data-parent="#accordionEx">
-      <div class="card-body">
-        <div class="stock_newsflow mb-3" data-toggle="collapse" data-name="<%= @stock.name %>" data-identifier="<%= @stock.identifier %>"></div>
+    <div class="stock-show-title"><%= @stock.name %> : NEWSFLOW</div>
+  </div>
+  <div class="show-bg-body min-height"></div>
+  <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
+    <div class="accordion-item__container accordion-item__label"> 
+      <ul class="stock-show-table">
+        <% @stock.comments.order("date DESC").each do |comment| %>
+          <li class="li-box stock-show-row m_button">
+            <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
+            <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
+            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
+            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
+            </li>
+            <div class="content-window"><%=raw comment.content %></div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="stock-show-timeline"></div>
+    <div class="bg min-height"></div>
+    <div class="stock-show-tab min-height" tabindex="0">
+      <ul>
+        <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
+      </ul>
+    </div>
+  </div>
+  <div class="accordion-item" data-actab-group="0" data-actab-id="1">
+    <div class="accordion-item__container accordion-item__label"> 
+      <ul class="stock-show-table">
+        <% @stock.comments.order("date DESC").each do |comment| %>
+          <li class="li-box stock-show-row m_button">
+            <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
+            <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
+            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
+            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
+          </li>
+          <div class="content-window"><%=raw comment.content %></div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="stock-show-timeline"></div>
+    <div class="bg"></div>
+    <div class="stock-show-tab no-display" tabindex="0">
+      <ul>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
+      </ul>
+    </div>
+  </div>
+  <div class="accordion-item" data-actab-group="0" data-actab-id="2">
+    <div class="accordion-item__container accordion-item__label"> 
+      <ul class="stock-show-table">
+        <% @stock.comments.order("date DESC").each do |comment| %>
+          <li class="li-box stock-show-row m_button">
+            <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
+            <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
+            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
+            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
+          </li>
+          <div class="content-window"><%=raw comment.content %></div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="stock-show-timeline"></div>
+    <div class="bg"></div>
+    <div class="stock-show-tab no-display" tabindex="0">
+      <ul>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
+      </ul>
+    </div>
+  </div>
+  <div class="accordion-item" data-actab-group="0" data-actab-id="3">
+    <div class="accordion-item__container accordion-item__label"> 
+      <div class="morning-star-grid-positive">
+        <div class="col-mg-1"></div>
+        <div class="col-mg-2"></div>
+        <div class="col-mg-3">
+          <div class="col-mg-data"></div>
+          <div class="col-mg-graph"></div>
+        </div>
+        <div class="col-mg-4"></div>
+      </div>
+      <div class="morning-star-grid-data-name">
+        <div class="col-mg-5">PRICE/SALES</div>
+        <div class="col-mg-6">PRICE/EARNINGS</div>
+        <div class="col-mg-7">PRICE/CASHFLOW</div>
+        <div class="col-mg-8">PRICE/BOOK</div>
+      </div>
+      <div class="morning-star-grid-positive">
+        <div class="col-mg-1"></div>
+        <div class="col-mg-2"></div>
+        <div class="col-mg-3">
+          <div class="col-mg-data">1</div>
+          <div class="col-mg-graph"></div>
+        </div>
+        <div class="col-mg-4"></div>
+      </div>
+      <div class="morning-star-grid-data-name">
+        <div class="col-mg-5">PRICE/FORWARD EARNINGS</div>
+        <div class="col-mg-6">EARNINGS YIELD</div>
+        <div class="col-mg-7">ENTERPRISE VALUE (Bil)</div>
+        <div class="col-mg-8">ENTERPRISE VALUE/EBIT</div>
       </div>
     </div>
-
-  </div>
-</div>
-
-  <!-- Building feature -->
-  <div class="corporate_news mb-3" data-identifier="<%= @stock.identifier %>" data-stock_id="<%= @stock.id %>"></div>
-
-  <!-- Accordion card -->
-  <div class="container text-justify overflow-auto">
-   <% @stock.comments.order("date DESC").each do |comment| %>
-      <div class="border-top mt-"></div>
-      <h3 class="p-3 mb-2 bg-info text-white w-100 text-left mb-2 mt-2 mr-2 ml-2 rounded font-weight-light"> <%= comment.date.strftime("%d/%m/%y") %>, <%= comment.category %>, <em>source: <%= comment.source %></em></h3>
-      <p><%=raw comment.content %></p>
-    <% end %>
+    <div class="bg"></div>
+    <div class="stock-show-tab no-display" tabindex="0">
+      <ul>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
+        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
+      </ul>
+    </div>
   </div>
 </div>
