@@ -9,17 +9,79 @@
 <% end %>
 
 <div class="stock-show-nav-container">
-  <div class="stock-show-header-container">
-    <div class="stock-show-button" tabindex="0">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+  <div class="stock-show-about-section">
+    <div class="stock-name"><%= @stock.name %> - Newsflow</div>
+    <div class="wrapper-about-section">
+      <div class="content-about-section">
+        <div class="about-section">About</div>
+        <div class="about-content"><%= @stock.earning %></div
+      </div>
     </div>
-    <div class="stock-show-title"><%= @stock.name %> : NEWSFLOW</div>
+    <div class="menu">
+      <div class="button-wrapper">
+        <div class="stock-show-button" tabindex="0">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
+        <div class="button-name">Filters</div>
+      </div>
+      <div class="stock-show-tab" tabindex="0">
+        <ul>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="show-bg-body min-height"></div>
   <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
-    <div class="accordion-item__container accordion-item__label"> 
+    <div class="accordion-item__container accordion-item__label">
+      <div class="morning-star-newsflow">
+        <% @stock.fundamentals.each do |fundamental| %>
+          <div class="morning-star-grid-positive">
+            <div class="col-mg-1">
+              <div class="col-mg-data price-sales-newsflow" data-value="<%= fundamental.current_price_sales %>"></div>
+            </div>  
+            <div class="col-mg-2">
+              <div class="col-mg-data price-earnings-newsflow" data-value="<%= fundamental.current_price_earnings %>"></div>
+            </div>
+            <div class="col-mg-3">
+              <div class="col-mg-data price-cashflow-newsflow" data-value="<%= fundamental.current_price_cashflow %>"></div>
+            </div>
+            <div class="col-mg-4">
+              <div class="col-mg-data price-book-newsflow" data-value="<%= fundamental.current_price_book %>"></div>
+            </div>
+          </div>
+          <div class="morning-star-grid-data-name">
+            <div class="col-mg-5">PRICE/SALES</div>
+            <div class="col-mg-6">PRICE/EARNINGS</div>
+            <div class="col-mg-7">PRICE/CASHFLOW</div>
+            <div class="col-mg-8">PRICE/BOOK</div>
+          </div>
+          <div class="morning-star-grid-positive">
+            <div class="col-mg-1">
+              <div class="col-mg-data price-forward-earnings-newsflow" data-value="<%= fundamental.current_price_forward_earnings %>"></div>
+            </div>
+            <div class="col-mg-2">
+              <div class="col-mg-data earning-yield-newsflow" data-value="<%= fundamental.current_earning_yield %>"></div>
+            </div>
+            <div class="col-mg-3">
+              <div class="col-mg-data enterprise-value-newsflow" data-value="<%= fundamental.current_enterprise_value %>"></div>
+            </div>
+            <div class="col-mg-4">
+              <div class="col-mg-data enterprise-value-ebit-newsflow" data-value="<%= fundamental.current_enterprise_value_ebit %>"></div>
+            </div>
+          </div>
+          <div class="morning-star-grid-data-name">
+            <div class="col-mg-5">PRICE/FORWARD EARNINGS</div>
+            <div class="col-mg-6">EARNINGS YIELD</div>
+            <div class="col-mg-7">ENTERPRISE VALUE (Bil)</div>
+            <div class="col-mg-8">ENTERPRISE VALUE/EBIT</div>
+          </div>
+        <% end %>
+      </div>
       <ul class="stock-show-table">
         <% @stock.comments.order("date DESC").each do |comment| %>
           <li class="li-box stock-show-row m_button">
@@ -35,14 +97,6 @@
     </div>
     <div class="stock-show-timeline"></div>
     <div class="bg min-height"></div>
-    <div class="stock-show-tab min-height" tabindex="0">
-      <ul>
-        <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
-      </ul>
-    </div>
   </div>
   <div class="accordion-item" data-actab-group="0" data-actab-id="1">
     <div class="accordion-item__container accordion-item__label"> 
@@ -61,14 +115,6 @@
     </div>
     <div class="stock-show-timeline"></div>
     <div class="bg"></div>
-    <div class="stock-show-tab no-display" tabindex="0">
-      <ul>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
-      </ul>
-    </div>
   </div>
   <div class="accordion-item" data-actab-group="0" data-actab-id="2">
     <div class="accordion-item__container accordion-item__label"> 
@@ -87,56 +133,62 @@
     </div>
     <div class="stock-show-timeline"></div>
     <div class="bg"></div>
-    <div class="stock-show-tab no-display" tabindex="0">
-      <ul>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
-      </ul>
-    </div>
   </div>
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
-    <div class="accordion-item__container accordion-item__label"> 
-      <div class="morning-star-grid-positive">
-        <div class="col-mg-1"></div>
-        <div class="col-mg-2"></div>
-        <div class="col-mg-3">
-          <div class="col-mg-data"></div>
-          <div class="col-mg-graph"></div>
-        </div>
-        <div class="col-mg-4"></div>
-      </div>
-      <div class="morning-star-grid-data-name">
-        <div class="col-mg-5">PRICE/SALES</div>
-        <div class="col-mg-6">PRICE/EARNINGS</div>
-        <div class="col-mg-7">PRICE/CASHFLOW</div>
-        <div class="col-mg-8">PRICE/BOOK</div>
-      </div>
-      <div class="morning-star-grid-positive">
-        <div class="col-mg-1"></div>
-        <div class="col-mg-2"></div>
-        <div class="col-mg-3">
-          <div class="col-mg-data">1</div>
-          <div class="col-mg-graph"></div>
-        </div>
-        <div class="col-mg-4"></div>
-      </div>
-      <div class="morning-star-grid-data-name">
-        <div class="col-mg-5">PRICE/FORWARD EARNINGS</div>
-        <div class="col-mg-6">EARNINGS YIELD</div>
-        <div class="col-mg-7">ENTERPRISE VALUE (Bil)</div>
-        <div class="col-mg-8">ENTERPRISE VALUE/EBIT</div>
+    <div class="accordion-item__container accordion-item__label">
+      <div class="morning-star-page">
+        <% @stock.fundamentals.each do |fundamental| %>
+          <div class="morning-star-grid-positive">
+            <div class="col-mg-1">
+              <div class="col-mg-data price-sales" data-value="<%= fundamental.current_price_sales %>"></div>
+              <div class="col-mg-graph-price-sales"></div>
+            </div>  
+            <div class="col-mg-2">
+              <div class="col-mg-data price-earnings" data-value="<%= fundamental.current_price_earnings %>"></div>
+              <div class="col-mg-graph-price-earnings"></div>
+            </div>
+            <div class="col-mg-3">
+              <div class="col-mg-data price-cashflow" data-value="<%= fundamental.current_price_cashflow %>"></div>
+              <div class="col-mg-graph-price-cashflow"></div>
+            </div>
+            <div class="col-mg-4">
+              <div class="col-mg-data price-book" data-value="<%= fundamental.current_price_book %>"></div>
+              <div class="col-mg-graph-price-book"></div>
+            </div>
+          </div>
+          <div class="morning-star-grid-data-name">
+            <div class="col-mg-5">PRICE/SALES</div>
+            <div class="col-mg-6">PRICE/EARNINGS</div>
+            <div class="col-mg-7">PRICE/CASHFLOW</div>
+            <div class="col-mg-8">PRICE/BOOK</div>
+          </div>
+          <div class="morning-star-grid-positive">
+            <div class="col-mg-1">
+              <div class="col-mg-data price-forward-earnings" data-value="<%= fundamental.current_price_forward_earnings %>"></div>
+              <div class="col-mg-graph-price-forward-earnings"></div>
+            </div>
+            <div class="col-mg-2">
+              <div class="col-mg-data earning-yield" data-value="<%= fundamental.current_earning_yield %>"></div>
+              <div class="col-mg-graph-earning-yield"></div>
+            </div>
+            <div class="col-mg-3">
+              <div class="col-mg-data enterprise-value" data-value="<%= fundamental.current_enterprise_value %>"></div>
+              <div class="col-mg-graph-enterprise-value"></div>
+            </div>
+            <div class="col-mg-4">
+              <div class="col-mg-data enterprise-value-ebit" data-value="<%= fundamental.current_enterprise_value_ebit %>"></div>
+              <div class="col-mg-graph-enterprise-value-ebit"></div>
+            </div>
+          </div>
+          <div class="morning-star-grid-data-name">
+            <div class="col-mg-5">PRICE/FORWARD EARNINGS</div>
+            <div class="col-mg-6">EARNINGS YIELD</div>
+            <div class="col-mg-7">ENTERPRISE VALUE (Bil)</div>
+            <div class="col-mg-8">ENTERPRISE VALUE/EBIT</div>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="bg"></div>
-    <div class="stock-show-tab no-display" tabindex="0">
-      <ul>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW">NEWSFLOW</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS">COMMENTS</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES">FINANCIAL TIMES</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR">MORNINGSTAR</button>
-      </ul>
-    </div>
   </div>
 </div>

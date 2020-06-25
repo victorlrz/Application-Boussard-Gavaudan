@@ -40,10 +40,10 @@ function toggleShow() {
     const tabItem = display.parentElement;
     if (tabItem.dataset.actabGroup === group) {
       if (tabItem.dataset.actabId === id) {
-        display.classList.remove("no-display");
+        // display.classList.remove("no-display");
         display.classList.add("min-height");
       } else {
-        display.classList.add("no-display");
+        // display.classList.add("no-display");
         display.classList.remove("min-height");
       }
     }
