@@ -139,7 +139,7 @@ function launch() {
   morningStarTabs.forEach(function (morning) {
     if (
       morning.classList.contains("accordion-active") &&
-      morning.dataset.actabId == "0"
+      morning.dataset.actabId == "3"
     ) {
       const morningStarData = getDataMg();
       if (morningStarData !== null) {

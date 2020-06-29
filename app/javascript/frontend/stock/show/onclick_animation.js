@@ -1,6 +1,7 @@
 const buttonStockShow = document.querySelectorAll(".li-box");
-const headerContainer = document.querySelector(".stock-show-header-container");
+const headerContainer = document.querySelector(".stock-show-about-section");
 const contentWindow = document.querySelectorAll(".content-window");
+const separator = document.querySelector(".separator");
 
 let isMenuOpen = false;
 let isArticleOpen = false;
@@ -15,10 +16,12 @@ const closeMenu = (elem) => {
 const closeArticle = (elem1, elem2) => {
   for (let i = 0; i < elem1.length; i++) {
     elem1[i].classList.remove("show-content");
+    elem1[i].classList.add("no-display");
     elem1[i].style.setProperty("height", 0);
     elem1[i].style.setProperty("min-height", 0);
   }
   elem2.classList.remove("no-display");
+  separator.classList.remove("sep-active");
 };
 
 const isOpenMenu = (elem) => {
@@ -38,6 +41,10 @@ const isOpenArticle = (elem) => {
     }
   }
 };
+//On écoute le clique sur chaque li contenant un comment,
+//A chaque clique on ajoute ou enlève les != animations
+//Si l'article est ouvert, on enlève le header + sep
+//Si clique sur le body est article ouvert on le close + annulation des no-displays ..
 
 function addElem(elem) {
   let height =
@@ -52,12 +59,16 @@ function addElem(elem) {
         if (current !== elem[i]) {
           elem[i].classList.remove("m_button-active");
           elem[i].classList.add("m_button");
+          contentWindow[i].classList.add("no-display");
         } else {
+          current.classList.remove("m_button");
+          contentWindow[i].classList.remove("no-display");
           current.classList.add("m_button-active");
-          headerContainer.classList.add("no-display");
           contentWindow[i].classList.add("show-content");
           contentWindow[i].style.setProperty("min-height", height);
-          current.classList.remove("m_button");
+          //Non affichage de sep + header
+          headerContainer.classList.add("no-display");
+          separator.classList.add("sep-active");
         }
       }
       isOpenMenu(buttonStockShow);
