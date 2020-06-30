@@ -194,8 +194,6 @@ $color1: #16a085;
 }
 
 .accordion {
-  $accordion: &;
-
   &-tabs {
     display: none;
     :focus {

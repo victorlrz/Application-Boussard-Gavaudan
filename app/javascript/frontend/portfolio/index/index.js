@@ -21,6 +21,8 @@ function displayID() {
     " EUR";
 }
 
-tabs.forEach(function (tab) {
-  tab.addEventListener("click", displayID);
-});
+if (title) {
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", displayID);
+  });
+}

@@ -1,54 +1,126 @@
-<div class="container">
-  <div class="row mt-3 mb-3">
-    <h1><%= @stock.name %></h1>
-      <%= link_to "Back to Stocks", stocks_path, class: "btn btn-primary btn-block mb-3 mr-5 ml-5", style:"width: 200px" %>
-      <% if  @stock.price_1chg.split(" / ").last.to_f > 0%>
-              <h2 class="text-success">Daily:  <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></h2>
-            <% else %>
-              <h2 class="text-danger">Daily: <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></h2>
-          <% end %>
-      <p class="text-justify"><%= @stock.earning %></p>
-
-
-    <%= link_to "Create a new comment",  new_stock_comment_path(@stock), class: "btn btn-primary btn-block w-100 mb-2 mt-2 mr-2 ml-2"  %>
+<% if current_user.admin %>
+  <div class="stock-show-admin">
+    <a href="/stock/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
   </div>
+<% else %>
+  <div class="stock-show-no-admin">
+      <button class="button type2">NEWSFLOW</button>
+  </div>
+<% end %>
 
-<!--Accordion wrapper-->
-<div class="accordion md-accordion border-top mb-3" id="accordionEx" role="tablist" aria-multiselectable="true">
-
-  <!-- Accordion card -->
-  <div class="card">
-
-    <!-- Card header -->
-    <div class="card-header" role="tab" id="headingOne1">
-      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-        aria-controls="collapseOne1">
-        <h5 class="btn-success p-3 mb-0">
-          Newsflow from Financials time (if any since beginning of the year) <i class="fas fa-angle-down rotate-icon float-right"></i>
-        </h5>
-      </a>
-    </div>
-
-    <!-- Card body -->
-    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-      data-parent="#accordionEx">
-      <div class="card-body">
-        <div class="stock_newsflow mb-3" data-toggle="collapse" data-name="<%= @stock.name %>" data-identifier="<%= @stock.identifier %>"></div>
+<div class="stock-show-nav-container">
+  <div class="stock-show-about-section">
+    <div class="stock-name"><%= @stock.name %> - Newsflow</div>
+    <div class="wrapper-about-section">
+      <div class="content-about-section">
+        <div class="about-section">About</div>
+        <div class="about-content"><%= @stock.earning %></div>
+      </div>
+      <div class="menu">
+        <div class="button-name">Filters</div>
+        <div class="stock-show-tab" tabindex="0">
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW"><div class="circle"><i class="fas fa-hashtag"></i></div>Newsflow</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS"><div class="circle"><i class="fas fa-hashtag"></i></div>Comments</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES"><div class="circle"><i class="fas fa-hashtag"></i></div>Financial Times</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morning Star</button>
+        </div>
       </div>
     </div>
-
   </div>
-</div>
-
-  <!-- Building feature -->
-  <div class="corporate_news mb-3" data-identifier="<%= @stock.identifier %>" data-stock_id="<%= @stock.id %>"></div>
-
-  <!-- Accordion card -->
-  <div class="container text-justify overflow-auto">
-   <% @stock.comments.order("date DESC").each do |comment| %>
-      <div class="border-top mt-"></div>
-      <h3 class="p-3 mb-2 bg-info text-white w-100 text-left mb-2 mt-2 mr-2 ml-2 rounded font-weight-light"> <%= comment.date.strftime("%d/%m/%y") %>, <%= comment.category %>, <em>source: <%= comment.source %></em></h3>
-      <p><%=raw comment.content %></p>
-    <% end %>
+  <div><hr class="separator"></hr></div>
+  <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
+    <div class="accordion-item__container accordion-item__label">
+      <ul class="stock-show-table">
+        <% @stock.comments.order("date DESC").each do |comment| %>
+          <li class="li-box stock-show-row m_button">
+            <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
+            <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
+            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
+            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
+          </li>
+          <div class="content-window no-display"><div class="content-text"><%=raw comment.content %></div></div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="stock-show-timeline"></div>
+  </div>
+  <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="2">
+    <div class="accordion-item__container accordion-item__label">
+      <div class="stock_newsflow mb-3" data-toggle="collapse" data-name="<%= @stock.name %>" data-identifier="<%= @stock.identifier %>"></div>
+    </div>
+  </div>
+  <div class="accordion-item" data-actab-group="0" data-actab-id="3">
+    <div class="accordion-item__container accordion-item__label">
+        <div class="morningstar-container">
+          <div class="mg-text"><h2 class="mg-t">MorningStar,<br> Current valuation.</h2></div>
+          <div class="mg-color">
+            <div class="mg-c-c">
+                <div class="mg-data-container">
+                  <% @stock.fundamentals.each do |fundamental| %>
+                    <div class="col-mg-2">
+                      <div class="col-mg-data price-sales-newsflow" data-value="<%= fundamental.current_price_sales %>"></div>
+                      <div class="data-name">PRICE/SALES</div>
+                    </div>
+                    <div class="col-mg-6">
+                      <div class="col-mg-data price-earnings-newsflow" data-value="<%= fundamental.current_price_earnings %>"></div>
+                      <div class="data-name">PRICE/EARNINGS</div>
+                    </div>
+                    <div class="col-mg-8">
+                      <div class="col-mg-data price-cashflow-newsflow" data-value="<%= fundamental.current_price_cashflow %>"></div>
+                      <div class="data-name">PRICE/CASHFLOW</div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="morningstar-container-reverse">
+          <div class="mg-color">
+            <div class="mg-c-c">
+                <div class="mg-data-container">
+                  <% @stock.fundamentals.each do |fundamental| %>
+                    <div class="col-mg-2">
+                    <div class="col-mg-data price-book-newsflow" data-value="<%= fundamental.current_price_book %>"></div>
+                      <div class="data-name">PRICE/BOOK</div>
+                    </div>
+                    <div class="col-mg-4">
+                    <div class="col-mg-data price-forward-earnings-newsflow" data-value="<%= fundamental.current_price_forward_earnings %>"></div>
+                      <div class="data-name">PRICE/FORWARD EARNINGS</div>
+                    </div>
+                    <div class="col-mg-8">
+                    <div class="col-mg-data earning-yield-newsflow" data-value="<%= fundamental.current_earning_yield %>"></div>
+                      <div class="data-name">EARNINGS YIELD</div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+          <div class="mg-text"><h2 class="mg-t">MorningStar,<br> Current valuation.</h2></div>
+        </div>
+        <div class="morningstar-container">
+          <div class="mg-text"><h2 class="mg-t">MorningStar,<br> Enterprise Value.</h2></div>
+          <div class="mg-color">
+            <div class="mg-c-c">
+                <div class="mg-data-container">
+                  <% @stock.fundamentals.each do |fundamental| %>
+                    <div class="col-mg-2">
+                    <div class="col-mg-data enterprise-value-newsflow" data-value="<%= fundamental.current_enterprise_value %>"></div>
+                      <div class="data-name">ENTERPRISE VALUE (Bil)</div>
+                    </div>
+                    <div class="col-mg-6">
+                    <div class="col-mg-data enterprise-value-ebit-newsflow" data-value="<%= fundamental.current_enterprise_value_ebit %>"></div>
+                      <div class="data-name">ENTERPRISE VALUE/EBIT</div>
+                    </div>
+                    <div class="col-mg-8">
+                      <div class="col-mg-data price-cashflow-newsflow" data-value="<%= fundamental.current_price_cashflow %>">-</div>
+                      <div class="data-name">ENTERPRISE VALUE/EBITDA</div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
 </div>

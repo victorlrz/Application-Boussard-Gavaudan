@@ -83,7 +83,8 @@ if (closeMenu) {
         "active-logo-top",
         "active-logo-middle",
         "active-logo-bottom",
-        "cancel-event"
+        "cancel-event",
+        "active-cursor"
       );
     }
   });

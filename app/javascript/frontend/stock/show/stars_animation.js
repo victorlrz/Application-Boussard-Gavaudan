@@ -1,30 +1,12 @@
-console.clear();
-
-// Like Button + increasing count
 const likeButton = document.querySelectorAll(".action--like");
+const buttonStockShow = document.querySelectorAll(".li-box");
 
 likeButton.forEach((button) => {
-  button.addEventListener("click", () => {
-    const countNum = button.parentNode.querySelector(".action__label");
-    increaseVal(countNum);
+  button.addEventListener("click", (e) => {
     animationItem();
-    button.style.transform = "scale(1.2)";
-    const rotateDeg = getRange(10);
-    button.parentNode.parentNode.parentNode.style.transform = `rotate(${rotateDeg}deg)`;
-    setTimeout(() => {
-      button.style.transform = "";
-      button.parentNode.parentNode.parentNode.style.transform = "";
-      button.blur();
-    }, 300);
+    e.stopPropagation();
   });
 });
-
-const increaseVal = (target) => {
-  var value = parseInt(target.innerHTML, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  target.innerHTML = value;
-};
 
 // Create Shape Animation
 const colorClasses = ["blue", "purple", "orange", "pink", "green", "yellow"];

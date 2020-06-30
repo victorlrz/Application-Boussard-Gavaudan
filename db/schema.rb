@@ -254,6 +254,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_120157) do
   add_foreign_key "deals", "acquirers"
   add_foreign_key "deals", "targets"
   add_foreign_key "fundamentals", "stocks"
+  add_foreign_key "morning_stars", "stocks"
   add_foreign_key "portfolios", "stocks"
   add_foreign_key "posts", "deals"
   add_foreign_key "rounds", "acquirers"
