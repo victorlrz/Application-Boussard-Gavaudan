@@ -10,18 +10,22 @@ const enterpriseValue = document.querySelector(".enterprise-value-newsflow");
 const enterpriseValueEbit = document.querySelector(
   ".enterprise-value-ebit-newsflow"
 );
+const enterpriseValueEbitda = document.querySelector(
+  ".enterprise-value-ebitda-newsflow"
+);
 
 function getDataMg() {
   let morningStarTab = null;
   if (
-    priceSales !== null &&
-    priceEarnings !== null &&
-    priceCashflow !== null &&
-    priceBook !== null &&
-    priceForwardEarnings !== null &&
-    earningsYield !== null &&
-    enterpriseValue !== null &&
-    enterpriseValueEbit !== null
+    (priceSales !== null &&
+      priceEarnings !== null &&
+      priceCashflow !== null &&
+      priceBook !== null &&
+      priceForwardEarnings !== null &&
+      earningsYield !== null &&
+      enterpriseValue !== null &&
+      enterpriseValueEbit !== null,
+    enterpriseValueEbitda !== null)
   ) {
     const dataSales = priceSales.dataset.value;
     const dataEarnings = priceEarnings.dataset.value;
@@ -31,6 +35,7 @@ function getDataMg() {
     const dataYield = earningsYield.dataset.value;
     const dataValue = enterpriseValue.dataset.value;
     const dataValueEbit = enterpriseValueEbit.dataset.value;
+    const dataValueEbitda = enterpriseValueEbitda.dataset.value;
 
     morningStarTab = [
       {
@@ -73,6 +78,12 @@ function getDataMg() {
       {
         data: "enterpriseValueEbit",
         value: dataValueEbit,
+        positive: true,
+        initialize: true,
+      },
+      {
+        data: "enterpriseValueEbitda",
+        value: dataValueEbitda,
         positive: true,
         initialize: true,
       },
@@ -229,6 +240,20 @@ function launch() {
           morningStarData[id7].value,
           morningStarData[id7].positive,
           morningStarData[id7].initialize,
+          20
+        );
+
+        const id8 = findWithAttr(
+          morningStarData,
+          "data",
+          "enterpriseValueEbitda"
+        );
+
+        stonk(
+          enterpriseValueEbitda,
+          morningStarData[id8].value,
+          morningStarData[id8].positive,
+          morningStarData[id8].initialize,
           20
         );
       }

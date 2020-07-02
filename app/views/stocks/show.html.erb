@@ -106,14 +106,14 @@
                   <% @stock.fundamentals.each do |fundamental| %>
                     <div class="col-mg-2">
                     <div class="col-mg-data enterprise-value-newsflow" data-value="<%= fundamental.current_enterprise_value %>"></div>
-                      <div class="data-name">ENTERPRISE VALUE (Bil)</div>
+                      <div class="data-name">ENTERPRISE VALUE (Bil or Mil)</div>
                     </div>
                     <div class="col-mg-6">
                     <div class="col-mg-data enterprise-value-ebit-newsflow" data-value="<%= fundamental.current_enterprise_value_ebit %>"></div>
                       <div class="data-name">ENTERPRISE VALUE/EBIT</div>
                     </div>
                     <div class="col-mg-8">
-                      <div class="col-mg-data price-cashflow-newsflow" data-value="<%= fundamental.current_price_cashflow %>">-</div>
+                      <div class="col-mg-data enterprise-value-ebitda-newsflow" data-value="<%= fundamental.current_enterprise_value_ebitda %>">-</div>
                       <div class="data-name">ENTERPRISE VALUE/EBITDA</div>
                     </div>
                   <% end %>
