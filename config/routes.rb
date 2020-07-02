@@ -35,4 +35,7 @@ Rails.application.routes.draw do
     resources :fundamentals
   end
 
+  resources :stocks do
+    resources :articles
+  end
 end
