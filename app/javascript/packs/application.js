@@ -26,6 +26,7 @@ import "../features/apiftimes.js";
 import "../styles/application";
 //Front-end Navbar
 import "../frontend/header/navbar";
+import "../frontend/header/darkmode";
 //Menus
 import "../frontend/menu/portfolio_index_menu";
 import "../frontend/menu/stock_show_menu";
