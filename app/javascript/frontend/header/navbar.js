@@ -30,10 +30,14 @@ function addClass(elem) {
           current.classList.contains("isActive")
         ) {
           current.classList.replace("isActive", "notActive");
+          // console.log(i);
         } else {
           current.classList.add("isActive");
           current.classList.remove("notActive");
         }
+      }
+      if (elem[0].classList.contains("isActive")) {
+        window.location.replace("https://cryptic-harbor-77074.herokuapp.com"); //Prod
       }
       isOpen(iconMenu);
       e.preventDefault();
