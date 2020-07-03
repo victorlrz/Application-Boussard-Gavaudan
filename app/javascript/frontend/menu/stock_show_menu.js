@@ -1,10 +1,6 @@
 const labels = document.querySelectorAll(".accordion-item__label");
 const tabs = document.querySelectorAll(".accordion-tab");
 const displayTabs = document.querySelectorAll(".stock-show-tab");
-const toggleMenu = document.querySelector(".stock-show-button");
-const containerMenu = document.querySelector(".stock-show-nav-container");
-const backgrounds = document.querySelectorAll(".bg");
-const closeMenu = document.body;
 
 function toggleShow() {
   const target = this;
@@ -46,60 +42,6 @@ function toggleShow() {
         // display.classList.add("no-display");
         display.classList.remove("min-height");
       }
-    }
-  });
-
-  backgrounds.forEach(function (background) {
-    const tabItem = background.parentElement;
-    if (tabItem.dataset.actabGroup === group) {
-      if (tabItem.dataset.actabId === id) {
-        background.classList.add("min-height");
-      } else {
-        background.classList.remove("min-height");
-      }
-    }
-  });
-}
-if (toggleMenu) {
-  toggleMenu.addEventListener("click", function (e) {
-    if (containerMenu.classList.contains("active-sidebar")) {
-      containerMenu.classList.remove(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
-    } else {
-      containerMenu.classList.add(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
-    }
-    e.preventDefault();
-    e.stopPropagation();
-  });
-}
-
-if (closeMenu) {
-  closeMenu.addEventListener("click", function (e) {
-    if (containerMenu && containerMenu.classList.contains("active-sidebar")) {
-      containerMenu.classList.remove(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
     }
   });
 }

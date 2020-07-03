@@ -2,25 +2,29 @@
   <div class="portfolio-index-admin">
     <a href="portfolios/new"><button class="button type2">New Portfolio</button></a>
   </div>
-<% else %>
-  <div class="portfolio-index-no-admin">
-      <button class="button type2">PORTFOLIOS</button>
-  </div>
 <% end %>
 
 <div class="portfolio-index-nav-container">
-  <div class="portfolio-index-header-container">
-    <div class="portfolio-index-button" tabindex="0">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+  <div class="portfolio-header-section">
+    <div class="portfolio-name">Portfolios</div>
+    <div class="wrapper-portfolio-section">
+      <div class="content-about-section">
+        <div class="about-section">Fund</div>
+        <div class="portfolio-index-title"><%= Portfolio.find_by(fund: "BGLTV").fund %>  - <%= Portfolio.last.date.strftime("%d/%m/%y") %> - Investment level : <%= @bgltv.sum("weight").round(2) %>% - AUM : <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</div>
+      </div>
+      <div class="menu">
+        <div class="portfolio-show-tab" tabindex="0">
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>"><div class="circle"><i class="fas fa-hashtag"></i></div>BGLTV</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-name="<%= Portfolio.find_by(fund: "BGEQT").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgeqt.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %>"><div class="circle"><i class="fas fa-hashtag"></i></div>BGEQT</button>
+        </div>
+      </div>
     </div>
-    <div class="portfolio-index-title"><%= Portfolio.find_by(fund: "BGLTV").fund %>  - <%= Portfolio.last.date.strftime("%d/%m/%y") %> - Investment level : <%= @bgltv.sum("weight").round(2) %>% - AUM : <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</div>
   </div>
+  <div><hr class="separator"></hr></div>
   <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="0">
     <div class="accordion-item__container accordion-item__label">
       <ul class="portfolio-index-table">
-        <li class="portfolio-index-table-header ">
+        <li class="portfolio-index-table-header">
           <div class="col-nb-1">Index</div>
           <div class="col-nb-2">Name</div>
           <div class="col-nb-3">Weight</div>
@@ -32,21 +36,14 @@
           <li class="portfolio-index-row">
             <% stock = portfolio.stock_id %>
             <%= link_to "", stock_path(stock), class: "portfolio-index-a" %>
-            <div class="col-nb-1" data-label="Index"><%= index +1 %></div>
+            <div class="col-nb-1 font-size" data-label="Index"><%= index +1 %></div>
             <div class="col-nb-2" data-label="Name"><%= Stock.find(id=stock).name %></div>
-            <div class="col-nb-3" data-label="Weight"><%= portfolio.weight %>%</div>
-            <div class="col-nb-4" data-label="1Yr-Perf"><%= Stock.find(id=stock).price_yrchg %></div>
-            <div class="col-nb-5" data-label="Beta"><%= Stock.find(id=stock).beta_ft %></div>
-            <div class="col-nb-6" data-label="P/E"><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %></div>
+            <div class="col-nb-3 font-size" data-label="Weight"><%= portfolio.weight %>%</div>
+            <div class="col-nb-4 font-size" data-label="1Yr-Perf"><%= Stock.find(id=stock).price_yrchg %></div>
+            <div class="col-nb-5 font-size" data-label="Beta"><%= Stock.find(id=stock).beta_ft %></div>
+            <div class="col-nb-6 font-size" data-label="P/E"><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %></div>
           </li>
         <% end %>
-      </ul>
-    </div>
-    <div class="bg"></div>
-    <div class="portfolio-index-tab" tabindex="0">
-      <ul>
-        <button class="accordion-tab accordion-active" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>">BGLTV</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-name="<%= Portfolio.find_by(fund: "BGEQT").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgeqt.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %>">BGEQT</button>
       </ul>
     </div>
   </div>
@@ -73,13 +70,6 @@
             <div class="col-nb-6" data-label="P/E"><%= Stock.find(id=stock).ebitda.split("P/E (TTM)").last.split("Market cap").first unless Stock.find(id=stock).ebitda.nil? %></div>
           </li>
         <% end %>
-      </ul>
-    </div>
-    <div class="bg"></div>
-    <div class="portfolio-index-tab no-display" tabindex="0">
-      <ul>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>">BGLTV</button>
-        <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-name="<%= Portfolio.find_by(fund: "BGEQT").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgeqt.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgeqt.last.aum, :delimiter => ",", :separator => ".") %>">BGEQT</button>
       </ul>
     </div>
   </div>

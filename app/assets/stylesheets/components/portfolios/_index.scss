@@ -23,176 +23,11 @@ $color1: #16a085;
   }
 }
 
-//Non admin
-.portfolio-index-no-admin {
-  padding: 0 2rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .button.type2 {
-    color: $color1;
-    cursor: default;
-    &.type2:after,
-    &.type2:before {
-      background-color: $color1;
-    }
-
-    &.type2::before {
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-  }
-}
-
 //Portfolios
 .portfolio-index-nav-container {
   max-width: 1100px;
   width: 100%;
-
-  .portfolio-index-header-container {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    background: #546e7a;
-    height: 65px;
-    position: sticky;
-    top: 50px;
-    z-index: 2;
-    border-radius: 3px;
-
-    .portfolio-index-title {
-      display: flex;
-      width: 100%;
-      padding-right: 5%;
-      color: #fff;
-      justify-content: center;
-      align-items: center;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-
-    .portfolio-index-button {
-      position: relative;
-      display: flex;
-      width: 5%;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 1;
-      -webkit-appearance: none;
-      border: 0;
-      background: transparent;
-      border-radius: 0;
-      height: 70px;
-      width: 30px;
-      cursor: pointer;
-      margin-left: 25px;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-      .icon-bar {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background: white;
-        transition: 0.3s;
-      }
-      .icon-bar + .icon-bar {
-        margin-top: 5px;
-      }
-
-      &:focus {
-        outline-style: none;
-      }
-    }
-  }
-
-  .portfolio-index-tab {
-    padding: 20px;
-    width: 90%;
-    max-width: 300px;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: auto;
-    background: #78909c;
-    pointer-events: auto;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    transform: translateX(-200%);
-    transition: transform 0.3s;
-    will-change: transform;
-    contain: paint;
-    z-index: 2;
-    &:focus {
-      outline: none;
-    }
-    &.no-display {
-      display: none;
-    }
-  }
-
-  .portfolio-index-tab ul {
-    position: sticky;
-    top: 135px;
-    .accordion-tab {
-      font-family: "Roboto Condensed", sans-serif;
-      border-style: none;
-      background-color: #78909c;
-      color: white;
-      font-size: 1.6rem;
-      letter-spacing: 0.2rem;
-      border-bottom: dashed 0.1rem;
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      display: block;
-      width: 100%;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
-  .bg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
-    background: #000;
-  }
-
-  &.active-bg .bg {
-    visibility: visible;
-    opacity: 0.6;
-  }
-
-  &.active-logo-top .icon-bar:nth-of-type(1) {
-    transform: translate3d(0, 8px, 0) rotate(45deg);
-  }
-  &.active-logo-middle .icon-bar:nth-of-type(2) {
-    opacity: 0;
-  }
-  &.active-logo-bottom .icon-bar:nth-of-type(3) {
-    transform: translate3d(0, -8px, 0) rotate(-45deg);
-  }
-
-  &.active-sidebar .portfolio-index-tab {
-    transform: none;
-  }
-
-  &.cancel-event {
-    pointer-events: none;
-    cursor: default;
-  }
-
-  &.active-cursor .portfolio-index-button {
-    pointer-events: initial;
-    cursor: pointer;
-  }
 }
-
 .accordion {
   &-tabs {
     display: none;
@@ -208,7 +43,6 @@ $color1: #16a085;
     &__container {
       padding: 0 1.25em;
       height: 0;
-      overflow: hidden;
       opacity: 0;
       transition: padding 0.2s ease, opacity 0.5s 0.15s ease;
     }
@@ -240,20 +74,6 @@ $color1: #16a085;
 
 //Accordions
 
-.portfolio-index-table-header {
-  // margin-top: 1rem; A rajouter si user est pas admin, how ?
-  font-family: "Roboto Condensed", sans-serif;
-  width: 100%;
-  background-color: #78909c;
-  font-size: 14px;
-  letter-spacing: 0.03rem;
-  max-height: 80px;
-  text-transform: uppercase;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-}
-
 .portfolio-index-table {
   li {
     transition: box-shadow 0.3s;
@@ -267,17 +87,66 @@ $color1: #16a085;
     place-content: center space-evenly;
     text-align: center;
     margin-bottom: 25px;
+    @media all and (max-width: 680px) {
+      grid-template-areas: "e2 e3 e4 e5 e6";
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media all and (max-width: 600px) {
+      display: grid;
+      grid:
+        "e2" 1fr
+        "e3" 1fr
+        "e4" 1fr
+        "e5" 1fr
+        "e6" 1fr /
+        auto;
+      place-items: center center;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .portfolio-index-table-header {
+    // margin-top: 1rem; A rajouter si user est pas admin, how ?
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    background-color: rgba(12, 242, 143, 0.2);
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.8);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    @media all and (max-width: 600px) {
+      max-height: fit-content;
+    }
+    @media all and (max-width: 785px) {
+      font-size: 18px;
+    }
   }
 
   .portfolio-index-row {
     font-family: "lato", sans-serif;
-    font-size: 14px;
+    font-size: 14px; //set Name to 14px
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.8);
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 
     &:hover {
       box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
     }
+    @media all and (max-width: 600px) {
+      line-height: 32px;
+    }
+  }
+
+  .font-size {
+    //override row font-size except Name
+    font-size: 18px;
   }
 
   .portfolio-index-a {
@@ -288,10 +157,16 @@ $color1: #16a085;
     height: 100%;
     z-index: 1;
     cursor: pointer;
+    @media all and (max-width: 600px) {
+      grid-row: 1/6;
+    }
   }
 
   .col-nb-1 {
     grid-area: e1;
+    @media all and (max-width: 680px) {
+      display: none;
+    }
   }
   .col-nb-2 {
     grid-area: e2;
