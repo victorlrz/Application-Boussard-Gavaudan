@@ -114,6 +114,13 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
         bottom: 45%;
         font-size: 80px;
         opacity: 0.99;
+        @media all and (max-width: 580px) {
+          font-size: 45px;
+        }
+        @media (min-width: 580px) and (max-width: 800px) {
+          font-size: 60px;
+          bottom: 60%;
+        }
       }
     }
 
@@ -128,6 +135,9 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       height: 16px;
       border-radius: 16px;
       background-color: $bg-color;
+      @media all and (max-width: 800px) {
+        display: none;
+      }
     }
     &:after {
       content: "";
@@ -140,6 +150,9 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       height: 16px;
       border-radius: 16px;
       background-color: $bg-color;
+      @media all and (max-width: 800px) {
+        display: none;
+      }
     }
     .ipo-index-ul {
       z-index: 98;
@@ -154,6 +167,9 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
         margin: 6px 0;
         background-color: $bg-color;
       }
+      @media all and (max-width: 800px) {
+        display: none;
+      }
     }
     .ipo-index-h2 {
       z-index: 98;
@@ -164,6 +180,13 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       font-size: 60px;
       font-weight: 700;
       color: #fff;
+      text-align: right;
+      @media all and (max-width: 580px) {
+        font-size: 30px;
+      }
+      @media (min-width: 580px) and (max-width: 1100px) {
+        font-size: 45px;
+      }
     }
 
     .p-ipo-index {
@@ -179,6 +202,12 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
       cursor: default;
+      @media all and (max-width: 400px) {
+        right: 12%;
+      }
+      @media (min-width: 400px) and (max-width: 580px) {
+        right: 14%;
+      }
     }
     .pic {
       z-index: 98;
@@ -205,6 +234,10 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       width: 180px;
       height: 64px;
       border-radius: 80px;
+      @media all and (max-width: 580px) {
+        left: 0;
+        width: 140px;
+      }
     }
 
     .ipo-timeline i:nth-of-type(1) {
@@ -221,6 +254,9 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       opacity: 1;
       -webkit-transform: scale(1);
       transform: scale(1);
+      @media all and (max-width: 580px) {
+        transform: scale(0.8);
+      }
     }
 
     button {
@@ -251,6 +287,9 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
 
     &:hover button {
       transform: scale(20);
+      @media all and (max-width: 580px) {
+        transform: scale(12.5);
+      }
     }
 
     &:hover p {
@@ -261,13 +300,4 @@ $img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=r
       filter: grayscale(0);
     }
   }
-
-  // .card2 {
-  //   .pic {
-  //     background-image: url($img-url2);
-  //   }
-  //   button {
-  //     background-color: $blue;
-  //   }
-  // }
 }
