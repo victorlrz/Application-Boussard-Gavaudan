@@ -1,9 +1,5 @@
 const labels = document.querySelectorAll(".accordion-item__label");
 const tabs = document.querySelectorAll(".accordion-tab");
-const displayTabs = document.querySelectorAll(".portfolio-index-tab");
-const toggleMenu = document.querySelector(".portfolio-index-button");
-const containerMenu = document.querySelector(".portfolio-index-nav-container");
-const closeMenu = document.body;
 
 function toggleShow() {
   const target = this;
@@ -32,60 +28,6 @@ function toggleShow() {
       } else {
         tabItem.classList.remove("accordion-active");
       }
-    }
-  });
-
-  displayTabs.forEach(function (display) {
-    const tabItem = display.parentElement;
-    if (tabItem.dataset.actabGroup === group) {
-      if (tabItem.dataset.actabId === id) {
-        display.classList.remove("no-display");
-      } else {
-        display.classList.add("no-display");
-      }
-    }
-  });
-}
-if (toggleMenu) {
-  toggleMenu.addEventListener("click", function (e) {
-    if (containerMenu.classList.contains("active-sidebar")) {
-      containerMenu.classList.remove(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
-    } else {
-      containerMenu.classList.add(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
-    }
-    e.preventDefault();
-    e.stopPropagation();
-  });
-}
-
-if (closeMenu) {
-  closeMenu.addEventListener("click", function (e) {
-    if (containerMenu && containerMenu.classList.contains("active-sidebar")) {
-      containerMenu.classList.remove(
-        "active-sidebar",
-        "active-bg",
-        "active-logo-top",
-        "active-logo-middle",
-        "active-logo-bottom",
-        "cancel-event",
-        "active-cursor"
-      );
     }
   });
 }
