@@ -4,7 +4,7 @@
     <a href="acquirers/new"><button class="button type2">New Acquirer</button></a>
     <a href="targets/new"><button class="button type3">New Target</button></a>
   </div>
-<% else %>
+  <% else %>
   <div class="deal-index-no-admin">
     <button class="button type3">DEALS</button>
   </div>
@@ -27,24 +27,24 @@
       <li class="deal-index-row">
         <%= link_to "", deal_path(deal), class: "deal-index-a" %>
         <div class="col-nb-1"><%= cl_image_tag deal.target.target_logo.key, width: 100, height: 100, crop: :pad if deal.target.target_logo.attached? %></div>
-        <div class="col-nb-2"><%= deal.date.strftime("%d/%m/%y") %></div>
+        <div class="col-nb-2 font-size"><%= deal.date.strftime("%d/%m/%y") %></div>
         <div class="col-nb-3"><%= deal.acquirer.name %> takeover of <%= deal.target.name %></div>
-        <div class="col-nb-4"><%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></div>
-        <div class="col-nb-5"><%= deal.valuation_multiple %>x <%= deal.valuation_type %></div>
+        <div class="col-nb-4 font-size"><%= number_with_delimiter(deal.deal_value, delimiter: ",") %> m<%= deal.deal_currency %></div>
+        <div class="col-nb-5 font-size"><%= deal.valuation_multiple %>x <%= deal.valuation_type %></div>
         <% if  deal.offer_price%>
-          <div class="col-nb-6"><%= deal.offer_price %> <%= deal.deal_currency %></div>
+          <div class="col-nb-6 font-size"><%= deal.offer_price %> <%= deal.deal_currency %></div>
         <% else %>
-          <div class="col-nb-6">--</div>
+          <div class="col-nb-6 font-size">--</div>
         <% end %>
         <% if deal.ratio_shares%>
-          <div class="col-nb-7"><%= deal.ratio_shares %> <%= deal.acquirer.identifier %></div>
+          <div class="col-nb-7 font-size"><%= deal.ratio_shares %> <%= deal.acquirer.identifier %></div>
         <% else %>
-          <div class="col-nb-7">--</div>
+          <div class="col-nb-7 font-size">--</div>
         <% end %>
         <% if deal.target.ebitda.split("Market cap")[1].nil? %>
-          <div class="col-nb-8">--</div>  
+          <div class="col-nb-8 font-size">--</div>  
         <% else %>
-          <div class="col-nb-8"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0]  %></div>
+          <div class="col-nb-8 font-size"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0]  %></div>
         <% end %>
       </li>
     <% end %>
