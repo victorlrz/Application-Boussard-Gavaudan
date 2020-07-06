@@ -29,26 +29,26 @@
         <%= link_to "", stock_path(stock), class: "stock-index-a" %>
         <div class="col-nb-1" data-label="Name"><%= stock.name %></div>
         <div class="col-nb-2" data-label="Identifier"><%= stock.identifier %></div>
-        <div class="col-nb-3" data-label="Price"><%= stock.price %></div>
-        <div class="col-nb-4" data-label="Mkt Cap"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></div>
-        <div class="col-nb-5" data-label="Revenue TTM"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil?  %></div>
-        <div class="col-nb-6" data-label="P/E TTM"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></div>
+        <div class="col-nb-3 font-size" data-label="Price"><%= stock.price %></div>
+        <div class="col-nb-4 font-size" data-label="Mkt Cap"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></div>
+        <div class="col-nb-5 font-size" data-label="Revenue TTM"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil?  %></div>
+        <div class="col-nb-6 font-size" data-label="P/E TTM"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></div>
         <% if  stock.price_1chg.split(" / ").last.to_f > 0%>
-          <div class="col-nb-7 text-success-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
+          <div class="col-nb-7 font-size text-success-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
         <% else %>
-          <div class="col-nb-7 text-danger-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
+          <div class="col-nb-7 font-size text-danger-nb" data-label="1D - Chg"><%= stock.price_1chg.split(" / ").last unless stock.price_1chg.nil? %></div>
         <% end %>
         <% if stock.price_yrchg.to_f > 0 %>
-          <div class="col-nb-8 text-success-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
+          <div class="col-nb-8 font-size text-success-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
         <% else %>
-          <div class="col-nb-8 text-danger-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
+          <div class="col-nb-8 font-size text-danger-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
         <% end %>
-        <div class="col-nb-9" data-label="Beta"><%= stock.beta_ft %></div>
-        <div class="col-nb-10" data-label="Articles"><%= stock.comments.count %></div>
+        <div class="col-nb-9 font-size" data-label="Beta"><%= stock.beta_ft %></div>
+        <div class="col-nb-10 font-size" data-label="Articles"><%= stock.comments.count %></div>
         <% if stock.price_yrchg.to_f >= 0 %>
-          <div class="col-nb-11" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</div>
+          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</div>
         <% else %>
-          <div class="col-nb-11" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %>--</div>
+          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %>--</div>
         <% end %> 
         </li>
     <% end %>
