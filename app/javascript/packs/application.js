@@ -39,6 +39,4 @@ import "../frontend/stock/show/getTitle";
 import "../frontend/stock/show/morningstar_animation";
 import "../frontend/stock/show/value_animation";
 
-$(document).ready(function () {
-  $("#my_data").DataTable();
-});
+
