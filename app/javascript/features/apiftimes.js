@@ -24,7 +24,7 @@ const getParams = () => {
       },
       resultContext: {
         aspects: ["title", "lifecycle"], //Response include title and lifecyle of an article
-        maxResults: 20,
+        // maxResults: 20, Not needed -> Rolling Window
       },
     };
     return searchParam;
