@@ -21,7 +21,7 @@
       <div class="col-nb-8">1Y - Chg</div>
       <div class="col-nb-9">Beta</div>
       <div class="col-nb-10">Articles</div>
-      <div class="col-nb-11">BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)</div>
+      <div class="col-nb-11">BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") unless Portfolio.last.nil? %>) weight (%) </div>
     </li>
 
     <% @stocks.order("beta_ft DESC").each do |stock| %>
@@ -46,17 +46,17 @@
         <div class="col-nb-9 font-size" data-label="Beta"><%= stock.beta_ft %></div>
         <div class="col-nb-10 font-size" data-label="Articles"><%= stock.comments.count %></div>
         <% if stock.price_yrchg.to_f >= 0 %>
-          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</div>
+          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") unless Portfolio.last.nil? %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight unless Portfolio.find_by(stock_id: recherche).nil? %>%</div>
         <% else %>
-          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %>--</div>
-        <% end %> 
+          <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") unless Portfolio.last.nil? %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %>--</div>
+        <% end %>
         </li>
     <% end %>
   </ul>
 </div>
 
-    
 
-   
+
+
 
 
