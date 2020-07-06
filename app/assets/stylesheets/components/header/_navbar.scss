@@ -44,6 +44,7 @@ $nav-link-text-color: rgba(0, 0, 0, 0.84);
     grid-template-columns: 1fr;
     place-items: center center;
     line-height: 2rem;
+    height: fit-content;
   }
   .a-nb {
     font-size: 16px;
@@ -59,6 +60,7 @@ $nav-link-text-color: rgba(0, 0, 0, 0.84);
     font-family: "Staatliches", cursive;
     @include xs {
       line-height: 3.2rem;
+      margin-top: 2.5rem;
     }
   }
 }
@@ -242,6 +244,9 @@ $nav-link-text-color: rgba(0, 0, 0, 0.84);
   .i-nav-nb {
     font-size: 20px;
     color: $nav-link-text-color;
+  }
+  @include xs {
+    padding: 0 1rem;
   }
 }
 
