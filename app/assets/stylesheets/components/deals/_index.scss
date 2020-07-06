@@ -116,7 +116,7 @@ $color2: #16a085;
       grid-template-columns: repeat(6, 1fr);
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 767px) {
       display: grid;
       grid:
         "e1" 1fr
@@ -144,7 +144,7 @@ $color2: #16a085;
     position: sticky;
     position: -webkit-sticky;
     top: 50px;
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 767px) {
       max-height: fit-content;
       font-size: 18px;
     }
@@ -161,7 +161,7 @@ $color2: #16a085;
       box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 767px) {
       line-height: 32px;
       font-size: 16px;
     }
@@ -180,7 +180,7 @@ $color2: #16a085;
     height: 100%;
     z-index: 2;
     cursor: pointer;
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 767px) {
       grid-row: 1/7;
     }
   }
