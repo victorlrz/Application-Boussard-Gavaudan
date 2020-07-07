@@ -1,6 +1,6 @@
 <% if current_user.admin %>
   <div class="stock-show-admin">
-    <a href="/stock/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
+    <a href="/stocks/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
   </div>
 <% else %>
   <div class="stock-show-no-admin">
