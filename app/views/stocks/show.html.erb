@@ -47,7 +47,18 @@
   </div>
   <div class="accordion-item" data-actab-group="0" data-actab-id="2">
     <div class="accordion-item__container accordion-item__label">
-      <div class="stock_newsflow mb-3" data-toggle="collapse" data-name="<%= @stock.name %>" data-identifier="<%= @stock.identifier %>"></div>
+      <ul class="stock-show-ft-table">
+        <% @stock.articles.order("date DESC").each do |article| %>
+          <li class="li-box-ft stock-show-row-ft m_button">
+            <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "stock-index-a", :target => "_blank" %>
+            <div class="col-nb-1-stock-show-ft"><%= article.date.strftime("%d/%m/%y") %></div>
+            <div class="col-nb-2-stock-show-ft"><i class="far fa-dot-circle"></i></div>
+            <div class="col-nb-3-stock-show-ft"><%= article.title %></div>
+            <div class="col-nb-4-stock-show-ft"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-5-stock-show-ft action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
