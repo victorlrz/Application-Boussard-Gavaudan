@@ -1,3 +1,4 @@
+//COMMENTS OPEN/CLOSE ici MENU = BOUTON BLANC
 const buttonStockShow = document.querySelectorAll(".li-box");
 const headerContainer = document.querySelector(".stock-show-about-section");
 const contentWindow = document.querySelectorAll(".content-window");

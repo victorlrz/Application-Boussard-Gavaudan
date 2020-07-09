@@ -1,3 +1,4 @@
+//ANIMATION DE L ETOILE
 const likeButton = document.querySelectorAll(".action--like");
 const buttonStockShow = document.querySelectorAll(".li-box");
 

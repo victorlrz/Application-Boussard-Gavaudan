@@ -1,3 +1,4 @@
+//ANIMATION DES VALEURS DU MG croissance
 const priceSales = document.querySelector(".price-sales-newsflow");
 const priceEarnings = document.querySelector(".price-earnings-newsflow");
 const priceCashflow = document.querySelector(".price-cashflow-newsflow");

@@ -16,3 +16,5 @@ if (title) {
     tab.addEventListener("click", displayTitle);
   });
 }
+
+//deprecated right now
