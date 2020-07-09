@@ -15,7 +15,7 @@ const getParams = () => {
     const stockName = titleContainerElement.dataset.name; //Get @deal.acquirer.name || @Stock.acquirer
     const stockId = titleContainerElement.dataset.identifier; //Get @deal.acquirer.identifier || @Stock.identifier
     const queryContextParam = `(title:"${stockName}" OR title:"${stockId}" OR "${stockName}" OR "${stockId}") AND (lastPublishDateTime:>${rollingWindow}T00:00:00Z)`;
-
+    console.log(stockId);
     //We set parameters
     const searchParam = {
       queryString: queryContextParam,
@@ -34,7 +34,7 @@ const getParams = () => {
 //@createTitleElement : Create DOM elements for each title
 const createTitleElement = (title) => {
   const div = document.createElement("div");
-  div.innerHTML = `<a href="https://www.ft.com/content/${title.id}" target="_blank">${title.date} : ${title.text}</a>`;
+  div.innerHTML = `<a href="https://www.ft.com/content/${title.url}" target="_blank">${title.date} : ${title.title}</a>`;
   return div;
 };
 
@@ -50,7 +50,7 @@ const displayHeadlines = (headlines) => {
 //@financialTime : API POST -> PROXY -> Get FT news for stocks/deals
 const financialTime = async () => {
   const json = JSON.stringify(getParams());
-  const url = "https://serv-bgam.herokuapp.com/financialtime";
+  const url = "http://localhost:5000/financialtime";
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -61,7 +61,7 @@ const financialTime = async () => {
     });
     if (response.ok) {
       const dataAPI = await response.json();
-      // console.log(dataAPI); //DEBUG
+      console.log(dataAPI); //DEBUG
       if (dataAPI[0]) {
         displayHeadlines(dataAPI);
       } else {
