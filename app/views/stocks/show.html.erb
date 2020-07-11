@@ -10,23 +10,18 @@
 
 <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
-    <div class="stock-name"><%= @stock.name %></div>
-    <div class="wrapper-about-section">
-      <div class="content-about-section">
-        <div class="about-section">About</div>
-        <div class="about-content"><%= @stock.earning %></div>
-      </div>
+    <div class="stock-name"><%= @stock.name %> <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></div>
+      <div class="wrapper-about-section">
       <div class="menu">
-        <div class="button-name">Filters</div>
-        <div class="stock-show-tab" tabindex="0">
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW"><div class="circle"><i class="fas fa-hashtag"></i></div>Newsflow</button>
+        <div class="stock-show-tab mb-4 d-flex justify-content-center" tabindex="0">
           <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS"><div class="circle"><i class="fas fa-hashtag"></i></div>Comments</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES"><div class="circle"><i class="fas fa-hashtag"></i></div>Financial Times</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morning Star</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morningstar</button>
         </div>
       </div>
+        <div class="about-content text-justify"><%= @stock.earning %></div>
     </div>
-  </div>
+
   <div><hr class="separator"></hr></div>
   <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
     <div class="accordion-item__container accordion-item__label">
@@ -64,7 +59,7 @@
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
         <div class="morningstar-container">
-          <div class="mg-text"><h2 class="mg-t">MorningStar,<br> Current valuation.</h2></div>
+          <div class="mg-text"><h2 class="mg-t">Morningstar,<br> Current valuation.</h2></div>
           <div class="mg-color">
             <div class="mg-c-c">
                 <div class="mg-data-container">
