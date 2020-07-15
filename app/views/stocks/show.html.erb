@@ -31,8 +31,7 @@
           <li class="li-box stock-show-row m_button">
             <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
             <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
-            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
-            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %> <%= comment.title %></div>
             <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
           </li>
           <div class="content-window no-display"><div class="content-text"><%=raw comment.content %></div></div>
@@ -60,7 +59,7 @@
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
         <div class="morningstar-container">
-          <div class="mg-text"><h2 class="mg-t">Morningstar,<br> Current valuation.</h2></div>
+          <div class="mg-text"><h2 class="mg-t">Current valuation</h2></div>
           <div class="mg-color">
             <div class="mg-c-c">
                 <div class="mg-data-container">
