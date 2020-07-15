@@ -24,6 +24,7 @@
     </div>
 
   <div><hr class="separator"></hr></div>
+
   <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
     <div class="accordion-item__container accordion-item__label">
       <ul class="stock-show-table">
@@ -31,15 +32,15 @@
           <li class="li-box stock-show-row m_button">
             <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
             <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
-            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %> <%= comment.title %></div>
+            <div class="col-nb-3-stock-show"><%= link_to comment.content[0..100], comment_path(comment) %></div>
             <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
           </li>
-          <div class="content-window no-display"><div class="content-text"><%=raw comment.content %></div></div>
         <% end %>
       </ul>
     </div>
     <div class="stock-show-timeline"></div>
   </div>
+
   <div class="accordion-item" data-actab-group="0" data-actab-id="2">
     <div class="accordion-item__container accordion-item__label">
       <ul class="stock-show-ft-table">
@@ -56,6 +57,7 @@
       </ul>
     </div>
   </div>
+
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
         <div class="morningstar-container">
