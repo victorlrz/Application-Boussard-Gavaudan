@@ -14,7 +14,7 @@
       <div class="wrapper-about-section justify-content-center">
       <div class="menu">
         <div class="stock-show-tab mb-4 d-flex justify-content-center" tabindex="0">
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="1DCHG"><div class="circle"><i class="fas fa-hashtag"></i></div>Daily Chg: <%= @stock.price_1chg.split(" / ").last unless @stock.price_1chg.nil? %></button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="1DCHG"><div class="circle"><i class="fas fa-hashtag"></i></div>Daily Chg: <%= @stock.price_1chg.round(2) %>%</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS"><div class="circle"><i class="fas fa-hashtag"></i></div>Comments</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES"><div class="circle"><i class="fas fa-hashtag"></i></div>Financial Times</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morningstar</button>
