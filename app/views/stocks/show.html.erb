@@ -50,7 +50,7 @@
       <ul class="stock-show-ft-table">
         <% @stock.articles.order("date DESC").each do |article| %>
           <li class="li-box-ft stock-show-row-ft m_button">
-            <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "stock-index-a", :target => "_blank" %>
+            <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "stock-index-ft-a", :target => "_blank" %>
             <div class="col-nb-1-stock-show-ft"><%= article.date.strftime("%d/%m/%y") %></div>
             <div class="col-nb-2-stock-show-ft"><i class="far fa-dot-circle"></i></div>
             <div class="col-nb-3-stock-show-ft"><%= article.title %></div>
