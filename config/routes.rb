@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   resources :documents do
   end
 
+   resources :comments do
+  end
+
   resources :stocks do
     resources :fundamentals
   end

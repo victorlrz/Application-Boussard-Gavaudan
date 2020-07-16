@@ -1,6 +1,6 @@
 <% if current_user.admin %>
   <div class="stock-show-admin">
-    <a href="/stock/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
+    <a href="/stocks/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
   </div>
 <% else %>
   <div class="stock-show-no-admin">
@@ -10,24 +10,21 @@
 
 <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
-    <div class="stock-name"><%= @stock.name %> - Newsflow</div>
-    <div class="wrapper-about-section">
-      <div class="content-about-section">
-        <div class="about-section">About</div>
-        <div class="about-content"><%= @stock.earning %></div>
-      </div>
+    <div class="stock-name"><%= @stock.name %></div>
+      <div class="wrapper-about-section justify-content-center">
       <div class="menu">
-        <div class="button-name">Filters</div>
-        <div class="stock-show-tab" tabindex="0">
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="NEWSFLOW"><div class="circle"><i class="fas fa-hashtag"></i></div>Newsflow</button>
+        <div class="stock-show-tab mb-4 d-flex justify-content-center" tabindex="0">
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="0" data-stock="<%= @stock.name %>" data-name="1DCHG"><div class="circle"><i class="fas fa-hashtag"></i></div>Daily Chg: <%= @stock.price_1chg.round(2) %>%</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="1" data-stock="<%= @stock.name %>" data-name="COMMENTS"><div class="circle"><i class="fas fa-hashtag"></i></div>Comments</button>
           <button class="accordion-tab" data-actab-group="0" data-actab-id="2" data-stock="<%= @stock.name %>" data-name="FINANCIAL TIMES"><div class="circle"><i class="fas fa-hashtag"></i></div>Financial Times</button>
-          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morning Star</button>
+          <button class="accordion-tab" data-actab-group="0" data-actab-id="3" data-stock="<%= @stock.name %>" data-name="MORNINGSTAR"><div class="circle"><i class="fas fa-hashtag"></i></div>Morningstar</button>
         </div>
       </div>
+        <div class="about-content text-justify"><%= @stock.earning %></div>
     </div>
-  </div>
+
   <div><hr class="separator"></hr></div>
+
   <div class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
     <div class="accordion-item__container accordion-item__label">
       <ul class="stock-show-table">
@@ -35,16 +32,15 @@
           <li class="li-box stock-show-row m_button">
             <div class="col-nb-1-stock-show"><%= comment.date.strftime("%d/%m/%y") %></div>
             <div class="col-nb-2-stock-show"><i class="far fa-dot-circle"></i></div>
-            <div class="col-nb-3-stock-show"><%= comment.category %> source: <%= comment.source %></div>
-            <div class="col-nb-4-stock-show"><i class="fas fa-trash"></i></div>
+            <div class="col-nb-3-stock-show"><%= link_to comment.content[0..100], comment_path(comment) %></div>
             <div class="col-nb-5-stock-show action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
           </li>
-          <div class="content-window no-display"><div class="content-text"><%=raw comment.content %></div></div>
         <% end %>
       </ul>
     </div>
     <div class="stock-show-timeline"></div>
   </div>
+
   <div class="accordion-item" data-actab-group="0" data-actab-id="2">
     <div class="accordion-item__container accordion-item__label">
       <ul class="stock-show-ft-table">
@@ -61,10 +57,11 @@
       </ul>
     </div>
   </div>
+
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
         <div class="morningstar-container">
-          <div class="mg-text"><h2 class="mg-t">MorningStar,<br> Current valuation.</h2></div>
+          <div class="mg-text"><h2 class="mg-t">Current valuation</h2></div>
           <div class="mg-color">
             <div class="mg-c-c">
                 <div class="mg-data-container">

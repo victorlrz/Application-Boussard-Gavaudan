@@ -10,7 +10,7 @@ class MarketdatastockJob < ApplicationJob
       portfolio << company
       stock = Stock.find_by identifier: identifier.to_s
       stock.price = portfolio.first
-      stock.price_1chg = portfolio[1]
+      stock.price_1chg = portfolio[1].split(" / ").last.to_f unless portfolio[1].nil?
       stock.price_yrchg = portfolio[3]
       stock.beta_ft = portfolio[4]
       stock.save!

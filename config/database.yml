@@ -87,4 +87,4 @@ production:
 
 development:
   <<: *default
-  database: dealflow_development
+  database: dealflow_devbis

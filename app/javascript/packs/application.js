@@ -41,6 +41,4 @@ import "../frontend/stock/show/value_animation";
 //Home
 import "../frontend/home/test";
 
-$(document).ready(function () {
-  $("#my_data").DataTable();
-});
+
