@@ -1,28 +1,116 @@
-
-
-
-<div class="container mt-3 mb-3 text-justify overflow-auto">
-  <h3 class="mt-2 mb-2 w-100">Recent comments</h3>
-
-  <% @comments.each_with_index do |comment, index| %>
-
-    <div id="accordion">
-      <div class="card">
-        <div class="card-header" id="heading<%= index.to_s %>">
-          <h5 class="mb-0">
-            <button class="btn btn-success w-100 text-left" data-toggle="collapse" data-target="#collapse<%= index.to_s %>" aria-expanded="true" aria-controls="collapse<%= index.to_s %>">
-              <%= comment.date.strftime("%d/%m/%y") %> - <%= comment.category %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><u><%= link_to stock.name, stock_path(stock), class: "text-white" %></u></strong>, <em>source: </em> <%= comment.source %>
-            </button>
-          </h5>
-        </div>
-
-      <div id="collapse<%= index.to_s %>" class="collapse show" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
-        <div class="card-body">
-          <%=raw comment.content %>
+<div class="container-home-welcome">
+    <div class="content-home-welcome">
+      <svg id="logo" height="63" viewBox="0 0 329 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <mask id="path-1-outside-1" maskUnits="userSpaceOnUse" x="-0.617188" y="0" width="330" height="63" fill="black">
+      <rect fill="white" x="-0.617188" width="330" height="63"/>
+      </mask>
+      <path d="M17.8672 43.0703L18.9609 50.5703L20.5625 43.8125L31.8125 4.125H38.1406L49.1172 43.8125L50.6797 50.6875L51.8906 43.0312L60.7188 4.125H68.2578L54.4688 61H47.6328L35.9141 19.5547L35.0156 15.2188L34.1172 19.5547L21.9688 61H15.1328L1.38281 4.125H8.88281L17.8672 43.0703Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M91.7734 61.7812C86.0443 61.7812 81.3828 59.9062 77.7891 56.1562C74.1953 52.3802 72.3984 47.3411 72.3984 41.0391V39.7109C72.3984 35.5182 73.1927 31.7812 74.7812 28.5C76.3958 25.1927 78.6354 22.6146 81.5 20.7656C84.3906 18.8906 87.5156 17.9531 90.875 17.9531C96.3698 17.9531 100.641 19.763 103.688 23.3828C106.734 27.0026 108.258 32.1849 108.258 38.9297V41.9375H79.625C79.7292 46.1042 80.9401 49.4766 83.2578 52.0547C85.6016 54.6068 88.5703 55.8828 92.1641 55.8828C94.7161 55.8828 96.8776 55.362 98.6484 54.3203C100.419 53.2786 101.969 51.8984 103.297 50.1797L107.711 53.6172C104.169 59.0599 98.8568 61.7812 91.7734 61.7812ZM90.875 23.8906C87.9583 23.8906 85.5104 24.9583 83.5312 27.0938C81.5521 29.2031 80.3281 32.1719 79.8594 36H101.031V35.4531C100.823 31.7812 99.8333 28.9427 98.0625 26.9375C96.2917 24.9062 93.8958 23.8906 90.875 23.8906Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M124.508 61H117.281V1H124.508V61Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M153.062 55.8828C155.641 55.8828 157.893 55.1016 159.82 53.5391C161.747 51.9766 162.815 50.0234 163.023 47.6797H169.859C169.729 50.1016 168.896 52.4062 167.359 54.5938C165.823 56.7812 163.766 58.526 161.188 59.8281C158.635 61.1302 155.927 61.7812 153.062 61.7812C147.307 61.7812 142.724 59.8672 139.312 56.0391C135.927 52.1849 134.234 46.9245 134.234 40.2578V39.0469C134.234 34.9323 134.99 31.2734 136.5 28.0703C138.01 24.8672 140.172 22.3802 142.984 20.6094C145.823 18.8385 149.169 17.9531 153.023 17.9531C157.763 17.9531 161.695 19.3724 164.82 22.2109C167.971 25.0495 169.651 28.7344 169.859 33.2656H163.023C162.815 30.5312 161.773 28.2917 159.898 26.5469C158.049 24.776 155.758 23.8906 153.023 23.8906C149.352 23.8906 146.5 25.2188 144.469 27.875C142.464 30.5052 141.461 34.3203 141.461 39.3203V40.6875C141.461 45.5573 142.464 49.3073 144.469 51.9375C146.474 54.5677 149.339 55.8828 153.062 55.8828Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M176.07 39.4766C176.07 35.3359 176.878 31.612 178.492 28.3047C180.133 24.9974 182.398 22.4453 185.289 20.6484C188.206 18.8516 191.526 17.9531 195.25 17.9531C201.005 17.9531 205.654 19.9453 209.195 23.9297C212.763 27.9141 214.547 33.2135 214.547 39.8281V40.3359C214.547 44.4505 213.753 48.1484 212.164 51.4297C210.602 54.6849 208.349 57.224 205.406 59.0469C202.49 60.8698 199.13 61.7812 195.328 61.7812C189.599 61.7812 184.951 59.7891 181.383 55.8047C177.841 51.8203 176.07 46.5469 176.07 39.9844V39.4766ZM183.336 40.3359C183.336 45.0234 184.417 48.7865 186.578 51.625C188.766 54.4635 191.682 55.8828 195.328 55.8828C199 55.8828 201.917 54.4505 204.078 51.5859C206.24 48.6953 207.32 44.6589 207.32 39.4766C207.32 34.8411 206.214 31.0911 204 28.2266C201.812 25.3359 198.896 23.8906 195.25 23.8906C191.682 23.8906 188.805 25.3099 186.617 28.1484C184.43 30.987 183.336 35.0495 183.336 40.3359Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M230.406 18.7344L230.602 23.4219C233.701 19.776 237.88 17.9531 243.141 17.9531C249.052 17.9531 253.076 20.2188 255.211 24.75C256.617 22.7188 258.44 21.0781 260.68 19.8281C262.945 18.5781 265.615 17.9531 268.688 17.9531C277.958 17.9531 282.672 22.862 282.828 32.6797V61H275.602V33.1094C275.602 30.0885 274.911 27.8359 273.531 26.3516C272.151 24.8411 269.833 24.0859 266.578 24.0859C263.896 24.0859 261.669 24.8932 259.898 26.5078C258.128 28.0964 257.099 30.2448 256.812 32.9531V61H249.547V33.3047C249.547 27.1589 246.539 24.0859 240.523 24.0859C235.784 24.0859 232.542 26.1042 230.797 30.1406V61H223.57V18.7344H230.406Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      <path d="M311.305 61.7812C305.576 61.7812 300.914 59.9062 297.32 56.1562C293.727 52.3802 291.93 47.3411 291.93 41.0391V39.7109C291.93 35.5182 292.724 31.7812 294.312 28.5C295.927 25.1927 298.167 22.6146 301.031 20.7656C303.922 18.8906 307.047 17.9531 310.406 17.9531C315.901 17.9531 320.172 19.763 323.219 23.3828C326.266 27.0026 327.789 32.1849 327.789 38.9297V41.9375H299.156C299.26 46.1042 300.471 49.4766 302.789 52.0547C305.133 54.6068 308.102 55.8828 311.695 55.8828C314.247 55.8828 316.409 55.362 318.18 54.3203C319.951 53.2786 321.5 51.8984 322.828 50.1797L327.242 53.6172C323.701 59.0599 318.388 61.7812 311.305 61.7812ZM310.406 23.8906C307.49 23.8906 305.042 24.9583 303.062 27.0938C301.083 29.2031 299.859 32.1719 299.391 36H320.562V35.4531C320.354 31.7812 319.365 28.9427 317.594 26.9375C315.823 24.9062 313.427 23.8906 310.406 23.8906Z" stroke="black" stroke-width="2" mask="url(#path-1-outside-1)"/>
+      </svg>
+      <div class="color-user"><h2 class="user-name">Victor</h2></div>
+    </div>
+    <div class="container-home-vid">
+      <%= video_tag "lightbulb.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "vid-home-wlc" %>
+    </div>
+</div>
+<div class="headline-container">
+  <div class="title">COMMENTS</div>
+  <div class="comment-com">
+  <p>This section gathers our most recent comments, you will find the comments dedicated to each stock in the corresponding section.</p>
+  </div>
+</div>
+<div class="container-recent-comments">
+  <div class="pl-lg-7-nb col-12-nb">
+    <div class="latest-comment">
+      <div class="img-container-right">
+        <%= image_tag "05_res.png", class:"img-fluid" %>
+      </div>
+      <div class="comment-container-left">
+        <div class="comment-content">
+          <span class="side-number">01</span>
+          <h3>Discover</h3>
+          <p>My unique discovery process takes the time to understand your brand, your goals and what you want to achieve in the short and long term in the digital space. I will extract anything I need to get a successful project underway.</p>
         </div>
       </div>
     </div>
-  <% end %>
+    <div class="latest-comment">
+      <div class="img-container-left">
+        <%= image_tag "03_res.png", class:"img-fluid" %>
+      </div>
+      <div class="comment-container-right">
+        <div class="comment-content">
+          <span class="side-number">02</span>
+          <h3>Discover</h3>
+          <p>My unique discovery process takes the time to understand your brand, your goals and what you want to achieve in the short and long term in the digital space. I will extract anything I need to get a successful project underway.</p>
+        </div>
+      </div>
+    </div>
+    <div class="latest-comment">
+      <div class="img-container-right">
+        <%= image_tag "07_res.png", class:"img-fluid" %>
+      </div>
+      <div class="comment-container-left">
+        <div class="comment-content">
+          <span class="side-number">03</span>
+          <h3>Discover</h3>
+          <p>My unique discovery process takes the time to understand your brand, your goals and what you want to achieve in the short and long term in the digital space. I will extract anything I need to get a successful project underway.</p>
+        </div>
+      </div>
+    </div>
+    <div class="latest-comment">
+      <div class="img-container-left">
+        <%= image_tag "13_res.png", class:"img-fluid" %>
+      </div>
+      <div class="comment-container-right">
+        <div class="comment-content">
+          <span class="side-number">04</span>
+          <h3>Discover</h3>
+          <p>My unique discovery process takes the time to understand your brand, your goals and what you want to achieve in the short and long term in the digital space. I will extract anything I need to get a successful project underway.</p>
+        </div>
+      </div>
+    </div>
+    <div class="latest-comment">
+      <div class="img-container-right">
+        <%= image_tag "06_res.png", class:"img-fluid" %>
+      </div>
+      <div class="comment-container-left">
+        <div class="comment-content">
+          <span class="side-number">05</span>
+          <h3>Discover</h3>
+          <p>My unique discovery process takes the time to understand your brand, your goals and what you want to achieve in the short and long term in the digital space. I will extract anything I need to get a successful project underway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>
+<div class="headline-container">
+  <div class="title">FINANCIAL TIMES</div>
+  <div class="comment-com">
+  <p>This section contains the daily Financial Times articles of the stocks we follow. You will find the newsflow dedicated to each stock in the corresponding section.</p>
+  </div>
 </div>
+<div class="container-recent-ft">
+  <div class="pl-lg-7-nb col-12-nb">
+    <div class="latest-ft">
+      <div class="img-container-ft">
+        <%= image_tag "02_res.png", class:"img-fluid-ft" %>
+      </div>
+      <div class="comment-container-ft">
+        <div class="comment-content-ft">
+          <p>JPM barely wins climate vote, coal by any other name; UK retrofitting; Citi launches ESG group; Spain’s green recovery</p>
+        </div>
+        <div class="comment-info-ft">
+          <p>ALSTOM - 16/07/2020</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
