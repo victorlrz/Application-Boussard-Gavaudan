@@ -101,11 +101,13 @@
         <%= image_tag "02_res.png", class:"img-fluid-ft" %>
       </div>
       <div class="comment-container-ft">
-        <div class="comment-content-ft">
-          <p data-daily="">JPM barely wins climate vote, coal by any other name; UK retrofitting; Citi launches ESG group; Spain’s green recovery</p>
-        </div>
-        <div class="comment-info-ft">
-          <p>ALSTOM - 16/07/2020</p>
+        <div class="grid-container-ft">
+          <%= link_to "", "", class: "ft-article-a" %>
+          <div class="comment-content-ft col-nb-1-ft" data-daily="<%= @dailyft %>"></div>
+          <div class="comment-info-ft col-nb-2-ft"></div>
+          <div class="nbr-daily-articles col-nb-3-ft"></div>
+          <div class="left-chg-article col-nb-4-ft"><i class="fas fa-arrow-circle-left"></i></div>
+          <div class="right-chg-article col-nb-5-ft"><i class="fas fa-arrow-circle-right"></i></div>
         </div>
       </div>
     </div>
