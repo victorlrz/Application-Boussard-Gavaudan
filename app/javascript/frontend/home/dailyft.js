@@ -3,6 +3,7 @@ const dailyFtStock = document.querySelector(".comment-info-ft");
 const nbrDailyArticles = document.querySelector(".nbr-daily-articles");
 const rightArrow = document.querySelector(".fas.fa-arrow-circle-right");
 const leftArrow = document.querySelector(".fas.fa-arrow-circle-left");
+var link = document.querySelector(".ft-article-a");
 
 const rubyDatas = dailyFt.dataset.daily;
 const dailyDatas = rubyDatas.split(/"[\]]|[\[]"|", "/);
@@ -48,6 +49,10 @@ const addStockNameFront = (stockName, id) => {
   dailyFtStock.innerHTML = stockName[id].company;
 };
 
+const addLinkArticles = (dailyURL, id) => {
+  link.setAttribute("href", `https://www.ft.com/content/${dailyURL[id].url}`);
+};
+
 //@Fonction pour assigner le numéro de l'article de l'index i
 const addNumberArticles = (tab, compt) => {
   nbrDailyArticles.innerHTML = `${compt + 1}/${tab.length}`;
@@ -59,16 +64,19 @@ const displayTitles = (tab) => {
   addTitleFront(tab, compt);
   addStockNameFront(tab, compt);
   addNumberArticles(tab, compt);
+  addLinkArticles(tab, compt);
   rightArrow.addEventListener("click", (e) => {
     compt++;
     if (compt < tab.length) {
       addTitleFront(tab, compt);
       addStockNameFront(tab, compt);
       addNumberArticles(tab, compt);
+      addLinkArticles(tab, compt);
     } else if (compt == tab.length) {
       compt = 0;
       addTitleFront(tab, compt);
       addStockNameFront(tab, compt);
+      addLinkArticles(tab, compt);
       addNumberArticles(tab, compt);
     }
     // console.log(compt); //DEBUG
@@ -79,18 +87,24 @@ const displayTitles = (tab) => {
       addTitleFront(tab, compt);
       addStockNameFront(tab, compt);
       addNumberArticles(tab, compt);
+      addLinkArticles(tab, compt);
     } else if (compt == 0) {
       compt = tab.length - 1;
       addTitleFront(tab, compt);
       addStockNameFront(tab, compt);
       addNumberArticles(tab, compt);
+      addLinkArticles(tab, compt);
     }
     // console.log(compt); //DEBUG
   });
 };
 
 //@Fonction pour assigner un autre index en fonction du temps
-//Attention aux conditions si vide.
+rightArrow.onclick = function () {
+  return false;
+};
+
+//@Main
 const main = () => {
   tabAfterSplice = [];
   dailyObjectFt = [];
