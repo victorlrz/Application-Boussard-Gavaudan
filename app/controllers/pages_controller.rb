@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def daily_articles
     tab = Array.new
-    Article.where("date = ?", "2019-11-12").each  { |val| tab.push([val.title, val.url, stock_name(val.stock_id)]) }
+    Article.where("date = ?", Date.current).each  { |val| tab.push([val.title, val.url, stock_name(val.stock_id)]) }
     return tab
   end
 

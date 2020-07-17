@@ -366,31 +366,71 @@
       flex: 0 0 60%;
       max-width: 60%;
       align-self: center;
-      max-height: 150px;
-      overflow: hidden;
+      height: 200px;
 
-      .comment-content-ft {
-        position: relative;
-        display: inline-block;
-        padding: 2rem;
-        background: rgba(153, 214, 211, 1);
-        border-radius: 5px 5px 0 0;
-
-        .daily-ft {
-          text-align: justify;
-          font-size: 18px;
-          line-height: 24px;
-          font-weight: 400;
-        }
+      .grid-container-ft {
+        display: grid;
+        grid:
+          "e1 e1 e1 e1" 140px
+          "e3 e2 e4 e5" 60px / 2fr 6fr 1fr 1fr;
+        background: rgba(12, 242, 143, 0.2);
+        border-radius: 5px;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
       }
 
-      .comment-info-ft {
+      .col-nb-1-ft {
+        grid-area: e1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        font-weight: 500;
-        font-size: 20px;
-        background: rgba(153, 214, 211, 1);
-        padding-bottom: 1rem;
-        border-radius: 0 0 5px 5px;
+        font-size: 18px;
+        font-weight: 400;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+      .col-nb-2-ft {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: 600;
+        grid-area: e2;
+      }
+      .col-nb-3-ft {
+        grid-area: e3;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .col-nb-4-ft {
+        grid-area: e4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .col-nb-5-ft {
+        grid-area: e5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .fas.fa-arrow-circle-left {
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .fas.fa-arrow-circle-right {
+        font-size: 30px;
+        cursor: pointer;
       }
     }
   }
