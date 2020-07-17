@@ -40,5 +40,4 @@ import "../frontend/stock/show/morningstar_animation";
 import "../frontend/stock/show/value_animation";
 //Home
 import "../frontend/home/test";
-
-
+import "../frontend/home/dailyft";
