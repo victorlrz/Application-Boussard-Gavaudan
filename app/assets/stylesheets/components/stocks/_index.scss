@@ -60,16 +60,16 @@ $color2: #d63031;
 .stock-index-table {
   li {
     transition: box-shadow 0.3s;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 25px 20px;
     display: grid;
     grid-template-areas: "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 e11";
     grid-template-rows: auto;
-    grid-template-columns: 130px 80px 50px 80px 80px 60px repeat(3, 80px) 70px 100px;
+    grid-template-columns: 130px 80px 80px 80px 80px 120px repeat(3, 80px) 50px 100px;
     place-items: center center;
     place-content: center space-evenly;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     @media all and (max-width: 1150px) {
       grid-template-areas: "e1 e2 e3 e4 e5 e6 e7 e8";
       grid-template-columns: repeat(8, 1fr);
@@ -106,13 +106,13 @@ $color2: #d63031;
     // top: 50px;
     font-family: "Roboto", sans-serif;
     width: 100%;
-    background-color: rgba(206, 252, 233, 1);
-    letter-spacing: 0.03rem;
+    background-color: #0f4c75;
+    letter-spacing: -0.1px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
-    font-weight: 300;
-    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    color: #f4f6ff;
     position: sticky;
     position: -webkit-sticky;
     top: 50px;
@@ -124,9 +124,9 @@ $color2: #d63031;
   }
   .stock-index-row {
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
 
     &:hover {
       box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
@@ -157,6 +157,7 @@ $color2: #d63031;
 
   .col-nb-1 {
     grid-area: e1;
+    align-items: start;
   }
   .col-nb-2 {
     grid-area: e2;
