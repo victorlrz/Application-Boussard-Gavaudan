@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def daily_articles
-    tab = []
-    Article.where("date = ?", "2019-11-12").each.with_index  { |val| tab += [[val.title, val.url, stock_name(val.stock_id)]] }
+    tab = Array.new
+    Article.where("date = ?", "2019-11-12").each  { |val| tab.push([val.title, val.url, stock_name(val.stock_id)]) }
     return tab
   end
 
