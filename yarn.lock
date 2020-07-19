@@ -3243,15 +3243,6 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-frappe-datatable@^1.15.2:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/frappe-datatable/-/frappe-datatable-1.15.2.tgz#8e82a0f08a61f1a11a62f24534fdfcf1a4782ff4"
-  integrity sha512-7d9m8vlhf+daAfJ5jVqj1kdvo6m7Ih0/ycmz7WUDgn1CL5Bxzc2/vj8+Jt9tmVdRgGAef9D5mljIPuFLxMrXCg==
-  dependencies:
-    hyperlist "^1.0.0-beta"
-    lodash "^4.17.5"
-    sortablejs "^1.7.0"
-
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -3713,11 +3704,6 @@ https-proxy-agent@^4.0.0:
   dependencies:
     agent-base "5"
     debug "4"
-
-hyperlist@^1.0.0-beta:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hyperlist/-/hyperlist-1.0.0.tgz#b211d41832643ca969e3087a86c912f93f82e5bb"
-  integrity sha512-1qAjO29EJW/mPyqY+9wFjruD2YWur1dPsPYmt9RvMX6P+8Cr2UmT75MCWjjK+1/4Jxc3sm/G3Kr8DzGgEDRG+Q==
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -6882,11 +6868,6 @@ sort-keys@^1.0.0:
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
-
-sortablejs@^1.7.0:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.2.tgz#6e40364d913f98b85a14f6678f92b5c1221f5290"
-  integrity sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A==
 
 source-list-map@^2.0.0:
   version "2.0.1"
