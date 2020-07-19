@@ -1,6 +1,10 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.where("price<>0.0")
+    if params[:query].present?
+      @stocks = Stock.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @stocks = Stock.where("price<>0.0")
+    end
   end
 
   def show

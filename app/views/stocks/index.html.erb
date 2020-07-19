@@ -8,7 +8,19 @@
     </div>
 <% end %>
 
+
 <div class="stock-index-container">
+  <div>
+    <%= form_tag stocks_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control mb-1 rounded",
+        placeholder: "Find a Company"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+
   <ul class="stock-index-table">
     <li class="stock-index-table-header">
       <div class="col-nb-1">Name</div>
