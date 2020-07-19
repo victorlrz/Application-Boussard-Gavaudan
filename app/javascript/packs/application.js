@@ -42,6 +42,6 @@ import "../frontend/stock/show/value_animation";
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
 
-import "./index.js";
+
 
 
