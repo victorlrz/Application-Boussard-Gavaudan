@@ -1,10 +1,10 @@
 class StocksController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR sector ILIKE :query"
+      sql_query = "(name ILIKE :query OR sector ILIKE :query) AND price <> 0"
       @stocks = Stock.where(sql_query, query: "%#{params[:query]}%")
     else
-      @stocks = Stock.where("price<>0.0")
+      @stocks = Stock.where("price <> 0.0")
     end
   end
 
