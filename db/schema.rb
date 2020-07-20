@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_142359) do
+ActiveRecord::Schema.define(version: 2020_07_20_085055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,26 @@ ActiveRecord::Schema.define(version: 2020_07_15_142359) do
     t.integer "aum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "strategy_name"
+    t.string "porfolio"
+    t.string "underlying"
+    t.decimal "pure_exposure"
+    t.decimal "long_exposure"
+    t.decimal "short_exposure"
+    t.decimal "net_exposure"
+    t.string "sector"
+    t.string "country"
+    t.decimal "equity_at_risk"
+    t.string "ticker_bbg"
+    t.string "isin"
+    t.decimal "asset_value"
+    t.decimal "long_rho"
+    t.decimal "short_rho"
+    t.decimal "net_rho"
+    t.decimal "long_aifm"
+    t.decimal "short_aifm"
+    t.decimal "net_aifm"
+    t.float "market_cap"
     t.index ["stock_id"], name: "index_portfolios_on_stock_id"
   end
 
