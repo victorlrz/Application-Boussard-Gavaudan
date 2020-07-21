@@ -25,6 +25,7 @@ gem 'trix-rails', require: 'trix'
 gem 'jquery-rails', '~> 4.4'
 gem 'rack-cors'
 gem 'ajax-datatables-rails'
+gem 'acts-as-taggable-on', '~> 6.5'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
