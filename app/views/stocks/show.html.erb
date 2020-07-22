@@ -29,9 +29,86 @@
       <header class="show-header">
         <h1 class="stock-show-name"><%= @stock.name %></h1>
       </header>
+      <div>
+        <section class="container-chart">
+          <header class="header-chart">
+
+          <%-# Header Graph div 1 -%>
+            <div class="h-1">
+              <h1 class="h-1-1">
+                <span class="h-1-1-s">
+                  <span class="up">
+                    <div class="h-1-1-s-u-d">6,67 $US</div>
+                  </span>
+                </span>
+              </h1>
+            </div>
+
+            <%-# Header Graph span 2, 2.1 et 2.2 -%>
+            <div class="h-2">
+              <span class="h-2-s1">
+                <span>
+                  <span>-3,46 $US</span>
+                </span>
+                <span>
+                  <span>(-34,16 <%= "%" %>)</span>
+                </span>
+              </span>
+              <span class="h-2-s2">Past Year</span>
+            </div>
+          </header>
+
+          <%-# Graph section -%>
+          <div>
+            <div class="graph-container">
+              <div class="graph-container-size">
+              </div>
+            </div>
+          </div>
+
+          <%-# Nav section -%>
+          <nav class="nav-graph" bounds="regular">
+            <div class="nav-list">
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">1D</span>
+                </span>
+              </button>
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">1W</span>
+                </span>
+              </button>
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">1M</span>
+                </span>
+              </button>
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">3M</span>
+                </span>
+              </button>
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">1Y</span>
+                </span>
+              </button>
+              <button type="button" class="btn-nav-robinhood">
+                <span class="btn-nav-robinhood-span-1">
+                  <span class="btn-nav-robinhood-pb">5Y</span>
+                </span>
+              </button>
+            </div>
+          </nav
+        </section>
+      </div>
     </div>
   </div>
 </div>
+
+
+
 <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
     <div class="stock-name"><%= @stock.name %></div>

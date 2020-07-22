@@ -96,3 +96,58 @@
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
+//Button nav-robinhood (under first graph)
+//Structure HTML :
+// <button type="button" class="btn-nav-robinhood"></button>
+//Structure CSS
+.btn-nav-robinhood {
+  cursor: pointer;
+  appearance: none;
+  background: none;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  font: inherit;
+  padding: 0px;
+
+  .btn-nav-robinhood-span-1 {
+    // color: var(--rh__text-color);
+    // font-family: var(--rh__type-palette__type2__stack);
+    // font-size: var(--rh__type-palette__type2__font-size);
+    // font-style: normal;
+    // font-weight: var(--rh__type-palette__type2__font-weight);
+    // line-height: var(--rh__type-palette__type2__line-height);
+    // -webkit-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+    // -moz-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+    // -ms-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+    // letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+    // -webkit-text-decoration: unset;
+    // text-decoration: unset;
+    color: rgb(0, 0, 0);
+    font-family: "Capsule Sans Text", system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    -webkit-letter-spacing: -0.1px;
+    -moz-letter-spacing: -0.1px;
+    -ms-letter-spacing: -0.1px;
+    letter-spacing: -0.1px;
+    -webkit-text-decoration: unset;
+    text-decoration: unset;
+
+    .btn-nav-robinhood-pb {
+      padding-bottom: 12px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 0 12px;
+      position: relative;
+    }
+  }
+}
