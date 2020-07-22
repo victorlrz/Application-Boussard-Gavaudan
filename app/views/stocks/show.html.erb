@@ -55,10 +55,10 @@
                   <span>-<%= @stock.price %> <%= @stock.currency %></span>
                 </span>
                 <span>
-                  <span><%= @stock.price_yrchg %>%</span>
+                  <span><%= @stock.price_yrchg %></span>
                 </span>
               </span>
-              <span class="h-2-s2">Past Year</span>
+              <span class="h-2-s2">Past Year.  as of <%= @stock.ebitda.split("Data delayed at least 15 minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
             </div>
           </header>
 
@@ -141,7 +141,7 @@
               </div>
               <div class="col-mg-val-2">
                 <div class="name-data">Employees</div>
-                <div class="value-data">190 000</div>
+                <div class="value-data"><%= @stock.revenue.split("Employees").last %></div>
               </div>
               <div class="col-mg-val-3">
                 <div class="name-data">Headquarters</div>
@@ -153,35 +153,35 @@
               </div>
               <div class="col-mg-val-5">
                 <div class="name-data">Market Cap</div>
-                <div class="value-data">26,57B</div>
+                <div class="value-data"><%= @stock.ebitda.split("Market cap").last.split("EPS").first unless @stock.ebitda.nil?%></div>
               </div>
               <div class="col-mg-val-6">
                 <div class="name-data">Price-Earnings Ratio</div>
-                <div class="value-data">—</div>
+                <div class="value-data"><%= @stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless @stock.ebitda.nil?%></div>
               </div>
               <div class="col-mg-val-7">
                 <div class="name-data">Dividend Yield</div>
                 <div class="value-data">9,01</div>
               </div>
               <div class="col-mg-val-8">
-                <div class="name-data">Average Volume</div>
-                <div class="value-data">87,10M</div>
+                <div class="name-data">Average volume</div>
+                <div class="value-data"><%= @stock.ebitda.split("volume").last.split("Shares outstanding").first unless @stock.ebitda.nil?%></div>
               </div>
               <div class="col-mg-val-9">
-                <div class="name-data">High Today</div>
-                <div class="value-data">6,81 $US</div>
+                <div class="name-data">Earnings per share</div>
+                <div class="value-data"><%= @stock.ebitda.split("EPS (TTM)").last.split("Annual").first[0..5] unless @stock.ebitda.nil? %></div>
               </div>
               <div class="col-mg-val-10">
-                <div class="name-data">Low Today</div>
-                <div class="value-data">6,64 $US</div>
+                <div class="name-data">Low / High Today</div>
+                <div class="value-data"><%= @stock.ebitda.split("Low").last.split("Bid").first unless @stock.ebitda.nil? %> / <%= @stock.ebitda.split("High").last.split("Low").first unless @stock.ebitda.nil? %></div>
               </div>
               <div class="col-mg-val-11">
                 <div class="name-data">Open Price</div>
-                <div class="value-data">6,71 $US</div>
+                <div class="value-data"><%= @stock.ebitda.split("Open").last.split("High").first unless @stock.ebitda.nil? %></div>
               </div>
               <div class="col-mg-val-12">
-                <div class="name-data">Volume</div>
-                <div class="value-data">63,33M</div>
+                <div class="name-data">Free float</div>
+                <div class="value-data"><%= @stock.ebitda.split("Free float").last.split("P/E (TTM)").first unless @stock.ebitda.nil? %></div>
               </div>
               <div class="col-mg-val-13">
                 <div class="name-data">52 Week High</div>
