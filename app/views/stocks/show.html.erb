@@ -58,7 +58,7 @@
                   <span><%= @stock.price_yrchg %></span>
                 </span>
               </span>
-              <span class="h-2-s2">Past Year.  as of <%= @stock.ebitda.split("Data delayed at least 15 minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
+              <span class="h-2-s2">Past Year. As of <%= @stock.ebitda.split(" minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
             </div>
           </header>
 
