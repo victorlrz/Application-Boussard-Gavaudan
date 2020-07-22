@@ -45,5 +45,15 @@ class MarketdatastockJob < ApplicationJob
       stock.earning = description.last
       stock.save!
     end
+    descrurl = open("https://markets.ft.com/data/equities/tearsheet/profile?s=#{identifier}").read
+    descrdoc = Nokogiri::HTML(descrurl)
+    descr = []
+    descrdoc.search('body > div.o-grid-container.mod-container > div:nth-child(2) > section.mod-main-content > div:nth-child(2) > div > div > ul.mod-tearsheet-profile-stats.mod-tearsheet-profile-section.mod-tearsheet-profile__extra__content > li:nth-child(3) > span.mod-ui-data-list__value').each do |element|
+      datadescr = element.text.strip
+      descr << datadescr
+      stock = Stock.find_by identifier: identifier.to_s
+      stock.description = descr.last
+      stock.save!
+    end
   end
 end
