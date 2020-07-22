@@ -10,7 +10,7 @@
     <div class="wrapper-portfolio-section">
       <div class="content-about-section">
         <div class="about-section">Fund</div>
-        <div class="portfolio-index-title"><%= Portfolio.find_by(fund: "BGLTV").fund %>  - <%= Portfolio.last.date.strftime("%d/%m/%y") %> - Investment level : <%= @bgltv.sum("weight").round(2) %>% - AUM : <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</div>
+        <div class="portfolio-index-title"><%= Portfolio.find_by(fund: "BGLT").fund %>  - <%= Portfolio.last.date.strftime("%d/%m/%y") %> - Investment level : <%= @bgltv.sum("weight").round(2) %>% - AUM : <%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %> EUR</div>
       </div>
       <div class="menu">
         <div class="portfolio-show-tab" tabindex="0">
@@ -74,5 +74,5 @@
     </div>
   </div>
 </div>
- 
+
 

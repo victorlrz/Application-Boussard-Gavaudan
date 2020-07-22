@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_07_21_110420) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "acquirers", force: :cascade do |t|
