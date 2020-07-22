@@ -1,12 +1,13 @@
 <h1>Create a new stock</h1>
 
-    <div class="container">
-        <%= simple_form_for @stock  do |f| %>
-        <%= f.input :name %>
-        <%= f.input :currency %>
-        <%= f.input :identifier %>
-        <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Automobiles", "Banks", "Basic Resources","Communications","Chemicals", "Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Insurances", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Real Estate", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure","Utilities"] %>
-        <%= f.submit "Create", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+<div class="container">
+    <%= simple_form_for @stock  do |f| %>
+    <%= f.input :name %>
+    <%= f.input :currency %>
+    <%= f.input :identifier %>
+    <%= f.input :sector, collection: ["Aerospace & Defense", "Airlines", "Automobiles", "Banks", "Basic Resources","Communications","Chemicals", "Construction","Energy","Financials","Food & Beverage", "Health", "Healthcare", "Industrials", "Insurances", "Media", "Mining", "Oil & Gas", "Pharmaceuticals","Real Estate", "Retail","Retail & Consumer","Support Services","Technology", "Travel & Leisure","Utilities"] %>
+    <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas" %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+</div>
 

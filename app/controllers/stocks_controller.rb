@@ -45,6 +45,6 @@ class StocksController < ApplicationController
   private
 
   def stock_params
-    params.require(:stock).permit(:name, :sector, :currency, :identifier)
+    params.require(:stock).permit(:name, :sector, :currency, :identifier, tag_list: [])
   end
 end
