@@ -43,3 +43,56 @@
 .bg-success {
   border-radius: 8px;
 }
+// /////////////////////////////////////////////////////////////////
+//Bouton robinhood :
+
+//Arhitecture HTML:
+// <div class="tags-btn-robinhood">
+// <a class="a-tags-link a-tags-inherit" rel href="#">
+//   <span class="btn-tags-span">Road Transportation</span>
+// </a>
+// </div>
+
+//Architecture CSS
+.tags-btn-robinhood {
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  margin: 0 12px 12px 0;
+
+  .a-tags-link {
+    -webkit-box-align: center;
+    align-items: center;
+    display: inline-flex;
+    height: 28px;
+    background-color: rgba(255, 80, 0, 0.2);
+    fill: rgb(240, 244, 246);
+    cursor: pointer;
+    border-radius: 17px;
+    overflow: hidden;
+    padding: 0px 12px 1px;
+  }
+
+  .a-tags-inherit {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .btn-tags-span {
+    color: rgb(255, 80, 0);
+    // font-family: var(--rh__type-palette__type3__stack);
+    // font-size: var(--rh__type-palette__type3__font-size);
+    // font-style: normal;
+    // font-weight: var(--rh__type-palette__type3__font-weight);
+    // line-height: var(--rh__type-palette__type3__line-height);
+    // letter-spacing: var(--rh__type-palette__type3__letter-spacing);
+    font-family: "Capsule Sans Text", system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.1px;
+    text-decoration: unset;
+  }
+}
+// ///////////////////////////////////////////////////////////////////////////

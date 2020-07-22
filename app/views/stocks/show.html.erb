@@ -2,12 +2,36 @@
   <div class="stock-show-admin">
     <a href="/stocks/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
   </div>
-<% else %>
-  <div class="stock-show-no-admin">
-      <button class="button type2">NEWSFLOW</button>
-  </div>
 <% end %>
 
+<div class="stock-show-container">
+  <main class="main-container">
+    <div class="top-tags-container">
+      <div class="tags-btn-robinhood">
+        <a class="a-tags-link a-tags-inherit" rel href="#">
+          <span class="btn-tags-span">Road Transportation</span>
+        </a>
+      </div>
+      <div class="tags-btn-robinhood">
+        <a class="a-tags-link a-tags-inherit" rel href="#">
+          <span class="btn-tags-span">100 Most Popular</span>
+         </a>
+      </div>
+      <div class="tags-btn-robinhood">
+        <a class="a-tags-link a-tags-inherit" rel href="#">
+          <span class="btn-tags-span">Most Popular Under $25</span>
+         </a>
+      </div>
+    </div>
+  </main>
+  <div class="show-row">
+    <div class="show-content-col-12">
+      <header class="show-header">
+        <h1 class="stock-show-name"><%= @stock.name %></h1>
+      </header>
+    </div>
+  </div>
+</div>
 <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
     <div class="stock-name"><%= @stock.name %></div>
