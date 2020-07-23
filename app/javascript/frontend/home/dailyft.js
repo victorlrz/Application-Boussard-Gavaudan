@@ -5,7 +5,7 @@ const rightArrow = document.querySelector(".fas.fa-arrow-circle-right");
 const leftArrow = document.querySelector(".fas.fa-arrow-circle-left");
 var link = document.querySelector(".ft-article-a");
 
-if (document.querySelector(".container-recent-ft")) {
+if (dailyFt) {
   const rubyDatas = dailyFt.dataset.daily;
   const dailyDatas = rubyDatas.split(/"[\]]|[\[]"|", "/);
 };
@@ -110,8 +110,9 @@ rightArrow.onclick = function () {
 }
 
 //@Main
-if (document.querySelector(".container-recent-ft")) {
+
 const main = () => {
+  if (document.querySelector(".container-recent-ft")) {
   tabAfterSplice = [];
   dailyObjectFt = [];
   spliceEmptyIndex(dailyDatas, tabAfterSplice);
@@ -122,8 +123,9 @@ const main = () => {
   } else {
     dailyFt.innerHTML = "No daily articles published for the moment.";
   }
-};
 }
+};
+
 
 
 if (document.querySelector(".container-recent-ft")) {
