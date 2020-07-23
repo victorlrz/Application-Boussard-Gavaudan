@@ -1,2 +1,13 @@
 <h1>Comments#edit</h1>
 <p>Find me in app/views/comments/edit.html.erb</p>
+
+<div class="container">
+        <%= simple_form_for [@stock, @comment]  do |f| %>
+        <%= f.input :date, as: :string %>
+        <%= f.input :title %>
+        <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
+        <%= f.input :source %>
+        <%= f.input :content, as: :trix_editor %>
+        <%= f.submit "Update", class: "btn btn-primary" %>
+      <% end %>
+    </div>

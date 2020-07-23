@@ -48,6 +48,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:date, :category, :content, :source, :stock_id)
+    params.require(:comment).permit(:date, :category, :content, :source, :stock_id, :title)
   end
 end
