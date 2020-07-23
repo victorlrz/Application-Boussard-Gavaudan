@@ -284,34 +284,68 @@
                   <h2 class="title-content-h2"><span class="title-content-span"><%= @stock.name %> News</span></h2>
                 </div>
               </div>
-            </header>
-            <% @stock.articles.order("date DESC").each_with_index do |article, index| %>
-              <div class="banner-newsflow">
-                <div class="banner-financial-news">
-                  <div class="banner-financial-news-ctn">
-                    <div class="banner-financial-content">
-                      <div class="src-financial-news">
-                        <span class="src-ft">Financial Times,</span>
-                        <span class="src-date-ft"><%= article.date.strftime("%d/%m/%y") %></span>
-                      </div>
-                      <div class="ctn-article-ct">
-                        <h3 class="ctnt-title"><%= article.title %></h3>
-                        <div>
-                          <span class="ctnt-date"><span class="ctnt-ct">London, BG</span></span>
+            </div>
+          </header>
+
+          <div class="carroussel-arrow-top"><i class="fas fa-angle-up"></i></div>
+          <div class="carroussels-news-ctn-nf">
+            <div class="carroussels-ctn-nf">
+              <div class="carroussels-ctn-1-nf">
+                <div class="banner-newsflow">
+                  <div class="banner-financial-news">
+                    <div class="banner-financial-news-ctn">
+                      <div class="banner-financial-content">
+                        <div class="src-financial-news">
+                          <span class="src-ft">Financial Times,</span>
+                          <span class="src-date-ft">6h</span>
                         </div>
+                        <div class="ctn-article-ct">
+                          <h3 class="ctnt-title">Lorem100</h3>
+                          <div>
+                            <span class="ctnt-date"><span class="ctnt-ct">London, BG</span></span>
+                          </div>
+                        </div>
+                        <span class="svg-ctnt-ft"><svg title="0 views" width="14" height="11" viewBox="0 0 14 11"><path fill-rule="evenodd" d="M7,10.8888889 C3.13400675,10.8888889 0,7.04766168 0,5.44444444 C9.81687425e-17,3.84122721 3.13400675,0 7,0 C10.8659932,0 14,3.84312609 14,5.44444444 C14,7.0457628 10.8659932,10.8888889 7,10.8888889 Z M7,7.77777778 C8.28866442,7.77777778 9.33333333,6.73310886 9.33333333,5.44444444 C9.33333333,4.15578003 8.28866442,3.11111111 7,3.11111111 C5.71133558,3.11111111 4.66666667,4.15578003 4.66666667,5.44444444 C4.66666667,6.73310886 5.71133558,7.77777778 7,7.77777778 Z"></path></svg></span>
                       </div>
-                      <span class="svg-ctnt-ft"><svg title="0 views" width="14" height="11" viewBox="0 0 14 11"><path fill-rule="evenodd" d="M7,10.8888889 C3.13400675,10.8888889 0,7.04766168 0,5.44444444 C9.81687425e-17,3.84122721 3.13400675,0 7,0 C10.8659932,0 14,3.84312609 14,5.44444444 C14,7.0457628 10.8659932,10.8888889 7,10.8888889 Z M7,7.77777778 C8.28866442,7.77777778 9.33333333,6.73310886 9.33333333,5.44444444 C9.33333333,4.15578003 8.28866442,3.11111111 7,3.11111111 C5.71133558,3.11111111 4.66666667,4.15578003 4.66666667,5.44444444 C4.66666667,6.73310886 5.71133558,7.77777778 7,7.77777778 Z"></path></svg></span>
+                      <div class="banner-financial-img">
+                        <%= image_tag "", class:"img-fluid-ft" %>
+                      </div>
+                      <%= link_to "", "", class: "link-to-article", :target => "_blank" %>
                     </div>
-                    <div class="banner-financial-img">
-                      <%= image_tag "https://source.unsplash.com/collection/{#{@stock.name}&#{article.title}}", class:"img-fluid-ft" %>
-                    </div>
-                    <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "link-to-article", :target => "_blank" %>
                   </div>
                 </div>
               </div>
-            <% end %>
-          </section>
-        <% end %>
+              <div class="carroussels-ctn-2-nf" style="transform: translateX(0%)">
+                <% @stock.articles.order("date DESC").each_with_index do |article, index| %>
+                  <div class="banner-newsflow">
+                    <div class="banner-financial-news">
+                      <div class="banner-financial-news-ctn">
+                        <div class="banner-financial-content">
+                          <div class="src-financial-news">
+                            <span class="src-ft">Financial Times,</span>
+                            <span class="src-date-ft"><%= article.date.strftime("%d/%m/%y") %></span>
+                          </div>
+                          <div class="ctn-article-ct">
+                            <h3 class="ctnt-title"><%= article.title %></h3>
+                            <div>
+                              <span class="ctnt-date"><span class="ctnt-ct">London, BG</span></span>
+                            </div>
+                          </div>
+                          <span class="svg-ctnt-ft"><svg title="0 views" width="14" height="11" viewBox="0 0 14 11"><path fill-rule="evenodd" d="M7,10.8888889 C3.13400675,10.8888889 0,7.04766168 0,5.44444444 C9.81687425e-17,3.84122721 3.13400675,0 7,0 C10.8659932,0 14,3.84312609 14,5.44444444 C14,7.0457628 10.8659932,10.8888889 7,10.8888889 Z M7,7.77777778 C8.28866442,7.77777778 9.33333333,6.73310886 9.33333333,5.44444444 C9.33333333,4.15578003 8.28866442,3.11111111 7,3.11111111 C5.71133558,3.11111111 4.66666667,4.15578003 4.66666667,5.44444444 C4.66666667,6.73310886 5.71133558,7.77777778 7,7.77777778 Z"></path></svg></span>
+                        </div>
+                        <div class="banner-financial-img">
+                          <%= image_tag "https://source.unsplash.com/collection/{#{index}}", class:"img-fluid-ft" %>
+                        </div>
+                        <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "link-to-article", :target => "_blank" %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="carroussel-arrow-down"><i class="fas fa-angle-down"></i></div>
+        </section>
       </div>
     </div>
   </div>

@@ -28,6 +28,7 @@
 
 //Banner financial news robinhood
 .banner-newsflow {
+  width: 900px;
   .banner-financial-news {
     border-radius: 4px;
     margin: 0 -30px;
@@ -77,7 +78,7 @@
         .ctn-article-ct {
           margin: 4px 0;
           max-height: 10.5ex;
-          max-width: 600px;
+          width: 100%;
           overflow: hidden;
 
           .ctnt-title {
