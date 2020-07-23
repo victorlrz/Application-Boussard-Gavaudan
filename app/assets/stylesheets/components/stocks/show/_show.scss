@@ -1214,6 +1214,7 @@ $color1: #16a085;
   margin-bottom: 60px;
   -webkit-transition: background 300ms;
   transition: background 300ms;
+
   .header-financial-section {
     margin-bottom: 24px;
     display: block;
@@ -1290,5 +1291,68 @@ $color1: #16a085;
         }
       }
     }
+  }
+
+  .carroussels-news-ctn-nf {
+    margin: -6px;
+
+    .carroussels-ctn-nf {
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      height: 600px;
+
+      .carroussels-ctn-1-nf {
+        margin: 0;
+        padding: 6px;
+        visibility: hidden;
+      }
+
+      .carroussels-ctn-2-nf {
+        margin: 0;
+        padding: 6px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -450px;
+        -webkit-transition: -webkit-transform 250ms
+          cubic-bezier(0.22, 0.61, 0.36, 1);
+        -webkit-transition: transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition: transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+    }
+  }
+}
+
+.carroussel-arrow-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  .fas.fa-angle-up {
+    font-size: 30px;
+  }
+}
+
+.carroussel-arrow-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  width: 100%;
+
+  .fas.fa-angle-down {
+    font-size: 30px;
   }
 }
