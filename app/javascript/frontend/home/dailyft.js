@@ -5,8 +5,11 @@ const rightArrow = document.querySelector(".fas.fa-arrow-circle-right");
 const leftArrow = document.querySelector(".fas.fa-arrow-circle-left");
 var link = document.querySelector(".ft-article-a");
 
-const rubyDatas = dailyFt.dataset.daily;
-const dailyDatas = rubyDatas.split(/"[\]]|[\[]"|", "/);
+if (document.querySelector(".container-recent-ft")) {
+  const rubyDatas = dailyFt.dataset.daily;
+  const dailyDatas = rubyDatas.split(/"[\]]|[\[]"|", "/);
+};
+
 
 let tabAfterSplice = [];
 let dailyObjectFt = [];
@@ -100,11 +103,14 @@ const displayTitles = (tab) => {
 };
 
 //@Fonction pour assigner un autre index en fonction du temps
+if (document.querySelector(".container-recent-ft")) {
 rightArrow.onclick = function () {
   return false;
 };
+}
 
 //@Main
+if (document.querySelector(".container-recent-ft")) {
 const main = () => {
   tabAfterSplice = [];
   dailyObjectFt = [];
@@ -117,5 +123,9 @@ const main = () => {
     dailyFt.innerHTML = "No daily articles published for the moment.";
   }
 };
+}
 
+
+if (document.querySelector(".container-recent-ft")) {
 main();
+}
