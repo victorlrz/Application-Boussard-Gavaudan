@@ -12,14 +12,16 @@
 <div class="stock-index-container">
   <div>
     <%= form_tag stocks_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control mb-1 h-auto rounded",
-        placeholder: "Find a Company or Type a sector"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary mb-3" %>
+      <div class="search-form-control form-group mb-3">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mb-1 h-auto rounded",
+          placeholder: "Find a Company or Type a sector" %>
+        <%= submit_tag "Search", class: "btn-ghost mt-3" %>
+      </div>
     <% end %>
   </div>
+
 
   <ul class="stock-index-table">
     <li class="stock-index-table-header">
