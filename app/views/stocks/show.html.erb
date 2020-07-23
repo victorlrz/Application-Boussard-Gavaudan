@@ -57,7 +57,7 @@
                     <span><%= @stock.price_yrchg %></span>
                   </span>
                 </span>
-                <span class="h-2-s2">Past Year.  as of <%= @stock.ebitda.split("Data delayed at least 15 minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
+                <span class="h-2-s2">Past Year.  as of <%= @stock.ebitda.split("minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
               </div>
             </header>
 
@@ -197,119 +197,92 @@
         </section>
 
         <%-# Section 4 -%>
-        <section class="collection-tags-section">
-          <header class="header-tags-section">
-            <div class="container-title-tags">
-              <div class="title-tags">
-                <h2 class="title-content-h2"><span class="title-content-span">Collections</title></h2>
+        <% if @stock.tag_counts.count > 0 %>
+          <section class="collection-tags-section">
+            <header class="header-tags-section">
+              <div class="container-title-tags">
+                <div class="title-tags">
+                  <h2 class="title-content-h2"><span class="title-content-span">Collections</title></h2>
+                </div>
               </div>
+            </header>
+            <div class="tags-div-container">
+              <% @stock.tag_list.each do  |tag| %>
+                <div class="tags-btn-robinhood">
+                  <a class="a-tags-link a-tags-inherit" rel href="#">
+                    <span class="btn-tags-span"><%= tag %></span>
+                  </a>
+                </div>
+              <% end %>
             </div>
-          </header>
-          <div class="tags-div-container">
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Road Transportation</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">100 Most Popular</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Most Popular Under 25$</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Transportation</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Manufacturing</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Automotive</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">Rental and Lease</span>
-              </a>
-            </div>
-            <div class="tags-btn-robinhood">
-              <a class="a-tags-link a-tags-inherit" rel href="#">
-                <span class="btn-tags-span">US</span>
-              </a>
-            </div>
-          </div>
-        </section>
+          </section>
+        <% end %>
 
         <%-# Section 5-%>
-        <section class="digestible-news-section">
-          <header class="header-digestible-section">
-            <div class="container-digestible-news">
-              <div class="title-digestible-news">
-                <h2 class="title-content-h2"><span class="title-content-span">Digestible Financial News</span></h2>
+        <% if @stock.comments.count > 0 %>
+          <section class="digestible-news-section">
+            <header class="header-digestible-section">
+              <div class="container-digestible-news">
+                <div class="title-digestible-news">
+                  <h2 class="title-content-h2"><span class="title-content-span">Comments</span></h2>
+                </div>
+              </div>
+            </header>
+            <div class="digestible-mng-ctn">
+              <div>
+                <%= image_tag "fix.jpg", class: 'our-faces' %>
+                <%= image_tag "vic.jpg", class: 'our-faces' %>
+              </div>
+              <div class="our-pres-ctn">
+                <h3 class="our-names-ctn"><span class="our-names">François-Xavier Baud & Victor Larrezet</span></h3>
+                <span class="our-roles">Editors of News & Comments at Boussard & Gavaudan</span>
               </div>
             </div>
-          </header>
-          <div class="digestible-mng-ctn">
-            <div>
-              <%= image_tag "fix.jpg", class: 'our-faces' %>
-              <%= image_tag "vic.jpg", class: 'our-faces' %>
-            </div>
-            <div class="our-pres-ctn">
-              <h3 class"our-names-ctn"><span class="our-names">François-Xavier Baud & Victor Larrezet</span></h3>
-              <span class="our-roles">Managing Editors of News & Snacks at Boussard & Gavaudan</span>
-            </div>
-          </div>
-          <div class="carroussel-comments-ctn">
-            <div class="carroussel-arrow-left"><i class="fas fa-angle-left"></i></div>
-            <div class="carroussels-ctn">
-              <div class="carroussels-ctn-1">
-                <button type="button" class="comments-card-robinhood">
-                  <div class="comments-card-ctn">
-                    <div><span class="card-date">15 juil. 2020</div>
-                    <div class="card-title">
-                      <h3 class="title-content">
-                        <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
-                      </h3>
-                    </div>
-                    <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
-                  </div>
-                </button>
-              </div>
-              <div class="carroussels-ctn-2" style="transform: translateX(0%)">
-                <% @stock.comments.order("date DESC").each do |comment| %>
+            <div class="carroussel-comments-ctn">
+              <div class="carroussel-arrow-left"><i class="fas fa-angle-left"></i></div>
+              <div class="carroussels-ctn">
+                <div class="carroussels-ctn-1">
                   <button type="button" class="comments-card-robinhood">
                     <div class="comments-card-ctn">
-                      <div><span class="card-date"><%= comment.date.strftime("%d/%m/%y") %></div>
+                      <div><span class="card-date">15 juil. 2020</div>
                       <div class="card-title">
                         <h3 class="title-content">
-                          <span class="title-span"><%= comment.title %></span>
+                          <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
                         </h3>
                       </div>
                       <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
                     </div>
                   </button>
-                <% end %>
+                </div>
+                <div class="carroussels-ctn-2" style="transform: translateX(0%)">
+                  <% @stock.comments.order("date DESC").each do |comment| %>
+                    <button type="button" class="comments-card-robinhood">
+                      <div class="comments-card-ctn">
+                        <div><span class="card-date"><%= comment.date.strftime("%d/%m/%y") %></div>
+                        <div class="card-title">
+                          <h3 class="title-content">
+                            <span class="title-span"><%= comment.title %></span>
+                          </h3>
+                        </div>
+                        <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
+                      </div>
+                    </button>
+                  <% end %>
+                </div>
               </div>
+              <div class="carroussel-arrow-right"><i class="fas fa-angle-right"></i></div>
             </div>
-            <div class="carroussel-arrow-right"><i class="fas fa-angle-right"></i></div>
-          </div>
-        </section>
+          </section>
+        <% end %>
 
         <%-# Section 6-%>
-        <section class="financial-news-section">
-          <header class="header-financial-section">
-            <div class="container-financial-news">
-              <div class="title-financial-news">
-                <h2 class="title-content-h2"><span class="title-content-span"><%= @stock.name %> News</span></h2>
+        <% if @stock.articles.count > 0 %>
+          <section class="financial-news-section">
+            <header class="header-financial-section">
+              <div class="container-financial-news">
+                <div class="title-financial-news">
+                  <h2 class="title-content-h2"><span class="title-content-span"><%= @stock.name %> News</span></h2>
+                </div>
               </div>
             </div>
           </header>
@@ -377,7 +350,6 @@
     </div>
   </div>
 </div>
-
 
 
 <div class="stock-show-nav-container">

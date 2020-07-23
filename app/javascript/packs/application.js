@@ -42,6 +42,9 @@ import "../frontend/stock/show/value_animation";
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
 
+const element = document.getElementById('stocksbyfix');
+
+
 
 
 
