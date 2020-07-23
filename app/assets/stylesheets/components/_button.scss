@@ -154,3 +154,105 @@
     outline: none;
   }
 }
+
+//Robinhod button card
+//HTML
+// <button type="button" class="comments-card-robinhood">
+//   <div class="comments-card-ctn">
+//     <div><span class="card-date">15 juil. 2020</div>
+//     <div class="card-title">
+//       <h3 class="title-content">
+//         <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
+//       </h3>
+//     </div>
+//     <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
+//   </div>
+// </button>
+
+//CSS
+.comments-card-robinhood {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  -webkit-appearance: none;
+  text-align: unset;
+  color: unset;
+
+  .comments-card-ctn {
+    padding: 24px;
+    cursor: pointer;
+    height: 200px;
+    margin-right: 12px;
+    width: 218px;
+    background-color: rgb(4, 13, 20);
+    border-radius: 4px;
+    border: 1px solid rgb(48, 54, 58);
+
+    .card-date {
+      // color: var(--rh__text-color);
+      // font-family: var(--rh__type-palette__type2__stack);
+      // font-size: var(--rh__type-palette__type2__font-size);
+      // font-style: normal;
+      // font-weight: var(--rh__type-palette__type2__font-weight);
+      // line-height: var(--rh__type-palette__type2__line-height);
+      // -webkit-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+      // -moz-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+      // -ms-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+      // letter-spacing: var(--rh__type-palette__type2__letter-spacing);
+      // -webkit-text-decoration: unset;
+      // text-decoration: unset;
+      // --rh__text-color: var(--rh__foundation-fg2);
+      color: rgb(121, 133, 139);
+      font-family: "Capsule Sans Display", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      -webkit-letter-spacing: -0.1px;
+      -moz-letter-spacing: -0.1px;
+      -ms-letter-spacing: -0.1px;
+      letter-spacing: -0.1px;
+      -webkit-text-decoration: unset;
+      text-decoration: unset;
+    }
+
+    .card-title {
+      height: 100px;
+      .title-content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        line-height: 20px;
+        margin: 0;
+
+        .title-span {
+          color: rgb(240, 244, 246);
+          font-family: "Capsule Sans Display", system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 24px;
+          -webkit-letter-spacing: -0.1px;
+          -moz-letter-spacing: -0.1px;
+          -ms-letter-spacing: -0.1px;
+          letter-spacing: -0.1px;
+          text-decoration: unset;
+        }
+      }
+    }
+
+    .link-card-robinhood {
+      color: rgb(255, 80, 0);
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
