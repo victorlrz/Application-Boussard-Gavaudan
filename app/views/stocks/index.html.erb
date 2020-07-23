@@ -64,7 +64,21 @@
     <% end %>
   </ul>
 
-  <div id="stocksbyfix" data-stocks="<%= @datasetstocks.to_json %>">
+  <div class="container">
+  <table id="stocksbyfix" data-stocks="<%= @datasetstocks.to_json %>">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Daily Chg</th>
+        <th>Last Year Chg</th>
+        <th>PE ratio</th>
+        <th>Beta</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
   </div>
 </div>
 
