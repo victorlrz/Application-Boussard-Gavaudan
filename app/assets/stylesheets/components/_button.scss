@@ -54,7 +54,7 @@
 // </div>
 
 //Architecture CSS
-.tags-btn-robinhood {
+.tags-btn-rbh {
   -webkit-box-flex: 0;
   flex: 0 0 auto;
   margin: 0 12px 12px 0;
@@ -100,7 +100,7 @@
 //Structure HTML :
 // <button type="button" class="btn-nav-robinhood"></button>
 //Structure CSS
-.btn-nav-robinhood {
+.btn-nav-rbh {
   cursor: pointer;
   appearance: none;
   background: none;
@@ -111,7 +111,7 @@
   font: inherit;
   padding: 0px;
 
-  .btn-nav-robinhood-span-1 {
+  .btn-nav-rbh-span-1 {
     // color: var(--rh__text-color);
     // font-family: var(--rh__type-palette__type2__stack);
     // font-size: var(--rh__type-palette__type2__font-size);
@@ -138,7 +138,7 @@
     -webkit-text-decoration: unset;
     text-decoration: unset;
 
-    .btn-nav-robinhood-pb {
+    .btn-nav-rbh-pb {
       padding-bottom: 12px;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -157,7 +157,7 @@
 
 //Robinhod button card
 //HTML
-// <button type="button" class="comments-card-robinhood">
+// <button type="button" class="comments-card">
 //   <div class="comments-card-ctn">
 //     <div><span class="card-date">15 juil. 2020</div>
 //     <div class="card-title">
@@ -170,7 +170,7 @@
 // </button>
 
 //CSS
-.comments-card-robinhood {
+.comments-card {
   background: none;
   border: 0;
   cursor: pointer;
@@ -248,7 +248,7 @@
         }
       }
     }
-    .link-card-robinhood {
+    .link-card {
       color: rgb(255, 80, 0);
       font-weight: 500;
       text-decoration: none;

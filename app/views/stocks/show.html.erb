@@ -10,17 +10,17 @@
   <main class="main-container">
     <% if @stock.tag_counts.count > 0  %>
       <div class="top-tags-container">
-        <div class="tags-btn-robinhood">
+        <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit">
             <span class="btn-tags-span"><%= @stock.tag_list[0] %></span>
           </a>
         </div>
-        <div class="tags-btn-robinhood">
+        <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit" rel href="#">
             <span class="btn-tags-span"><%= @stock.tag_list[1] %></span>
            </a>
         </div>
-        <div class="tags-btn-robinhood">
+        <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit" rel href="#">
             <span class="btn-tags-span"><%= @stock.tag_list[2] %></span>
            </a>
@@ -74,34 +74,34 @@
             <%-# Nav section -%>
             <nav class="nav-graph" bounds="regular">
               <div class="nav-list">
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">1D</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">1D</span>
                   </span>
                 </button>
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">1W</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">1W</span>
                   </span>
                 </button>
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">1M</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">1M</span>
                   </span>
                 </button>
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">3M</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">3M</span>
                   </span>
                 </button>
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">1Y</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">1Y</span>
                   </span>
                 </button>
-                <button type="button" class="btn-nav-robinhood">
-                  <span class="btn-nav-robinhood-span-1">
-                    <span class="btn-nav-robinhood-pb">5Y</span>
+                <button type="button" class="btn-nav-rbh">
+                  <span class="btn-nav-rbh-span-1">
+                    <span class="btn-nav-rbh-pb">5Y</span>
                   </span>
                 </button>
               </div>
@@ -210,7 +210,7 @@
             </header>
             <div class="tags-div-container">
               <% @stock.tag_list.each do  |tag| %>
-                <div class="tags-btn-robinhood">
+                <div class="tags-btn-rbh">
                   <a class="a-tags-link a-tags-inherit" rel href="#">
                     <span class="btn-tags-span"><%= tag %></span>
                   </a>
@@ -244,7 +244,7 @@
               <div class="carroussel-arrow-left"><i class="fas fa-angle-left"></i></div>
               <div class="carroussels-ctn">
                 <div class="carroussels-ctn-1">
-                  <button type="button" class="comments-card-robinhood">
+                  <button type="button" class="comments-card">
                     <div class="comments-card-ctn">
                       <div><span class="card-date">15 juil. 2020</div>
                       <div class="card-title">
@@ -252,13 +252,13 @@
                           <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
                         </h3>
                       </div>
-                      <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
+                      <a class="link-card" href="#" rel="nofollow noopener">Read More</a>
                     </div>
                   </button>
                 </div>
                 <div class="carroussels-ctn-2" style="transform: translateX(0%)">
                   <% @stock.comments.order("date DESC").each do |comment| %>
-                    <button type="button" class="comments-card-robinhood">
+                    <button type="button" class="comments-card">
                       <div class="comments-card-ctn">
                         <div><span class="card-date"><%= comment.date.strftime("%d/%m/%y") %></div>
                         <div class="card-title">
@@ -266,7 +266,7 @@
                             <span class="title-span"><%= comment.title %></span>
                           </h3>
                         </div>
-                        <a class="link-card-robinhood" id="myBtn" href="#" rel="nofollow noopener">Read More</a>
+                        <a class="link-card" id="myBtn" href="#" rel="nofollow noopener">Read More</a>
                       </div>
                       
                       <div id="myModal" class="modal">
