@@ -58,6 +58,7 @@ $color4: red;
 
   &.type2 {
     // Effect 2
+    color: $color1;
     &.type2:after,
     &.type2:before {
       content: "";
@@ -69,6 +70,7 @@ $color4: red;
       height: 2px;
       transition: all 0.3s ease;
       transform: scale(0.85);
+      background-color: $color1;
     }
 
     &.type2:hover:before {
@@ -78,6 +80,11 @@ $color4: red;
 
     &.type2:hover:after {
       transform: scale(1);
+    }
+
+    &.type2::before {
+      border-top-color: $color1;
+      border-left-color: $color1;
     }
   }
 

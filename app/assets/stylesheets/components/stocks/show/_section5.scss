@@ -1,0 +1,94 @@
+//Stock show - section 5
+//Description : Digestible news = Our comments
+//Components used in HTML : "header-section" -> _banner.scss
+
+.digestible-news-section {
+  margin-bottom: 60px;
+  -webkit-transition: background 300ms;
+  transition: background 300ms;
+
+  .digestible-mng-ctn {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 24px 0;
+
+    .our-faces {
+      border-color: rgba(4, 13, 20, 0.8);
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 100px;
+      height: 60px;
+      width: 60px;
+
+      &:nth-child(2) {
+        margin-left: -12px;
+      }
+    }
+
+    .our-pres-ctn {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      margin: 0 12px;
+
+      .our-names-ctn {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        line-height: 20px;
+        margin: 0;
+
+        .our-names {
+          color: rgb(0, 0, 0);
+          // font-family: var(--rh__type-palette__type8__stack);
+          // font-size: var(--rh__type-palette__type8__font-size);
+          // font-style: normal;
+          // font-weight: var(--rh__type-palette__type8__font-weight);
+          // line-height: var(--rh__type-palette__type8__line-height);
+          // letter-spacing: var(--rh__type-palette__type8__letter-spacing);
+          font-family: "Capsule Sans Display", system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: -0.1px;
+          text-decoration: unset;
+        }
+      }
+
+      .our-roles {
+        // color: var(--rh__text-color);
+        // font-family: var(--rh__type-palette__type1__stack);
+        // font-size: var(--rh__type-palette__type1__font-size);
+        // font-style: normal;
+        // font-weight: var(--rh__type-palette__type1__font-weight);
+        // line-height: var(--rh__type-palette__type1__line-height);
+        // -webkit-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
+        // -moz-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
+        // -ms-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
+        // letter-spacing: var(--rh__type-palette__type1__letter-spacing);
+        // -webkit-text-decoration: unset;
+        // text-decoration: unset;
+        // --rh__text-color: var(--rh__foundation-fg2);
+        color: rgb(121, 133, 139);
+        font-family: "Capsule Sans Display", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        -webkit-letter-spacing: -0.1px;
+        -moz-letter-spacing: -0.1px;
+        -ms-letter-spacing: -0.1px;
+        letter-spacing: -0.1px;
+        -webkit-text-decoration: unset;
+        text-decoration: unset;
+      }
+    }
+  }
+}

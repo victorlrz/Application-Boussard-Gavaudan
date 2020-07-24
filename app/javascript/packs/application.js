@@ -21,29 +21,16 @@ $(document).ready(function () {
 });
 
 import "../features/apiftimes.js";
-// import "../features/apimorningstar.js";
 
 import "../styles/application";
 //Front-end Navbar
 import "../frontend/header/navbar";
 import "../frontend/header/darkmode";
 //Menus
-import "../frontend/menu/portfolio_index_menu";
-import "../frontend/menu/stock_show_menu";
+import "../frontend/menu/portfolio_nav";
 //Portfolios
 import "../frontend/portfolio/index/index";
-//Stocks
-import "../frontend/stock/show/stars_animation";
-import "../frontend/stock/show/onclick_animation";
-import "../frontend/stock/show/getTitle";
-import "../frontend/stock/show/morningstar_animation";
-import "../frontend/stock/show/value_animation";
+
 //Home
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
-
-
-
-
-
-
