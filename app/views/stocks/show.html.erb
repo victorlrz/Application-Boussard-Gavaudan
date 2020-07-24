@@ -299,8 +299,10 @@
                 </div>
               </div>
             </header>
-
-            <div class="carroussel-arrow-top"><i class="fas fa-angle-up"></i></div>
+            
+            <% if @stock.articles.count > 3 %>
+              <div class="carroussel-arrow-top"><i class="fas fa-angle-up"></i></div>
+            <% end %>
             <div class="carroussels-news-ctn-nf">
               <div class="carroussels-ctn-nf">
                 <div class="carroussels-ctn-1-nf">
@@ -328,7 +330,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="carroussels-ctn-2-nf" style="transform: translateY(0%)">
+                <div class="carroussels-ctn-2-nf" id="vertical-carroussel" style="transform: translateY(0%)">
                   <% @stock.articles.order("date DESC").each_with_index do |article, index| %>
                     <div class="banner-newsflow">
                       <div class="banner-financial-news">
@@ -356,10 +358,11 @@
                   <% end %>
                 </div>
               </div>
-            </div>   
-            <div class="carroussel-arrow-down"><i class="fas fa-angle-down"></i></div>
-          
-            </section>
+            </div>
+            <% if @stock.articles.count > 3 %>
+              <div class="carroussel-arrow-down"><i class="fas fa-angle-down"></i></div>
+            <% end %>
+          </section>
         <% end %>
       </div>
     </div>
