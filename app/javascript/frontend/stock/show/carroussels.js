@@ -5,7 +5,8 @@ const length = 100 / (document.querySelectorAll(".banner-newsflow").length - 1);
 const nbrClick = document.querySelectorAll(".banner-newsflow").length - 4;
 //-4 car 3 éléments dans la div + 1 élément caché en relative
 
-if (arrowTop && arrowDown && transformY && length) {
+//Vertical Carroussels
+if (arrowTop && arrowDown && transformY && length && nbrClick) {
   let compt = 0;
   let click = 0;
   arrowTop.addEventListener("click", (event) => {
