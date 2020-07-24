@@ -44,17 +44,17 @@
   border-radius: 8px;
 }
 // /////////////////////////////////////////////////////////////////
-//Bouton robinhood :
+//Bouton rbh :
 
 //Arhitecture HTML:
-// <div class="tags-btn-robinhood">
+// <div class="tags-btn-rbh">
 // <a class="a-tags-link a-tags-inherit" rel href="#">
 //   <span class="btn-tags-span">Road Transportation</span>
 // </a>
 // </div>
 
 //Architecture CSS
-.tags-btn-robinhood {
+.tags-btn-rbh {
   -webkit-box-flex: 0;
   flex: 0 0 auto;
   margin: 0 12px 12px 0;
@@ -96,11 +96,11 @@
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
-//Button nav-robinhood (under first graph)
+//Button nav-rbh (under first graph)
 //Structure HTML :
-// <button type="button" class="btn-nav-robinhood"></button>
+// <button type="button" class="btn-nav-rbh"></button>
 //Structure CSS
-.btn-nav-robinhood {
+.btn-nav-rbh {
   cursor: pointer;
   appearance: none;
   background: none;
@@ -111,7 +111,7 @@
   font: inherit;
   padding: 0px;
 
-  .btn-nav-robinhood-span-1 {
+  .btn-nav-rbh-span-1 {
     // color: var(--rh__text-color);
     // font-family: var(--rh__type-palette__type2__stack);
     // font-size: var(--rh__type-palette__type2__font-size);
@@ -138,7 +138,7 @@
     -webkit-text-decoration: unset;
     text-decoration: unset;
 
-    .btn-nav-robinhood-pb {
+    .btn-nav-rbh-pb {
       padding-bottom: 12px;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -157,7 +157,7 @@
 
 //Robinhod button card
 //HTML
-// <button type="button" class="comments-card-robinhood">
+// <button type="button" class="comments-card">
 //   <div class="comments-card-ctn">
 //     <div><span class="card-date">15 juil. 2020</div>
 //     <div class="card-title">
@@ -165,12 +165,12 @@
 //         <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
 //       </h3>
 //     </div>
-//     <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
+//     <a class="link-card" href="#" rel="nofollow noopener">Read More</a>
 //   </div>
 // </button>
 
 //CSS
-.comments-card-robinhood {
+.comments-card {
   background: none;
   border: 0;
   cursor: pointer;
@@ -248,7 +248,7 @@
         }
       }
     }
-    .link-card-robinhood {
+    .link-card {
       color: rgb(255, 80, 0);
       font-weight: 500;
       text-decoration: none;
