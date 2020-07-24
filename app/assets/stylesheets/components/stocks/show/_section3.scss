@@ -1,0 +1,220 @@
+//Stock show - section 3
+//Description : About + valuation of @stocks
+//Components used in HTML : "header-section" -> _banner.scss
+
+.about-valuation-section {
+  margin-bottom: 60px;
+  -webkit-transition: background 300ms;
+  transition: background 300ms;
+
+  .about-container {
+    margin-bottom: 15px;
+    .about-h3 {
+      margin: 0 0 24px;
+      // max-width: 570px; Si on veut le raccourcir
+      width: 100%;
+      text-align: justify;
+
+      .about-span {
+        // color: var(--rh__text-color);
+        // font-family: var(--rh__type-palette__type7__stack);
+        // font-size: var(--rh__type-palette__type7__font-size);
+        // font-style: normal;
+        // font-weight: var(--rh__type-palette__type7__font-weight);
+        // line-height: var(--rh__type-palette__type7__line-height);
+        // -webkit-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
+        // -moz-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
+        // -ms-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
+        // letter-spacing: var(--rh__type-palette__type7__letter-spacing);
+        // -webkit-text-decoration: unset;
+        // text-decoration: unset;
+        color: rgb(4, 13, 20);
+        font-family: "Capsule Sans Display", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        -webkit-letter-spacing: -0.1px;
+        -moz-letter-spacing: -0.1px;
+        -ms-letter-spacing: -0.1px;
+        letter-spacing: -0.1px;
+        -webkit-text-decoration: unset;
+        text-decoration: unset;
+
+        .about-link {
+          font-weight: 500;
+          text-decoration: none;
+          .about-link-span {
+            // color: var(--rh__text-color);
+            // font-family: var(--rh__type-palette__type3__stack);
+            // font-size: var(--rh__type-palette__type3__font-size);
+            // font-style: normal;
+            // font-weight: var(--rh__type-palette__type3__font-weight);
+            // line-height: var(--rh__type-palette__type3__line-height);
+            // -webkit-letter-spacing: var(
+            //   --rh__type-palette__type3__letter-spacing
+            // );
+            // -moz-letter-spacing: var(--rh__type-palette__type3__letter-spacing);
+            // -ms-letter-spacing: var(--rh__type-palette__type3__letter-spacing);
+            // letter-spacing: var(--rh__type-palette__type3__letter-spacing);
+            // -webkit-text-decoration: unset;
+            // text-decoration: unset;
+            color: rgb(4, 13, 20);
+            font-family: "Capsule Sans Display", system-ui, -apple-system,
+              BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+            -webkit-letter-spacing: -0.1px;
+            -moz-letter-spacing: -0.1px;
+            -ms-letter-spacing: -0.1px;
+            letter-spacing: -0.1px;
+            -webkit-text-decoration: unset;
+            text-decoration: unset;
+          }
+        }
+
+        .about-span-no-display {
+          display: none;
+        }
+      }
+    }
+
+    //Valuation grid
+    .grid-valuation {
+      padding-top: 18px;
+      .grid-element-container {
+        width: 100%;
+        display: grid;
+        grid:
+          "e1 e2 e3 e4" 100px
+          "e5 e6 e7 e8" 100px
+          "e9 e10 e11 e12" 100px
+          "e13 e14 e15 e16" 100px /
+          1fr 1fr 1fr 1fr;
+        place-items: center left;
+      }
+
+      .col-mg-val-1 {
+        grid-area: e1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-2 {
+        grid-area: e2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-3 {
+        grid-area: e3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-4 {
+        grid-area: e4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-5 {
+        grid-area: e5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-6 {
+        grid-area: e6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-7 {
+        grid-area: e7;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-8 {
+        grid-area: e8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-9 {
+        grid-area: e9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-10 {
+        grid-area: e10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-11 {
+        grid-area: e11;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .col-mg-val-12 {
+        grid-area: e12;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+      .col-mg-val-13 {
+        grid-area: e13;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+      .col-mg-val-14 {
+        grid-area: e14;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+      }
+
+      .name-data {
+        margin-left: 5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+      .value-data {
+        margin-left: 5rem;
+      }
+    }
+  }
+}

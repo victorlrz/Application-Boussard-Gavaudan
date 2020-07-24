@@ -122,9 +122,9 @@
 
         <%-# Section 3 -%>
         <section class="about-valuation-section">
-          <header class="header-about-section">
-            <div class="container-title-about">
-              <div class="title-about"><h2 class="title-content-h2"><span class="title-content-span">About <%= @stock.name %></span></h2></div>
+          <header class="header-section">
+            <div class="container-title-section">
+              <div class="title-section"><h2 class="title-content-h2"><span class="title-content-span">About <%= @stock.name %></span></h2></div>
             </div>
           </header>
           <div class="about-container">
@@ -199,9 +199,9 @@
         <%-# Section 4 -%>
         <% if @stock.tag_counts.count > 0 %>
           <section class="collection-tags-section">
-            <header class="header-tags-section">
-              <div class="container-title-tags">
-                <div class="title-tags">
+            <header class="header-section">
+              <div class="container-title-section">
+                <div class="title-section">
                   <h2 class="title-content-h2"><span class="title-content-span">Collections</title></h2>
                 </div>
               </div>
@@ -221,9 +221,9 @@
         <%-# Section 5-%>
         <% if @stock.comments.count > 0 %>
           <section class="digestible-news-section">
-            <header class="header-digestible-section">
-              <div class="container-digestible-news">
-                <div class="title-digestible-news">
+            <header class="header-section">
+              <div class="container-title-section">
+                <div class="title-section">
                   <h2 class="title-content-h2"><span class="title-content-span">Comments</span></h2>
                 </div>
               </div>
@@ -264,9 +264,20 @@
                             <span class="title-span"><%= comment.title %></span>
                           </h3>
                         </div>
-                        <a class="link-card-robinhood" href="#" rel="nofollow noopener">Read More</a>
+                        <a class="link-card-robinhood" id="myBtn" href="#" rel="nofollow noopener">Read More</a>
                       </div>
+                      
+                      <div id="myModal" class="modal">
+                          <%-# Modalcontent -%>
+
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Some text in the Modal..</p>
+                          </div>
+                        </div>
+
                     </button>
+                    
                   <% end %>
                 </div>
               </div>
@@ -278,9 +289,9 @@
         <%-# Section 6-%>
         <% if @stock.articles.count > 0 %>
           <section class="financial-news-section">
-            <header class="header-financial-section">
-                <div class="container-financial-news">
-                  <div class="title-financial-news">
+            <header class="header-section">
+                <div class="container-title-section">
+                  <div class="title-section">
                     <h2 class="title-content-h2"><span class="title-content-span"><%= @stock.name %> News</span></h2>
                   </div>
                 </div>
@@ -352,6 +363,7 @@
     </div>
   </div>
 </div>
+
 
 
 <div class="stock-show-nav-container">
