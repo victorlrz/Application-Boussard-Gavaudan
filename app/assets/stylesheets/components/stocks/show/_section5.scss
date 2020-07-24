@@ -43,15 +43,8 @@
         margin: 0;
 
         .our-names {
-          color: rgb(0, 0, 0);
-          // font-family: var(--rh__type-palette__type8__stack);
-          // font-size: var(--rh__type-palette__type8__font-size);
-          // font-style: normal;
-          // font-weight: var(--rh__type-palette__type8__font-weight);
-          // line-height: var(--rh__type-palette__type8__line-height);
-          // letter-spacing: var(--rh__type-palette__type8__letter-spacing);
-          font-family: "Capsule Sans Display", system-ui, -apple-system,
-            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+          color: $rh_text-color-black;
+          font-family: $family-font-show;
           font-size: 15px;
           font-style: normal;
           font-weight: 700;
@@ -62,22 +55,8 @@
       }
 
       .our-roles {
-        // color: var(--rh__text-color);
-        // font-family: var(--rh__type-palette__type1__stack);
-        // font-size: var(--rh__type-palette__type1__font-size);
-        // font-style: normal;
-        // font-weight: var(--rh__type-palette__type1__font-weight);
-        // line-height: var(--rh__type-palette__type1__line-height);
-        // -webkit-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
-        // -moz-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
-        // -ms-letter-spacing: var(--rh__type-palette__type1__letter-spacing);
-        // letter-spacing: var(--rh__type-palette__type1__letter-spacing);
-        // -webkit-text-decoration: unset;
-        // text-decoration: unset;
-        // --rh__text-color: var(--rh__foundation-fg2);
-        color: rgb(121, 133, 139);
-        font-family: "Capsule Sans Display", system-ui, -apple-system,
-          BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        color: $rh_text-color-grey;
+        font-family: $family-font-show;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;

@@ -71,32 +71,16 @@
         line-height: 20px;
 
         .adv-h4-title {
-          // color: var(--rh__text-color);
-          // font-family: var(--rh__type-palette__type2__stack);
-          // font-size: var(--rh__type-palette__type2__font-size);
-          // font-style: normal;
-          // font-weight: var(--rh__type-palette__type2__font-weight);
-          // line-height: var(--rh__type-palette__type2__line-height);
-          // -webkit-letter-spacing: var(
-          //   --rh__type-palette__type2__letter-spacing
-          // );
-          // -moz-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
-          // -ms-letter-spacing: var(--rh__type-palette__type2__letter-spacing);
-          // letter-spacing: var(--rh__type-palette__type2__letter-spacing);
-          // -webkit-text-decoration: unset;
-          // text-decoration: unset;
-          // --rh__text-color: var(--rh__foundation-fg2);
-          color: rgb(121, 133, 139);
-          font-family: "Capsule Sans Display", system-ui, -apple-system,
-            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+          color: $rh_text-color-grey;
+          font-family: $family-font-show;
           font-size: 13px;
           font-style: normal;
           font-weight: 700;
           line-height: 20px;
-          -webkit-letter-spacing: -0.1px;
-          -moz-letter-spacing: -0.1px;
-          -ms-letter-spacing: -0.1px;
-          letter-spacing: -0.1px;
+          -webkit-letter-spacing: $rh_letter_space-01;
+          -moz-letter-spacing: $rh_letter_space-01;
+          -ms-letter-spacing: $rh_letter_space-01;
+          letter-spacing: $rh_letter_space-01;
           -webkit-text-decoration: unset;
           text-decoration: unset;
         }
@@ -109,29 +93,16 @@
       -ms-flex-positive: 1;
       flex-grow: 1;
       .adv-content {
-        // color: var(--rh__text-color);
-        // font-family: var(--rh__type-palette__type7__stack);
-        // font-size: var(--rh__type-palette__type7__font-size);
-        // font-style: normal;
-        // font-weight: var(--rh__type-palette__type7__font-weight);
-        // line-height: var(--rh__type-palette__type7__line-height);
-        // -webkit-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
-        // -moz-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
-        // -ms-letter-spacing: var(--rh__type-palette__type7__letter-spacing);
-        // letter-spacing: var(--rh__type-palette__type7__letter-spacing);
-        // -webkit-text-decoration: unset;
-        // text-decoration: unset;
-        color: rgb(240, 244, 246);
-        font-family: "Capsule Sans Display", system-ui, -apple-system,
-          BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        color: $rh_text-color-white;
+        font-family: $family-font-show;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
-        -webkit-letter-spacing: -0.1px;
-        -moz-letter-spacing: -0.1px;
-        -ms-letter-spacing: -0.1px;
-        letter-spacing: -0.1px;
+        -webkit-letter-spacing: $rh_letter_space-01;
+        -moz-letter-spacing: $rh_letter_space-01;
+        -ms-letter-spacing: $rh_letter_space-01;
+        letter-spacing: $rh_letter_space-01;
         -webkit-text-decoration: unset;
         text-decoration: unset;
       }
