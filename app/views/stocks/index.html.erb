@@ -4,68 +4,61 @@
   </div>
   <% else %>
     <div class="stock-index-no-admin">
-        <button class="button type1">STOCKS</button>
+      <button class="button type1">STOCKS</button>
     </div>
 <% end %>
 
 
-<div class="stock-index-container">
-  <div>
-    <%= form_tag stocks_path, method: :get do %>
-      <div class="search-form-control form-group mb-3">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control mb-1 h-auto rounded",
-          placeholder: "Find a Company or Type a sector" %>
-        <%= submit_tag "Search", class: "btn-ghost mt-3" %>
-      </div>
-    <% end %>
-  </div>
+  <main class="content">
+    <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <%= form_tag stocks_path, method: :get do %>
+                <div class="search-form-control form-group mb-3 w-100">
+                <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control mb-1 h-auto rounded",
+                    placeholder: "Find a Company or Type a sector" %>
+                <%= submit_tag "Search", class: "btn-ghost mt-3" %>
+                </div>
+              <% end %>
 
-
-  <ul class="stock-index-table">
-    <li class="stock-index-table-header">
-      <div class="col-nb-1">Name</div>
-      <div class="col-nb-2">Identifier</div>
-      <div class="col-nb-3">Price</div>
-      <div class="col-nb-4">1D - Chg</div>
-      <div class="col-nb-5">1Y - Chg</div>
-      <div class="col-nb-6">Mkt Cap</div>
-      <div class="col-nb-7">Revenue TTM</div>
-      <div class="col-nb-8">P/E TTM</div>
-      <div class="col-nb-9">Beta</div>
-      <div class="col-nb-10">Articles</div>
-      <div class="col-nb-11">LTV/EQT wght(%) </div>
-    </li>
-
-    <% @stocks.order("price_1chg DESC").each do |stock| %>
-      <li class="stock-index-row">
-        <div><%= link_to stock.name, stock_path(stock), class: "stock-index-a col-nb-1" %></div>
-        <!-- <div class="col-nb-1" data-label="Name"><%= stock.name %></div> -->
-        <div class="col-nb-2" data-label="Identifier"><%= stock.identifier.split(":").first %></div>
-        <div class="col-nb-3 font-size" data-label="Price"><%= stock.price %></div>
-        <% if  stock.price_1chg > 0 %>
-          <div class="col-nb-4 font-size text-success-nb" data-label="1D - Chg"><%= stock.price_1chg.round(2) %>%</div>
-        <% else %>
-          <div class="col-nb-4 font-size text-danger-nb" data-label="1D - Chg"><%= stock.price_1chg.round(2) %>%</div>
-        <% end %>
-        <% if stock.price_yrchg.to_f > 0 %>
-          <div class="col-nb-5 font-size text-success-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
-        <% else %>
-          <div class="col-nb-5 font-size text-danger-nb" data-label="1Y - Chg"><%= stock.price_yrchg %></div>
-        <% end %>
-        <div class="col-nb-6 font-size" data-label="Mkt Cap"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></div>
-        <div class="col-nb-7 font-size" data-label="Revenue TTM"><%= stock.revenue.split("Revenue in ").pop.split("Net income ").first.sub('(TTM)', '').split(" ").last unless stock.revenue.nil?  %></div>
-        <div class="col-nb-8 font-size" data-label="P/E TTM"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></div>
-        <div class="col-nb-9 font-size" data-label="Beta"><%= stock.beta_ft.round(02) %></div>
-        <div class="col-nb-10 font-size" data-label="Articles"><%= stock.comments.count %></div>
-        <div class="col-nb-11 font-size" data-label="BG LTV - BGEQT (<%= Portfolio.last.date.strftime("%d/%m/%y") unless Portfolio.last.nil? %>) weight (%)"><% recherche = Stock.find_by(name: stock.name).id %> <%= Portfolio.find_by(stock_id: recherche).weight.round(1) unless Portfolio.find_by(stock_id: recherche).nil? %></div>
-        </li>
-    <% end %>
-  </ul>
-
-  <div id="stocksbyfix" data-stocks="<%= @datasetstocks.to_json %>">
-  </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col" class="text-center">Identifier</th>
+                      <th scope="col" class="text-center">Daily Chg</th>
+                      <th scope="col" class="text-center">Yearly Chg</th>
+                      <th scope="col" class="text-center">PE ratio</th>
+                      <th scope="col" class="text-center">Beta</th>
+                      <th scope="col" class="text-center">Market Cap</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @stocks.order("price_1chg DESC").each do |stock| %>
+                      <tr>
+                        <th scope="row"><%= link_to stock.name, stock_path(stock) %></th>
+                        <td class="text-center"><%= stock.identifier.split(":").first %></td>
+                        <% if  stock.price_1chg > 0 %>
+                          <td class="text-center text-success"><%= stock.price_1chg.round(2) %>%</td>
+                        <% else %>
+                          <td class="text-center text-danger"><%= stock.price_1chg.round(2) %>%</td>
+                        <% end %>
+                        <td class="text-center"><%= stock.price_yrchg %></td>
+                        <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
+                        <td class="text-center"><%= stock.beta_ft.round(2) %></td>
+                        <td class="text-center"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 </div>
 
 

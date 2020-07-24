@@ -34,5 +34,3 @@ import "../frontend/portfolio/index/index";
 //Home
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
-
-const element = document.getElementById("stocksbyfix");
