@@ -26,7 +26,7 @@
               <% end %>
               <h3><%= @stocks.count %> stocks</h3>
               </div>
-                <table id="datatables-reponsive"  data-stock="<%= @dataset.to_json %>" class="table mb-0">
+                <table id="datatables-reponsive"  data-stock="<% @datasetstocks.to_json %>" class="table mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>

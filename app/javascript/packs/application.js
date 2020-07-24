@@ -13,7 +13,11 @@ import trix from "trix";
 import "trix/dist/trix.css";
 
 import { autocompleteSearch } from './autocomplete';
-autocompleteSearch();
+
+if (document.getElementById('search-data')) {
+  autocompleteSearch();
+};
+
 
 
 import "../features/apiftimes.js";
