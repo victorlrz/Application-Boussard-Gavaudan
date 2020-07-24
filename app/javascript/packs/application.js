@@ -34,3 +34,5 @@ import "../frontend/portfolio/index/index";
 //Home
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
+
+import "../frontend/stock/show/carroussels";
