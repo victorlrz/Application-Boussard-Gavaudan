@@ -109,6 +109,8 @@
           </section>
 
         <%-# Section 2 -%>
+        <%#=
+        
         <section class="advertising-section">
           <div class="advertising-container">
             <div class="img-container">
@@ -121,6 +123,8 @@
             </div>
           </div>
         </section>
+
+        %>
 
         <%-# Section 3 -%>
         <section class="about-valuation-section">
@@ -252,32 +256,30 @@
                           <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
                         </h3>
                       </div>
-                      <a class="link-card" href="#" rel="nofollow noopener">Read More</a>
+                      <div>Read More</div>
                     </div>
                   </button>
                 </div>
                 <div class="carroussels-ctn-2" id="horizontal-carroussel" "style="transform: translateX(0%)">
                   <% @stock.comments.order("date DESC").each do |comment| %>
                     <button type="button" class="comments-card">
-                      <div class="comments-card-ctn">
+                      <div class="id-modal comments-card-ctn">
                         <div><span class="card-date"><%= comment.date.strftime("%d/%m/%y") %></div>
                         <div class="card-title">
                           <h3 class="title-content">
                             <span class="title-span"><%= comment.title %></span>
                           </h3>
                         </div>
-                        <a class="link-card" id="myBtn" href="#" rel="nofollow noopener">Read More</a>
+                        <div class="link-card">Read More</div>
                       </div>
                       
-                      <div id="myModal" class="modal">
+                      <div class="myModal">
                           <%-# Modalcontent -%>
-
                           <div class="modal-content">
                             <span class="close">&times;</span>
-                            <p>Some text in the Modal..</p>
+                            <p>comment.content</p>
                           </div>
                         </div>
-
                     </button>
                     
                   <% end %>
