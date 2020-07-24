@@ -36,3 +36,4 @@ import "../frontend/home/test";
 import "../frontend/home/dailyft";
 
 import "../frontend/stock/show/carroussels";
+import "../frontend/stock/show/modal";

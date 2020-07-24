@@ -21,6 +21,7 @@ if (arrowTop && arrowDown && transformY && lengthY && nbrClickY) {
     if (click == 0) {
       arrowTop.style.setProperty("visibility", "hidden");
     }
+    event.stopPropagation();
   });
 
   arrowDown.addEventListener("click", (event) => {
@@ -33,10 +34,12 @@ if (arrowTop && arrowDown && transformY && lengthY && nbrClickY) {
     if (click >= nbrClickY) {
       arrowDown.style.setProperty("visibility", "hidden");
     }
+    event.stopPropagation();
   });
 }
 
 //Horizontal Carroussel
+
 const arrowLeft = document.getElementById("angle-left");
 const arrowRight = document.getElementById("angle-right");
 const transformX = document.getElementById("horizontal-carroussel");
@@ -57,6 +60,7 @@ if (arrowLeft && arrowRight && transformX && lengthX && nbrClickX) {
     if (click == 0) {
       arrowLeft.style.setProperty("visibility", "hidden");
     }
+    event.stopPropagation();
   });
 
   arrowRight.addEventListener("click", (event) => {
@@ -69,5 +73,6 @@ if (arrowLeft && arrowRight && transformX && lengthX && nbrClickX) {
     if (click >= nbrClickX) {
       arrowRight.style.setProperty("visibility", "hidden");
     }
+    event.stopPropagation();
   });
 }
