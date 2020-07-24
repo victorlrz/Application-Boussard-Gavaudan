@@ -45,12 +45,16 @@
                         <th scope="row"><%= link_to stock.name, stock_path(stock) %></th>
                         <td class="text-center"><%= stock.identifier.split(":").first %></td>
                         <% if  stock.price_1chg > 0 %>
-                          <td class="text-center text-success"><i class="fa fa-caret-up text-left" style="color:#28a745;"></i>   <%= stock.price_1chg.round(1) %>%</td>
+                          <td class="text-center text-success"><i class="fa fa-caret-up mr-2" style="color:#28a745;"></i>   <%= stock.price_1chg.round(1) %>%</td>
                         <% else %>
-                          <td class="text-center text-danger"><i class="fa fa-caret-down text-left" style="color:#cf1b1b;"></i>  <%= stock.price_1chg.round(1) %>%</td>
+                          <td class="text-center text-danger"><i class="fa fa-caret-down mr-2" style="color:#cf1b1b;"></i>  <%= stock.price_1chg.round(1) %>%</td>
                         <% end %>
-                        <td class="text-center"><%= stock.price_yrchg %></td>
-                        <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
+                        <% if  stock.price_yrchg.to_f > 0 %>
+                        <td class="text-center text-success"><i class="fa fa-caret-up mr-2" style="color:#28a745;"></i>   <%= stock.price_yrchg.to_f.round(1) %>%</td>
+                        <% else %>
+                        <td class="text-center text-danger"><i class="fa fa-caret-down mr-2" style="color:#cf1b1b;"></i>  <%= stock.price_yrchg.to_f.round(1) %>%</td>
+                        <% end %>
+                        <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first.to_f.round(1) unless stock.ebitda.nil?%>x</td>
                         <td class="text-center"><%= stock.beta_ft.round(2) %></td>
                         <td class="text-center"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></td>
                       </tr>
