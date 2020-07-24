@@ -16,7 +16,7 @@ class StocksController < ApplicationController
         beta: stock.beta_ft.round(2) }
     end
 
-    @stockslist = Stock.pluck(:name).sort
+    @stockslist = Stock.where("price <> 0.0").pluck(:name).sort
   end
 
   def show
