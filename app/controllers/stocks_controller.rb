@@ -15,6 +15,8 @@ class StocksController < ApplicationController
         pe: stock.ebitda.split("P/E (TTM)").last.split("Market cap").first.to_f,
         beta: stock.beta_ft.round(2) }
     end
+
+    @stockslist = Stock.where("price <> 0.0").pluck(:name).sort
   end
 
   def show

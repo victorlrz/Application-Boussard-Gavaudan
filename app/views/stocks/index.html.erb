@@ -16,7 +16,7 @@
             <div class="card">
               <div class="card-header">
                 <%= form_tag stocks_path, method: :get do %>
-                <div class="search-form-control form-group mb-3 w-100">
+                <div class="search-form-control form-group mb-3 w-100" id="search-data" data-stocks="<%= @stockslist.to_json %>">
                 <%= text_field_tag :query,
                     params[:query],
                     class: "form-control mb-1 h-auto rounded",
@@ -24,10 +24,9 @@
                 <%= submit_tag "Search", class: "btn-ghost mt-3" %>
                 </div>
               <% end %>
-
+              <h3><%= @stocks.count %> stocks</h3>
               </div>
-              <div class="table-responsive">
-                <table class="table mb-0">
+                <table id="datatables-reponsive"  data-stock="<% @datasetstocks.to_json %>" class="table mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>
@@ -45,12 +44,16 @@
                         <th scope="row"><%= link_to stock.name, stock_path(stock) %></th>
                         <td class="text-center"><%= stock.identifier.split(":").first %></td>
                         <% if  stock.price_1chg > 0 %>
-                          <td class="text-center text-success"><%= stock.price_1chg.round(2) %>%</td>
+                          <td class="text-center text-success"><i class="fa fa-caret-up mr-2" style="color:#28a745;"></i>   <%= stock.price_1chg.round(1) %>%</td>
                         <% else %>
-                          <td class="text-center text-danger"><%= stock.price_1chg.round(2) %>%</td>
+                          <td class="text-center text-danger"><i class="fa fa-caret-down mr-2" style="color:#cf1b1b;"></i>  <%= stock.price_1chg.round(1) %>%</td>
                         <% end %>
-                        <td class="text-center"><%= stock.price_yrchg %></td>
-                        <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
+                        <% if  stock.price_yrchg.to_f > 0 %>
+                        <td class="text-center text-success"><i class="fa fa-caret-up mr-2" style="color:#28a745;"></i>   <%= stock.price_yrchg.to_f.round(1) %>%</td>
+                        <% else %>
+                        <td class="text-center text-danger"><i class="fa fa-caret-down mr-2" style="color:#cf1b1b;"></i>  <%= stock.price_yrchg.to_f.round(1) %>%</td>
+                        <% end %>
+                        <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first.to_f.round(1) unless stock.ebitda.nil?%>x</td>
                         <td class="text-center"><%= stock.beta_ft.round(2) %></td>
                         <td class="text-center"><%= stock.ebitda.split("Market cap")[1].split("EPS")[0] unless stock.ebitda.split("Market cap")[1].nil? %></td>
                       </tr>
@@ -60,7 +63,6 @@
               </div>
             </div>
 </div>
-
 
 
 

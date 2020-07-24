@@ -1,5 +1,5 @@
 import "bootstrap";
-
+import "jquery";
 import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
 import flatpickr from "flatpickr";
 flatpickr("#deal_date");
@@ -8,20 +8,16 @@ flatpickr("#post_date");
 flatpickr("#comment_date");
 flatpickr("#document_date");
 
-import algoliasearch from "algoliasearch";
-
 import trix from "trix";
 import "trix/dist/trix.css";
 
-import "jquery";
+import { autocompleteSearch } from "./autocomplete";
 
-// Add some code with jQuery:
-$(document).ready(function () {
-  console.log("jQuery just checked that the DOM is ready!");
-});
+if (document.getElementById("search-data")) {
+  autocompleteSearch();
+}
 
 import "../features/apiftimes.js";
-
 import "../styles/application";
 //Front-end Navbar
 import "../frontend/header/navbar";
@@ -30,10 +26,14 @@ import "../frontend/header/darkmode";
 import "../frontend/menu/portfolio_nav";
 //Portfolios
 import "../frontend/portfolio/index/index";
-
 //Home
 import "../frontend/home/test";
 import "../frontend/home/dailyft";
 
 import "../frontend/stock/show/carroussels";
 import "../frontend/stock/show/modal";
+
+// Add some code with jQuery:
+$(document).ready(function () {
+  console.log("jQuery just checked that the DOM is ready!");
+});
