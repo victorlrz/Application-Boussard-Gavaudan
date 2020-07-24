@@ -45,9 +45,9 @@
                         <th scope="row"><%= link_to stock.name, stock_path(stock) %></th>
                         <td class="text-center"><%= stock.identifier.split(":").first %></td>
                         <% if  stock.price_1chg > 0 %>
-                          <td class="text-center text-success"><%= stock.price_1chg.round(2) %>%</td>
+                          <td class="text-center text-success"><i class="fa fa-caret-up text-left" style="color:#28a745;"></i>   <%= stock.price_1chg.round(1) %>%</td>
                         <% else %>
-                          <td class="text-center text-danger"><%= stock.price_1chg.round(2) %>%</td>
+                          <td class="text-center text-danger"><i class="fa fa-caret-down text-left" style="color:#cf1b1b;"></i>  <%= stock.price_1chg.round(1) %>%</td>
                         <% end %>
                         <td class="text-center"><%= stock.price_yrchg %></td>
                         <td class="text-center"><%= stock.ebitda.split("P/E (TTM)").last.split("Market cap").first unless stock.ebitda.nil?%></td>
