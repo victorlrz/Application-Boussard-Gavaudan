@@ -110,7 +110,7 @@
 
         <%-# Section 2 -%>
         <%#=
-        
+
         <section class="advertising-section">
           <div class="advertising-container">
             <div class="img-container">
@@ -261,9 +261,9 @@
                   </button>
                 </div>
                 <div class="carroussels-ctn-2" id="horizontal-carroussel" "style="transform: translateX(0%)">
-                  <% @stock.comments.order("date DESC").each do |comment| %>
-                    <button type="button" class="comments-card">
-                      <div class="id-modal comments-card-ctn">
+                  <% @stock.comments.order("date DESC").each_with_index do |comment, index| %>
+                    <button type="button" class="id-modal comments-card" data-id=<%= index %> >
+                      <div class="comments-card-ctn">
                         <div><span class="card-date"><%= comment.date.strftime("%d/%m/%y") %></div>
                         <div class="card-title">
                           <h3 class="title-content">
@@ -271,17 +271,16 @@
                           </h3>
                         </div>
                         <div class="link-card">Read More</div>
-                      </div>
-                      
-                      <div class="myModal">
+
+                        <div class="modal">
                           <%-# Modalcontent -%>
                           <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>comment.content</p>
+                            <span class="close-modal" data-id=<%= index %>>&times;</span>
+                            <p><%= strip_tags(comment.content) %></p>
                           </div>
                         </div>
+                      </div>
                     </button>
-                    
                   <% end %>
                 </div>
               </div>
@@ -408,22 +407,7 @@
     <div class="stock-show-timeline"></div>
   </div>
 
-  <div class="accordion-item" data-actab-group="0" data-actab-id="2">
-    <div class="accordion-item__container accordion-item__label">
-      <ul class="stock-show-ft-table">
-        <% @stock.articles.order("date DESC").each do |article| %>
-          <li class="li-box-ft stock-show-row-ft m_button">
-            <%= link_to "", "https://www.ft.com/content/#{article.url}", class: "stock-index-ft-a", :target => "_blank" %>
-            <div class="col-nb-1-stock-show-ft"><%= article.date.strftime("%d/%m/%y") %></div>
-            <div class="col-nb-2-stock-show-ft"><i class="far fa-dot-circle"></i></div>
-            <div class="col-nb-3-stock-show-ft"><%= article.title %></div>
-            <div class="col-nb-4-stock-show-ft"><i class="fas fa-trash"></i></div>
-            <div class="col-nb-5-stock-show-ft action__container"><button class="action action--like"><i class="action__icon far fa-star"></i></button></div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+
 
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">

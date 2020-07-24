@@ -8,17 +8,14 @@ flatpickr("#post_date");
 flatpickr("#comment_date");
 flatpickr("#document_date");
 
-
 import trix from "trix";
 import "trix/dist/trix.css";
 
-import { autocompleteSearch } from './autocomplete';
+import { autocompleteSearch } from "./autocomplete";
 
-if (document.getElementById('search-data')) {
+if (document.getElementById("search-data")) {
   autocompleteSearch();
-};
-
-
+}
 
 import "../features/apiftimes.js";
 import "../styles/application";
@@ -34,13 +31,9 @@ import "../frontend/home/test";
 import "../frontend/home/dailyft";
 
 import "../frontend/stock/show/carroussels";
+import "../frontend/stock/show/modal";
 
 // Add some code with jQuery:
 $(document).ready(function () {
   console.log("jQuery just checked that the DOM is ready!");
 });
-
-
-
-
-
