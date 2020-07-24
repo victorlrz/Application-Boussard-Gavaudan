@@ -241,7 +241,7 @@
               </div>
             </div>
             <div class="carroussel-comments-ctn">
-              <div class="carroussel-arrow-left"><i class="fas fa-angle-left"></i></div>
+              <div class="carroussel-arrow-left"><i class="fas fa-angle-left" id="angle-left"></i></div>
               <div class="carroussels-ctn">
                 <div class="carroussels-ctn-1">
                   <button type="button" class="comments-card">
@@ -256,7 +256,7 @@
                     </div>
                   </button>
                 </div>
-                <div class="carroussels-ctn-2" style="transform: translateX(0%)">
+                <div class="carroussels-ctn-2" id="horizontal-carroussel" "style="transform: translateX(0%)">
                   <% @stock.comments.order("date DESC").each do |comment| %>
                     <button type="button" class="comments-card">
                       <div class="comments-card-ctn">
@@ -283,8 +283,10 @@
                   <% end %>
                 </div>
               </div>
-              <div class="carroussel-arrow-right"><i class="fas fa-angle-right"></i></div>
-            </div>
+              <% if @stock.comments.count > 4 %>
+                <div class="carroussel-arrow-right"><i class="fas fa-angle-right" id="angle-right"></i></div>
+              <% end %>
+              </div>
           </section>
         <% end %>
 
