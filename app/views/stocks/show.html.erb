@@ -134,16 +134,18 @@
             </div>
           </header>
           <div class="about-container">
-            <div class="extend-about" style="display:block;">
-              <h3 class="about-h3"><span class="about-span"><%= @stock.earning.match(/(.+?(?=\.)){3}/) %>
-              <span class="about-link"><span class="about-link-span" id="read-more">... Read More</span></span>
-              </span></h3>
-            </div>
-            <div class="reduce-about" style="display:none;">
-              <h3 class="about-h3"><span class="about-span"><%= @stock.earning %>
-              <span class="about-link"><span class="about-link-span" id="read-less">Read Less</span></span>
-              </span></h3>
-            </div>
+            <% if @stock.earning %>
+              <div class="extend-about" style="display:block;">
+                <h3 class="about-h3"><span class="about-span"><%= @stock.earning[0..245] %>
+                <span class="about-link"><span class="about-link-span" id="read-more">... Read More</span></span>
+                </span></h3>
+              </div>
+              <div class="reduce-about" style="display:none;">
+                <h3 class="about-h3"><span class="about-span"><%= @stock.earning %>
+                <span class="about-link"><span class="about-link-span" id="read-less">Read Less</span></span>
+                </span></h3>
+              </div>
+            <% end %>
             <div class="grid-valuation">
               <div class="grid-element-container">
                 <div class="col-mg-val-1">
