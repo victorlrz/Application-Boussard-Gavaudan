@@ -109,7 +109,7 @@
           </section>
 
         <%-# Section 2 -%>
-        <%#=
+        <!-- 
 
         <section class="advertising-section">
           <div class="advertising-container">
@@ -124,7 +124,7 @@
           </div>
         </section>
 
-        %>
+        -->
 
         <%-# Section 3 -%>
         <section class="about-valuation-section">
@@ -260,7 +260,7 @@
                     </div>
                   </button>
                 </div>
-                <div class="carroussels-ctn-2" id="horizontal-carroussel" style="transform: translateX(0%)">
+                <div class="carroussels-ctn-2" id="horizontal-carroussel" "style="transform: translateX(0%)">
                   <% @stock.comments.order("date DESC").each_with_index do |comment, index| %>
                     <button type="button" class="id-modal comments-card" data-id=<%= index %> >
                       <div class="comments-card-ctn">
@@ -276,7 +276,7 @@
                           <%-# Modalcontent -%>
                           <div class="modal-content">
                             <span class="close-modal" data-id=<%= index %>>&times;</span>
-                            <p><%=raw comment.content %></p>
+                            <p><%= raw comment.content %></p>
                           </div>
                         </div>
                       </div>
@@ -302,7 +302,7 @@
                 </div>
               </div>
             </header>
-
+            
             <% if @stock.articles.count > 3 %>
               <div class="carroussel-arrow-top"><i class="fas fa-angle-up"></i></div>
             <% end %>
@@ -374,6 +374,11 @@
 
 
 
+
+
+
+
+
 <!-- <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
     <div class="stock-name"><%= @stock.name %></div>
@@ -406,8 +411,6 @@
     </div>
     <div class="stock-show-timeline"></div>
   </div>
-
-
 
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
