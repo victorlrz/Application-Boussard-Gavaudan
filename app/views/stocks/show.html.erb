@@ -109,7 +109,7 @@
           </section>
 
         <%-# Section 2 -%>
-        <%#=
+        <!-- 
 
         <section class="advertising-section">
           <div class="advertising-container">
@@ -124,7 +124,7 @@
           </div>
         </section>
 
-        %>
+        -->
 
         <%-# Section 3 -%>
         <section class="about-valuation-section">
@@ -276,7 +276,7 @@
                           <%-# Modalcontent -%>
                           <div class="modal-content">
                             <span class="close-modal" data-id=<%= index %>>&times;</span>
-                            <p><%=raw comment.content %></p>
+                            <p><%= raw comment.content %></p>
                           </div>
                         </div>
                       </div>
@@ -373,7 +373,6 @@
 </div>
 
 
-
 <!-- <div class="stock-show-nav-container">
   <div class="stock-show-about-section">
     <div class="stock-name"><%= @stock.name %></div>
@@ -406,8 +405,6 @@
     </div>
     <div class="stock-show-timeline"></div>
   </div>
-
-
 
   <div class="accordion-item" data-actab-group="0" data-actab-id="3">
     <div class="accordion-item__container accordion-item__label">
