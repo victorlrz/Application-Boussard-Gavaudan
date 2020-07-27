@@ -7,6 +7,8 @@ const btns = document.querySelectorAll(".id-modal.comments-card");
 // Get the <span> element that closes the modal
 const closes = document.querySelectorAll(".close-modal");
 
+const parent = document.querySelector("body");
+
 function toggleShow(event) {
   const target = this;
   modal[target.dataset.id].style.setProperty("display", "block");
@@ -20,6 +22,10 @@ function toggleClose(event) {
 }
 
 if (modal && btns && closes) {
+  modal.forEach(function (child) {
+    parent.appendChild(child);
+  });
+
   btns.forEach(function (btn) {
     btn.addEventListener("click", toggleShow);
   });
