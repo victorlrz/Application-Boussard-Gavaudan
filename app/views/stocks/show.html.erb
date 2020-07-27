@@ -474,7 +474,7 @@
           </header>
           <% sector = @stock.sector %>
           <div class="container-also-like">
-            <% @stocks.where(sector: sector).each do |stock| %>
+            <% @stocks.where(sector: sector)[0..7].each do |stock| %>
               <% if stock != @stock %>
                 <div class="btn-also-like">
                   <a class="btn-ctn" rel="" href="/stocks/<%= stock.id %>"><span class="also-s"><%= stock.name %></span></a>
