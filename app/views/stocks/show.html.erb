@@ -53,13 +53,13 @@
               <div class="h-2">
                 <span class="h-2-s1">
                   <span>
-                    <span>-<%= @stock.price %> <%= @stock.currency %></span>
+                    <span>Today Chg: <%= @stock.price_1chg %>%</span>
                   </span>
                   <span>
-                    <span><%= @stock.price_yrchg %></span>
+                    <span>and 1yr Chg: <%= @stock.price_yrchg %></span>
                   </span>
                 </span>
-                <span class="h-2-s2">Past Year.  as of <%= @stock.ebitda.split("minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
+                <span class="h-2-s2">as of <%= @stock.ebitda.split("minutes, as of").last.split(".More ▼").first unless @stock.ebitda.nil? %></span>
               </div>
             </header>
 
@@ -109,7 +109,7 @@
           </section>
 
         <%-# Section 2 -%>
-        <!-- 
+        <!--
 
         <section class="advertising-section">
           <div class="advertising-container">
@@ -260,7 +260,7 @@
                     </div>
                   </button>
                 </div>
-                <div class="carroussels-ctn-2" id="horizontal-carroussel" style="transform: translateX(0%)">
+                <div class="carroussels-ctn-2" id="horizontal-carroussel">
                   <% @stock.comments.order("date DESC").each_with_index do |comment, index| %>
                     <button type="button" class="id-modal comments-card" data-id=<%= index %> >
                       <div class="comments-card-ctn">
