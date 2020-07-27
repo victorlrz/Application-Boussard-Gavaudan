@@ -1,5 +1,6 @@
 //Section 7
 //Description : Analyst Rating Section
+//Components used in HTML : "header-section" -> _banner.scss, "banner-aalyst-ctn" -> _banner.scss
 
 .analyst-rating-section {
   margin-bottom: 60px;
@@ -29,8 +30,8 @@
       padding-right: 6px;
 
       .rates-circle {
-        color: rgb(255, 80, 0);
-        background: rgba(255, 80, 0, 0.2);
+        color: rgb(4, 100, 126);
+        background: rgba(4, 100, 126, 0.2);
         border-radius: 67px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -46,7 +47,7 @@
         width: 134px;
 
         .h2-icon {
-          color: rgb(255, 80, 0);
+          color: rgb(4, 100, 126);
           -webkit-box-align: center;
           -ms-flex-align: center;
           align-items: center;
@@ -65,7 +66,7 @@
           .rates-h2 {
             padding-top: 3px;
             overflow: visible;
-            fill: rgb(255, 80, 0);
+            fill: rgb(4, 100, 126);
             height: 16px;
             margin: 1px 2px 0 0;
             width: 16px;
@@ -84,6 +85,11 @@
           text-align: center;
         }
       }
+    }
+    .rates-value {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
     }
   }
 }
