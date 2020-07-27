@@ -26,7 +26,7 @@
               <% end %>
               <h3><%= @stocks.count %> stocks</h3>
               </div>
-                <table id="datatables-reponsive"  data-stock="<% @datasetstocks.to_json %>" class="table mb-0">
+                <table id="dataTable"  data-stock="<% @datasetstocks.to_json %>" class="table mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>
@@ -41,7 +41,7 @@
                   <tbody>
                     <% @stocks.order("price_1chg DESC").each do |stock| %>
                       <tr>
-                        <th scope="row"><%= link_to stock.name, stock_path(stock) %></th>
+                        <td scope="row"><%= link_to stock.name, stock_path(stock) %></th>
                         <td class="text-center"><%= stock.identifier.split(":").first %></td>
                         <% if  stock.price_1chg > 0 %>
                           <td class="text-center text-success"><i class="fa fa-caret-up mr-2" style="color:#28a745;"></i>   <%= stock.price_1chg.round(1) %>%</td>
