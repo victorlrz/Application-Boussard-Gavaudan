@@ -1,0 +1,89 @@
+//Section 7
+//Description : Analyst Rating Section
+
+.analyst-rating-section {
+  margin-bottom: 60px;
+  -webkit-transition: background 300ms;
+  transition: background 300ms;
+
+  .row-analyst {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 -6px;
+
+    .rates-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 218.22222px;
+      padding-left: 6px;
+      padding-right: 6px;
+
+      .rates-circle {
+        color: rgb(255, 80, 0);
+        background: rgba(255, 80, 0, 0.2);
+        border-radius: 67px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 134px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 134px;
+
+        .h2-icon {
+          color: rgb(255, 80, 0);
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          margin-bottom: 2px;
+          font-size: 28px;
+          font-weight: 500;
+          letter-spacing: -0.33px;
+          line-height: 15px;
+          margin: 0 0 12px;
+          .rates-h2 {
+            padding-top: 3px;
+            overflow: visible;
+            fill: rgb(255, 80, 0);
+            height: 16px;
+            margin: 1px 2px 0 0;
+            width: 16px;
+          }
+          .rates-prct {
+            padding-left: 0.1rem;
+            padding-top: 1.5px;
+            font-size: 20px;
+            font-weight: 900;
+          }
+        }
+
+        .rates-p {
+          margin-bottom: 0;
+          font-weight: 500;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
