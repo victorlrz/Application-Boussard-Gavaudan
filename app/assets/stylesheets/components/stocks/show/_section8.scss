@@ -1,0 +1,19 @@
+//Section 8
+//Description : Earnings Section
+//Components used in HTML : "header-section" -> _banner.scss,
+
+.also-like-section {
+  margin-bottom: 60px;
+  -webkit-transition: background 300ms;
+  transition: background 300ms;
+
+  .container-also-like {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    // max-width: 570px;
+    width: 100%;
+  }
+}

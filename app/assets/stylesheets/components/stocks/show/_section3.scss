@@ -68,125 +68,146 @@
           1fr 1fr 1fr 1fr;
         place-items: center left;
       }
+    }
 
-      .col-mg-val-1 {
-        grid-area: e1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .grid-morningstar-valuation {
+      width: 100%;
+      display: grid;
+      grid:
+        "e1 e2 e3 e4" 100px
+        "e5 e6 e7 e8" 100px
+        "e9 e10 e11 e12" 100px /
+        1fr 1fr 1fr 1fr;
+      place-items: center left;
+    }
 
-      .col-mg-val-2 {
-        grid-area: e2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .display-mg {
+      width: 100%;
+      height: 100%;
+      grid-row: 4/5;
+      grid-column: 3/5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .col-mg-val-3 {
-        grid-area: e3;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .name-data {
+      margin-left: 5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .value-data {
+      margin-left: 5rem;
+    }
 
-      .col-mg-val-4 {
-        grid-area: e4;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-1 {
+      grid-area: e1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-5 {
-        grid-area: e5;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-2 {
+      grid-area: e2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-6 {
-        grid-area: e6;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-3 {
+      grid-area: e3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-7 {
-        grid-area: e7;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-4 {
+      grid-area: e4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-8 {
-        grid-area: e8;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-5 {
+      grid-area: e5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-9 {
-        grid-area: e9;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-6 {
+      grid-area: e6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-10 {
-        grid-area: e10;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-7 {
+      grid-area: e7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-11 {
-        grid-area: e11;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-8 {
+      grid-area: e8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .col-mg-val-12 {
-        grid-area: e12;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
-      .col-mg-val-13 {
-        grid-area: e13;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
-      .col-mg-val-14 {
-        grid-area: e14;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-      }
+    .col-mg-val-9 {
+      grid-area: e9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
 
-      .name-data {
-        margin-left: 5rem;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-      }
-      .value-data {
-        margin-left: 5rem;
-      }
+    .col-mg-val-10 {
+      grid-area: e10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
+
+    .col-mg-val-11 {
+      grid-area: e11;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
+
+    .col-mg-val-12 {
+      grid-area: e12;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
+    .col-mg-val-13 {
+      grid-area: e13;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+    }
+    .col-mg-val-14 {
+      grid-area: e14;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
     }
   }
 }

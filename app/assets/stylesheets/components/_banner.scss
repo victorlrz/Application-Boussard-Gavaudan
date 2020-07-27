@@ -219,3 +219,76 @@
     }
   }
 }
+
+//Banner section 7: analyste investment values
+//HTML
+// <div class="banner-analyst-ctn">
+//   <div class="analyst-name">Buy</div>
+//   <div class="analyst-ctn">
+//     <div class="analyst-value" style="left: 21.0526%;"><span class="span-value">21 %</span></div>
+//     <div class="loading-value">
+//       <div class="loaded-value" style="width: 21.0526%;"></div>
+//     </div>
+//   </div>
+//</div>
+.banner-analyst-ctn {
+  margin-bottom: 24px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgb(4, 100, 126);
+
+  .analyst-name {
+    font-weight: 500;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 34px;
+    margin-right: 0.5rem;
+  }
+
+  .analyst-ctn {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    height: 6px;
+    position: relative;
+
+    .analyst-value {
+      left: 21.0526%;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100%;
+      position: absolute;
+      top: 0;
+
+      .span-value {
+        font-weight: 500;
+        // background-color: rgb(4, 13, 20);
+        background-color: rgb(255, 255, 255);
+        padding-left: 3px;
+        padding-right: 3px;
+        letter-spacing: -0.5px;
+      }
+    }
+
+    .loading-value {
+      background: rgba(4, 100, 126, 0.2); //Ombre (partie droite)
+      border-radius: 4px;
+      height: 100%;
+      overflow: hidden;
+      .loaded-value {
+        background: #04647e; //couelur pleine partie gauche
+        width: 21.0526%;
+        border-radius: 4px 0 0 4px;
+        height: 100%;
+      }
+    }
+  }
+}
