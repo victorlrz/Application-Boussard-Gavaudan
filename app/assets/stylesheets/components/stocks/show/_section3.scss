@@ -32,6 +32,7 @@
         .about-link {
           font-weight: 500;
           text-decoration: none;
+          cursor: pointer;
           .about-link-span {
             color: $rh_text-color-black-spec;
             font-family: $family-font-show;
@@ -46,10 +47,6 @@
             -webkit-text-decoration: unset;
             text-decoration: unset;
           }
-        }
-
-        .about-span-no-display {
-          display: none;
         }
       }
     }
