@@ -25,8 +25,8 @@
                 </div>
               <% end %>
               <h3><%= @stocks.count %> stocks</h3>
-              </div>
-                <table id="dataTable"  data-stock="<% @datasetstocks.to_json %>" class="table mb-0">
+              </div class="dataTables_wrapper">
+                <table id="dataTable"  data-stock="<% @datasetstocks.to_json %>" class="table table-action dataTable hover order-column  stripe mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>
