@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.stock = @stock
     if @comment.save!
-      redirect_to stocks_path
+      redirect_to stock_path(@stock)
     else
       render :new
     end
