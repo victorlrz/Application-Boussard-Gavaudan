@@ -22,6 +22,7 @@ class StocksController < ApplicationController
   def show
     @stock = Stock.find(params[:id])
     @comments = Comment.all
+    @stocks = Stock.where("price <> 0.0")
   end
 
   def create
