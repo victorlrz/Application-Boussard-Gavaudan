@@ -272,6 +272,7 @@
       float: right;
       font-size: 28px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .close:hover,
@@ -289,7 +290,7 @@
   margin: 0 12px 12px 0;
 
   .btn-ctn {
-    // background: rgb(4, 3, 20);
+    background: white;
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -303,6 +304,7 @@
     border: 1px solid rgb(48, 54, 58);
     border-radius: 2px;
     text-decoration: none;
+    transition: 0.3s;
 
     .also-s {
       font-family: $family-font-show;
@@ -317,6 +319,12 @@
       -webkit-text-decoration: unset;
       text-decoration: unset;
       color: $rh_text-color-black;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
     }
   }
 }

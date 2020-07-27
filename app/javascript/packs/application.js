@@ -32,6 +32,7 @@ import "../frontend/home/dailyft";
 
 import "../frontend/stock/show/carroussels";
 import "../frontend/stock/show/modal";
+import "../frontend/stock/show/valuation";
 
 // Add some code with jQuery:
 $(document).ready(function () {

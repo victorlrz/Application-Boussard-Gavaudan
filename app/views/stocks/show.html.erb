@@ -196,10 +196,54 @@
                   <div class="name-data">52 Week Low</div>
                   <div class="value-data">3,96 $US</div>
                 </div>
+                <div class="display-mg">
+                  <div class="btn-also-like">
+                    <button class="btn-ctn display-mg"><span class="also-s"><span class="to-change-ct">Display</span> MorningStar Valuation</span></button>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="grid-morningstar-valuation" style="display:none;">
+              <% @stock.fundamentals.each do |fundamental| %>
+                <div class="col-mg-val-1">
+                  <div class="name-data">Price / Sales</div>
+                  <div class="value-data"><%= fundamental.current_price_sales %></div>
+                </div>
+                <div class="col-mg-val-2">
+                  <div class="name-data">Price / Earnings</div>
+                  <div class="value-data"><%= fundamental.current_price_earnings %></div>
+                </div>
+                <div class="col-mg-val-3">
+                  <div class="name-data">Price / Book</div>
+                  <div class="value-data"><%= fundamental.current_price_book %></div>
+                </div>
+                <div class="col-mg-val-4">
+                  <div class="name-data">Price / Forward Earnings</div>
+                  <div class="value-data"><%= fundamental.current_price_forward_earnings %></div>
+                </div>
+                <div class="col-mg-val-5">
+                  <div class="name-data">Price / Cash Flow</div>
+                  <div class="value-data"><%= fundamental.current_price_cashflow %></div>
+                </div>
+                <div class="col-mg-val-6">
+                  <div class="name-data">Earnings Yield</div>
+                  <div class="value-data"><%= fundamental.current_earning_yield %></div>
+                </div>
+                <div class="col-mg-val-7">
+                  <div class="name-data">Enterprise Value (Bil or Mil)</div>
+                  <div class="value-data"><%= fundamental.current_enterprise_value %></div>
+                </div>
+                <div class="col-mg-val-8">
+                  <div class="name-data">Enterprie Value / Ebit</div>
+                  <div class="value-data"><%= fundamental.current_enterprise_value_ebit %></div>
+                </div>
+                <div class="col-mg-val-9">
+                  <div class="name-data">Enterprise Value / Ebitda</div>
+                  <div class="value-data"><%=fundamental.current_enterprise_value_ebitda  %></div>
+                </div>
+              <% end %>
+            </div>
           </div>
-          </section>
         </section>
 
         <%-# Section 4 -%>
