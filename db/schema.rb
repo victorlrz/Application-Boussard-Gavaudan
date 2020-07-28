@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_110420) do
+ActiveRecord::Schema.define(version: 2020_07_28_074927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -238,6 +238,10 @@ ActiveRecord::Schema.define(version: 2020_07_21_110420) do
     t.string "price_yrchg"
     t.float "wk52_low"
     t.decimal "price_1chg"
+    t.integer "founded"
+    t.float "wk52_high"
+    t.string "ceo"
+    t.float "dividend_yield"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
