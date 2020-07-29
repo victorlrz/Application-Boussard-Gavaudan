@@ -8,17 +8,17 @@
 
 <div class="stock-show-container">
   <main class="main-container">
+    <div class="top-tags-container">
     <% if @stock.tag_counts.count > 0  %>
     <% @stock.tag_list.each do |tag| %>
-      <div class="top-tags-container">
         <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit">
             <span class="btn-tags-span"><%= tag %></span>
           </a>
         </div>
-      </div>
       <% end %>
     <% end %>
+    </div>
   </main>
   <div class="show-row">
     <div class="show-content-col-12">
