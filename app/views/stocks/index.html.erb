@@ -26,15 +26,13 @@
                 <header class="header-section">
                 </header>
                 <div class="container-also-like">
-                  <% @stocks.each do |stock| %>
-                    <% stock.tag_list.each do |tag| %>
+                    <% Stock.all_tags.each do |tag| %>
                       <div class="tags-btn-rbh">
                       <a class="a-tags-link a-tags-inherit" id="<%= tag %>">
-                        <span class="btn-tags-span"><%= tag %></span>
+                        <span class="btn-tags-span"><%= tag.name %></span>
                       </a>
                     </div>
                     <% end %>
-                  <% end %>
                 </div>
               </section>
 
