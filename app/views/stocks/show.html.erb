@@ -9,23 +9,15 @@
 <div class="stock-show-container">
   <main class="main-container">
     <% if @stock.tag_counts.count > 0  %>
+    <% @stock.tag_list.each do |tag| %>
       <div class="top-tags-container">
         <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit">
-            <span class="btn-tags-span"><%= @stock.tag_list[0] %></span>
+            <span class="btn-tags-span"><%= tag %></span>
           </a>
         </div>
-        <div class="tags-btn-rbh">
-          <a class="a-tags-link a-tags-inherit" rel href="#">
-            <span class="btn-tags-span"><%= @stock.tag_list[1] %></span>
-           </a>
-        </div>
-        <div class="tags-btn-rbh">
-          <a class="a-tags-link a-tags-inherit" rel href="#">
-            <span class="btn-tags-span"><%= @stock.tag_list[2] %></span>
-           </a>
-        </div>
       </div>
+      <% end %>
     <% end %>
   </main>
   <div class="show-row">
