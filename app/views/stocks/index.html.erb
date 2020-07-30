@@ -26,7 +26,7 @@
                 <header class="header-section">
                 </header>
                 <div class="container-also-like">
-                    <% Stock.all_tags.order("name ASC").each do |tag| %>
+                    <% @stocks.all_tags.order("name ASC").each do |tag| %>
                       <div class="tags-btn-rbh">
                       <a class="a-tags-link a-tags-inherit" id="<%= tag %>">
                         <span class="btn-tags-span"><%= tag.name %></span>
