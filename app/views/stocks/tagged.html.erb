@@ -1,37 +1,16 @@
-<% if current_user.admin %>
-  <div class="stock-index-admin">
-    <a href="stocks/new"><button class="button type1">New Stock</button></a>
-  </div>
-  <% else %>
-    <div class="stock-index-no-admin">
-      <button class="button type1">STOCKS</button>
-    </div>
-<% end %>
-
 
   <main class="content">
     <div class="container-fluid p-0">
-                <%= form_tag stocks_path, method: :get do %>
-                <div class="search-form-control  form-group" id="search-data" data-stocks="<%= @stockslist.to_json %>">
-                <%= text_field_tag :query,
-                    params[:query],
-                    class: "form-control mb-1 h-auto rounded",
-                    placeholder: "Find a Company or Type a Sector" %>
-                <%= submit_tag "Search", class: "btn btn-flat ml-2" %>
-                </div>
-              <% end %>
-              <h3 class="p-2"><%= @stocks.count %> stocks</h3>
-
               <section class="also-like-section mt-2">
                 <header class="header-section">
                 </header>
-                <div class="container-also-like">
-                    <% @stocks.all_tags.order("name ASC").each do |tag| %>
-                      <div class="tags-btn-rbh">
-                        <span class="btn-tags-span"><%= link_to tag.name, tagged_path(tag: tag), class:"a-tags-link a-tags-inherit" %></span>
-                    </div>
-                    <% end %>
-                </div>
+                  <div class="container-also-like">
+                      <% @stocks.all_tags.order("name ASC").each do |tag| %>
+                        <div class="tags-btn-rbh">
+                          <span class="btn-tags-span"><%= link_to tag.name, tagged_path(tag: tag), class:"a-tags-link a-tags-inherit" %></span>
+                        </div>
+                      <% end %>
+                  </div>
               </section>
 
               <section>
@@ -73,7 +52,7 @@
                 </div>
               </div>
             </section>
-</div>
+  </div>
 
 
 

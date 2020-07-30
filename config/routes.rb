@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get '/stocks/tagged', to: "stocks#tagged", as: :tagged
+
   resources :acquirers do
   end
 
@@ -41,4 +43,6 @@ Rails.application.routes.draw do
   resources :stocks do
     resources :articles
   end
+
+
 end
