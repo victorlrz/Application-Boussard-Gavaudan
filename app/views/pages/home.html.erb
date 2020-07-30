@@ -1,3 +1,31 @@
+
+
+<div class="container mt-3 mb-3 text-justify overflow-auto">
+  <h3 class="mt-2 mb-2 w-100">Recent comments</h3>
+
+  <% @comments[0..10].each_with_index do |comment, index| %>
+
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="heading<%= index.to_s %>">
+          <h5 class="mb-0">
+            <button class="btn btn-success w-100 text-left" data-toggle="collapse" data-target="#collapse<%= index.to_s %>" aria-expanded="true" aria-controls="collapse<%= index.to_s %>">
+              <%= comment.date.strftime("%d/%m/%y") %> - <%= comment.title %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><u><%= link_to stock.name, stock_path(stock), class: "text-white" %></u></strong>, <em>source: </em> <%= comment.source %>
+            </button>
+          </h5>
+        </div>
+
+      <div id="collapse<%= index.to_s %>" class="collapse show" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
+        <div class="card-body">
+          <%=raw comment.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
 <div class="container-home-welcome">
     <div class="content-home-welcome">
       <svg id="logo" height="63" viewBox="0 0 329 63" fill="none" xmlns="http://www.w3.org/2000/svg">
