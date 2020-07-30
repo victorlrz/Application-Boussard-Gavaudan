@@ -10,12 +10,12 @@
         <div class="card-header" id="heading<%= index.to_s %>">
           <h5 class="mb-0">
             <button class="btn btn-success w-100 text-left" data-toggle="collapse" data-target="#collapse<%= index.to_s %>" aria-expanded="true" aria-controls="collapse<%= index.to_s %>">
-              <%= comment.date.strftime("%d/%m/%y") %> - <%= comment.title %> <% stock = Stock.find_by id: comment.stock_id %> - <strong><u><%= link_to stock.name, stock_path(stock), class: "text-white" %></u></strong>, <em>source: </em> <%= comment.source %>
+              <%= comment.date.strftime("%d/%m/%y") %> - <%= comment.title %> <% stock = Stock.find_by id: comment.stock_id %> by <%= link_to stock.name, stock_path(stock), class: "text-white" %>, <strong>daily Chg:  <%= stock.price_1chg %>%</strong>
             </button>
           </h5>
         </div>
 
-      <div id="collapse<%= index.to_s %>" class="collapse show" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
+      <div id="collapse<%= index.to_s %>" class="collapse" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
         <div class="card-body">
           <%=raw comment.content %>
         </div>
