@@ -153,8 +153,8 @@
                   <div class="value-data"><%= @stock.revenue.split("Employees").last %></div>
                 </div>
                 <div class="col-mg-val-3">
-                  <div class="name-data">Headquarters</div>
-                  <div class="value-data">Dearborn, Michigan</div>
+                  <div class="name-data">Revenues</div>
+                  <div class="value-data"><%= @stock.revenue.split("(TTM)").last.split("Net").first %></div>
                 </div>
                 <div class="col-mg-val-4">
                   <div class="name-data">Founded</div>
