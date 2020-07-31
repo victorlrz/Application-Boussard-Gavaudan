@@ -28,7 +28,7 @@
                 <div class="container-also-like">
                     <% @stocks.all_tags.order("name ASC").each do |tag| %>
                       <div class="tags-btn-rbh">
-                        <span class="btn-tags-span"><%= link_to tag.name, tagged_path(tag: tag), class:"a-tags-link a-tags-inherit" %></span>
+                        <span class="btn-tags-span a-tags-link a-tags-inherit" id="<%= tag.name %>"><%= tag.name %></span>
                     </div>
                     <% end %>
                 </div>

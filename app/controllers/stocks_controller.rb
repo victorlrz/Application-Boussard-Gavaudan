@@ -19,25 +19,6 @@ class StocksController < ApplicationController
     @stockslist = Stock.where("price <> 0.0").pluck(:name).sort
   end
 
-  def tagged
-    if params[:tag].present?
-      @stocks = Stock.tagged_with(params[:tag])
-    else
-      @stocks = Stock.where("price <> 0.0")
-    end
-
-    @datasetstocks = @stocks.map do |stock|
-      { name: stock.name,
-        price: stock.price,
-        daily_chg: stock.price_1chg.round(2),
-        yearly_chg: stock.price_yrchg,
-        pe: stock.ebitda.split("P/E (TTM)").last.split("Market cap").first.to_f,
-        beta: stock.beta_ft.round(2) }
-    end
-
-    @stockslist = Stock.where("price <> 0.0").pluck(:name).sort
-  end
-
   def show
     @stock = Stock.find(params[:id])
     @comments = Comment.all
@@ -72,7 +53,6 @@ class StocksController < ApplicationController
 
   def destroy
   end
-
 
   private
 
