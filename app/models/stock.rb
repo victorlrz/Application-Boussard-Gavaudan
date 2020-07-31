@@ -2,7 +2,6 @@ class Stock < ApplicationRecord
   has_many :comments
   has_many :articles
   has_many :fundamentals
-  belongs_to :portfolios
   validates :name, presence: true, uniqueness: true
   validates :identifier, presence: true, uniqueness: true
   before_save :uppercase_name
