@@ -65,7 +65,7 @@ class MarketdatastockJob < ApplicationJob
       stock = Stock.find_by identifier: identifier.to_s
       stock.wk52_low = data_52_week_low
       stock.save!
-    end
+
     url_52_week_high = "https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}"
     # The open method takes in our URL string, and returns to us the HTML from that page
     html_52_week_high = open(url_52_week_high)
@@ -76,7 +76,7 @@ class MarketdatastockJob < ApplicationJob
       stock = Stock.find_by identifier: identifier.to_s
       stock.wk52_high = data_52_week_high
       stock.save!
-    end
+
     url_annual_div_yield = "https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}"
     # The open method takes in our URL string, and returns to us the HTML from that page
     html_annual_div_yield = open(url_annual_div_yield)
@@ -87,5 +87,6 @@ class MarketdatastockJob < ApplicationJob
       stock = Stock.find_by identifier: identifier.to_s
       stock.dividend_yield = data_annual_div_yield
       stock.save!
+
   end
 end
