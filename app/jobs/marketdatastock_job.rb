@@ -55,37 +55,32 @@ class MarketdatastockJob < ApplicationJob
       stock.description = descr.last
       stock.save!
     end
-    url_52_week_low = "https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}"
-    # The open method takes in our URL string, and returns to us the HTML from that page
-    html_52_week_low = open(url_52_week_low)
+
+    stock = Stock.find_by identifier: identifier.to_s
+
+    html_52_week_low = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}").read
     #Nokogiri's HTML method then takes in our HTML as an our argument, and returns to us a set of nodes
     doc_52_week_low = Nokogiri::HTML(html_52_week_low)
     selector_52_week_low = doc_52_week_low.css("body > div.o-grid-container.mod-container > div:nth-child(3) > section > div:nth-child(4) > div > div > div.mod-tearsheet-key-stats__graphics > div:nth-child(2) > div > div > div.mod-ui-range-bar__container__labels > span.mod-ui-range-bar__container__label--lo > span.mod-ui-range-bar__container__value")
-      data_52_week_low = selector_52_week_low.text.strip.to_f
-      stock = Stock.find_by identifier: identifier.to_s
-      stock.wk52_low = data_52_week_low
-      stock.save!
-    end
-    url_52_week_high = "https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}"
-    # The open method takes in our URL string, and returns to us the HTML from that page
-    html_52_week_high = open(url_52_week_high)
+    selector_52_week_low != nil ? data_52_week_low = selector_52_week_low.text.strip.to_f : data_52_week_low = nil
+    data_52_week_low != nil ? stock.wk52_low = data_52_week_low : stock.wk52_low = nil
+    
+  
+    html_52_week_high = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}").read
     #Nokogiri's HTML method then takes in our HTML as an our argument, and returns to us a set of nodes
     doc_52_week_high = Nokogiri::HTML(html_52_week_high)
     selector_52_week_high = doc_52_week_high.css("body > div.o-grid-container.mod-container > div:nth-child(3) > section > div:nth-child(4) > div > div > div.mod-tearsheet-key-stats__graphics > div:nth-child(2) > div > div > div.mod-ui-range-bar__container__labels > span.mod-ui-range-bar__container__label--hi > span.mod-ui-range-bar__container__value")
-      data_52_week_high = selector_52_week_high.text.strip.to_f
-      stock = Stock.find_by identifier: identifier.to_s
-      stock.wk52_high = data_52_week_high
-      stock.save!
-    end
-    url_annual_div_yield = "https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}"
-    # The open method takes in our URL string, and returns to us the HTML from that page
-    html_annual_div_yield = open(url_annual_div_yield)
+    selector_52_week_high != nil ? data_52_week_high = selector_52_week_high.text.strip.to_f : data_52_week_high = nil
+    data_52_week_high != nil ? stock.wk52_high = data_52_week_high : stock.wk52_high = nil
+    
+    
+    html_annual_div_yield = open("https://markets.ft.com/data/equities/tearsheet/summary?s=#{identifier}").read
     #Nokogiri's HTML method then takes in our HTML as an our argument, and returns to us a set of nodes
     doc_annual_div_yield = Nokogiri::HTML(html_annual_div_yield)
     selector_annual_div_yield = doc_annual_div_yield.css("body > div.o-grid-container.mod-container > div:nth-child(3) > section > div:nth-child(4) > div > div > div.mod-tearsheet-key-stats__data > div:nth-child(3) > table").css('td')[1]
-      data_annual_div_yield = selector_annual_div_yield.text.strip.to_f
-      stock = Stock.find_by identifier: identifier.to_s
-      stock.dividend_yield = data_annual_div_yield
-      stock.save!
+    selector_annual_div_yield != nil ? data_annual_div_yield = selector_annual_div_yield.text.strip.to_f : data_annual_div_yield = nil
+    data_annual_div_yield != nil ? stock.dividend_yield = data_annual_div_yield : stock.dividend_yield = nil
+
+    stock.save!
   end
 end
