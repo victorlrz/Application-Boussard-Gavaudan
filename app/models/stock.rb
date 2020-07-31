@@ -2,11 +2,13 @@ class Stock < ApplicationRecord
   has_many :comments
   has_many :articles
   has_many :fundamentals
-  has_and_belongs_to_many :portfolios
+  belongs_to :portfolios
   validates :name, presence: true, uniqueness: true
   validates :identifier, presence: true, uniqueness: true
   before_save :uppercase_name
   acts_as_taggable_on :tags
+  has_many_attached :earnings_pr
+  has_many_attached :earnings_presentation
 
   private
 
