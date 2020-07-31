@@ -170,7 +170,7 @@
                 </div>
                 <div class="col-mg-val-7">
                   <div class="name-data">Dividend Yield</div>
-                  <div class="value-data">9,01</div>
+                  <div class="value-data"><% @stock.dividend_yield unless @stock.dividend_yield.nil? %></div>
                 </div>
                 <div class="col-mg-val-8">
                   <div class="name-data">Average volume</div>
@@ -194,11 +194,12 @@
                 </div>
                 <div class="col-mg-val-13">
                   <div class="name-data">52 Week High</div>
-                  <div class="value-data"><%= @stock.wk52_high %></div>
+                  <div class="value-data"><%= @stock.wk52_high unless @stock.wk52_high.nil? %></div>
                 </div>
                 <div class="col-mg-val-14">
                   <div class="name-data">52 Week Low</div>
-                  <div class="value-data"><%= @stock.wk52_low %></div>
+                  <div class="value-data"><%= @stock.wk52_low unless @stock.wk52_low.nil? %></div>
+
                 </div>
                 <div class="display-mg">
                   <div class="btn-also-like">
