@@ -39,3 +39,8 @@ import "../frontend/stock/show/chart";
 $(document).ready(function () {
   console.log("jQuery just checked that the DOM is ready!");
 });
+
+
+
+
+

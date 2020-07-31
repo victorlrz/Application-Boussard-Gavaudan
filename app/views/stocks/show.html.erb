@@ -8,25 +8,17 @@
 
 <div class="stock-show-container">
   <main class="main-container">
+    <div class="top-tags-container">
     <% if @stock.tag_counts.count > 0  %>
-      <div class="top-tags-container">
+    <% @stock.tag_list.each do |tag| %>
         <div class="tags-btn-rbh">
           <a class="a-tags-link a-tags-inherit">
-            <span class="btn-tags-span"><%= @stock.tag_list[0] %></span>
+            <span class="btn-tags-span"><%= tag %></span>
           </a>
         </div>
-        <div class="tags-btn-rbh">
-          <a class="a-tags-link a-tags-inherit" rel href="#">
-            <span class="btn-tags-span"><%= @stock.tag_list[1] %></span>
-           </a>
-        </div>
-        <div class="tags-btn-rbh">
-          <a class="a-tags-link a-tags-inherit" rel href="#">
-            <span class="btn-tags-span"><%= @stock.tag_list[2] %></span>
-           </a>
-        </div>
-      </div>
+      <% end %>
     <% end %>
+    </div>
   </main>
   <div class="show-row">
     <div class="show-content-col-12">
@@ -161,8 +153,8 @@
                   <div class="value-data"><%= @stock.revenue.split("Employees").last %></div>
                 </div>
                 <div class="col-mg-val-3">
-                  <div class="name-data">Headquarters</div>
-                  <div class="value-data">Dearborn, Michigan</div>
+                  <div class="name-data">Revenues</div>
+                  <div class="value-data"><%= @stock.revenue.split("(TTM)").last.split("Net").first %></div>
                 </div>
                 <div class="col-mg-val-4">
                   <div class="name-data">Founded</div>
@@ -478,7 +470,7 @@
           </header>
           <% sector = @stock.sector %>
           <div class="container-also-like">
-            <% @stocks.where(sector: sector).each do |stock| %>
+            <% @stocks.where(sector: sector)[0..7].each do |stock| %>
               <% if stock != @stock %>
                 <div class="btn-also-like">
                   <a class="btn-ctn" rel="" href="/stocks/<%= stock.id %>"><span class="also-s"><%= stock.name %></span></a>

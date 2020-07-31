@@ -82,5 +82,6 @@ class MarketdatastockJob < ApplicationJob
     data_annual_div_yield != nil ? stock.dividend_yield = data_annual_div_yield : stock.dividend_yield = nil
 
     stock.save!
+
   end
 end
