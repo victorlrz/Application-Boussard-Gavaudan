@@ -1,14 +1,16 @@
 <h1>Create a new comment on this stock</h1>
 
     <div class="container">
-        <%= simple_form_for [@stock, @comment]  do |f| %>
-        <%= f.input :date, as: :string %>
-        <%= f.association :stock, as: :hidden, input_html: { value: @stock.name } %>
-        <%= f.input :title %>
-        <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
-        <%= f.input :source %>
-        <%= f.input :content, as: :trix_editor %>
-        <%= f.submit "Create", class: "btn btn-primary" %>
-      <% end %>
+          <%= simple_form_for [@stock, @comment]  do |f| %>
+            <%= f.input :date, as: :string %>
+            <%= f.association :stock, as: :hidden, input_html: { value: @stock.name } %>
+            <%= f.input :title %>
+            <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
+            <%= f.input :source %>
+            <%= f.input :press_release, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+            <%= f.input :presentation, as: :file, input_html: { class: "btn btn-outline-primary" } %>
+            <%= f.input :content, as: :trix_editor %>
+            <%= f.submit "Create", class: "btn btn-primary" %>
+        <% end %>
     </div>
 

@@ -6,8 +6,6 @@ class Stock < ApplicationRecord
   validates :identifier, presence: true, uniqueness: true
   before_save :uppercase_name
   acts_as_taggable_on :tags
-  has_many_attached :earnings_pr
-  has_many_attached :earnings_presentation
 
   private
 

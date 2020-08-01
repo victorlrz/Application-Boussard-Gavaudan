@@ -3,5 +3,7 @@
  <h3 class="mt-5 mb-5 mr-2 ml-2 w-100"><%= @comment.date.strftime("%d/%m/%y") %> <%= @comment.title %> - <%= @comment.category %> -  <em>source: <%= @comment.source %></em></h3>
   <div class="card p-5">
     <%= raw @comment.content %>
+    <%= cl_image_tag @comment.presentation %>
+    <%= cl_image_tag @comment.press_release %>
   </div>
 </div>
