@@ -318,7 +318,7 @@
                           <h3 class="title-content">
                             <span class="title-span"><%= comment.title %></span>
                           </h3>
-                          <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.presentation.key}.png", width: 75, height: 75, crop: :fill if comment.presentation.attached?%>
+                          <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.presentation.key}.png", width: 75, height: 50, crop: :fill if comment.presentation.attached?%>
                           <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.press_release.key}.png", width: 75, height: 75, crop: :fill if comment.presentation.attached?%>
                         </div>
                         <div class="link-card">Read More</div>
