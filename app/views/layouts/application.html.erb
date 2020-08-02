@@ -22,4 +22,14 @@
   </body>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50353786-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50353786-2');
+</script>
+
 </html>
