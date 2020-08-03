@@ -1,38 +1,4 @@
-// @import "../media-queries";
-
-/*
-  -- Values
-  */
-// $container-margin: 10px;
-$nav-width: 100%;
-$nav-max-width: 480px;
-// $nav-list-item-width: 25%;
-// $nav-padding: 20px;
-$nav-border-radius: 30px;
-// $nav-link-margin: 10px;
-$nav-link-height: 60px;
-$nav-link-width: 51px;
-$nav-icon-size: 17px;
-$nav-circle-size: 5px;
-$nav-circle-radius: 50%;
-$nav-link-font-size: 14px;
-$nav-link-font-weight: 500;
-$nav-link-text-z-index: 1;
-$nav-link-text-mask-z-index: 2;
-$nav-icon-z-index: 3;
-$nav-icon-mask-z-index: 4;
-
-/*
-  -- Colors
-  */
-
-$body-background-color: #fff;
-$container-background-color: #fff;
-$nav-background-color: #fff;
-$nav-icon-color: rgba(0, 0, 0, 0.54);
-$nav-link-text-color: rgba(0, 0, 0, 0.84);
-
-// Header
+// File : Header
 .header-nb {
   display: grid;
   grid-template-columns: 1fr auto;
