@@ -8,58 +8,6 @@ $color1: #16a085;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .button.type3 {
-    color: $color1;
-    &.type3::after {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-    }
-
-    &.type3::before {
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-
-    &.type3:hover:after,
-    &.type3:hover:before {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-  }
-}
-
-//No admin
-.ipos-index-no-admin {
-  padding: 0 2rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .button.type3 {
-    color: $color1;
-    cursor: default;
-    &.type3::after {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-    }
-
-    &.type3::before {
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-
-    &.type3:hover:after,
-    &.type3:hover:before {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-  }
 }
 
 //Ipo Index

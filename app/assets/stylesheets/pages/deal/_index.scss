@@ -1,91 +1,9 @@
-$color1: #435a6b;
-$color2: #16a085;
-
-//Admin div
-
 .deal-index-admin {
   padding: 0 2rem;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
-  .button.type1 {
-    color: $color1;
-    &.type1::after {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-    }
-
-    &.type1::before {
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-  }
-
-  .button.type2 {
-    color: $color2;
-    &.type2:after,
-    &.type2:before {
-      background-color: $color2;
-    }
-
-    &.type2::before {
-      border-top-color: $color2;
-      border-left-color: $color2;
-    }
-  }
-
-  .button.type3 {
-    color: $color1;
-    &.type3::after {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-    }
-
-    &.type3::before {
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-
-    &.type3:hover:after,
-    &.type3:hover:before {
-      border-bottom-color: $color1;
-      border-right-color: $color1;
-      border-top-color: $color1;
-      border-left-color: $color1;
-    }
-  }
-}
-
-//No admin
-.deal-index-no-admin {
-  padding: 0 2rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  .button.type3 {
-    color: $color2;
-    cursor: default;
-    &.type3::after {
-      border-bottom-color: $color2;
-      border-right-color: $color2;
-    }
-
-    &.type3::before {
-      border-top-color: $color2;
-      border-left-color: $color2;
-    }
-
-    &.type3:hover:after,
-    &.type3:hover:before {
-      border-bottom-color: $color2;
-      border-right-color: $color2;
-      border-top-color: $color2;
-      border-left-color: $color2;
-    }
-  }
 }
 
 //Index deal
