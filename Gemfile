@@ -3,11 +3,11 @@ ruby '2.6.3'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.2.3'
 gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
-
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
@@ -26,6 +26,7 @@ gem 'jquery-rails', '~> 4.4'
 gem 'rack-cors'
 gem 'ajax-datatables-rails'
 gem 'acts-as-taggable-on', '~> 6.5'
+gem 'tzinfo-data'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
