@@ -1,7 +1,10 @@
 
 <div class="container mt-5 mb-5 text-justify overflow-auto">
- <h3 class="mt-5 mb-5 mr-2 ml-2 w-100"><%= @comment.date.strftime("%d/%m/%y") %> <%= @comment.title %> - <%= @comment.category %> -  <em>source: <%= @comment.source %></em></h3>
+ <h3 class="mt-5 mb-5 mr-2 ml-2 w-100"><%= @comment.date.strftime("%d/%m/%y") %> - <em>source: <%= @comment.source %></em></h3>
   <div class="card p-5">
-    <%= raw @comment.content %>
+      <h3 class="text-center"><%= @comment.title %></h3>
+      <%= link_to "Presentation", @comment.presentation, class: "btn-ctn mb-3 border-bottom" if @comment.presentation.attached? %>
+      <%= link_to "Press Release", @comment.press_release, class: "btn-ctn mb-3 border-bottom" if @comment.press_release.attached? %>
+      <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{@comment.press_release.key}.png", width: 800, height: 1200, crop: :fill, class:"text-center" if @comment.presentation.attached? %>
   </div>
 </div>

@@ -4,7 +4,99 @@
   </div>
 <% end %>
 
-<div class="portfolio-index-nav-container">
+<div class="portfolio-index-container">
+  <div class="main-container">
+    <header>
+      <h1 class="h1-header">
+        <span class="h1-span">The Stocks We Follow </span>
+      </h1>
+      <span class="span-nbr-portfolios"><span class="nrb-portoflios">43 Stocks</span></span>
+    </header>
+    <div class="row">
+      <div class="col-ctn">
+        <section class="section-portfolio-tab">
+          <div>
+            <table class="table-portfolio-ctn">
+              <thead>
+                <tr>
+                  <th class="tr-head t-width sortable-header">
+                    <div class="head-ctnt">Name<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th class="tr-head sortable-header">
+                    <div class="head-ctnt">Symbol<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th onClick="sortColumn('age')" class="tr-head sortable-header">
+                    <div class="head-ctnt">Weight<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th class="tr-head sortable-header">
+                    <div class="head-ctnt">Change 1Y<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th class="tr-head sortable-header">
+                    <div class="head-ctnt">Market Cap<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th class="tr-head sortable-header">
+                    <div class="head-ctnt">Analyst Ratings<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                  <th class="tr-head sortable-header">
+                    <div class="head-ctnt">Sector<svg class="sortable-header-arrow" width="8" height="5" viewBox="0 0 8 5"><polygon fill-rule="evenodd" points="50 9 54 14 46 14" transform="rotate(-180 27 7)"></polygon></svg></div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tableDate">
+                <% @bgltv.order("weight DESC").each_with_index do |portfolio, index| %>
+                  <% stock = portfolio.stock_id %>
+                  <tr class="tr-row-table">
+                    <td class="t-row t-width">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><div><span class="t-span"><span class="t-span-ctnt t-width"><%= Stock.find(id=stock).name %></span></span></div></div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><span><%= Stock.find(id=stock).identifier.split(":").first %></span></div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><%= portfolio.weight %>%</div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><div><svg class="t-mr t-fill" width="9" height="8" viewBox="0 0 9 8"><polygon fill-rule="evenodd" points="4 0 8 7 0 7"></polygon></svg><span><span><%= Stock.find(id=stock).price_yrchg %></span></span></div></div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><%= Stock.find(id=stock).ebitda.split("Market cap")[1].split("EPS")[0] unless Stock.find(id=stock).ebitda.split("Market cap")[1].nil? %></div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div>98% Buy</div></a>
+                    </td>
+                    <td class="t-row">
+                      <a class="t-a" rel="" href="/stocks/<%= stock %>"><div><%= Stock.find(id=stock).sector %></div></a>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div class="col-ctn-bis">
+        <div>
+          <div class="right-card-ptf">
+            <div class="portfolio-nav-ctn">
+              <span class="btn-also-like">
+                <a class="btn-ctn" rel="" href="#"><span class="also-s">BGLTV</span></a>
+              </span>
+              <span class="btn-also-like">
+                <a class="btn-ctn" rel="" href="#"><span class="also-s">BGEQT</span></a>
+              </span>
+              <span class="btn-also-like">
+                <a class="btn-ctn" rel="" href="#"><span class="also-s">Oil & Gas</span></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+<!-- <div class="portfolio-index-nav-container">
   <div class="portfolio-header-section">
     <div class="portfolio-name">Portfolios</div>
     <div class="wrapper-portfolio-section">
@@ -73,6 +165,6 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->
 
 

@@ -1,17 +1,48 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+//File main.scss
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+// Abstracts
+@import "abstracts/bootstrap_variables";
+@import "abstracts/fonts";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
+// Base
+@import "base/reset";
 
+// Components
+@import "components/alert";
+@import "components/avatar";
+@import "components/banner";
+@import "components/button";
+@import "components/card";
+@import "components/carousel";
+@import "components/modal";
+@import "components/post";
+@import "components/search";
+@import "components/table";
 
+// Layout
+@import "layout/header";
+@import "layout/navigation";
 
+// Pages
+@import "pages/deal/index.scss";
+@import "pages/ipo/ipos.scss";
+@import "pages/portfolio/index/section0";
+@import "pages/portfolio/index/section1";
+@import "pages/stock/index/index";
+@import "pages/stock/show/section0";
+@import "pages/stock/show/section1";
+@import "pages/stock/show/section2";
+@import "pages/stock/show/section3";
+@import "pages/stock/show/section4";
+@import "pages/stock/show/section5";
+@import "pages/stock/show/section6";
+@import "pages/stock/show/section7";
+@import "pages/stock/show/section8";
+@import "pages/home.scss";

@@ -2,7 +2,7 @@
 
 <% if current_user.admin %>
   <div class="stock-show-admin">
-    <a href="/stocks/<%= @stock.id %>/comments/new"><button class="button type2">New Comment</button></a>
+    <%= link_to "New Comment", new_stock_comment_path(@stock), class:"button type2"  %>
   </div>
 <% end %>
 
@@ -318,6 +318,8 @@
                           <h3 class="title-content">
                             <span class="title-span"><%= comment.title %></span>
                           </h3>
+                          <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.presentation.key}.png", width: 75, height: 50, crop: :fill if comment.presentation.attached?%>
+                          <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.press_release.key}.png", width: 75, height: 75, crop: :fill if comment.presentation.attached?%>
                         </div>
                         <div class="link-card">Read More</div>
 
@@ -325,7 +327,11 @@
                           <%-# Modalcontent -%>
                           <div class="modal-content">
                             <span class="close-modal" data-id=<%= index %>>&times;</span>
-                            <p><%= raw comment.content %></p>
+                            <h3 class="text-center"><%= comment.title %></h3>
+                            <%= link_to "Presentation", comment.presentation, class: "btn-ctn mb-3 border-bottom" if comment.presentation.attached? %>
+                            <%= link_to "Press Release", comment.press_release, class: "btn-ctn mb-3 border-bottom" if comment.press_release.attached? %>
+                            <p><%= raw comment.content unless comment.content.nil? %></p>
+                            <%= cl_image_tag "https://res.cloudinary.com/dtw3qvpgg/image/upload/#{comment.press_release.key}.png", width: 650, height: 900, crop: :fill, class:"text-center" if comment.presentation.attached? %>
                           </div>
                         </div>
                       </div>

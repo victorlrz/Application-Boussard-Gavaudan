@@ -1,0 +1,120 @@
+// File : table.scss
+
+.table-portfolio-ctn {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 2px;
+  border-color: grey;
+
+  .t-width {
+    width: 175px;
+  }
+
+  .t-mr {
+    margin-right: 5px;
+  }
+
+  .t-fill {
+    fill: rgb(0, 200, 5);
+  }
+
+  .sortable-header {
+    cursor: pointer;
+  }
+
+  .tr-head {
+    padding-right: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-color: rgb(228, 233, 237);
+    color: $rh_text-color-grey;
+    font-size: 13px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    height: 48px;
+    text-align: left;
+    -webkit-transition: border-color 300ms;
+    transition: border-color 300ms;
+
+    .head-ctnt {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+
+      .sortable-header-arrow {
+        margin-left: 6px;
+        margin-top: -1px;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transform: translate(-11px);
+        transform: translate(-11px);
+        -webkit-transition: opacity 200ms, -webkit-transform 200ms;
+        transition: opacity 200ms, -webkit-transform 200ms;
+        transition: opacity 200ms, transform 200ms;
+        transition: opacity 200ms, transform 200ms, -webkit-transform 200ms;
+        vertical-align: middle;
+        fill: rgb(0, 200, 5);
+      }
+    }
+  }
+
+  .tr-row-table {
+    border: none;
+    padding: 0;
+
+    .t-row {
+      white-space: nowrap;
+      text-align: left;
+      border-color: rgb(228, 233, 237);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      height: 59px;
+
+      .t-a {
+        border-color: rgb(228, 233, 237);
+        color: rgb(48, 54, 58);
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        padding-bottom: 2px;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: -0.1px;
+        line-height: 20px;
+        margin: 0;
+        background-color: transparent;
+        text-decoration: none;
+
+        .t-span {
+          color: rgb(48, 54, 58);
+          font-family: $family-font-show;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 20px;
+          letter-spacing: $rh_letter_space-01;
+          text-decoration: unset;
+
+          .t-span-ctnt {
+            display: block;
+            overflow: hidden;
+            padding-right: 8px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

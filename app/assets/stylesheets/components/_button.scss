@@ -1,3 +1,5 @@
+//File : button.scss
+
 .btn-ghost {
   color: #084177;
   border: 1px solid #084177;
@@ -23,8 +25,8 @@
 }
 
 .btn-flat:hover {
-    color: rgb(255, 80, 0) !important;
-    border: 1px solid rgb(255, 80, 0) !important;
+  color: rgb(255, 80, 0) !important;
+  border: 1px solid rgb(255, 80, 0) !important;
 }
 
 .btn-gradient {
@@ -47,7 +49,6 @@
 }
 // /////////////////////////////////////////////////////////////////
 //Bouton rbh :
-
 //Arhitecture HTML:
 // <div class="tags-btn-rbh">
 // <a class="a-tags-link a-tags-inherit" rel href="#">
@@ -91,7 +92,7 @@
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
-//Button nav-rbh (under first graph)
+//Button nav-rbh (under first graph stock show)
 //Structure HTML :
 // <button type="button" class="btn-nav-rbh"></button>
 //Structure CSS
@@ -137,160 +138,13 @@
   }
 }
 
-//Robinhod button card
-//HTML
-// <button type="button" class="comments-card">
-//   <div class="comments-card-ctn">
-//     <div><span class="card-date">15 juil. 2020</div>
-//     <div class="card-title">
-//       <h3 class="title-content">
-//         <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
-//       </h3>
-//     </div>
-//     <a class="link-card" href="#" rel="nofollow noopener">Read More</a>
-//   </div>
-// </button>
-
-//CSS
-.comments-card {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  padding: 0;
-  -webkit-appearance: none;
-  text-align: unset;
-  color: unset;
-
-  &:focus {
-    outline: none;
-  }
-
-  .comments-card-ctn {
-    padding: 24px;
-    cursor: pointer;
-    height: 200px;
-    margin-right: 12px;
-    width: 218px;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid rgb(48, 54, 58);
-
-    .card-date {
-      color: $rh_text-color-grey;
-      font-family: $family-font-show;
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 20px;
-      -webkit-letter-spacing: $rh_letter_space_01;
-      -moz-letter-spacing: $rh_letter_space_01;
-      -ms-letter-spacing: $rh_letter_space_01;
-      letter-spacing: $rh_letter_space_01;
-      -webkit-text-decoration: unset;
-      text-decoration: unset;
-    }
-
-    .card-title {
-      height: 100px;
-      .title-content {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: -0.1px;
-        line-height: 20px;
-        margin: 0;
-
-        .title-span {
-          color: rgb(4, 13, 20);
-          font-family: "Capsule Sans Display", system-ui, -apple-system,
-            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-          font-size: 15px;
-          font-weight: 700;
-          line-height: 24px;
-          -webkit-letter-spacing: -0.1px;
-          -moz-letter-spacing: -0.1px;
-          -ms-letter-spacing: -0.1px;
-          letter-spacing: -0.1px;
-          text-decoration: unset;
-        }
-      }
-    }
-    .link-card {
-      color: #04647e;
-      font-weight: 500;
-      font-size: 13px;
-      text-decoration: none;
-    }
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-  }
-}
-
-//Modale CSS
-
-.modal {
-  // display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow-y: scroll !important; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    // set style to track
-    background: #555999;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    // sets style to thumb
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    font-size: 14px;
-
-    /* The Close Button */
-    .close-modal {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-}
-
+//////////////////////////////////////////////////////////////////////////////
 //Buttons section you may also like
 //Link to another stock
+// <span class="btn-also-like">
+//   <a class="btn-ctn" rel="" href="#"><span class="also-s">BGLTV</span></a>
+// </span>
+
 .btn-also-like {
   margin: 0 12px 12px 0;
 
@@ -336,4 +190,189 @@
 
 .active-border {
   border-bottom: 3px solid blue;
+}
+//////////////////////////////////////////////////////////////////////////////
+// HTML structure example
+// <div class="portfolio-index-admin">
+//   <a href="portfolios/new"><button class="button type2">New Portfolio</button></a>
+// </div>
+
+.button {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+  margin: 1.5rem;
+  &:focus {
+    outline-style: none;
+  }
+
+  &.type1 {
+    color: $color1;
+    &.type1::after,
+    &.type1::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      border: 2px solid;
+      transition: all 0.6s ease;
+      border-radius: 2px;
+    }
+
+    &.type1::after {
+      bottom: 0;
+      right: 0;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: $color1;
+      border-right-color: $color1;
+    }
+
+    &.type1::before {
+      top: 0;
+      left: 0;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      border-top-color: $color1;
+      border-left-color: $color1;
+    }
+
+    &.type1:hover:after,
+    &.type1:hover:before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.type2 {
+    // Effect 2
+    color: $color1;
+    &.type2:after,
+    &.type2:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transition: all 0.3s ease;
+      transform: scale(0.85);
+      background-color: $color1;
+    }
+
+    &.type2:hover:before {
+      top: 0;
+      transform: scale(1);
+    }
+
+    &.type2:hover:after {
+      transform: scale(1);
+    }
+
+    &.type2::before {
+      border-top-color: $color1;
+      border-left-color: $color1;
+    }
+  }
+
+  &.type3 {
+    color: $color3;
+    &.type3::after,
+    &.type3::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      border: 2px solid;
+      transition: all 0.6s ease;
+      border-radius: 2px;
+    }
+
+    &.type3::after {
+      bottom: 0;
+      right: 0;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: $color3;
+      border-right-color: $color3;
+    }
+
+    &.type3::before {
+      top: 0;
+      left: 0;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      border-top-color: $color3;
+      border-left-color: $color3;
+    }
+
+    &.type3:hover:after,
+    &.type3:hover:before {
+      border-bottom-color: $color3;
+      border-right-color: $color3;
+      border-top-color: $color3;
+      border-left-color: $color3;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//HTML Button portfolio
+// <button class="button-tab-ptf" data-actab-group="0" data-actab-id="0" data-name="<%= Portfolio.find_by(fund: "BGLTV").fund %>" data-date="<%= Portfolio.last.date.strftime("%d/%m/%y") %>" data-weight="<%= @bgltv.sum("weight").round(2) %>" data-aum="<%= number_with_delimiter(@bgltv.last.aum, :delimiter => ",", :separator => ".") %>"><div class="circle"><i class="fas fa-hashtag"></i></div>BGLTV</button>
+.button-tab-ptf {
+  display: inline-flex;
+  font-size: 16px;
+  line-height: 32px;
+  padding: 6px;
+  padding-right: 10px;
+  margin: 8px;
+  height: 42px;
+  color: rgba(117, 117, 117, 1);
+  border-radius: 99em;
+  background-color: rgba(242, 242, 242, 1);
+  align-items: center;
+  text-align: center;
+  border-style: none;
+  @media all and (max-width: 1023px) {
+    margin: 0;
+  }
+  @media all and (max-width: 419px) {
+    font-size: 14px;
+    &:nth-child(1) {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  @media all and (max-width: 357px) {
+    font-size: 12px;
+  }
+  .circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: rgb(30, 27, 29);
+    margin-right: 0.5rem;
+    opacity: 0.9;
+    @media all and (max-width: 357px) {
+      height: 25px;
+      width: 25px;
+    }
+    i {
+      color: rgba(255, 255, 255, 1);
+      font-size: 13px;
+    }
+  }
 }

@@ -4,10 +4,6 @@
     <a href="acquirers/new"><button class="button type2">New Acquirer</button></a>
     <a href="targets/new"><button class="button type3">New Target</button></a>
   </div>
-  <% else %>
-  <div class="deal-index-no-admin">
-    <button class="button type3">DEALS</button>
-  </div>
 <% end %>
 
 <div class="deal-index-container">
@@ -41,11 +37,7 @@
         <% else %>
           <div class="col-nb-7 font-size">--</div>
         <% end %>
-        <% if deal.target.ebitda.split("Market cap")[1].nil? %>
-          <div class="col-nb-8 font-size">--</div>  
-        <% else %>
-          <div class="col-nb-8 font-size"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0]  %></div>
-        <% end %>
+     
       </li>
     <% end %>
   </ul>

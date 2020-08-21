@@ -1,14 +1,15 @@
+//File : card.scss
 
- a {
+a {
   font-size: 12px;
- }
+}
 
- .cards {
+.cards {
   overflow-y: scroll;
- }
+}
 
 .card-body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 
@@ -21,13 +22,13 @@
   overflow-y: scroll;
 }
 
-.card-title{
-  font-family: 'Roboto', sans-serif;
+.card-title {
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
 }
 
-.card-text{
-  font-family: 'Roboto', sans-serif;
+.card-text {
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
 }
 
@@ -45,7 +46,7 @@
   overflow-y: scroll;
   height: 200px;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.10);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   margin-top: 8px;
@@ -69,7 +70,7 @@
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -83,7 +84,7 @@
   overflow: hidden;
   height: 150px;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.10);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   margin-top: 8px;
@@ -107,7 +108,7 @@
 .card-product-target p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -119,7 +120,6 @@
 
 .rumors {
   background-color: #dee3e2;
-
 }
 
 .card-category {
@@ -132,7 +132,120 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//Carousel button card + modal
+//HTML
+// <button type="button" class="comments-card">
+//   <div class="comments-card-ctn">
+//     <div><span class="card-date">15 juil. 2020</div>
+//     <div class="card-title">
+//       <h3 class="title-content">
+//         <span class="title-span">Ford brings back its iconic Jeep rival — but it might need to gas itself up more</span>
+//       </h3>
+//     </div>
+//     <a class="link-card" href="#" rel="nofollow noopener">Read More</a>
+//   </div>
+// </button>
+
+.comments-card {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  -webkit-appearance: none;
+  text-align: unset;
+  color: unset;
+
+  &:focus {
+    outline: none;
+  }
+
+  .comments-card-ctn {
+    padding: 24px;
+    cursor: pointer;
+    height: 200px;
+    margin-right: 12px;
+    width: 218px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    .card-date {
+      color: $rh_text-color-grey;
+      font-family: $family-font-show;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      -webkit-letter-spacing: $rh_letter_space_01;
+      -moz-letter-spacing: $rh_letter_space_01;
+      -ms-letter-spacing: $rh_letter_space_01;
+      letter-spacing: $rh_letter_space_01;
+      -webkit-text-decoration: unset;
+      text-decoration: unset;
+    }
+
+    .card-title {
+      height: 100px;
+      .title-content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        line-height: 20px;
+        margin: 0;
+
+        .title-span {
+          color: rgb(4, 13, 20);
+          font-family: "Capsule Sans Display", system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 24px;
+          -webkit-letter-spacing: -0.1px;
+          -moz-letter-spacing: -0.1px;
+          -ms-letter-spacing: -0.1px;
+          letter-spacing: -0.1px;
+          text-decoration: unset;
+        }
+      }
+    }
+    .link-card {
+      color: #04647e;
+      font-weight: 500;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+//Right card portoflios
+.right-card-ptf {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid rgb(228, 233, 237);
+
+  .portfolio-nav-ctn {
+    padding-top: 1.5rem;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    min-height: 600px;
+  }
 }

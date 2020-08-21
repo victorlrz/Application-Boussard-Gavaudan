@@ -1,0 +1,103 @@
+//File not used
+
+.portfolio-index-admin {
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//Section 0
+.portfolio-index-container {
+  margin-bottom: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  // padding-top: 21px;
+  min-width: 1036px;
+
+  .main-container {
+    padding-top: 18px;
+    margin: 0 auto;
+    width: 1024px;
+
+    .h1-header {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -0.33px;
+      line-height: 40px;
+      margin: 0;
+
+      .h1-span {
+        color: $rh_text-color-black;
+        font-family: $family-font-show;
+        font-size: $rh_font_size_32;
+        font-style: normal;
+        font-weight: $rh_font-weight-500;
+        line-height: $rh_line-height-40;
+        -webkit-letter-spacing: $rh_letter_space-33;
+        -moz-letter-spacing: $rh_letter_space-33;
+        -ms-letter-spacing: $rh_letter_space-33;
+        letter-spacing: $rh_letter_space-33;
+        -webkit-text-decoration: unset;
+        text-decoration: unset;
+      }
+    }
+
+    .span-nbr-portfolios {
+      margin: 4px 0 12px;
+      .span-nbr-portfolios {
+        color: $rh_text-color-black;
+        font-family: $family-font-show;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        -webkit-letter-spacing: $rh_letter_space-01;
+        -moz-letter-spacing: $rh_letter_space-01;
+        -ms-letter-spacing: $rh_letter_space-01;
+        letter-spacing: $rh_letter_space-01;
+        -webkit-text-decoration: unset;
+        text-decoration: unset;
+      }
+    }
+
+    .row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin: 0 -6px;
+      .col-ctn {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 72.22222%;
+        flex: 0 0 72.22222%;
+        display: block;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+
+      .col-ctn-bis {
+        margin-right: 0;
+        min-height: 600px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 27.77778%;
+        flex: 0 0 27.77778%;
+        display: block;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  }
+}

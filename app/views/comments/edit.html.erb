@@ -8,6 +8,8 @@
         <%= f.input :category, collection: ["Investment rational", "Earnings", "Sector overview", "Market reaction", "Valuation", "Balance sheet", "M&A"] %>
         <%= f.input :source %>
         <%= f.input :content, as: :trix_editor %>
+        <%= f.input :press_release, as: :file, input_html: { class: "btn btn-primary" } %>
+        <%= f.input :presentation, as: :file, input_html: { class: "btn btn-primary" } %>
         <%= f.submit "Update", class: "btn btn-primary" %>
       <% end %>
     </div>

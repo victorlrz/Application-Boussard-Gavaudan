@@ -1,0 +1,32 @@
+/* Navbar */
+
+.nav-nb {
+  z-index: 99; //big value to cover others elements, else is transparent
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  font-family: "Roboto Condensed", sans-serif;
+  height: 50px;
+  .i-nav-nb {
+    font-size: 20px;
+    color: $nav-link-text-color;
+  }
+  @include xs {
+    padding: 0 1rem;
+  }
+}
+
+.a-nav-nb {
+  font-size: 15px;
+  font-weight: 400;
+  color: $nav-icon-color;
+}
+
+.a-nav-nb:hover {
+  text-decoration: none;
+  color: $nav-link-text-color;
+}
