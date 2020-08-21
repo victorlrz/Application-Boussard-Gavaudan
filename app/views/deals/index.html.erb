@@ -37,11 +37,7 @@
         <% else %>
           <div class="col-nb-7 font-size">--</div>
         <% end %>
-        <% if deal.target.ebitda.split("Market cap")[1].nil? %>
-          <div class="col-nb-8 font-size">--</div>  
-        <% else %>
-          <div class="col-nb-8 font-size"><%= deal.target.ebitda.split("Market cap")[1].split("EPS")[0]  %></div>
-        <% end %>
+     
       </li>
     <% end %>
   </ul>
